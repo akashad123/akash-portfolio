@@ -20,9 +20,10 @@ This file is the persistent handoff record for the project.
   6. EcosystemGrid: Light section with symmetrical 16-entity tech stack grid and central geometric emblem (Screenshot 1).
   7. Global Components: Minimalist "AK" header with sharp yellow menu trigger, full-screen typographic navigation overlay, and spacious multi-column editorial footer.
 - Executed `npm run build` (`tsc -b && vite build`): passed with 0 errors.
+- Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
-- Live preview testing and verification.
+- Live preview testing and verification on local port 3001.
 
 ## Important decisions
 - Centralized data layer in `src/data/portfolioData.ts` adhering strictly to user's provided JSON data.
@@ -50,14 +51,16 @@ This file is the persistent handoff record for the project.
 - `src/sections/Footer.tsx`
 
 ## Next exact step
-Launch Vite dev server for user review, or package for deployment.
+User review of live development server at `http://localhost:3001/`, followed by optional production hosting deployment on Vercel.
 
 ## Last verification
 - Date: 2026-10-18
 - Build: PASSED (`tsc -b && vite build` completed in 7.83s with 0 errors)
+- Git Remote: PASSED (`main` branch synced with `https://github.com/akashad123/akash-portfolio.git`)
 - Tests: PASSED
 - Responsive: Verified across mobile/tablet/desktop breakpoints
 - SEO: Verified in `index.html` with full meta tags and JSON-LD schema
+
 
 
 ## Handoff note
