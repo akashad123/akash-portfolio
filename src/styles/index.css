@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #FDD60A;
+    --color-secondary: #000000;
+  }
+
+  * {
+    border-radius: 0 !important; /* Strict 0px radius rule across entire app */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom sharp minimal scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0D0D0D;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FDD60A;
+  }
+}
+
+@layer utilities {
+  /* Hairline grid lines */
+  .grid-hairline-light {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .grid-hairline-dark {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Ultra-tight condensed headline */
+  .tracking-condensed {
+    letter-spacing: -0.05em;
+  }
+
+  /* Text stroke effect for background watermark words */
+  .text-stroke-light {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.07);
+    color: transparent;
+  }
+
+  .text-stroke-dark {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+    color: transparent;
+  }
+}
