@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–19
+- Current module: Completed Modules 1–20
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -16,13 +16,13 @@ This file is the persistent handoff record for the project.
   1. Removed `AKASH` from top-left of landing hero.
   2. Removed `EDITORIAL PORTFOLIO` from top bar.
   3. Removed `EVERY RELEASE IS A TEST, NOT JUST OF SYNTAX` quote text.
-  4. Updated status across data and UI to `FORWARD DEPLOYED AT NRITHYA DANCES`.
-  5. Implemented transparent navbar with 'AD' monogram and yellow 2-bar hamburger.
-  6. Repositioned whole portfolio identity, bio, statement, case studies, metadata, and writings to **Forward Deployed Engineer (FDE)**:
-     - Bio: Operating on the frontlines of real-world problems — rapidly architecting, integrating, and deploying high-impact full-stack applications, multimodal AI pipelines, and resilient cloud systems.
-     - Section 02 Statement: *"As a Forward Deployed Engineer, I operate on the frontlines to convert complex problems into production-ready deployments. Every system is a direct operational commitment, every codebase a chance to deliver solutions that are resilient, battle-tested, and built for scale."*
-     - Case studies & experience: Emphasize ground-truth verification, stakeholder integration, production daemons, and frontline deployment.
-     - Telemetry & Badges: `FDE // FULL STACK & AI`, `FORWARD DEPLOYED ETHOS`, `MISSION-CRITICAL FDE`.
+  4. Implemented transparent navbar with 'AD' monogram and yellow 2-bar hamburger.
+  5. Calibrated career identity & narrative:
+     - Current Role & Availability: `FULL STACK DEVELOPER AT NRITHYA DANCES`.
+     - Target Role / Career Vector: `FRONTEND DEVELOPER → FORWARD DEPLOYED ENGINEER (FDE)`.
+     - Bio: Combining high-precision frontend craftsmanship with full-stack backend architecture and AI automation to deliver frontline operational impact.
+     - Section 02 Statement: *"Bridging frontend craftsmanship with forward deployed rigor, I transform complex challenges into real-world operational software. From pixel-perfect interfaces to autonomous AI pipelines, every system is an operational commitment to deliver experiences that are fast, resilient, and production-tested."*
+     - Restored Nrithya Dances experience & case studies to `Full-Stack Developer Intern`.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 

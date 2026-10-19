@@ -42,7 +42,7 @@ export const TimelineSection: React.FC = () => {
                   98
                 </span>
                 <div className="text-[10px] font-mono text-brand-yellow uppercase tracking-widest">
-                  FORWARD DEPLOYED // AI
+                  FULL-STACK // TARGET: FDE
                 </div>
               </div>
 
@@ -50,7 +50,7 @@ export const TimelineSection: React.FC = () => {
               <div className="w-full border-t border-white/20 pt-2 flex items-center justify-between text-[9px] font-mono text-neutral-400 px-2">
                 <span>SYS 01</span>
                 <span>CORE STACK</span>
-                <span>FDE 98</span>
+                <span>DEV // FDE</span>
               </div>
             </div>
           </div>

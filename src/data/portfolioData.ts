@@ -4,20 +4,20 @@ export const portfolioData: PortfolioData = {
   developer: {
     name: "AKASH",
     monogram: "AD",
-    role: "FORWARD DEPLOYED ENGINEER (FDE)",
+    role: "FRONTEND DEVELOPER → FORWARD DEPLOYED ENGINEER (FDE)",
     focalNumber: "",
     focalNumberLabel: "",
-    tagline: "Deploying high-impact software, production AI pipelines & resilient cloud infrastructure directly onto operational frontlines.",
-    bio: "As a Forward Deployed Engineer (FDE), I don't build software in an ivory tower. I operate on the frontlines of real-world problems — rapidly architecting, integrating, and deploying high-impact full-stack applications, multimodal AI pipelines, and resilient cloud infrastructure where operational stakes are real.",
+    tagline: "Frontend web developer transitioning to Forward Deployed Engineer — bridging high-fidelity UI systems, production AI pipelines & real-world client deployment.",
+    bio: "I am a frontend web developer with strong full-stack foundations, currently working as a full-stack developer at Nrithya Dances and actively seeking a transition to Forward Deployed Engineering (FDE). I combine high-precision user interface design with battle-tested backend architecture and multimodal AI automation — building software designed for immediate operational impact on the ground.",
     location: "Kerala, India",
     experienceYears: "1+ Years in Software Development",
-    status: "FORWARD DEPLOYED AT NRITHYA DANCES",
+    status: "FULL STACK DEVELOPER AT NRITHYA DANCES",
 
     statement: {
-      beforeHighlight: "AS A FORWARD DEPLOYED ENGINEER, I OPERATE ON THE FRONTLINES TO ",
-      highlight1: "CONVERT COMPLEX PROBLEMS INTO PRODUCTION-READY DEPLOYMENTS",
-      middleText: ". EVERY SYSTEM IS A DIRECT OPERATIONAL COMMITMENT, EVERY CODEBASE A CHANCE TO DELIVER SOLUTIONS THAT ARE ",
-      highlight2: "RESILIENT, BATTLE-TESTED, AND BUILT FOR SCALE.",
+      beforeHighlight: "BRIDGING FRONTEND CRAFTSMANSHIP WITH FORWARD DEPLOYED RIGOR, I ",
+      highlight1: "TRANSFORM COMPLEX CHALLENGES INTO REAL-WORLD OPERATIONAL SOFTWARE",
+      middleText: ". FROM PIXEL-PERFECT INTERFACES TO AUTONOMOUS AI PIPELINES, EVERY SYSTEM IS AN OPERATIONAL COMMITMENT TO DELIVER EXPERIENCES THAT ARE ",
+      highlight2: "FAST, RESILIENT, AND PRODUCTION-TESTED.",
       afterText: ""
     },
 
@@ -97,7 +97,7 @@ export const portfolioData: PortfolioData = {
       title: "AI Teacher Scoring System",
       subtitle: "Multimodal AI pipeline evaluating online dance instruction quality",
       company: "Nrithya Dances",
-      role: "Forward Deployed Engineer Intern (AI & Systems Maintainer)",
+      role: "Full-Stack Developer Intern (Developer & Maintainer)",
       duration: "Jul 2026 – Present",
       status: "MVP IN PRODUCTION",
       techStack: ["Python", "Google Gemini API", "ffmpeg", "Supabase (PostgreSQL)", "React", "Vercel", "AWS EC2", "pm2", "Zoom API"],
@@ -143,7 +143,7 @@ export const portfolioData: PortfolioData = {
       title: "Zoom to YouTube Recording Pipeline",
       subtitle: "Autonomous cloud distribution of student class recordings",
       company: "Nrithya Dances",
-      role: "Forward Deployed Engineer Intern (Pipeline Automation)",
+      role: "Full-Stack Developer Intern (Developer & Maintainer)",
       duration: "Jul 2026 – Present",
       status: "LIVE DEPLOYMENT",
       techStack: ["Node.js", "Zoom API", "YouTube API", "WhatsApp (WATI)", "Supabase", "AWS EC2", "pm2", "cron"],
@@ -183,15 +183,15 @@ export const portfolioData: PortfolioData = {
 
   experience: [
     {
-      role: "Forward Deployed Engineer Intern",
+      role: "Full-Stack Developer Intern",
       company: "Nrithya Dances",
       duration: "Jul 2026 – Present",
       description: [
-        "Embedded as a Forward Deployed Engineer to architect and deploy an autonomous AI class quality evaluation pipeline using Python, Google Gemini API, and Supabase (PostgreSQL).",
+        "Currently working as a Full-Stack Developer at Nrithya Dances, engineering automated AI evaluation pipelines, administrative web portals, and media distribution services.",
+        "Architected an AI class quality review system that analyzes recorded dance sessions and evaluates teaching standards using Python, Google Gemini API, and Supabase (PostgreSQL).",
         "Engineered an administrative review portal in React deployed on Vercel, enabling supervisors to verify AI telemetry against video ground-truth with zero operational friction.",
         "Automated continuous scoring and media distribution on AWS EC2 utilizing pm2 background daemons, overseeing server maintenance and zero-downtime deployments.",
-        "Resolved mission-critical data consistency issues in attendance reconciliation and built automated recovery tooling rescuing historical session data.",
-        "Rapidly iterate and deploy solutions directly into stakeholder hands, bridging complex algorithms with live operational workflows."
+        "Resolved mission-critical data consistency issues in attendance reconciliation and developed data recovery tooling for historical session data."
       ]
     },
     {
