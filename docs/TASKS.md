@@ -37,6 +37,7 @@ Module 13: Final Verification & Responsive Refinement
 | 22 | ArcGallery 100vh & Real Drag Physics | Contained Section 03 within 100vh, integrated navigation buttons inside viewport, added real Framer Motion dragging & spring tilt | COMPLETED | Active drag physics with swipe thresholds, animated speedometer dial, keyboard arrow support, strictly 100vh |
 | 23 | Continuous Orbital Flow & Real Drag Across Cards | Continuous 3D orbital carousel flow, unified drag on cards/stage, clicking/dragging right brings left card to center, compact buttons | COMPLETED | Synchronized card spring animations, sleek w-7/w-8 buttons, left-to-center physics, verified build |
 | 24 | Transition to Full Stack Web Developer Everywhere | Remove Forward Deployed Engineer (FDE) and establish Full Stack Web Developer consistently across entire portfolio | COMPLETED | Updated data, navigation drawer, footer, timeline, ecosystem grid, HTML metadata, and env configs |
+| 25 | ScrollReveal Text Animation on Core Philosophy | Letter-by-letter unblur and opacity reveal on scroll (React Bits pattern) for Section 02 Core Philosophy | COMPLETED | Created reusable ScrollReveal component, mapped scroll progression across viewport entry, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -55,6 +56,7 @@ Module 13: Final Verification & Responsive Refinement
 - Module 22 (ArcGallery 100vh & Real Drag Physics): Fixed section to strict 100vh with no vertical scrolling needed, incorporated `<` and `>` buttons inside the viewport, added real drag gestures with rotation and elastic spring physics, and animated the speedometer dial.
 - Module 23 (Continuous Orbital Flow & Real Drag Across Cards): Implemented simultaneous 3D orbital carousel animation, unified drag gesture across all cards and stage, left-to-center physics, and compact nav buttons.
 - Module 24 (Full Stack Web Developer Everywhere): Completely removed Forward Deployed Engineer (FDE) and replaced with Full Stack Web Developer across all portfolio data, metadata, navigation, footer, timeline, and ecosystem grid.
+- Module 25 (ScrollReveal Text Animation on Core Philosophy): Built React Bits-inspired ScrollReveal component featuring progressive letter-by-letter unblur, subtle translateY settling, and opacity reveal scrubbed continuously by user scroll position.
 
 
 

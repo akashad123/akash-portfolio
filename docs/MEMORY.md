@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–24
+- Current module: Completed Modules 1–25
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -36,6 +36,9 @@ This file is the persistent handoff record for the project.
      - Reduced navigation button sizes to sleek, compact `w-7 h-7 sm:w-8 sm:h-8` with crisp 14px icons.
   8. Transitioned to Full Stack Web Developer Everywhere:
      - Removed Forward Deployed Engineer (FDE) and positioned developer as Full Stack Web Developer across all data objects, hero metadata, navigation overlay, footer identity badge, timeline badges, skills categories, and HTML/JSON-LD meta tags.
+  9. Implemented ScrollReveal Text Animation on Core Philosophy (React Bits Pattern):
+     - Created `src/components/ScrollReveal.tsx` featuring letter-by-letter unblur (`blur(5px)` -> `blur(0px)`), progressive opacity cascade (`0.14` -> `1.0`), and subtle vertical settling (`y: 4px` -> `0px`) driven directly by user scroll progression across viewport entry.
+     - Preserved editorial highlight badges (`text-brand-yellow bg-black px-2 sm:px-2.5 py-0.5 inline-block mx-1 my-1`), illuminating yellow letters on black sequentially as the user scrolls.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
@@ -57,6 +60,7 @@ This file is the persistent handoff record for the project.
 - `src/data/portfolioData.ts`
 - `src/sections/HeroProfile.tsx`
 - `src/sections/StatementSection.tsx`
+- `src/components/ScrollReveal.tsx`
 - `src/sections/ArcGallery.tsx`
 - `src/sections/TimelineSection.tsx`
 - `src/sections/CaseStudiesSection.tsx`
