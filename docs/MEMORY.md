@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–27
+- Current module: Completed Modules 1–28
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -47,6 +47,9 @@ This file is the persistent handoff record for the project.
   11. Background Watermark Typography in Core Philosophy:
      - Added subtle `PHILOSOPHY` watermark typography in faint gray (`text-neutral-100`) at `z-0` behind the central statement in Section 02.
      - Blends seamlessly with the `GridBackground` and matches the architectural watermark aesthetic of `GALLERY` in Section 03 while preserving strict foreground readability and non-intrusive layering (`pointer-events-none`).
+  12. Landing Section Editorial Portrait of Akash:
+     - Positioned Akash's high-resolution portrait in the center column of the landing hero (`HeroProfile.tsx`), converting the hero into a balanced 3-column editorial composition (Bio | Portrait | Telemetry).
+     - Applied razor-sharp styling: 0px border radius, sharp 1px border (`border-white/20`), golden `#FDD60A` corner brackets, live telemetry pills (`AKASH D // SUBJECT 01`, `BLR // 12.97°N 77.59°E`), and an interactive grayscale-to-color hover reveal showing authentic golden hour tones.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
