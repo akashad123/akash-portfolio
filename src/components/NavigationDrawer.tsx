@@ -15,12 +15,9 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
   onOpenContact,
 }) => {
   const navLinks = [
-    { label: '01 // OVERVIEW', href: '#hero' },
-    { label: '02 // PHILOSOPHY', href: '#statement' },
-    { label: '03 // SELECTED WORKS', href: '#projects' },
-    { label: '04 // CASE STUDIES', href: '#case-studies' },
-    { label: '05 // TIMELINE & CAREER', href: '#timeline' },
-    { label: '06 // TECH ECOSYSTEM', href: '#ecosystem' },
+    { number: '01', label: 'OVERVIEW', href: '#hero', desc: 'PROFILE & ACTIVE STACK' },
+    { number: '02', label: 'PHILOSOPHY', href: '#statement', desc: 'CORE ARCHITECTURAL PRINCIPLES' },
+    { number: '03', label: 'SELECTED WORKS', href: '#projects', desc: 'ORBITAL ARCHITECTURAL GALLERY' },
   ];
 
   const handleLinkClick = (href: string) => {
@@ -39,39 +36,51 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.25, ease: 'easeInOut' }}
-          className="fixed inset-0 z-50 bg-black/95 text-white flex flex-col justify-between p-6 sm:p-12 md:p-16 overflow-y-auto"
+          className="fixed inset-0 z-50 bg-black/95 text-white flex flex-col justify-between p-6 sm:p-12 md:px-16 overflow-y-auto"
         >
           {/* Top Bar inside Overlay */}
           <div className="flex items-center justify-between border-b border-white/10 pb-6">
             <div className="flex items-center space-x-3">
-              <span className="font-display text-2xl tracking-tighter text-white">
-                {portfolioData.developer.name}
+              <span className="font-display italic font-black text-3xl sm:text-4xl tracking-tighter text-white">
+                {portfolioData.developer.monogram}
+              </span>
+              <span className="font-mono text-[10px] text-neutral-500 tracking-widest uppercase hidden sm:inline-block">
+                NAVIGATION MATRIX
               </span>
             </div>
 
-            
             <button
               onClick={onClose}
-              className="w-10 h-10 bg-brand-yellow text-black flex items-center justify-center hover:bg-[#E5C200] transition-colors rounded-none"
+              className="w-10 h-10 sm:w-11 sm:h-11 bg-brand-yellow text-black flex items-center justify-center hover:bg-[#E5C200] transition-colors rounded-none shadow-md active:scale-95"
               aria-label="Close navigation"
             >
               <X size={22} className="stroke-[2.5]" />
             </button>
           </div>
 
-          {/* Navigation Items */}
-          <div className="my-auto py-12">
-            <nav className="flex flex-col space-y-4 sm:space-y-6">
+          {/* Navigation Items (Overview, Philosophy, Selected Works) */}
+          <div className="my-auto py-12 max-w-4xl mx-auto w-full">
+            <nav className="flex flex-col space-y-6 sm:space-y-8">
               {navLinks.map((link, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleLinkClick(link.href)}
-                  className="group text-left flex items-center justify-between border-b border-white/5 pb-3 hover:border-brand-yellow transition-colors"
+                  className="group text-left flex items-center justify-between border-b border-white/10 pb-6 hover:border-brand-yellow transition-colors duration-200"
                 >
-                  <span className="font-display text-3xl sm:text-5xl md:text-6xl uppercase tracking-tighter text-neutral-300 group-hover:text-brand-yellow transition-colors">
-                    {link.label}
-                  </span>
-                  <ArrowUpRight className="text-neutral-500 group-hover:text-brand-yellow transition-colors opacity-0 group-hover:opacity-100 w-8 h-8" />
+                  <div className="flex items-baseline space-x-4 sm:space-x-8">
+                    <span className="font-mono text-sm sm:text-lg text-neutral-500 group-hover:text-brand-yellow transition-colors font-bold tracking-widest">
+                      {link.number} //
+                    </span>
+                    <div>
+                      <span className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tighter text-neutral-200 group-hover:text-brand-yellow transition-colors font-bold block">
+                        {link.label}
+                      </span>
+                      <span className="font-mono text-[11px] sm:text-xs text-neutral-500 tracking-widest uppercase block mt-1">
+                        {link.desc}
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="text-neutral-500 group-hover:text-brand-yellow transition-all duration-200 opacity-0 group-hover:opacity-100 w-8 h-8 sm:w-10 sm:h-10 transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </button>
               ))}
             </nav>

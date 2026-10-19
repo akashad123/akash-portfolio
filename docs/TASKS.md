@@ -30,6 +30,7 @@ Module 13: Final Verification & Responsive Refinement
 | 15 | Hero Typography Cleanup | Remove AKASH from top left, EDITORIAL PORTFOLIO, quote, set AVAILABLE | COMPLETED | Clean minimalistic hero layout, verified build |
 | 16 | Engagement Status Update | Update status to reflect active internship at Nrithya Dances | COMPLETED | Set to INTERNING AT NRITHYA DANCES |
 | 17 | Developer Statement Tone | Refactor statement from QA/tester tone to software developer/architect | COMPLETED | "I'm driven by the craft of building..." |
+| 18 | Transparent Navbar & Minimal Header | Transparent header, 'AD' monogram, yellow 2-bar hamburger, 3-item menu (Overview, Philosophy, Selected Works) | COMPLETED | Removed 'Get in Touch', transparent fixed navbar, exact match to reference screenshot |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -41,6 +42,7 @@ Module 13: Final Verification & Responsive Refinement
 - Module 15 (Hero Typography Cleanup): Removed AKASH from top left, removed EDITORIAL PORTFOLIO, removed release test quote.
 - Module 16 (Engagement Status Update): Updated current availability across the site to "INTERNING AT NRITHYA DANCES".
 - Module 17 (Developer Statement Tone): Replaced QA/tester tone with software developer/architect statement focusing on craft, systems, and performance.
+- Module 18 (Transparent Navbar & Minimal Header): Created transparent navbar, 'AD' italic bold monogram with dynamic light/dark contrast, yellow 2-bar square hamburger, removed 'Get in Touch', and streamlined menu overlay strictly to Overview, Philosophy, and Selected Works.
 
 
 

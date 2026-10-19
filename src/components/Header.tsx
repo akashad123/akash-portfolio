@@ -1,63 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import { Menu } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 interface HeaderProps {
   onOpenMenu: () => void;
-  onOpenContact: () => void;
+  onOpenContact?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenMenu, onOpenContact }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+export const Header: React.FC<HeaderProps> = ({ onOpenMenu }) => {
+  const [isLightSection, setIsLightSection] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      // Find whether the header (viewport Y ~ 50px) is currently positioned over a light section
+      const lightElements = document.querySelectorAll('#statement, #projects, #ecosystem');
+      let onLight = false;
+      const headerY = 50;
+      lightElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= headerY && rect.bottom >= headerY) {
+          onLight = true;
+        }
+      });
+      setIsLightSection(onLight);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-black/85 backdrop-blur-md py-4 border-b border-white/10'
-          : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
-        {/* Monogram Brand Mark */}
+    <header className="fixed top-0 left-0 right-0 z-40 bg-transparent py-5 sm:py-6 px-4 sm:px-8 md:px-12 pointer-events-none transition-none">
+      <div className="max-w-7xl mx-auto flex items-center justify-between pointer-events-none">
+        {/* Monogram Brand Mark 'AD' */}
         <a
           href="#hero"
-          className="group flex items-center space-x-2 select-none"
+          className="pointer-events-auto group flex items-center select-none"
           aria-label="Akash - Home"
         >
-          <span className="font-display text-2xl sm:text-3xl tracking-tighter text-white group-hover:text-brand-yellow transition-colors">
+          <span
+            className={`font-display italic font-black text-3xl sm:text-4xl tracking-tighter transition-colors duration-200 ${
+              isLightSection ? 'text-black' : 'text-white'
+            } group-hover:text-brand-yellow`}
+          >
             {portfolioData.developer.monogram}
           </span>
         </a>
 
-
-        {/* Right Controls */}
-        <div className="flex items-center space-x-3 sm:space-x-4">
-          <button
-            onClick={onOpenContact}
-            className="hidden md:inline-flex items-center text-xs uppercase font-mono tracking-widest text-neutral-300 hover:text-brand-yellow px-4 py-2 border border-white/20 hover:border-brand-yellow transition-colors rounded-none"
-          >
-            GET IN TOUCH
-          </button>
-
-          {/* Yellow Square Menu Trigger */}
-          <button
-            onClick={onOpenMenu}
-            className="w-10 h-10 sm:w-11 sm:h-11 bg-brand-yellow text-black flex items-center justify-center hover:bg-[#E5C200] transition-colors active:scale-95 shadow-lg rounded-none"
-            aria-label="Open navigation menu"
-          >
-            <Menu size={22} className="stroke-[2.5]" />
-          </button>
-        </div>
+        {/* Yellow Square Hamburger Trigger with 2 horizontal black bars */}
+        <button
+          onClick={onOpenMenu}
+          className="pointer-events-auto w-10 h-10 sm:w-11 sm:h-11 bg-brand-yellow text-black flex flex-col items-center justify-center gap-1.5 hover:bg-[#E5C200] active:scale-95 transition-all shadow-md rounded-none border border-black/10"
+          aria-label="Open navigation menu"
+        >
+          <span className="w-5 h-[2px] bg-black block" />
+          <span className="w-5 h-[2px] bg-black block" />
+        </button>
       </div>
     </header>
   );
 };
+

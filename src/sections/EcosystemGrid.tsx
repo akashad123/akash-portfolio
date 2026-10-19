@@ -80,7 +80,7 @@ export const EcosystemGrid: React.FC = () => {
               <div className="relative my-auto flex flex-col items-center text-center">
                 <div className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-brand-yellow flex items-center justify-center bg-black rotate-45 mb-4 shadow-lg">
                   <span className="font-display text-4xl text-white -rotate-45 font-extrabold tracking-tighter">
-                    AK
+                    {portfolioData.developer.monogram}
                   </span>
                 </div>
                 <span className="font-display text-2xl text-white tracking-tight uppercase">

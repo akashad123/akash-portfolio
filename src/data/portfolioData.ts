@@ -3,7 +3,7 @@ import { PortfolioData } from '../types/portfolio';
 export const portfolioData: PortfolioData = {
   developer: {
     name: "AKASH",
-    monogram: "AK",
+    monogram: "AD",
     role: "SYSTEMS ARCHITECT & SOFTWARE ENGINEER",
     focalNumber: "",
     focalNumberLabel: "",
