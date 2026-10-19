@@ -35,25 +35,13 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             <MapPin size={12} className="text-brand-yellow" />
             <span>{developer.location}</span>
           </div>
-          <div className="text-neutral-500 font-mono text-[11px] tracking-widest uppercase">
-            EDITORIAL PORTFOLIO
-          </div>
         </div>
 
-        {/* Main Grid: Left Identity & Bio | Right Active Stack, Experience & Availability */}
+        {/* Main Grid: Left Bio | Right Active Stack, Experience & Availability */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center my-10 md:my-20">
-          {/* Left Column: Identity, Large Typographic Name & Bio */}
+          {/* Left Column: Bio & Deploy Action */}
           <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-            <div>
-              <span className="text-xs font-mono text-brand-yellow tracking-widest uppercase block mb-2">
-                IDENTITY
-              </span>
-              <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tighter uppercase text-white leading-[0.9]">
-                {developer.name}
-              </h1>
-            </div>
-
-            <p className="text-sm sm:text-base font-mono text-neutral-400 max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg font-mono text-neutral-300 max-w-xl leading-relaxed">
               {developer.bio}
             </p>
 
@@ -67,14 +55,8 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             </div>
           </div>
 
-          {/* Right Column: Statement, Active Stack, Experience & Current Availability */}
+          {/* Right Column: Active Stack, Experience & Current Availability */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6 text-left lg:text-right">
-            <div className="space-y-2">
-              <p className="text-xs sm:text-sm font-mono text-neutral-300 leading-relaxed lg:max-w-sm lg:ml-auto">
-                "Every release is a test. Not just of syntax, but of system resilience, speed, and real-world utility."
-              </p>
-            </div>
-
             <div className="space-y-4 lg:space-y-6">
               <div className="border-l lg:border-l-0 lg:border-r border-white/20 pl-4 lg:pl-0 lg:pr-4">
                 <div className="text-xs font-mono tracking-wider text-neutral-500 uppercase">
@@ -100,12 +82,13 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
                 </div>
                 <div className="font-display text-lg tracking-tight text-white uppercase mt-0.5 flex items-center lg:justify-end space-x-2">
                   <span className="w-2 h-2 bg-brand-yellow animate-ping inline-block" />
-                  <span>AVAILABLE ONLY</span>
+                  <span>{developer.status}</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
 
 
         {/* Bottom Bar with Scroll Indicator */}
