@@ -4,17 +4,17 @@ export const portfolioData: PortfolioData = {
   developer: {
     name: "AKASH",
     monogram: "AD",
-    role: "FORWARD DEPLOYED ENGINEER (FDE)",
+    role: "FULL STACK WEB DEVELOPER",
     focalNumber: "",
     focalNumberLabel: "",
-    tagline: "Frontend web developer transitioning to Forward Deployed Engineer — bridging high-fidelity UI systems, production AI pipelines & real-world client deployment.",
-    bio: "I am a frontend web developer with strong full-stack foundations, currently working as a full-stack developer at Nrithya Dances and actively seeking a transition to Forward Deployed Engineering (FDE). I combine high-precision user interface design with battle-tested backend architecture and multimodal AI automation — building software designed for immediate operational impact on the ground.",
+    tagline: "Full stack web developer crafting high-performance web systems, responsive user interfaces & production-grade cloud and AI backends.",
+    bio: "I am a full stack web developer currently working at Nrithya Dances. I combine high-precision frontend user interface design with battle-tested backend architecture, RESTful APIs, database engineering, and multimodal AI automation — building software designed for performance, resilience, and immediate real-world impact.",
     location: "Kerala, India",
     experienceYears: "1+ Years in Software Development",
     status: "FULL STACK DEVELOPER AT NRITHYA DANCES",
 
     statement: {
-      beforeHighlight: "BRIDGING FRONTEND CRAFTSMANSHIP WITH FORWARD DEPLOYED RIGOR, I ",
+      beforeHighlight: "BRIDGING FRONTEND CRAFTSMANSHIP WITH FULL STACK ARCHITECTURAL RIGOR, I ",
       highlight1: "TRANSFORM COMPLEX CHALLENGES INTO REAL-WORLD OPERATIONAL SOFTWARE",
       middleText: ". FROM PIXEL-PERFECT INTERFACES TO AUTONOMOUS AI PIPELINES, EVERY SYSTEM IS AN OPERATIONAL COMMITMENT TO DELIVER EXPERIENCES THAT ARE ",
       highlight2: "FAST, RESILIENT, AND PRODUCTION-TESTED.",
@@ -241,8 +241,8 @@ export const portfolioData: PortfolioData = {
       items: ["Google Gemini API", "Multimodal Video/Audio Processing", "Claude", "ChatGPT", "Antigravity"]
     },
     {
-      title: "Forward Deployment & Operational Rigor",
-      items: ["Forward Deployed Architecture", "Operational Troubleshooting", "Ground-Truth Verification", "Zero-Drift Reliability", "JWT Authentication", "Rate Limiting", "Performance Profiling"]
+      title: "Full Stack Architecture & Reliability",
+      items: ["Full Stack Architecture", "RESTful API Design", "Operational Troubleshooting", "Zero-Downtime Reliability", "JWT Authentication", "Rate Limiting", "Performance Profiling"]
     }
   ],
 

@@ -50,7 +50,7 @@ export const TimelineSection: React.FC = () => {
               <div className="w-full border-t border-white/20 pt-2 flex items-center justify-between text-[9px] font-mono text-neutral-400 px-2">
                 <span>SYS 01</span>
                 <span>CORE STACK</span>
-                <span>DEV // FDE</span>
+                <span>FULL STACK // WEB</span>
               </div>
             </div>
           </div>

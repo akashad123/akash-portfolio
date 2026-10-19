@@ -15,8 +15,8 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
   onOpenContact,
 }) => {
   const navLinks = [
-    { number: '01', label: 'OVERVIEW', href: '#hero', desc: 'FORWARD DEPLOYED PROFILE & STACK' },
-    { number: '02', label: 'PHILOSOPHY', href: '#statement', desc: 'FORWARD DEPLOYED ETHOS & SYSTEMS' },
+    { number: '01', label: 'OVERVIEW', href: '#hero', desc: 'FULL STACK PROFILE & ARCHITECTURE' },
+    { number: '02', label: 'PHILOSOPHY', href: '#statement', desc: 'FULL STACK ENGINEERING PHILOSOPHY' },
     { number: '03', label: 'SELECTED WORKS', href: '#projects', desc: 'ORBITAL PRODUCTION GALLERY' },
   ];
 
@@ -45,7 +45,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 {portfolioData.developer.monogram}
               </span>
               <span className="font-mono text-[10px] text-neutral-500 tracking-widest uppercase hidden sm:inline-block">
-                FORWARD DEPLOYED MATRIX
+                FULL STACK NAVIGATION MATRIX
               </span>
             </div>
 

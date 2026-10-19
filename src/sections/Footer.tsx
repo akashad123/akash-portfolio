@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                 {developer.name}
               </span>
               <span className="text-[10px] font-mono bg-brand-yellow text-black px-1.5 py-0.5 font-bold uppercase tracking-widest">
-                FDE
+                FULL STACK
               </span>
             </div>
 

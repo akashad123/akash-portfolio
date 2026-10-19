@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–23
+- Current module: Completed Modules 1–24
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -18,10 +18,9 @@ This file is the persistent handoff record for the project.
   3. Removed `EVERY RELEASE IS A TEST, NOT JUST OF SYNTAX` quote text.
   4. Implemented transparent navbar with 'AD' monogram and yellow 2-bar hamburger.
   5. Calibrated career identity:
+     - Role: `FULL STACK WEB DEVELOPER`.
      - Current Role & Availability: `FULL STACK DEVELOPER AT NRITHYA DANCES`.
-     - Target Role / Career Vector: `FORWARD DEPLOYED ENGINEER (FDE)`.
-     - Active Stack: `FULL STACK AND AI` (removed `// TARGET: FDE`).
-     - Removed `FRONTEND DEVELOPER →` prefix from coordinates bar and metadata.
+     - Active Stack: `FULL STACK AND AI`.
   6. Simplified Section 02 (Core Philosophy):
      - Removed left and right flanking image columns completely.
      - Removed mobile image cards completely.
@@ -35,6 +34,8 @@ This file is the persistent handoff record for the project.
      - Implemented precise directional mechanics: clicking the right button `>` or dragging to the right glides the center card (LifeOS) to the right flank and brings the left card (RedConnect) into the center. Clicking `<` or dragging left brings the right card (HireFlow AI) into the center.
      - Clicking on flank cards directly rotates them into the center.
      - Reduced navigation button sizes to sleek, compact `w-7 h-7 sm:w-8 sm:h-8` with crisp 14px icons.
+  8. Transitioned to Full Stack Web Developer Everywhere:
+     - Removed Forward Deployed Engineer (FDE) and positioned developer as Full Stack Web Developer across all data objects, hero metadata, navigation overlay, footer identity badge, timeline badges, skills categories, and HTML/JSON-LD meta tags.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
