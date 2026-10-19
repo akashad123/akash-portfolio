@@ -11,7 +11,8 @@ export const portfolioData: PortfolioData = {
     bio: "For me, engineering is about more than writing syntax — it's about pursuing architectural precision, eliminating bottlenecks, and engineering high-impact systems that stand the test of scale.",
     location: "Kerala, India",
     experienceYears: "1+ Years in Software Development",
-    status: "AVAILABLE",
+    status: "INTERNING AT NRITHYA DANCES",
+
 
     statement: {
       beforeHighlight: "I'M DRIVEN BY PROGRESS, BY FINDING THAT ",
