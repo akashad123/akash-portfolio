@@ -8,92 +8,42 @@ export const StatementSection: React.FC = () => {
   return (
     <section
       id="statement"
-      className="relative min-h-screen bg-white text-black flex flex-col justify-center py-20 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-black/10 select-none"
+      className="relative min-h-screen bg-white text-black flex flex-col justify-between py-16 sm:py-20 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-black/10 select-none"
     >
       {/* Light Theme Architectural Grid */}
       <GridBackground theme="light" columns={8} />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
+      <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between">
         {/* Section Top Header */}
-        <div className="flex items-center justify-between border-b border-black/10 pb-4 mb-12 text-xs font-mono tracking-widest text-neutral-500">
+        <div className="flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500">
           <span>02 // CORE PHILOSOPHY</span>
           <span className="bg-black text-white px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase">
-            FORWARD DEPLOYED ETHOS
+            PHILOSOPHY
           </span>
         </div>
 
-        {/* Triple Element Layout: Left Image | Center Massive Typography | Right Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Flanking Image (Action / High-Performance Graphic) */}
-          <div className="hidden lg:block lg:col-span-2">
-            <div className="border border-black/10 bg-neutral-100 p-2 shadow-sm">
-              <img
-                src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-                alt="Forward Deployed Architecture"
-                className="w-full h-44 object-cover filter grayscale contrast-125"
-              />
-              <div className="mt-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest text-center">
-                FIG 01. CODE & DEPLOYMENT MATRIX
-              </div>
-            </div>
-          </div>
-
-          {/* Center Column: Massive Editorial Typography Composition */}
-          <div className="lg:col-span-8 text-center px-2 sm:px-6">
-            <h2 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-7xl tracking-tighter uppercase leading-[0.92] text-black">
-              {statement.beforeHighlight}
-              <span className="text-brand-yellow bg-black px-2 py-0.5 inline-block mx-1">
-                {statement.highlight1}
-              </span>
-              {statement.middleText}
-              <span className="text-brand-yellow bg-black px-2 py-0.5 inline-block mx-1">
-                {statement.highlight2}
-              </span>
-              {statement.afterText}
-            </h2>
-
-            <div className="mt-8 flex items-center justify-center space-x-3">
-              <span className="w-12 h-px bg-black/20" />
-              <span className="text-xs font-mono tracking-widest text-neutral-600 uppercase">
-                AKASH // FRONTEND → FORWARD DEPLOYED ENGINEER
-              </span>
-              <span className="w-12 h-px bg-black/20" />
-            </div>
-          </div>
-
-          {/* Right Flanking Image (Developer Focus Frame) */}
-          <div className="hidden lg:block lg:col-span-2">
-            <div className="border border-black/10 bg-neutral-100 p-2 shadow-sm">
-              <img
-                src="https://images.unsplash.com/photo-1534972195531-a756b1140f6c?auto=format&fit=crop&w=600&q=80"
-                alt="Forward Deployed Execution"
-                className="w-full h-44 object-cover filter grayscale contrast-125"
-              />
-              <div className="mt-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest text-center">
-                FIG 02. FRONTLINE TELEMETRY
-              </div>
-            </div>
-          </div>
+        {/* Center: Simple, Elegant, Balanced Editorial Typography */}
+        <div className="my-auto py-12 max-w-4xl mx-auto w-full text-center px-2 sm:px-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight uppercase leading-snug sm:leading-tight text-black">
+            {statement.beforeHighlight}
+            <span className="text-brand-yellow bg-black px-2 sm:px-2.5 py-0.5 inline-block mx-1">
+              {statement.highlight1}
+            </span>
+            {statement.middleText}
+            <span className="text-brand-yellow bg-black px-2 sm:px-2.5 py-0.5 inline-block mx-1">
+              {statement.highlight2}
+            </span>
+            {statement.afterText}
+          </h2>
         </div>
 
-        {/* Mobile Supporting Cards (Visible on smaller viewports) */}
-        <div className="grid grid-cols-2 gap-4 mt-8 lg:hidden">
-          <div className="border border-black/10 p-2 bg-neutral-50">
-            <img
-              src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80"
-              alt="Forward Deployed Architecture"
-              className="w-full h-28 object-cover filter grayscale"
-            />
-          </div>
-          <div className="border border-black/10 p-2 bg-neutral-50">
-            <img
-              src="https://images.unsplash.com/photo-1534972195531-a756b1140f6c?auto=format&fit=crop&w=400&q=80"
-              alt="Frontline Focus"
-              className="w-full h-28 object-cover filter grayscale"
-            />
-          </div>
+        {/* Clean Bottom Coordinate Bar */}
+        <div className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500">
+          <span>SECTION 02</span>
+          <span>CORE PHILOSOPHY</span>
         </div>
       </div>
     </section>
   );
 };
+

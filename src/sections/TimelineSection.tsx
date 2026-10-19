@@ -42,7 +42,7 @@ export const TimelineSection: React.FC = () => {
                   98
                 </span>
                 <div className="text-[10px] font-mono text-brand-yellow uppercase tracking-widest">
-                  FULL-STACK // TARGET: FDE
+                  FULL-STACK // AI
                 </div>
               </div>
 

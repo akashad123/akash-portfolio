@@ -4,7 +4,7 @@ export const portfolioData: PortfolioData = {
   developer: {
     name: "AKASH",
     monogram: "AD",
-    role: "FRONTEND DEVELOPER → FORWARD DEPLOYED ENGINEER (FDE)",
+    role: "FORWARD DEPLOYED ENGINEER (FDE)",
     focalNumber: "",
     focalNumberLabel: "",
     tagline: "Frontend web developer transitioning to Forward Deployed Engineer — bridging high-fidelity UI systems, production AI pipelines & real-world client deployment.",

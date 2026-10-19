@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–20
+- Current module: Completed Modules 1–21
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -17,12 +17,16 @@ This file is the persistent handoff record for the project.
   2. Removed `EDITORIAL PORTFOLIO` from top bar.
   3. Removed `EVERY RELEASE IS A TEST, NOT JUST OF SYNTAX` quote text.
   4. Implemented transparent navbar with 'AD' monogram and yellow 2-bar hamburger.
-  5. Calibrated career identity & narrative:
+  5. Calibrated career identity:
      - Current Role & Availability: `FULL STACK DEVELOPER AT NRITHYA DANCES`.
-     - Target Role / Career Vector: `FRONTEND DEVELOPER → FORWARD DEPLOYED ENGINEER (FDE)`.
-     - Bio: Combining high-precision frontend craftsmanship with full-stack backend architecture and AI automation to deliver frontline operational impact.
-     - Section 02 Statement: *"Bridging frontend craftsmanship with forward deployed rigor, I transform complex challenges into real-world operational software. From pixel-perfect interfaces to autonomous AI pipelines, every system is an operational commitment to deliver experiences that are fast, resilient, and production-tested."*
-     - Restored Nrithya Dances experience & case studies to `Full-Stack Developer Intern`.
+     - Target Role / Career Vector: `FORWARD DEPLOYED ENGINEER (FDE)`.
+     - Active Stack: `FULL STACK AND AI` (removed `// TARGET: FDE`).
+     - Removed `FRONTEND DEVELOPER →` prefix from coordinates bar and metadata.
+  6. Simplified Section 02 (Core Philosophy):
+     - Removed left and right flanking image columns completely.
+     - Removed mobile image cards completely.
+     - Removed bottom "Akash Frontend" line and divider.
+     - Reduced text size of the central statement to a clean, balanced `text-2xl sm:text-3xl md:text-4xl lg:text-5xl` with `leading-snug sm:leading-tight`.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 

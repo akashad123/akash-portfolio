@@ -33,6 +33,7 @@ Module 13: Final Verification & Responsive Refinement
 | 18 | Transparent Navbar & Minimal Header | Transparent header, 'AD' monogram, yellow 2-bar hamburger, 3-item menu (Overview, Philosophy, Selected Works) | COMPLETED | Removed 'Get in Touch', transparent fixed navbar, exact match to reference screenshot |
 | 19 | Forward Deployed Engineer (FDE) Narrative | Reposition whole portfolio identity, bio, statement, case studies, metadata, and writings to FDE | COMPLETED | Ground-truth verification, frontline operational execution, production deployment tone |
 | 20 | Frontend Developer → FDE Transition Calibration | Set current availability to Full Stack Developer at Nrithya Dances, position developer as Frontend Developer transitioning to FDE | COMPLETED | Restored Nrithya Dances full stack role, calibrated bio & statement to bridge frontend craftsmanship with FDE rigor |
+| 21 | Core Philosophy Simplification & Landing Polish | Removed left/right flanking images, reduced statement font size, removed bottom Akash text, removed // TARGET: FDE and FRONTEND DEVELOPER → | COMPLETED | Clean minimalist central typography for Core Philosophy, clean landing coordinates and active stack |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -47,6 +48,7 @@ Module 13: Final Verification & Responsive Refinement
 - Module 18 (Transparent Navbar & Minimal Header): Created transparent navbar, 'AD' italic bold monogram with dynamic light/dark contrast, yellow 2-bar square hamburger, removed 'Get in Touch', and streamlined menu overlay strictly to Overview, Philosophy, and Selected Works.
 - Module 19 (Forward Deployed Engineer Narrative): Repositioned role, bio, tagline, statement, case studies, experience, ecosystem grid, timeline, navigation matrix, and metadata to "Forward Deployed Engineer (FDE)".
 - Module 20 (Frontend Developer → FDE Transition Calibration): Reverted Nrithya Dances roles to Full-Stack Developer Intern, set current availability to "FULL STACK DEVELOPER AT NRITHYA DANCES", and accurately positioned career narrative as a Frontend Developer with Full Stack foundations transitioning into Forward Deployed Engineering.
+- Module 21 (Core Philosophy Simplification & Landing Polish): Removed flanking images and bottom text from Section 02, reduced typography size for clean responsive balance, removed `// TARGET: FDE` from Hero active stack, and removed `FRONTEND DEVELOPER →` prefix from role and metadata.
 
 
 

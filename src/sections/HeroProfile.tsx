@@ -66,7 +66,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
                   ACTIVE STACK
                 </div>
                 <div className="font-display text-xl sm:text-2xl tracking-tight text-white uppercase mt-0.5">
-                  FULL STACK & AI // TARGET: FDE
+                  FULL STACK AND AI
                 </div>
               </div>
 

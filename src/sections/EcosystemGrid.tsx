@@ -87,7 +87,7 @@ export const EcosystemGrid: React.FC = () => {
                   AKASH // FULL STACK
                 </span>
                 <span className="text-[10px] font-mono text-brand-yellow tracking-widest uppercase mt-0.5">
-                  TRANSITIONING TO FDE
+                  FORWARD DEPLOYMENT
                 </span>
               </div>
 
