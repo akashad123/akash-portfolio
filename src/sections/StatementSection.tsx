@@ -24,6 +24,13 @@ export const StatementSection: React.FC = () => {
       {/* Light Theme Architectural Grid */}
       <GridBackground theme="light" columns={8} />
 
+      {/* Background Watermark Typography */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+        <span className="font-display text-[15vw] sm:text-[18vw] uppercase text-neutral-100 font-extrabold tracking-tighter leading-none select-none">
+          PHILOSOPHY
+        </span>
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between">
         {/* Section Top Header */}
         <div className="flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500">
