@@ -39,9 +39,6 @@ export const StatementSection: React.FC = () => {
             <ScrollReveal
               segments={segments}
               containerRef={sectionRef}
-              baseOpacity={0.14}
-              enableBlur={true}
-              blurStrength={5}
             />
           </h2>
         </div>

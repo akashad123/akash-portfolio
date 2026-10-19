@@ -1,5 +1,5 @@
-import React, { useRef, useMemo } from 'react';
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
+import React, { useRef, useState, useMemo, useEffect } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 export interface TextSegment {
   text: string;
@@ -8,44 +8,56 @@ export interface TextSegment {
 
 interface CharacterProps {
   char: string;
-  progress: MotionValue<number>;
-  range: [number, number];
+  isRevealed: boolean;
   isHighlight?: boolean;
-  enableBlur?: boolean;
-  blurStrength?: number;
-  baseOpacity?: number;
 }
 
 /**
- * Individual character unit that gracefully unblurs, fades in, and settles into position
- * strictly tied to scroll progress (React Bits ScrollReveal pattern).
+ * Lively Kinetic Character Component:
+ * Each letter pops up from below with physical spring bounce, dynamic rotation,
+ * and crisp opacity. Zero blur for high-contrast clarity and lifelike motion.
  */
 const Character: React.FC<CharacterProps> = ({
   char,
-  progress,
-  range,
+  isRevealed,
   isHighlight = false,
-  enableBlur = true,
-  blurStrength = 4,
-  baseOpacity = 0.15,
 }) => {
-  const opacity = useTransform(progress, range, [baseOpacity, 1]);
-  const blurVal = useTransform(progress, range, [enableBlur ? blurStrength : 0, 0]);
-  const y = useTransform(progress, range, [4, 0]);
-
-  // Clean transition to 'none' when sharp to prevent any subpixel raster blur
-  const filter = useTransform(blurVal, (v) => (v <= 0.15 ? 'none' : `blur(${v.toFixed(1)}px)`));
-
   return (
     <motion.span
-      style={{
-        opacity,
-        filter,
-        y,
-        display: 'inline-block',
-        willChange: 'opacity, filter, transform',
+      initial={false}
+      animate={
+        isRevealed
+          ? {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              rotateZ: 0,
+            }
+          : {
+              opacity: 0,
+              y: 28,
+              scale: 0.65,
+              rotateZ: -6,
+            }
+      }
+      transition={{
+        type: 'spring',
+        stiffness: 260,
+        damping: 14,
+        mass: 0.5,
       }}
-      className={`transition-colors duration-100 ${
+      whileHover={
+        isRevealed
+          ? {
+              scale: 1.22,
+              y: -4,
+              rotateZ: 2,
+              transition: { type: 'spring', stiffness: 500, damping: 15 },
+            }
+          : undefined
+      }
+      style={{ willChange: 'transform, opacity' }}
+      className={`inline-block select-none cursor-default transition-colors duration-150 ${
         isHighlight ? 'text-brand-yellow font-extrabold' : 'text-black'
       }`}
     >
@@ -58,34 +70,40 @@ export interface ScrollRevealProps {
   segments?: TextSegment[];
   text?: string;
   className?: string;
-  baseOpacity?: number;
-  enableBlur?: boolean;
-  blurStrength?: number;
   containerRef?: React.RefObject<HTMLElement | null>;
 }
 
 /**
- * ScrollReveal:
- * Displays text with a letter-by-letter unblur and opacity reveal tied to scroll progression.
- * Words are preserved with whitespace-nowrap wrappers to ensure clean typography wrapping.
+ * Kinetic ScrollReveal:
+ * Unlocks text character-by-character with physical spring motion as you scroll down.
+ * Prevents mid-word line breaking using whitespace-nowrap wrappers around words.
  */
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   segments,
   text,
   className = '',
-  baseOpacity = 0.15,
-  enableBlur = true,
-  blurStrength = 4,
   containerRef,
 }) => {
-  const localRef = useRef<HTMLDivElement>(null);
+  const localRef = useRef<HTMLSpanElement>(null);
   const targetRef = (containerRef || localRef) as React.RefObject<HTMLElement>;
 
-  // Map scroll progress across viewport entry
+  // Track scroll progress as Section 02 traverses the viewport
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['start 0.85', 'center 0.45'],
+    offset: ['start 0.88', 'center 0.42'],
   });
+
+  const [currentProgress, setCurrentProgress] = useState(0);
+
+  // Sync scroll progression in real time
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    setCurrentProgress(latest);
+  });
+
+  // Ensure initial evaluation if page is loaded already scrolled into view
+  useEffect(() => {
+    setCurrentProgress(scrollYProgress.get());
+  }, [scrollYProgress]);
 
   // Normalize inputs to segments
   const normalizedSegments = useMemo<TextSegment[]>(() => {
@@ -113,19 +131,16 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
           const chars = word.split('');
           const charElements = chars.map((char, cIdx) => {
             const idx = charCounter++;
-            const start = (idx / Math.max(1, totalChars)) * 0.88;
-            const end = Math.min(1, start + 0.12);
+            // Calculate activation threshold for each letter
+            const charThreshold = (idx / Math.max(1, totalChars)) * 0.82;
+            const isRevealed = currentProgress >= charThreshold;
 
             return (
               <Character
                 key={`${sIdx}-${wIdx}-${cIdx}`}
                 char={char}
-                progress={scrollYProgress}
-                range={[start, end]}
+                isRevealed={isRevealed}
                 isHighlight={segment.isHighlight}
-                enableBlur={enableBlur}
-                blurStrength={blurStrength}
-                baseOpacity={baseOpacity}
               />
             );
           });
