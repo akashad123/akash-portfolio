@@ -47,10 +47,8 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
               <span className="font-display text-2xl tracking-tighter text-white">
                 {portfolioData.developer.name}
               </span>
-              <span className="bg-brand-yellow text-black text-xs font-bold px-2 py-0.5 tracking-widest uppercase">
-                {portfolioData.developer.focalNumber}
-              </span>
             </div>
+
             
             <button
               onClick={onClose}

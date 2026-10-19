@@ -43,10 +43,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
               <span className="font-display text-3xl tracking-tighter text-white">
                 {developer.name}
               </span>
-              <span className="bg-brand-yellow text-black text-xs font-bold px-2 py-0.5 tracking-widest uppercase">
-                {developer.focalNumber}
-              </span>
             </div>
+
             <p className="text-xs font-mono text-neutral-400 max-w-sm leading-relaxed">
               {developer.tagline}
             </p>

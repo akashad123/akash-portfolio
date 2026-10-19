@@ -26,13 +26,16 @@ Module 13: Final Verification & Responsive Refinement
 | 11 | Case Studies | Deep-dive modal showcase for Nrithya Dances AI & YouTube automation | COMPLETED | Full architecture, metrics, challenges, and learnings |
 | 12 | Contact & Footer | High-contrast contact modal/surface & spacious editorial footer | COMPLETED | Form validation, mailto fallback, multi-column footer |
 | 13 | Verification | Responsive audit (mobile/tablet/desktop), SEO, performance | COMPLETED | Build verified (vite build passing with zero errors) |
+| 14 | Landing Refinement | Remove focal 98, left stats, telemetry, adjust active stack & availability | COMPLETED | Clean 2-col editorial hero, 1+ yrs experience, available only |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
 - Module 2 (Foundation & Setup): Vite + TS + Tailwind CSS + Fonts configured.
 - Module 3 (Data Architecture): User's real experience, skills, projects, case studies, and education ingested.
 - Modules 4-12 (Editorial Sections & UI Components): All 5 reference screenshot sections implemented faithfully.
-- Module 13 (Verification & Git Remote): Production TypeScript build verified (`npm run build` exited with code 0) and pushed to GitHub remote `https://github.com/akashad123/akash-portfolio.git` (`main` branch).
+- Module 13 (Verification & Git Remote): Production TypeScript build verified (`npm run build` exited with code 0) and pushed to GitHub remote.
+- Module 14 (Landing Refinements): Removed 98 focal number, production telemetry, left side stats, kept ACTIVE STACK FULL STACK AND AI, updated to 1+ years experience, and set availability to AVAILABLE ONLY.
+
 
 ## Current blockers
 - None.

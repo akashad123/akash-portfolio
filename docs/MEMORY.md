@@ -4,26 +4,28 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–13
-- Overall status: Ready for Preview & User Review
+- Current module: Completed Modules 1–14
+- Overall status: Ready for Review & Deployment
 
 ## Last completed work
 - Analyzed all 5 reference screenshots (`nickho-motorsports.nl/#media`) and confirmed tech stack.
-- Ingested all user data from `data (2).json` (Experience at Nrithya Dances, Stratagile, Luminar; Projects REDCONNECT, LIFEOS, ONAKKOOTTU; Case Studies; Skills; Education).
-- Scaffolding: Configured React 19 + Vite + TypeScript + Tailwind CSS with strict `border-radius: 0px` tokens and `#FDD60A` yellow accent.
-- Built all 5 reference sections:
-  1. HeroProfile: Dark section with giant focal "98", production telemetry, statistics, bio statement, and status (Screenshot 3).
-  2. StatementSection: Light editorial section with massive condensed display typography, `#FDD60A` yellow highlight words, and flanking visual frames (Screenshot 2).
-  3. ArcGallery: Light section with interactive curved orbital cards, "-12°" / "+12°" flank cards, center card with "DRAG ⇄" badge, speedometer dial tick tracker, and `<<` / `>>` navigation controls (Screenshot 5).
-  4. TimelineSection: Dark section with tabular rows for roles and education, hairline dividers, and central intersecting high-tech blueprint visual (Screenshot 4).
-  5. CaseStudiesSection: Production AI quality review system and YouTube automation deep-dives with modal viewer for architectural problems, solutions, process, metrics, and learnings.
-  6. EcosystemGrid: Light section with symmetrical 16-entity tech stack grid and central geometric emblem (Screenshot 1).
-  7. Global Components: Minimalist "AK" header with sharp yellow menu trigger, full-screen typographic navigation overlay, and spacious multi-column editorial footer.
-- Executed `npm run build` (`tsc -b && vite build`): passed with 0 errors.
+- Ingested all user data from `data (2).json`.
+- Configured React 19 + Vite + TypeScript + Tailwind CSS with strict `border-radius: 0px` tokens and `#FDD60A` yellow accent.
+- Built all 5 reference sections: HeroProfile, StatementSection, ArcGallery, TimelineSection, CaseStudiesSection, EcosystemGrid, Footer, Header, and modals.
+- Executed landing page refinements per user request:
+  1. Removed `FULL-STACK DEV` from header logo mark.
+  2. Removed `AKASH // PRODUCTION TELEMETRY` top banner.
+  3. Removed giant `98 DEV ID UNIT` center number.
+  4. Removed `98 DEVELOPER TAG`, `3+ YEARS EXPERIENCE`, and `14 KERALA DISTRICTS CONNECTED` from left side.
+  5. Kept `ACTIVE STACK: FULL STACK AND AI`.
+  6. Changed experience to `1+ YEARS IN SOFTWARE DEVELOPMENT`.
+  7. Changed availability to `AVAILABLE ONLY`.
+- Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
-- Live preview testing and verification on local port 3001.
+- Live preview active on local port 3001.
+
 
 ## Important decisions
 - Centralized data layer in `src/data/portfolioData.ts` adhering strictly to user's provided JSON data.

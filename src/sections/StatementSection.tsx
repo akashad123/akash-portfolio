@@ -55,9 +55,10 @@ export const StatementSection: React.FC = () => {
             <div className="mt-8 flex items-center justify-center space-x-3">
               <span className="w-12 h-px bg-black/20" />
               <span className="text-xs font-mono tracking-widest text-neutral-600 uppercase">
-                AKASH — FULL-STACK ARCHITECT
+                AKASH // SYSTEMS ARCHITECTURE
               </span>
               <span className="w-12 h-px bg-black/20" />
+
             </div>
           </div>
 

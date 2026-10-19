@@ -36,11 +36,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMenu, onOpenContact }) => 
           <span className="font-display text-2xl sm:text-3xl tracking-tighter text-white group-hover:text-brand-yellow transition-colors">
             {portfolioData.developer.monogram}
           </span>
-          <span className="hidden sm:inline-block w-1 h-4 bg-brand-yellow" />
-          <span className="hidden sm:inline-block text-xs font-mono tracking-widest text-neutral-400 uppercase">
-            FULL-STACK DEV
-          </span>
         </a>
+
 
         {/* Right Controls */}
         <div className="flex items-center space-x-3 sm:space-x-4">
