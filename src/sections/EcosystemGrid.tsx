@@ -84,10 +84,10 @@ export const EcosystemGrid: React.FC = () => {
                   </span>
                 </div>
                 <span className="font-display text-2xl text-white tracking-tight uppercase">
-                  AKASH // ARCHITECT
+                  AKASH // FORWARD DEPLOYED
                 </span>
                 <span className="text-[10px] font-mono text-brand-yellow tracking-widest uppercase mt-0.5">
-                  HIGH-VELOCITY DEV
+                  MISSION-CRITICAL FDE
                 </span>
               </div>
 
@@ -122,7 +122,7 @@ export const EcosystemGrid: React.FC = () => {
         {/* Skills Concepts Category Strip */}
         <div className="mt-12 pt-8 border-t border-black/10">
           <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-4">
-            SYSTEM ARCHITECTURE COMPETENCIES
+            FORWARD DEPLOYMENT & ARCHITECTURE COMPETENCIES
           </span>
           <div className="flex flex-wrap gap-2">
             {skills.flatMap((s) => s.items).filter((v, i, a) => a.indexOf(v) === i).map((skill, idx) => (
@@ -140,7 +140,7 @@ export const EcosystemGrid: React.FC = () => {
       {/* Bottom Footer */}
       <div className="relative z-10 max-w-7xl mx-auto w-full pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500">
         <span>ALL TECHNOLOGIES DEPLOYED IN PRODUCTION ENVIRONMENTS</span>
-        <span>MODULAR ARCHITECTURE DISCIPLINE</span>
+        <span>MISSION-CRITICAL FORWARD DEPLOYMENT DISCIPLINE</span>
       </div>
     </section>
   );

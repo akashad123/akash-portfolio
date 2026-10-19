@@ -35,6 +35,9 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             <MapPin size={12} className="text-brand-yellow" />
             <span>{developer.location}</span>
           </div>
+          <div className="text-neutral-400 uppercase tracking-widest text-[11px]">
+            {developer.role}
+          </div>
         </div>
 
         {/* Main Grid: Left Bio | Right Active Stack, Experience & Availability */}
@@ -63,7 +66,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
                   ACTIVE STACK
                 </div>
                 <div className="font-display text-xl sm:text-2xl tracking-tight text-white uppercase mt-0.5">
-                  FULL STACK AND AI
+                  FDE // FULL STACK & AI
                 </div>
               </div>
 

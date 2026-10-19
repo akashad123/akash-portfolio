@@ -18,7 +18,7 @@ export const StatementSection: React.FC = () => {
         <div className="flex items-center justify-between border-b border-black/10 pb-4 mb-12 text-xs font-mono tracking-widest text-neutral-500">
           <span>02 // CORE PHILOSOPHY</span>
           <span className="bg-black text-white px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase">
-            ENGINEERING PRINCIPLES
+            FORWARD DEPLOYED ETHOS
           </span>
         </div>
 
@@ -29,11 +29,11 @@ export const StatementSection: React.FC = () => {
             <div className="border border-black/10 bg-neutral-100 p-2 shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
-                alt="System Architecture Matrix"
+                alt="Forward Deployed Architecture"
                 className="w-full h-44 object-cover filter grayscale contrast-125"
               />
               <div className="mt-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest text-center">
-                FIG 01. CODE MATRIX
+                FIG 01. CODE & DEPLOYMENT MATRIX
               </div>
             </div>
           </div>
@@ -55,10 +55,9 @@ export const StatementSection: React.FC = () => {
             <div className="mt-8 flex items-center justify-center space-x-3">
               <span className="w-12 h-px bg-black/20" />
               <span className="text-xs font-mono tracking-widest text-neutral-600 uppercase">
-                AKASH // SYSTEMS ARCHITECTURE
+                AKASH // FORWARD DEPLOYED ENGINEER
               </span>
               <span className="w-12 h-px bg-black/20" />
-
             </div>
           </div>
 
@@ -67,11 +66,11 @@ export const StatementSection: React.FC = () => {
             <div className="border border-black/10 bg-neutral-100 p-2 shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1534972195531-a756b1140f6c?auto=format&fit=crop&w=600&q=80"
-                alt="Developer Craftsmanship"
+                alt="Forward Deployed Execution"
                 className="w-full h-44 object-cover filter grayscale contrast-125"
               />
               <div className="mt-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest text-center">
-                FIG 02. FOCUS & METRICS
+                FIG 02. FRONTLINE TELEMETRY
               </div>
             </div>
           </div>
@@ -82,14 +81,14 @@ export const StatementSection: React.FC = () => {
           <div className="border border-black/10 p-2 bg-neutral-50">
             <img
               src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80"
-              alt="System Architecture Matrix"
+              alt="Forward Deployed Architecture"
               className="w-full h-28 object-cover filter grayscale"
             />
           </div>
           <div className="border border-black/10 p-2 bg-neutral-50">
             <img
               src="https://images.unsplash.com/photo-1534972195531-a756b1140f6c?auto=format&fit=crop&w=400&q=80"
-              alt="Developer Focus"
+              alt="Frontline Focus"
               className="w-full h-28 object-cover filter grayscale"
             />
           </div>
