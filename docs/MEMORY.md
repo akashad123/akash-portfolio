@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–22
+- Current module: Completed Modules 1–23
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -30,17 +30,16 @@ This file is the persistent handoff record for the project.
   7. Optimized Section 03 (ArcGallery):
      - Constrained strictly to `100vh` (`h-screen max-h-screen overflow-hidden`) so the entire layout fits in the viewport without vertical scrolling.
      - Incorporated navigation buttons `<` and `>` directly within the 100vh viewport alongside the interactive speedometer dial.
-     - Enabled real dragging with Framer Motion (`drag="x"`, swipe velocity thresholds, real-time angular rotation, and elastic bounce).
-     - Added dynamic motion to cards, speedometer ticks, floating `DRAG ⇄` pill, and keyboard arrow navigation.
+     - Implemented true continuous 3D orbital carousel flow: all 3 project cards are simultaneously rendered and smoothly spring-animated between left flank, center prominence, and right flank based on dynamic circular offsets (`diff = -1, 0, 1`).
+     - Enabled universal horizontal gesture dragging across the entire orbital track, the cards, and the floating `DRAG ⇄` badge.
+     - Implemented precise directional mechanics: clicking the right button `>` or dragging to the right glides the center card (LifeOS) to the right flank and brings the left card (RedConnect) into the center. Clicking `<` or dragging left brings the right card (HireFlow AI) into the center.
+     - Clicking on flank cards directly rotates them into the center.
+     - Reduced navigation button sizes to sleek, compact `w-7 h-7 sm:w-8 sm:h-8` with crisp 14px icons.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
-
-
-
 ## In-progress work
 - Live preview active on local port 3001.
-
 
 ## Important decisions
 - Centralized data layer in `src/data/portfolioData.ts` adhering strictly to user's provided JSON data.
@@ -71,15 +70,9 @@ This file is the persistent handoff record for the project.
 User review of live development server at `http://localhost:3001/`, followed by optional production hosting deployment on Vercel.
 
 ## Last verification
-- Date: 2026-10-18
-- Build: PASSED (`tsc -b && vite build` completed in 7.83s with 0 errors)
+- Date: 2026-10-19
+- Build: PASSED (`tsc -b && vite build` completed with 0 errors)
 - Git Remote: PASSED (`main` branch synced with `https://github.com/akashad123/akash-portfolio.git`)
 - Tests: PASSED
 - Responsive: Verified across mobile/tablet/desktop breakpoints
 - SEO: Verified in `index.html` with full meta tags and JSON-LD schema
-
-
-
-## Handoff note
-All architectural rules, stack decisions, design tokens, and screenshot analyses have been codified into the repository documentation. The next phase is executing Module 2 (project scaffolding & design token setup).
-

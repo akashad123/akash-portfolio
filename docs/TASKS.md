@@ -35,6 +35,7 @@ Module 13: Final Verification & Responsive Refinement
 | 20 | Frontend Developer → FDE Transition Calibration | Set current availability to Full Stack Developer at Nrithya Dances, position developer as Frontend Developer transitioning to FDE | COMPLETED | Restored Nrithya Dances full stack role, calibrated bio & statement to bridge frontend craftsmanship with FDE rigor |
 | 21 | Core Philosophy Simplification & Landing Polish | Removed left/right flanking images, reduced statement font size, removed bottom Akash text, removed // TARGET: FDE and FRONTEND DEVELOPER → | COMPLETED | Clean minimalist central typography for Core Philosophy, clean landing coordinates and active stack |
 | 22 | ArcGallery 100vh & Real Drag Physics | Contained Section 03 within 100vh, integrated navigation buttons inside viewport, added real Framer Motion dragging & spring tilt | COMPLETED | Active drag physics with swipe thresholds, animated speedometer dial, keyboard arrow support, strictly 100vh |
+| 23 | Continuous Orbital Flow & Real Drag Across Cards | Continuous 3D orbital carousel flow, unified drag on cards/stage, clicking/dragging right brings left card to center, compact buttons | COMPLETED | Synchronized card spring animations, sleek w-7/w-8 buttons, left-to-center physics, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
