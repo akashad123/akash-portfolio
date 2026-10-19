@@ -15,12 +15,13 @@ export const portfolioData: PortfolioData = {
 
 
     statement: {
-      beforeHighlight: "I'M DRIVEN BY PROGRESS, BY FINDING THAT ",
-      highlight1: "ONE PERCENT OF OPTIMIZATION",
-      middleText: " THAT MOST DEVELOPERS OVERLOOK. EVERY BUG IS A LESSON, EVERY DEPLOYMENT A CHANCE, TO BECOME ",
-      highlight2: "SHARPER, MORE RESILIENT, MORE COMPLETE.",
+      beforeHighlight: "I'M DRIVEN BY THE CRAFT OF BUILDING, BY ",
+      highlight1: "TURNING COMPLEX CHALLENGES INTO HIGH-PERFORMANCE SOFTWARE",
+      middleText: ". EVERY SYSTEM IS AN ARCHITECTURAL COMMITMENT, EVERY CODEBASE A CHANCE, TO ENGINEER EXPERIENCES THAT ARE ",
+      highlight2: "FASTER, MORE INTUITIVE, MORE COMPLETE.",
       afterText: ""
     },
+
     socials: {
       github: "https://github.com/akashad123",
       linkedin: "https://linkedin.com/in/akash",
