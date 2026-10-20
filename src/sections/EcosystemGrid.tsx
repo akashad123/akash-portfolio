@@ -1,7 +1,14 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { Layers } from 'lucide-react';
+import {
+  fadeInTransition,
+  sectionInitial,
+  sectionWhileInView,
+  sectionViewportConfig,
+} from '../utils/motion';
 
 export const EcosystemGrid: React.FC = () => {
   const { skills } = portfolioData;
@@ -30,8 +37,12 @@ export const EcosystemGrid: React.FC = () => {
   ];
 
   return (
-    <section
+    <motion.section
       id="ecosystem"
+      initial={sectionInitial}
+      whileInView={sectionWhileInView}
+      viewport={sectionViewportConfig}
+      transition={fadeInTransition}
       className="relative min-h-screen bg-white text-black py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-black/10 select-none"
     >
       <GridBackground theme="light" columns={8} />
@@ -142,6 +153,6 @@ export const EcosystemGrid: React.FC = () => {
         <span>ALL TECHNOLOGIES DEPLOYED IN PRODUCTION ENVIRONMENTS</span>
         <span>MODERN FULL STACK WEB ARCHITECTURE</span>
       </div>
-    </section>
+    </motion.section>
   );
 };

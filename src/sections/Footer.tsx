@@ -1,6 +1,13 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { Github, Mail, ArrowUp } from 'lucide-react';
+import {
+  fadeInTransition,
+  sectionInitial,
+  sectionWhileInView,
+  sectionViewportConfig,
+} from '../utils/motion';
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -14,7 +21,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
   };
 
   return (
-    <footer className="relative bg-[#050505] text-white pt-20 pb-12 px-4 sm:px-8 md:px-12 border-t border-white/10 select-none">
+    <motion.footer
+      initial={sectionInitial}
+      whileInView={sectionWhileInView}
+      viewport={sectionViewportConfig}
+      transition={fadeInTransition}
+      className="relative bg-[#050505] text-white pt-20 pb-12 px-4 sm:px-8 md:px-12 border-t border-white/10 select-none"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Massive Editorial Brand Statement in Footer */}
         <div className="border-b border-white/10 pb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
@@ -152,6 +165,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
           </button>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };

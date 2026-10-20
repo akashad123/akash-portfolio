@@ -40,7 +40,7 @@ Module 13: Final Verification & Responsive Refinement
 | 25 | ScrollReveal Text Animation on Core Philosophy | Letter-by-letter unblur and opacity reveal on scroll (React Bits pattern) for Section 02 Core Philosophy | COMPLETED | Created reusable ScrollReveal component, mapped scroll progression across viewport entry, verified build |
 | 26 | Compact Hamburger Icon & Kinetic Spring Text Reveal | Reduced top-right hamburger icon size and re-engineered Core Philosophy reveal with lively spring motion (no blur) | COMPLETED | Compact w-8 hamburger button, letter-by-letter physical pop-up spring, angular settling, interactive hover physics |
 | 27 | Background Watermark Typography | Subtle PHILOSOPHY watermark typography in faint gray in Core Philosophy background | COMPLETED | text-neutral-100 on white background, pointer-events-none, high-contrast legibility preserved |
-| 28 | Landing Section Editorial Portrait | Crisp, styled portrait of Akash in landing hero with sharp corner brackets, telemetry overlay, and hover color reveal | COMPLETED | High-resolution crisp photography, 0px border radius, BLR telemetry, interactive grayscale-to-color reveal |
+| 28 | Framer Motion Viewport Fade-In | Global Framer Motion fade-in entrance for landing hero, and viewport fade-in transitions across Core Philosophy, Selected Works, Timeline, Case Studies, Tech Ecosystem, and Footer | COMPLETED | Created src/utils/motion.ts and FadeInView component; smooth cubic-bezier [0.16, 1, 0.3, 1] editorial ease |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -62,7 +62,7 @@ Module 13: Final Verification & Responsive Refinement
 - Module 25 (ScrollReveal Text Animation on Core Philosophy): Built React Bits-inspired ScrollReveal component featuring progressive letter-by-letter unblur, subtle translateY settling, and opacity reveal scrubbed continuously by user scroll position.
 - Module 26 (Compact Hamburger Icon & Kinetic Spring Text Reveal): Reduced top-right header hamburger icon footprint to sleek 32px square, and replaced blurry text reveal in Section 02 with lively letter-by-letter spring pop-up motion (y: 28px -> 0px, scale: 0.65 -> 1.0, rotate: -6deg -> 0deg) and interactive hover bounce.
 - Module 27 (Background Watermark Typography): Added subtle PHILOSOPHY watermark typography in faint gray (text-neutral-100) behind the Core Philosophy statement, matching the architectural watermark aesthetic of Section 03 while preserving foreground legibility and 0px radius design language.
-- Module 28 (Landing Section Editorial Portrait): Integrated crisp, high-resolution portrait of Akash in the landing hero with geometric 0px framing, golden corner brackets, live telemetry overlays (AKASH D // SUBJECT 01, BLR coordinates), and an interactive grayscale-to-color hover reveal.
+- Module 28 (Framer Motion Viewport Fade-In): Engineered centralized motion system in `src/utils/motion.ts` with custom cubic-bezier `[0.16, 1, 0.3, 1]` curve. Applied smooth landing entrance animation to HeroProfile and Header, and seamless viewport fade-in transitions (`whileInView`) across Core Philosophy, Selected Works, Career Timeline, Production Case Studies, Tech Ecosystem, and Editorial Footer with `once: true` preservation.
 
 
 

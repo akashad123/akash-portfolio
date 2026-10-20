@@ -1,7 +1,9 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { ArrowDown, Terminal, MapPin } from 'lucide-react';
+import { heroInitial, heroAnimate, heroTransition } from '../utils/motion';
 
 interface HeroProfileProps {
   onOpenContact: () => void;
@@ -17,8 +19,11 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   };
 
   return (
-    <section
+    <motion.section
       id="hero"
+      initial={heroInitial}
+      animate={heroAnimate}
+      transition={heroTransition}
       className="relative min-h-screen bg-black text-white flex flex-col justify-between pt-28 pb-12 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-white/10"
     >
       {/* Background Architectural Grid Lines */}
@@ -40,74 +45,26 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           </div>
         </div>
 
-        {/* Main Grid: Left Bio | Center Editorial Portrait | Right Active Stack, Experience & Availability */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center my-6 md:my-12">
+        {/* Main Grid: Left Bio | Right Active Stack, Experience & Availability */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center my-10 md:my-20">
           {/* Left Column: Bio & Deploy Action */}
-          <div className="lg:col-span-4 flex flex-col justify-between space-y-6 order-1">
-            <div className="space-y-4">
-              <div className="text-[10px] font-mono tracking-widest text-brand-yellow uppercase flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 bg-brand-yellow" />
-                <span>ARCHITECTURAL PROFILE // BIO</span>
-              </div>
-              <p className="text-sm sm:text-base font-mono text-neutral-300 leading-relaxed">
-                {developer.bio}
-              </p>
-            </div>
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <p className="text-base sm:text-lg font-mono text-neutral-300 max-w-xl leading-relaxed">
+              {developer.bio}
+            </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="pt-2">
               <button
                 onClick={onOpenContact}
-                className="bg-brand-yellow text-black font-display text-xs tracking-widest uppercase font-bold px-6 py-3 hover:bg-[#E5C200] transition-colors rounded-none cursor-pointer shadow-sm"
+                className="bg-brand-yellow text-black font-display text-xs tracking-widest uppercase font-bold px-6 py-3 hover:bg-[#E5C200] transition-colors rounded-none"
               >
                 DEPLOY CONTRACT
               </button>
-              <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest">
-                // SYSTEM VERIFIED
-              </span>
-            </div>
-          </div>
-
-          {/* Center Column: High-Impact Editorial Portrait of Akash */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center order-2 sm:order-2 my-4 lg:my-0">
-            <div className="relative group w-full max-w-[270px] sm:max-w-[310px] md:max-w-[330px] aspect-[3/4] bg-neutral-950 border border-white/20 hover:border-brand-yellow transition-all duration-500 shadow-2xl overflow-hidden rounded-none">
-              {/* Corner Framing Brackets */}
-              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-brand-yellow z-20 pointer-events-none" />
-              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-brand-yellow z-20 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-brand-yellow z-20 pointer-events-none" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-brand-yellow z-20 pointer-events-none" />
-
-              {/* Top Telemetry Overlay */}
-              <div className="absolute top-2.5 left-2.5 z-20 bg-black/85 backdrop-blur-sm border border-white/15 px-2 py-0.5 flex items-center space-x-1.5 font-mono text-[9px] text-brand-yellow uppercase tracking-widest select-none">
-                <span className="w-1.5 h-1.5 bg-brand-yellow animate-ping" />
-                <span>AKASH D // SUBJECT 01</span>
-              </div>
-
-              {/* Bottom Right Coordinate Badge */}
-              <div className="absolute bottom-2.5 right-2.5 z-20 bg-black/85 backdrop-blur-sm border border-white/15 px-2 py-0.5 font-mono text-[8px] text-neutral-400 tracking-widest uppercase select-none">
-                BLR // 12.97°N 77.59°E
-              </div>
-
-              {/* High-Resolution Portrait with Dynamic Hover Un-Filter */}
-              <img
-                src="/images/akash-portrait.jpg"
-                alt="Akash D - Full Stack Web Developer"
-                className="w-full h-full object-cover object-center filter grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-105 group-hover:brightness-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                loading="eager"
-              />
-
-              {/* Subtle Scanline Texture Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-10" />
-            </div>
-
-            {/* Bottom Caption Pill */}
-            <div className="mt-2.5 flex items-center space-x-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest select-none">
-              <span className="text-brand-yellow font-bold">›</span>
-              <span>DEV PORTRAIT // HOVER TO REVEAL COLOR</span>
             </div>
           </div>
 
           {/* Right Column: Active Stack, Experience & Current Availability */}
-          <div className="lg:col-span-4 flex flex-col justify-between space-y-6 text-left lg:text-right order-3">
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-6 text-left lg:text-right">
             <div className="space-y-4 lg:space-y-6">
               <div className="border-l lg:border-l-0 lg:border-r border-white/20 pl-4 lg:pl-0 lg:pr-4">
                 <div className="text-xs font-mono tracking-wider text-neutral-500 uppercase">
@@ -158,6 +115,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

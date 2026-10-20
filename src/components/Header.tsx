@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
+import { headerInitial, headerAnimate, headerTransition } from '../utils/motion';
 
 interface HeaderProps {
   onOpenMenu: () => void;
@@ -30,7 +32,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMenu }) => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-transparent py-5 sm:py-6 px-4 sm:px-8 md:px-12 pointer-events-none transition-none">
+    <motion.header
+      initial={headerInitial}
+      animate={headerAnimate}
+      transition={headerTransition}
+      className="fixed top-0 left-0 right-0 z-40 bg-transparent py-5 sm:py-6 px-4 sm:px-8 md:px-12 pointer-events-none transition-none"
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between pointer-events-none">
         {/* Monogram Brand Mark 'AD' */}
         <a
@@ -57,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMenu }) => {
           <span className="w-4 h-[2px] bg-black block" />
         </button>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

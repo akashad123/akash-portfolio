@@ -1,7 +1,14 @@
 import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { ScrollReveal, TextSegment } from '../components/ScrollReveal';
+import {
+  fadeInTransition,
+  sectionInitial,
+  sectionWhileInView,
+  sectionViewportConfig,
+} from '../utils/motion';
 
 export const StatementSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,9 +23,13 @@ export const StatementSection: React.FC = () => {
   ];
 
   return (
-    <section
+    <motion.section
       ref={sectionRef}
       id="statement"
+      initial={sectionInitial}
+      whileInView={sectionWhileInView}
+      viewport={sectionViewportConfig}
+      transition={fadeInTransition}
       className="relative min-h-screen bg-white text-black flex flex-col justify-between py-16 sm:py-20 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-black/10 select-none"
     >
       {/* Light Theme Architectural Grid */}
@@ -56,6 +67,6 @@ export const StatementSection: React.FC = () => {
           <span>CORE PHILOSOPHY // SCROLL REVEAL</span>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

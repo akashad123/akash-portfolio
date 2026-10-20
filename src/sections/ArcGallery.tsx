@@ -3,6 +3,12 @@ import { motion, PanInfo, Variants } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GridBackground } from '../components/GridBackground';
+import {
+  fadeInTransition,
+  sectionInitial,
+  sectionWhileInView,
+  sectionViewportConfig,
+} from '../utils/motion';
 
 /**
  * Section 03: Interactive Orbital Arc Showcase
@@ -102,8 +108,12 @@ export const ArcGallery: React.FC = () => {
   };
 
   return (
-    <section
+    <motion.section
       id="projects"
+      initial={sectionInitial}
+      whileInView={sectionWhileInView}
+      viewport={sectionViewportConfig}
+      transition={fadeInTransition}
       className="relative h-screen max-h-screen overflow-hidden bg-white text-black py-3 sm:py-5 px-3 sm:px-6 md:px-10 flex flex-col justify-between border-b border-black/10 select-none"
     >
       {/* Light Theme Grid */}
@@ -346,6 +356,6 @@ export const ArcGallery: React.FC = () => {
         <span>INTERACTIVE ARC PHYSICS // SWIPE ⇄</span>
         <span>VERIFIED CODE REPOSITORIES AVAILABLE</span>
       </div>
-    </section>
+    </motion.section>
   );
 };

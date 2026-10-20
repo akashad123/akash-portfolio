@@ -47,9 +47,10 @@ This file is the persistent handoff record for the project.
   11. Background Watermark Typography in Core Philosophy:
      - Added subtle `PHILOSOPHY` watermark typography in faint gray (`text-neutral-100`) at `z-0` behind the central statement in Section 02.
      - Blends seamlessly with the `GridBackground` and matches the architectural watermark aesthetic of `GALLERY` in Section 03 while preserving strict foreground readability and non-intrusive layering (`pointer-events-none`).
-  12. Landing Section Editorial Portrait of Akash:
-     - Positioned Akash's high-resolution portrait in the center column of the landing hero (`HeroProfile.tsx`), converting the hero into a balanced 3-column editorial composition (Bio | Portrait | Telemetry).
-     - Applied razor-sharp styling: 0px border radius, sharp 1px border (`border-white/20`), golden `#FDD60A` corner brackets, live telemetry pills (`AKASH D // SUBJECT 01`, `BLR // 12.97°N 77.59°E`), and an interactive grayscale-to-color hover reveal showing authentic golden hour tones.
+  12. Framer Motion Viewport Fade-In Across Entire Flow:
+     - Created `src/utils/motion.ts` with custom cubic-bezier `[0.16, 1, 0.3, 1]` editorial curves and `FadeInView` utility component.
+     - Wired initial mount fade-in on landing screen (`HeroProfile` and `Header`).
+     - Wired viewport scroll fade-in (`initial={sectionInitial} whileInView={sectionWhileInView} viewport={sectionViewportConfig}`) on Section 02 (Core Philosophy), Section 03 (Selected Works / ArcGallery), Section 04 (Career Timeline), Section 05 (Production Case Studies), Section 06 (Tech Stack & Ecosystem), and Section 07 (Editorial Footer).
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
