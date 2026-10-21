@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 38: Vertically Expanded Standing Title & Full Slide Control Streamline
+Module 39: Flank Cards 100% Opacity, Click-to-View Removal & Architectural Editorial Navigation Dock
 
 ## Task list
 
@@ -51,6 +51,7 @@ Module 38: Vertically Expanded Standing Title & Full Slide Control Streamline
 | 36 | Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing | Removed intersecting '98 Full Stack AI' blueprint rectangle from Career Timeline; enhanced 'PROJECTS' watermark contrast with visible neutral-200 tint and wide expanded letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`). | COMPLETED | Clean timeline rows with zero visual obstruction, widely spaced high-visibility watermark |
 | 37 | Tightened 'PROJECTS' Watermark Letter Spacing | Decreased space between letters in 'PROJECTS' watermark from wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`, retaining clear `text-neutral-200` visibility with classic bold typography. | COMPLETED | Tightly grouped architectural letters, balanced aesthetic, verified build |
 | 38 | Vertically Expanded Standing Title & Full Slide Control Streamline | Removed VIEW DETAILS, GitHub, and Live link buttons, and project subtitles from carousel slides; transformed project titles into massive vertically expanded typography standing from top to bottom (`writingMode: 'vertical-rl'`). | COMPLETED | Pure poster aesthetics, zero clutter, dramatic vertical height |
+| 39 | Flank Cards 100% Opacity, Click-to-View Removal & Editorial Navigation Dock | Set flank card opacities to solid 100% (opacity: 1) to eliminate background bleed; removed 'CLICK TO VIEW' badges; replaced plain square buttons with an integrated architectural editorial navigation console featuring PREV, NEXT, and dynamic 3-bar progress indicator. | COMPLETED | Solid cards, no watermark bleed, unified high-end navigation HUD, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -77,6 +78,8 @@ Module 38: Vertically Expanded Standing Title & Full Slide Control Streamline
 - Module 30 (Directional Animations & ArcGallery Controls Streamline): Maintained small 30-32px header hamburger icon; removed drag rectangle button and yellow indicators from Section 03; reduced navigation button sizes to compact `w-6 h-6 sm:w-6.5 sm:h-6.5` squares; deployed GPU-accelerated multi-directional Framer Motion animations (sliding up/down and left/right) across all sections with hardware acceleration and single-fire viewport triggers (`once: true`) for butter-smooth performance.
 - Module 31 (Apple-Style Clean Portrait & GSAP Scroll Parallax): Removed black border, yellow corner brackets, top telemetry overlay, bottom coordinate tag, and figure caption from the About portrait; added `.apple-portrait-card` with clean Apple-style drop shadows and luxurious grayscale-to-color hover transition; deployed bidirectional GSAP ScrollTrigger parallax on the portrait and across background watermarks, timeline blueprint, and tech monolith for fluid scroll depth when moving up and down.
 - Module 32 (Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization): Anchored Section 03 & Section 02 background watermarks to remain stationary; deployed multi-speed topward/bottomward GSAP parallax across Landing Page texts (bio, coordinates, telemetry blocks), Timeline career rows, Statement text, and Case Studies cards.
+- Modules 33-38 (Carousel Imagery, Borderless Slides & Vertical Standing Titles): Streamlined carousel presentation to full-bleed imagery, hidden details on default display with slide-up reveal on demand, eliminated badges and borders, decreased 'PROJECTS' watermark tracking, and transformed project titles to massive standing vertical typography (`writingMode: 'vertical-rl'`).
+- Module 39 (Flank Cards 100% Opacity, Click-to-View Removal & Editorial Navigation Dock): Set left and right flank cards to solid 100% opacity (`opacity: 1`) to eliminate background watermark text bleed; removed 'CLICK TO VIEW' prompts; replaced plain isolated square navigation buttons with an architectural editorial navigation dock featuring PREV / NEXT actions, 01 / 03 index tracker, and dynamic 3-bar progress segments. Verified bidirectional keyboard navigation and drag gesture integration.
 
 ## Current blockers
 - None.

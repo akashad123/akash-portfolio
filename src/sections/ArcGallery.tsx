@@ -30,21 +30,19 @@ export const ArcGallery: React.FC = () => {
   const isDraggingRef = useRef(false);
 
   /**
-   * Rotate Right:
-   * Moves center card to the right, and glides the left card into the center.
-   * Triggered by clicking the right button (>), dragging rightward, or clicking the left flank card.
+   * Go to Previous Project:
+   * Moves index backward and glides the left flank card into the center.
    */
-  const rotateRight = () => {
+  const handlePrev = () => {
     setShowDetails(false);
     setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
   /**
-   * Rotate Left:
-   * Moves center card to the left, and glides the right card into the center.
-   * Triggered by clicking the left button (<), dragging leftward, or clicking the right flank card.
+   * Go to Next Project:
+   * Moves index forward and glides the right flank card into the center.
    */
-  const rotateLeft = () => {
+  const handleNext = () => {
     setShowDetails(false);
     setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
@@ -56,8 +54,8 @@ export const ArcGallery: React.FC = () => {
       if (!section) return;
       const rect = section.getBoundingClientRect();
       if (rect.top <= window.innerHeight * 0.7 && rect.bottom >= window.innerHeight * 0.3) {
-        if (e.key === 'ArrowRight') rotateRight();
-        if (e.key === 'ArrowLeft') rotateLeft();
+        if (e.key === 'ArrowRight') handleNext();
+        if (e.key === 'ArrowLeft') handlePrev();
         if (e.key === 'Escape') {
           setShowDetails(false);
           setModalProject(null);
@@ -82,11 +80,11 @@ export const ArcGallery: React.FC = () => {
     const velocityThreshold = 120;
 
     if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-      // Dragged right (e.g. pulling left card toward center)
-      rotateRight();
+      // Dragged right (pulling left card toward center)
+      handlePrev();
     } else if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-      // Dragged left (e.g. pulling right card toward center)
-      rotateLeft();
+      // Dragged left (pulling right card toward center)
+      handleNext();
     }
   };
 
@@ -105,7 +103,7 @@ export const ArcGallery: React.FC = () => {
       x: '-76%',
       scale: 0.78,
       rotate: -10,
-      opacity: 0.55,
+      opacity: 1,
       zIndex: 10,
       filter: 'grayscale(100%)',
       transition: { type: 'spring' as const, stiffness: 320, damping: 28 },
@@ -114,7 +112,7 @@ export const ArcGallery: React.FC = () => {
       x: '76%',
       scale: 0.78,
       rotate: 10,
-      opacity: 0.55,
+      opacity: 1,
       zIndex: 10,
       filter: 'grayscale(100%)',
       transition: { type: 'spring' as const, stiffness: 320, damping: 28 },
@@ -196,15 +194,15 @@ export const ArcGallery: React.FC = () => {
                 animate={variantKey}
                 whileHover={
                   isLeft
-                    ? { scale: 0.82, opacity: 0.85, rotate: -6 }
+                    ? { scale: 0.82, opacity: 1, rotate: -6 }
                     : isRight
-                    ? { scale: 0.82, opacity: 0.85, rotate: 6 }
+                    ? { scale: 0.82, opacity: 1, rotate: 6 }
                     : undefined
                 }
                 onClick={() => {
                   if (isDraggingRef.current) return;
-                  if (isLeft) rotateRight();
-                  else if (isRight) rotateLeft();
+                  if (isLeft) handlePrev();
+                  else if (isRight) handleNext();
                   else if (isCenter && !showDetails) setShowDetails(true);
                 }}
                 className={`absolute w-[280px] sm:w-[340px] md:w-[390px] h-[330px] sm:h-[365px] md:h-[400px] overflow-hidden bg-neutral-950 transition-shadow duration-300 rounded-none border-0 ${
@@ -228,21 +226,16 @@ export const ArcGallery: React.FC = () => {
                 <div className="absolute inset-y-0 left-0 w-32 sm:w-40 bg-gradient-to-r from-black/85 via-black/40 to-transparent pointer-events-none z-10" />
                 <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
 
-                {/* 3. Flank Cards Overlay (Click to bring into view) */}
+                {/* 3. Flank Cards Overlay (Clean, no click-to-view text) */}
                 {!isCenter && (
-                  <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors z-10 p-4 sm:p-5 flex flex-col justify-between">
+                  <div className="absolute inset-0 z-10 p-4 sm:p-5 flex flex-col justify-start">
                     <div className="pointer-events-none">
                       <h3
                         style={{ writingMode: 'vertical-rl' }}
-                        className="font-display text-3xl sm:text-4xl md:text-5xl text-white/85 font-black uppercase tracking-[0.08em] sm:tracking-[0.12em] leading-none drop-shadow-lg select-none"
+                        className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-black uppercase tracking-[0.08em] sm:tracking-[0.12em] leading-none drop-shadow-lg select-none"
                       >
                         {project.title}
                       </h3>
-                    </div>
-                    <div className="self-end mt-auto">
-                      <span className="bg-black/90 text-white font-mono text-[9px] px-2.5 py-1 tracking-widest uppercase border border-white/20 shadow-md">
-                        {isLeft ? '‹ CLICK TO VIEW' : 'CLICK TO VIEW ›'}
-                      </span>
                     </div>
                   </div>
                 )}
@@ -375,23 +368,50 @@ export const ArcGallery: React.FC = () => {
           })}
         </motion.div>
 
-        {/* Reduced-Size Sleek Left and Right Navigation Buttons */}
-        <div className="flex items-center space-x-2 mt-3 select-none">
+        {/* Architectural Editorial Navigation Dock */}
+        <div className="flex items-center mt-3 select-none border border-black bg-white divide-x divide-black/20 shadow-xs">
           <button
-            onClick={rotateLeft}
-            className="w-6 h-6 sm:w-6.5 sm:h-6.5 bg-neutral-100 hover:bg-black hover:text-white active:scale-90 transition-all border border-black/20 flex items-center justify-center font-mono rounded-none shadow-xs cursor-pointer"
+            type="button"
+            onClick={handlePrev}
+            className="group h-7 sm:h-7.5 px-3 bg-white hover:bg-black text-black hover:text-white transition-all flex items-center space-x-1.5 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest cursor-pointer"
             aria-label="Previous work"
-            title="Slide left (center moves left)"
+            title="Previous project"
           >
-            <ChevronLeft size={12} strokeWidth={2.5} />
+            <ChevronLeft size={13} className="stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
+            <span>PREV</span>
           </button>
+
+          <div className="h-7 sm:h-7.5 px-3 bg-neutral-50 flex items-center space-x-2 font-mono text-[10px] text-neutral-600">
+            <span className="text-black font-extrabold tracking-wider">
+              {String(activeIndex + 1).padStart(2, '0')}
+            </span>
+            <span className="text-neutral-400">/</span>
+            <span className="text-neutral-500">
+              {String(projects.length).padStart(2, '0')}
+            </span>
+            <div className="flex items-center space-x-1 ml-1">
+              {projects.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`h-1.5 transition-all duration-300 ${
+                    idx === activeIndex
+                      ? 'w-5 bg-brand-yellow border border-black/30'
+                      : 'w-1.5 bg-neutral-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
           <button
-            onClick={rotateRight}
-            className="w-6 h-6 sm:w-6.5 sm:h-6.5 bg-neutral-100 hover:bg-black hover:text-white active:scale-90 transition-all border border-black/20 flex items-center justify-center font-mono rounded-none shadow-xs cursor-pointer"
+            type="button"
+            onClick={handleNext}
+            className="group h-7 sm:h-7.5 px-3 bg-white hover:bg-black text-black hover:text-white transition-all flex items-center space-x-1.5 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest cursor-pointer"
             aria-label="Next work"
-            title="Slide right (center moves right)"
+            title="Next project"
           >
-            <ChevronRight size={12} strokeWidth={2.5} />
+            <span>NEXT</span>
+            <ChevronRight size={13} className="stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
       </motion.div>
