@@ -14,11 +14,15 @@ export const portfolioData: PortfolioData = {
     status: "FULL STACK DEVELOPER AT NRITHYA DANCES",
 
     statement: {
-      beforeHighlight: "BRIDGING FRONTEND CRAFTSMANSHIP WITH FULL STACK ARCHITECTURAL RIGOR, I ",
-      highlight1: "TRANSFORM COMPLEX CHALLENGES INTO REAL-WORLD OPERATIONAL SOFTWARE.",
-      middleText: " FROM PIXEL-PERFECT INTERFACES TO AUTONOMOUS AI PIPELINES, EVERY SYSTEM IS AN OPERATIONAL COMMITMENT TO DELIVER EXPERIENCES THAT ARE ",
-      highlight2: "FAST, RESILIENT, AND PRODUCTION-TESTED.",
-      afterText: ""
+      beforeHighlight: "I BUILD DIGITAL PRODUCTS THAT ARE ",
+      highlight1: "SIMPLE, FAST, AND BUILT TO SCALE.",
+      middleText: "",
+      highlight2: "",
+      afterText: "",
+      paragraphs: [
+        "From polished frontend experiences to full-stack systems, I turn complex ideas into reliable, real-world software.",
+        "I focus on clean interfaces, strong architecture, and practical solutions that are fast, resilient, and production-ready."
+      ]
     },
 
     socials: {

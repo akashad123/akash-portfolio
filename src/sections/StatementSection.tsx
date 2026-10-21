@@ -35,8 +35,8 @@ export const StatementSection: React.FC = () => {
   const segments: TextSegment[] = [
     { text: statement.beforeHighlight, isHighlight: false },
     { text: statement.highlight1, isHighlight: true },
-    { text: statement.middleText, isHighlight: false },
-    { text: statement.highlight2, isHighlight: true },
+    ...(statement.middleText ? [{ text: statement.middleText, isHighlight: false }] : []),
+    ...(statement.highlight2 ? [{ text: statement.highlight2, isHighlight: true }] : []),
     ...(statement.afterText ? [{ text: statement.afterText, isHighlight: false }] : []),
   ];
 
@@ -51,8 +51,8 @@ export const StatementSection: React.FC = () => {
 
       {/* Stable Background Watermark Typography (Stationary, subtle grey) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <span className="font-display text-[15vw] sm:text-[18vw] uppercase text-neutral-100 font-extrabold tracking-tighter leading-none select-none">
-          PHILOSOPHY
+        <span className="font-display text-[16vw] sm:text-[18vw] uppercase text-neutral-200 font-extrabold tracking-tight leading-none select-none">
+          ABOUT
         </span>
       </div>
 
@@ -66,9 +66,9 @@ export const StatementSection: React.FC = () => {
           custom={0.05}
           className="flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500"
         >
-          <span>02 // CORE PHILOSOPHY</span>
-          <span className="bg-black text-white px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase">
-            PHILOSOPHY
+          <span>02 // ABOUT & CORE PHILOSOPHY</span>
+          <span className="bg-brand-yellow text-black px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase">
+            ABOUT
           </span>
         </motion.div>
 
@@ -85,15 +85,29 @@ export const StatementSection: React.FC = () => {
           >
             <div ref={textRef} className="will-change-transform">
               <div className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase mb-4 flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 bg-black" />
-                <span>CORE ARCHITECTURAL ETHOS</span>
+                <span className="w-1.5 h-1.5 bg-brand-yellow" />
+                <span>ABOUT // CORE ETHOS</span>
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl tracking-tight uppercase leading-snug sm:leading-tight text-black text-left">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight uppercase leading-snug sm:leading-tight text-black text-left">
                 <ScrollReveal
                   segments={segments}
                   containerRef={sectionRef}
                 />
               </h2>
+
+              {/* Supporting Editorial Paragraphs */}
+              {statement.paragraphs && statement.paragraphs.length > 0 && (
+                <div className="mt-6 sm:mt-8 space-y-3.5 border-l-2 border-brand-yellow pl-4 sm:pl-5 max-w-2xl">
+                  {statement.paragraphs.map((p, idx) => (
+                    <p
+                      key={idx}
+                      className="text-sm sm:text-base md:text-lg text-neutral-700 leading-relaxed font-sans"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
           </motion.div>
 

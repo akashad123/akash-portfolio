@@ -77,6 +77,7 @@ export interface PortfolioData {
       middleText: string;
       highlight2: string;
       afterText: string;
+      paragraphs?: string[];
     };
     socials: {
       github: string;

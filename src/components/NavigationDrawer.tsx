@@ -16,7 +16,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
 }) => {
   const navLinks = [
     { number: '01', label: 'OVERVIEW', href: '#hero', desc: 'FULL STACK PROFILE & ARCHITECTURE' },
-    { number: '02', label: 'PHILOSOPHY', href: '#statement', desc: 'FULL STACK ENGINEERING PHILOSOPHY' },
+    { number: '02', label: 'ABOUT', href: '#statement', desc: 'ABOUT & CORE PHILOSOPHY' },
     { number: '03', label: 'SELECTED WORKS', href: '#projects', desc: 'ORBITAL PRODUCTION GALLERY' },
   ];
 
