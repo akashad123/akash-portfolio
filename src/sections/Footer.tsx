@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { Github, Mail, ArrowUp } from 'lucide-react';
 import {
-  fadeInTransition,
-  sectionInitial,
-  sectionWhileInView,
   sectionViewportConfig,
+  fadeInLeftVariants,
+  fadeInRightVariants,
+  fadeInUpVariants,
 } from '../utils/motion';
 
 interface FooterProps {
@@ -21,16 +21,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
   };
 
   return (
-    <motion.footer
-      initial={sectionInitial}
-      whileInView={sectionWhileInView}
-      viewport={sectionViewportConfig}
-      transition={fadeInTransition}
-      className="relative bg-[#050505] text-white pt-20 pb-12 px-4 sm:px-8 md:px-12 border-t border-white/10 select-none"
+    <footer
+      className="relative bg-[#050505] text-white pt-20 pb-12 px-4 sm:px-8 md:px-12 border-t border-white/10 select-none overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Massive Editorial Brand Statement in Footer */}
-        <div className="border-b border-white/10 pb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
+        {/* Massive Editorial Brand Statement in Footer - Slides up */}
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportConfig}
+          custom={0.05}
+          className="border-b border-white/10 pb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-8"
+        >
           <div>
             <span className="text-xs font-mono text-brand-yellow tracking-widest uppercase block mb-2">
               AVAILABLE FOR HIGH-IMPACT COLLABORATIONS
@@ -42,16 +45,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
 
           <button
             onClick={onOpenContact}
-            className="bg-brand-yellow text-black font-display text-sm tracking-widest uppercase font-bold px-10 py-5 hover:bg-[#E5C200] transition-colors rounded-none shadow-xl shrink-0"
+            className="bg-brand-yellow text-black font-display text-sm tracking-widest uppercase font-bold px-10 py-5 hover:bg-[#E5C200] transition-colors rounded-none shadow-xl shrink-0 cursor-pointer"
           >
             START AN ENGAGEMENT
           </button>
-        </div>
+        </motion.div>
 
         {/* Multi-Column Architectural Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-16 border-b border-white/10">
-          {/* Col 1: Identity & Bio */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Col 1: Identity & Bio - Slides in from left */}
+          <motion.div
+            variants={fadeInLeftVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.12}
+            className="md:col-span-5 space-y-4"
+          >
             <div className="flex items-center space-x-2">
               <span className="font-display text-3xl tracking-tighter text-white">
                 {developer.name}
@@ -67,10 +77,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             <div className="text-xs font-mono text-neutral-500 pt-2">
               LOCATION: {developer.location}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Col 2: Navigation Links */}
-          <div className="md:col-span-3 space-y-3">
+          {/* Col 2: Navigation Links - Slides up */}
+          <motion.div
+            variants={fadeInUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.18}
+            className="md:col-span-3 space-y-3"
+          >
             <span className="text-xs font-mono text-brand-yellow uppercase tracking-widest block mb-4">
               SITE MAP
             </span>
@@ -106,10 +123,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Col 3: Direct Contacts & Channels */}
-          <div className="md:col-span-4 space-y-3">
+          {/* Col 3: Direct Contacts & Channels - Slides in from right */}
+          <motion.div
+            variants={fadeInRightVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.24}
+            className="md:col-span-4 space-y-3"
+          >
             <span className="text-xs font-mono text-brand-yellow uppercase tracking-widest block mb-4">
               DISPATCH CHANNELS
             </span>
@@ -147,11 +171,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Bottom Credits & Back-to-Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-neutral-500 gap-4">
+        {/* Bottom Credits & Back-to-Top - Slides up smoothly */}
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportConfig}
+          custom={0.3}
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-neutral-500 gap-4"
+        >
           <div>
             © {new Date().getFullYear()} AKASH. MOTORSPORT EDITORIAL ART DIRECTION. ALL RIGHTS RESERVED.
           </div>
@@ -163,8 +194,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             <span>BACK TO ASCENT</span>
             <ArrowUp size={14} className="group-hover:-translate-y-1 transition-transform" />
           </button>
-        </div>
+        </motion.div>
       </div>
-    </motion.footer>
+    </footer>
   );
 };

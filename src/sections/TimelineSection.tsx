@@ -4,29 +4,32 @@ import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { Briefcase, GraduationCap } from 'lucide-react';
 import {
-  fadeInTransition,
-  sectionInitial,
-  sectionWhileInView,
   sectionViewportConfig,
+  fadeInDownVariants,
+  fadeInUpVariants,
+  fadeInScaleVariants,
 } from '../utils/motion';
 
 export const TimelineSection: React.FC = () => {
   const { experience, education } = portfolioData;
 
   return (
-    <motion.section
+    <section
       id="timeline"
-      initial={sectionInitial}
-      whileInView={sectionWhileInView}
-      viewport={sectionViewportConfig}
-      transition={fadeInTransition}
       className="relative min-h-screen bg-black text-white py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
     >
       {/* Dark Grid Background */}
       <GridBackground theme="dark" columns={8} />
 
-      {/* Top Header */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-white/10 pb-4 text-xs font-mono tracking-widest text-neutral-400">
+      {/* Top Header - Slides down smoothly */}
+      <motion.div
+        variants={fadeInDownVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewportConfig}
+        custom={0.05}
+        className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-white/10 pb-4 text-xs font-mono tracking-widest text-neutral-400"
+      >
         <div className="flex items-center space-x-2">
           <Briefcase size={14} className="text-brand-yellow" />
           <span>04 // CAREER & ENGAGEMENTS TIMELINE</span>
@@ -34,13 +37,20 @@ export const TimelineSection: React.FC = () => {
         <span className="bg-brand-yellow text-black font-bold px-2 py-0.5 text-[10px] tracking-widest uppercase">
           CHRONOLOGY
         </span>
-      </div>
+      </motion.div>
 
       {/* Center Layout with Tabular Rows and Central Intersecting Visual */}
       <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
         <div className="relative">
-          {/* Central Vertical Intersecting High-Tech Blueprint Visual (Matching Motorsport Car in Reference 4) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 md:w-80 pointer-events-none opacity-20 lg:opacity-40 z-0">
+          {/* Central Vertical Intersecting High-Tech Blueprint Visual - Scales smoothly in background */}
+          <motion.div
+            variants={fadeInScaleVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.1}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 md:w-80 pointer-events-none opacity-20 lg:opacity-40 z-0"
+          >
             <div className="relative border-2 border-brand-yellow/60 bg-black/90 p-4 shadow-2xl flex flex-col items-center justify-between h-[480px]">
               {/* Top Wing / Spoiler */}
               <div className="w-full bg-brand-yellow text-black font-mono text-[10px] font-bold text-center py-1 tracking-widest">
@@ -64,14 +74,19 @@ export const TimelineSection: React.FC = () => {
                 <span>FULL STACK // WEB</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Tabular Rows Stack */}
           <div className="relative z-10 space-y-0">
-            {/* Experience Rows */}
+            {/* Experience Rows - Staggered slide up */}
             {experience.map((exp, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                variants={fadeInUpVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewportConfig}
+                custom={0.1 + idx * 0.08}
                 className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-black/40 backdrop-blur-[2px] px-4"
               >
                 {/* Left: Role & Sequence Title */}
@@ -102,13 +117,18 @@ export const TimelineSection: React.FC = () => {
                     {exp.duration}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             ))}
 
-            {/* Education Rows */}
+            {/* Education Rows - Staggered slide up */}
             {education.map((edu, idx) => (
-              <div
+              <motion.div
                 key={`edu-${idx}`}
+                variants={fadeInUpVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewportConfig}
+                custom={0.25 + idx * 0.08}
                 className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-black/40 backdrop-blur-[2px] px-4"
               >
                 <div className="md:col-span-5">
@@ -134,17 +154,24 @@ export const TimelineSection: React.FC = () => {
                     {edu.duration}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Bottom Footer */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-500">
+      {/* Bottom Footer - Slides up smoothly */}
+      <motion.div
+        variants={fadeInUpVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewportConfig}
+        custom={0.3}
+        className="relative z-10 max-w-7xl mx-auto w-full pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-500"
+      >
         <span>EXPERIENCE VERIFICATION AVAILABLE UPON REQUEST</span>
         <span>PRODUCTION INCIDENT LOGS: ZERO</span>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };

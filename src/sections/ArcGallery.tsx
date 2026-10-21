@@ -4,10 +4,9 @@ import { portfolioData } from '../data/portfolioData';
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GridBackground } from '../components/GridBackground';
 import {
-  fadeInTransition,
-  sectionInitial,
-  sectionWhileInView,
   sectionViewportConfig,
+  fadeInDownVariants,
+  fadeInUpVariants,
 } from '../utils/motion';
 
 /**
@@ -108,12 +107,8 @@ export const ArcGallery: React.FC = () => {
   };
 
   return (
-    <motion.section
+    <section
       id="projects"
-      initial={sectionInitial}
-      whileInView={sectionWhileInView}
-      viewport={sectionViewportConfig}
-      transition={fadeInTransition}
       className="relative h-screen max-h-screen overflow-hidden bg-white text-black py-3 sm:py-5 px-3 sm:px-6 md:px-10 flex flex-col justify-between border-b border-black/10 select-none"
     >
       {/* Light Theme Grid */}
@@ -126,8 +121,15 @@ export const ArcGallery: React.FC = () => {
         </span>
       </div>
 
-      {/* Top Header */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-2 text-xs font-mono tracking-widest text-neutral-500">
+      {/* Top Header - Slides down smoothly */}
+      <motion.div
+        variants={fadeInDownVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewportConfig}
+        custom={0.05}
+        className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-2 text-xs font-mono tracking-widest text-neutral-500"
+      >
         <div className="flex items-center space-x-2">
           <span>03 // SELECTED WORKS</span>
           <span className="bg-brand-yellow text-black font-bold px-1.5 py-0.5 text-[10px]">
@@ -139,20 +141,17 @@ export const ArcGallery: React.FC = () => {
           <span>/</span>
           <span>{String(projects.length).padStart(2, '0')}</span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main Curved Orbital Arc Presentation (Strictly sized to fit inside 100vh) */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full my-auto flex flex-col items-center justify-center">
-        {/* Animated DRAG Pill */}
-        <motion.div
-          animate={{ x: [0, 4, -4, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-          className="mb-1.5 bg-brand-yellow text-black font-mono text-[10px] sm:text-xs font-bold px-3 py-0.5 flex items-center space-x-1.5 tracking-widest uppercase shadow-sm select-none cursor-grab active:cursor-grabbing border border-black/15"
-        >
-          <span>DRAG</span>
-          <span className="font-extrabold">⇄</span>
-        </motion.div>
-
+      <motion.div
+        variants={fadeInUpVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewportConfig}
+        custom={0.15}
+        className="relative z-10 max-w-7xl mx-auto w-full my-auto flex flex-col items-center justify-center"
+      >
         {/* Draggable Orbital Track Container */}
         <motion.div
           drag="x"
@@ -298,64 +297,39 @@ export const ArcGallery: React.FC = () => {
           })}
         </motion.div>
 
-        {/* Speedometer Radial Gauge & Reduced-Size Navigation Controls (Strictly inside 100vh) */}
-        <div className="mt-2 flex flex-col items-center justify-center select-none">
-          {/* Animated Speedometer / Ticks Indicator */}
-          <div className="flex items-center space-x-1.5 my-0.5">
-            {projects.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIndex(idx)}
-                className="group p-1 flex flex-col items-center cursor-pointer"
-                aria-label={`Go to project ${idx + 1}`}
-              >
-                <motion.div
-                  animate={{
-                    height: idx === activeIndex ? 22 : 12,
-                    backgroundColor: idx === activeIndex ? '#FDD60A' : '#D4D4D4',
-                    scale: idx === activeIndex ? 1.15 : 1,
-                  }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-                  className="w-1.5 transition-colors group-hover:bg-neutral-600 rounded-none shadow-sm"
-                />
-                <motion.div
-                  animate={{
-                    opacity: idx === activeIndex ? 1 : 0,
-                    scale: idx === activeIndex ? 1 : 0.5,
-                  }}
-                  className="w-1 h-1 bg-black mt-1"
-                />
-              </button>
-            ))}
-          </div>
-
-          {/* Reduced-Size Sleek Left and Right Navigation Buttons */}
-          <div className="flex items-center space-x-2 mt-1">
-            <button
-              onClick={rotateLeft}
-              className="w-7 h-7 sm:w-8 sm:h-8 bg-neutral-100 hover:bg-black hover:text-white active:scale-90 transition-all border border-black/20 flex items-center justify-center font-mono rounded-none shadow-sm cursor-pointer"
-              aria-label="Previous work"
-              title="Slide left (center moves left)"
-            >
-              <ChevronLeft size={14} strokeWidth={2.5} />
-            </button>
-            <button
-              onClick={rotateRight}
-              className="w-7 h-7 sm:w-8 sm:h-8 bg-neutral-100 hover:bg-black hover:text-white active:scale-90 transition-all border border-black/20 flex items-center justify-center font-mono rounded-none shadow-sm cursor-pointer"
-              aria-label="Next work"
-              title="Slide right (center moves right)"
-            >
-              <ChevronRight size={14} strokeWidth={2.5} />
-            </button>
-          </div>
+        {/* Reduced-Size Sleek Left and Right Navigation Buttons */}
+        <div className="flex items-center space-x-2 mt-3 select-none">
+          <button
+            onClick={rotateLeft}
+            className="w-6 h-6 sm:w-6.5 sm:h-6.5 bg-neutral-100 hover:bg-black hover:text-white active:scale-90 transition-all border border-black/20 flex items-center justify-center font-mono rounded-none shadow-xs cursor-pointer"
+            aria-label="Previous work"
+            title="Slide left (center moves left)"
+          >
+            <ChevronLeft size={12} strokeWidth={2.5} />
+          </button>
+          <button
+            onClick={rotateRight}
+            className="w-6 h-6 sm:w-6.5 sm:h-6.5 bg-neutral-100 hover:bg-black hover:text-white active:scale-90 transition-all border border-black/20 flex items-center justify-center font-mono rounded-none shadow-xs cursor-pointer"
+            aria-label="Next work"
+            title="Slide right (center moves right)"
+          >
+            <ChevronRight size={12} strokeWidth={2.5} />
+          </button>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Clean Bottom Coordinate Bar */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full pt-1.5 border-t border-black/10 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-neutral-500">
+      {/* Clean Bottom Coordinate Bar - Slides up smoothly */}
+      <motion.div
+        variants={fadeInUpVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewportConfig}
+        custom={0.25}
+        className="relative z-10 max-w-7xl mx-auto w-full pt-1.5 border-t border-black/10 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-neutral-500"
+      >
         <span>INTERACTIVE ARC PHYSICS // SWIPE ⇄</span>
         <span>VERIFIED CODE REPOSITORIES AVAILABLE</span>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };

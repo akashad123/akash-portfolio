@@ -1,6 +1,7 @@
 /**
  * Global Framer Motion physics and transitions for editorial portfolio.
- * Features ultra-smooth cubic-bezier curves [0.16, 1, 0.3, 1] inspired by high-end editorial and typography sites.
+ * High-performance, hardware-accelerated animations using transforms & opacity.
+ * Features ultra-smooth cubic-bezier curves [0.16, 1, 0.3, 1] inspired by luxury motorsport typography.
  */
 
 export const editorialEase = [0.16, 1, 0.3, 1] as const;
@@ -22,29 +23,14 @@ export const sectionWhileInView = {
 
 export const sectionViewportConfig = {
   once: true,
-  amount: 0.08,
+  amount: 0.1,
   margin: '0px 0px -40px 0px',
 } as const;
 
-export const heroInitial = {
-  opacity: 0,
-  y: 20,
-} as const;
-
-export const heroAnimate = {
-  opacity: 1,
-  y: 0,
-} as const;
-
-export const heroTransition = {
-  duration: 0.95,
-  ease: editorialEase,
-  delay: 0.05,
-} as const;
-
+// Header animation presets
 export const headerInitial = {
   opacity: 0,
-  y: -10,
+  y: -12,
 } as const;
 
 export const headerAnimate = {
@@ -57,3 +43,49 @@ export const headerTransition = {
   ease: editorialEase,
   delay: 0.1,
 } as const;
+
+// Directional Motion Variants (High-Performance GPU-Accelerated)
+export const fadeInUpVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: editorialEase, delay },
+  }),
+};
+
+export const fadeInDownVariants = {
+  hidden: { opacity: 0, y: -16 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: editorialEase, delay },
+  }),
+};
+
+export const fadeInLeftVariants = {
+  hidden: { opacity: 0, x: -28 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: editorialEase, delay },
+  }),
+};
+
+export const fadeInRightVariants = {
+  hidden: { opacity: 0, x: 28 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: editorialEase, delay },
+  }),
+};
+
+export const fadeInScaleVariants = {
+  hidden: { opacity: 0, scale: 0.94 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.75, ease: editorialEase, delay },
+  }),
+};

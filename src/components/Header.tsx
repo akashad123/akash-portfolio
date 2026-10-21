@@ -57,14 +57,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMenu }) => {
         {/* Sleek Compact Yellow Square Hamburger Trigger with 2 horizontal black bars */}
         <button
           onClick={onOpenMenu}
-          className="pointer-events-auto w-8 h-8 sm:w-8.5 sm:h-8.5 bg-brand-yellow text-black flex flex-col items-center justify-center gap-1 hover:bg-[#E5C200] active:scale-95 transition-all shadow-sm rounded-none border border-black/10 cursor-pointer"
+          className="pointer-events-auto w-7.5 h-7.5 sm:w-8 sm:h-8 bg-brand-yellow text-black flex flex-col items-center justify-center gap-[3.5px] hover:bg-[#E5C200] active:scale-90 transition-all shadow-sm rounded-none border border-black/10 cursor-pointer"
           aria-label="Open navigation menu"
         >
-          <span className="w-4 h-[2px] bg-black block" />
-          <span className="w-4 h-[2px] bg-black block" />
+          <span className="w-3.5 h-[2px] bg-black block" />
+          <span className="w-3.5 h-[2px] bg-black block" />
         </button>
       </div>
     </motion.header>
   );
 };
-

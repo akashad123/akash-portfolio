@@ -4,10 +4,12 @@ import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { Layers } from 'lucide-react';
 import {
-  fadeInTransition,
-  sectionInitial,
-  sectionWhileInView,
   sectionViewportConfig,
+  fadeInDownVariants,
+  fadeInLeftVariants,
+  fadeInRightVariants,
+  fadeInUpVariants,
+  fadeInScaleVariants,
 } from '../utils/motion';
 
 export const EcosystemGrid: React.FC = () => {
@@ -37,18 +39,21 @@ export const EcosystemGrid: React.FC = () => {
   ];
 
   return (
-    <motion.section
+    <section
       id="ecosystem"
-      initial={sectionInitial}
-      whileInView={sectionWhileInView}
-      viewport={sectionViewportConfig}
-      transition={fadeInTransition}
       className="relative min-h-screen bg-white text-black py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-black/10 select-none"
     >
       <GridBackground theme="light" columns={8} />
 
-      {/* Top Header */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500">
+      {/* Top Header - Slides down smoothly */}
+      <motion.div
+        variants={fadeInDownVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewportConfig}
+        custom={0.05}
+        className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500"
+      >
         <div className="flex items-center space-x-2">
           <Layers size={14} className="text-black" />
           <span>06 // TECH STACK & SYSTEM ECOSYSTEM</span>
@@ -56,13 +61,20 @@ export const EcosystemGrid: React.FC = () => {
         <span className="bg-black text-white font-bold px-2 py-0.5 text-[10px] tracking-widest uppercase">
           PRODUCTION ARSENAL
         </span>
-      </div>
+      </motion.div>
 
       {/* Symmetrical Architectural Grid with Centerpiece (Matching Screenshot 1) */}
       <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          {/* Left Column of Partner / Tech Logos */}
-          <div className="lg:col-span-4 grid grid-cols-2 gap-4">
+          {/* Left Column of Partner / Tech Logos - Slides in from left */}
+          <motion.div
+            variants={fadeInLeftVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.1}
+            className="lg:col-span-4 grid grid-cols-2 gap-4"
+          >
             {leftStack.map((item, idx) => (
               <div
                 key={idx}
@@ -77,10 +89,17 @@ export const EcosystemGrid: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Centerpiece Column: High-Impact Visual Monolith Artifact (Matching Helmet in Screenshot 1) */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center p-4">
+          {/* Centerpiece Column: High-Impact Visual Monolith Artifact - Scales smoothly in center */}
+          <motion.div
+            variants={fadeInScaleVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.2}
+            className="lg:col-span-4 flex flex-col items-center justify-center p-4"
+          >
             <div className="relative w-56 sm:w-64 md:w-72 aspect-square border-4 border-black bg-neutral-900 shadow-2xl flex flex-col items-center justify-between p-6 overflow-hidden">
               {/* Top Racing / Engineering Stripe */}
               <div className="w-full bg-brand-yellow text-black font-mono text-[10px] font-extrabold text-center py-1 tracking-widest uppercase">
@@ -109,10 +128,17 @@ export const EcosystemGrid: React.FC = () => {
                 <span>ZERO DRIFT</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column of Partner / Tech Logos */}
-          <div className="lg:col-span-4 grid grid-cols-2 gap-4">
+          {/* Right Column of Partner / Tech Logos - Slides in from right */}
+          <motion.div
+            variants={fadeInRightVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.15}
+            className="lg:col-span-4 grid grid-cols-2 gap-4"
+          >
             {rightStack.map((item, idx) => (
               <div
                 key={idx}
@@ -127,11 +153,18 @@ export const EcosystemGrid: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        {/* Skills Concepts Category Strip */}
-        <div className="mt-12 pt-8 border-t border-black/10">
+        {/* Skills Concepts Category Strip - Slides up */}
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportConfig}
+          custom={0.25}
+          className="mt-12 pt-8 border-t border-black/10"
+        >
           <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-4">
             FULL STACK WEB & ARCHITECTURE COMPETENCIES
           </span>
@@ -145,14 +178,21 @@ export const EcosystemGrid: React.FC = () => {
               </span>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Bottom Footer */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500">
+      {/* Bottom Footer - Slides up smoothly */}
+      <motion.div
+        variants={fadeInUpVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={sectionViewportConfig}
+        custom={0.3}
+        className="relative z-10 max-w-7xl mx-auto w-full pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500"
+      >
         <span>ALL TECHNOLOGIES DEPLOYED IN PRODUCTION ENVIRONMENTS</span>
         <span>MODERN FULL STACK WEB ARCHITECTURE</span>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };

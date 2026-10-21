@@ -4,10 +4,11 @@ import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { ScrollReveal, TextSegment } from '../components/ScrollReveal';
 import {
-  fadeInTransition,
-  sectionInitial,
-  sectionWhileInView,
   sectionViewportConfig,
+  fadeInLeftVariants,
+  fadeInRightVariants,
+  fadeInDownVariants,
+  fadeInUpVariants,
 } from '../utils/motion';
 
 export const StatementSection: React.FC = () => {
@@ -23,13 +24,9 @@ export const StatementSection: React.FC = () => {
   ];
 
   return (
-    <motion.section
+    <section
       ref={sectionRef}
       id="statement"
-      initial={sectionInitial}
-      whileInView={sectionWhileInView}
-      viewport={sectionViewportConfig}
-      transition={fadeInTransition}
       className="relative min-h-screen bg-white text-black flex flex-col justify-between py-16 sm:py-20 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-black/10 select-none"
     >
       {/* Light Theme Architectural Grid */}
@@ -43,18 +40,32 @@ export const StatementSection: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between">
-        {/* Section Top Header */}
-        <div className="flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500">
+        {/* Section Top Header - Animates down from top */}
+        <motion.div
+          variants={fadeInDownVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportConfig}
+          custom={0.05}
+          className="flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500"
+        >
           <span>02 // CORE PHILOSOPHY</span>
           <span className="bg-black text-white px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase">
             PHILOSOPHY
           </span>
-        </div>
+        </motion.div>
 
         {/* Main Content Grid: Left Text Statement | Right Framed Architectural Portrait */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center my-auto py-8 sm:py-12">
-          {/* Left Column: Scroll Reveal Typography (Aligned to Left) */}
-          <div className="lg:col-span-7 xl:col-span-8 text-left">
+          {/* Left Column: Scroll Reveal Typography - Slides in from left */}
+          <motion.div
+            variants={fadeInLeftVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.15}
+            className="lg:col-span-7 xl:col-span-8 text-left"
+          >
             <div className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase mb-4 flex items-center space-x-2">
               <span className="w-1.5 h-1.5 bg-black" />
               <span>CORE ARCHITECTURAL ETHOS</span>
@@ -65,10 +76,17 @@ export const StatementSection: React.FC = () => {
                 containerRef={sectionRef}
               />
             </h2>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Editorial Framed Portrait of Akash */}
-          <div className="lg:col-span-5 xl:col-span-4 flex flex-col items-center lg:items-end justify-center">
+          {/* Right Column: Editorial Framed Portrait of Akash - Slides in from right */}
+          <motion.div
+            variants={fadeInRightVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewportConfig}
+            custom={0.25}
+            className="lg:col-span-5 xl:col-span-4 flex flex-col items-center lg:items-end justify-center"
+          >
             <div className="relative group w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px] lg:max-w-[360px] aspect-[3/4] bg-neutral-900 border-2 border-black shadow-xl overflow-hidden rounded-none">
               {/* Editorial Yellow Corner Framing Brackets */}
               <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-brand-yellow z-20 pointer-events-none" />
@@ -104,15 +122,22 @@ export const StatementSection: React.FC = () => {
               <span className="text-brand-yellow font-bold">›</span>
               <span>FIG 01 // ARCHITECTURAL PORTRAIT</span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Clean Bottom Coordinate Bar */}
-        <div className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500">
+        {/* Clean Bottom Coordinate Bar - Animates up from bottom */}
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportConfig}
+          custom={0.35}
+          className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500"
+        >
           <span>SECTION 02</span>
           <span>CORE PHILOSOPHY // SCROLL REVEAL</span>
-        </div>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };

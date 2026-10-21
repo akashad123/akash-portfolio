@@ -3,7 +3,12 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { ArrowDown, Terminal, MapPin } from 'lucide-react';
-import { heroInitial, heroAnimate, heroTransition } from '../utils/motion';
+import {
+  fadeInLeftVariants,
+  fadeInRightVariants,
+  fadeInDownVariants,
+  fadeInUpVariants,
+} from '../utils/motion';
 
 interface HeroProfileProps {
   onOpenContact: () => void;
@@ -12,18 +17,14 @@ interface HeroProfileProps {
 export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   const { developer } = portfolioData;
 
-
   const scrollToStatement = () => {
     const el = document.getElementById('statement');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <motion.section
+    <section
       id="hero"
-      initial={heroInitial}
-      animate={heroAnimate}
-      transition={heroTransition}
       className="relative min-h-screen bg-black text-white flex flex-col justify-between pt-28 pb-12 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-white/10"
     >
       {/* Background Architectural Grid Lines */}
@@ -34,8 +35,14 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
 
       {/* Main Hero Composition */}
       <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between">
-        {/* Top Coordinates Bar */}
-        <div className="flex items-center justify-between border-b border-white/10 pb-4 text-xs font-mono tracking-widest text-neutral-400">
+        {/* Top Coordinates Bar - Slides down smoothly */}
+        <motion.div
+          variants={fadeInDownVariants}
+          initial="hidden"
+          animate="visible"
+          custom={0.1}
+          className="flex items-center justify-between border-b border-white/10 pb-4 text-xs font-mono tracking-widest text-neutral-400"
+        >
           <div className="flex items-center space-x-2">
             <MapPin size={12} className="text-brand-yellow" />
             <span>{developer.location}</span>
@@ -43,12 +50,18 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           <div className="text-neutral-400 uppercase tracking-widest text-[11px]">
             {developer.role}
           </div>
-        </div>
+        </motion.div>
 
         {/* Main Grid: Left Bio | Right Active Stack, Experience & Availability */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center my-10 md:my-20">
-          {/* Left Column: Bio & Deploy Action */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+          {/* Left Column: Bio & Deploy Action - Slides in from left */}
+          <motion.div
+            variants={fadeInLeftVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0.2}
+            className="lg:col-span-7 flex flex-col justify-between space-y-6"
+          >
             <p className="text-base sm:text-lg font-mono text-neutral-300 max-w-xl leading-relaxed">
               {developer.bio}
             </p>
@@ -56,15 +69,21 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             <div className="pt-2">
               <button
                 onClick={onOpenContact}
-                className="bg-brand-yellow text-black font-display text-xs tracking-widest uppercase font-bold px-6 py-3 hover:bg-[#E5C200] transition-colors rounded-none"
+                className="bg-brand-yellow text-black font-display text-xs tracking-widest uppercase font-bold px-6 py-3 hover:bg-[#E5C200] transition-colors rounded-none cursor-pointer"
               >
                 DEPLOY CONTRACT
               </button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Active Stack, Experience & Current Availability */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6 text-left lg:text-right">
+          {/* Right Column: Active Stack, Experience & Current Availability - Slides in from right */}
+          <motion.div
+            variants={fadeInRightVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0.3}
+            className="lg:col-span-5 flex flex-col justify-between space-y-6 text-left lg:text-right"
+          >
             <div className="space-y-4 lg:space-y-6">
               <div className="border-l lg:border-l-0 lg:border-r border-white/20 pl-4 lg:pl-0 lg:pr-4">
                 <div className="text-xs font-mono tracking-wider text-neutral-500 uppercase">
@@ -94,13 +113,17 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-
-
-        {/* Bottom Bar with Scroll Indicator */}
-        <div className="border-t border-white/10 pt-4 flex items-center justify-between text-xs font-mono text-neutral-500">
+        {/* Bottom Bar with Scroll Indicator - Slides up smoothly */}
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          animate="visible"
+          custom={0.4}
+          className="border-t border-white/10 pt-4 flex items-center justify-between text-xs font-mono text-neutral-500"
+        >
           <div className="flex items-center space-x-2">
             <Terminal size={14} className="text-brand-yellow" />
             <span>MERN // GEMINI API // SUPABASE // AWS EC2</span>
@@ -113,8 +136,8 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             <span>SCROLL TO DISCOVER</span>
             <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" />
           </button>
-        </div>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
