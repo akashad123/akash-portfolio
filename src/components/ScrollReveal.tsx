@@ -4,6 +4,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 export interface TextSegment {
   text: string;
   isHighlight?: boolean;
+  breakBefore?: boolean;
 }
 
 interface CharacterProps {
@@ -155,22 +156,29 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
           );
         });
 
-        if (segment.isHighlight) {
-          return (
-            <span
-              key={sIdx}
-              className="text-brand-yellow bg-black px-2 sm:px-2.5 py-0.5 inline-block mx-1 my-1 shadow-sm rounded-none align-middle"
-            >
-              {renderedWords}
-            </span>
-          );
-        }
-
-        return (
+        const content = segment.isHighlight ? (
+          <span
+            key={sIdx}
+            className="text-brand-yellow bg-black px-2 sm:px-2.5 py-0.5 inline-block mx-1 my-1 shadow-sm rounded-none align-middle"
+          >
+            {renderedWords}
+          </span>
+        ) : (
           <React.Fragment key={sIdx}>
             {renderedWords}
           </React.Fragment>
         );
+
+        if (segment.breakBefore) {
+          return (
+            <React.Fragment key={sIdx}>
+              <span className="block h-3 sm:h-5 w-full" aria-hidden="true" />
+              {content}
+            </React.Fragment>
+          );
+        }
+
+        return content;
       })}
     </span>
   );

@@ -35,7 +35,7 @@ export const StatementSection: React.FC = () => {
   const segments: TextSegment[] = [
     { text: statement.beforeHighlight, isHighlight: false },
     { text: statement.highlight1, isHighlight: true },
-    ...(statement.middleText ? [{ text: statement.middleText, isHighlight: false }] : []),
+    ...(statement.middleText ? [{ text: statement.middleText, isHighlight: false, breakBefore: true }] : []),
     ...(statement.highlight2 ? [{ text: statement.highlight2, isHighlight: true }] : []),
     ...(statement.afterText ? [{ text: statement.afterText, isHighlight: false }] : []),
   ];
@@ -88,7 +88,7 @@ export const StatementSection: React.FC = () => {
                 <span className="w-1.5 h-1.5 bg-brand-yellow" />
                 <span>ABOUT // CORE ETHOS</span>
               </div>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight uppercase leading-snug sm:leading-tight text-black text-left">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl tracking-tight uppercase leading-snug sm:leading-tight text-black text-left">
                 <ScrollReveal
                   segments={segments}
                   containerRef={sectionRef}

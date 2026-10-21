@@ -16,13 +16,10 @@ export const portfolioData: PortfolioData = {
     statement: {
       beforeHighlight: "I BUILD DIGITAL PRODUCTS THAT ARE ",
       highlight1: "SIMPLE, FAST, AND BUILT TO SCALE.",
-      middleText: "",
-      highlight2: "",
+      middleText: "FROM POLISHED FRONTEND EXPERIENCES TO FULL-STACK SYSTEMS, I TURN COMPLEX IDEAS INTO RELIABLE, REAL-WORLD SOFTWARE. I FOCUS ON CLEAN INTERFACES, STRONG ARCHITECTURE, AND PRACTICAL SOLUTIONS THAT ARE ",
+      highlight2: "FAST, RESILIENT, AND PRODUCTION-READY.",
       afterText: "",
-      paragraphs: [
-        "From polished frontend experiences to full-stack systems, I turn complex ideas into reliable, real-world software.",
-        "I focus on clean interfaces, strong architecture, and practical solutions that are fast, resilient, and production-ready."
-      ]
+      paragraphs: []
     },
 
     socials: {
