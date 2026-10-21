@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 39: Flank Cards 100% Opacity, Click-to-View Removal & Architectural Editorial Navigation Dock
+Module 40: Career Timeline Layout Streamline & Clutter Removal
 
 ## Task list
 
@@ -52,6 +52,7 @@ Module 39: Flank Cards 100% Opacity, Click-to-View Removal & Architectural Edito
 | 37 | Tightened 'PROJECTS' Watermark Letter Spacing | Decreased space between letters in 'PROJECTS' watermark from wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`, retaining clear `text-neutral-200` visibility with classic bold typography. | COMPLETED | Tightly grouped architectural letters, balanced aesthetic, verified build |
 | 38 | Vertically Expanded Standing Title & Full Slide Control Streamline | Removed VIEW DETAILS, GitHub, and Live link buttons, and project subtitles from carousel slides; transformed project titles into massive vertically expanded typography standing from top to bottom (`writingMode: 'vertical-rl'`). | COMPLETED | Pure poster aesthetics, zero clutter, dramatic vertical height |
 | 39 | Flank Cards 100% Opacity, Click-to-View Removal & Editorial Navigation Dock | Set flank card opacities to solid 100% (opacity: 1) to eliminate background bleed; removed 'CLICK TO VIEW' badges; replaced plain square buttons with an integrated architectural editorial navigation console featuring PREV, NEXT, and dynamic 3-bar progress indicator. | COMPLETED | Solid cards, no watermark bleed, unified high-end navigation HUD, verified build |
+| 40 | Career Timeline Layout Streamline & Clutter Removal | Removed 'ENTRY 01' and 'ENTRY 02' labels; stripped center descriptions across all rows; restructured MCA education row with 'Pursuing S4' and 'LEAD College, Palakkad' stacked below the degree title; retained '2025 – 2027' duration; removed bottom telemetry coordinate bar. | COMPLETED | Clean 2-column tabular layout, responsive flex spacing, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -80,6 +81,7 @@ Module 39: Flank Cards 100% Opacity, Click-to-View Removal & Architectural Edito
 - Module 32 (Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization): Anchored Section 03 & Section 02 background watermarks to remain stationary; deployed multi-speed topward/bottomward GSAP parallax across Landing Page texts (bio, coordinates, telemetry blocks), Timeline career rows, Statement text, and Case Studies cards.
 - Modules 33-38 (Carousel Imagery, Borderless Slides & Vertical Standing Titles): Streamlined carousel presentation to full-bleed imagery, hidden details on default display with slide-up reveal on demand, eliminated badges and borders, decreased 'PROJECTS' watermark tracking, and transformed project titles to massive standing vertical typography (`writingMode: 'vertical-rl'`).
 - Module 39 (Flank Cards 100% Opacity, Click-to-View Removal & Editorial Navigation Dock): Set left and right flank cards to solid 100% opacity (`opacity: 1`) to eliminate background watermark text bleed; removed 'CLICK TO VIEW' prompts; replaced plain isolated square navigation buttons with an architectural editorial navigation dock featuring PREV / NEXT actions, 01 / 03 index tracker, and dynamic 3-bar progress segments. Verified bidirectional keyboard navigation and drag gesture integration.
+- Module 40 (Career Timeline Layout Streamline & Clutter Removal): Removed 'ENTRY 01' and 'ENTRY 02' labels from career rows; stripped center text descriptions across all rows; restructured MCA education row with 'Pursuing S4' and 'LEAD College, Palakkad' stacked below the degree title; retained '2025 – 2027' duration; removed bottom telemetry coordinate bar. Verified GSAP bidirectional parallax and responsive flex layout.
 
 ## Current blockers
 - None.

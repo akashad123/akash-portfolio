@@ -252,9 +252,10 @@ export const portfolioData: PortfolioData = {
 
   education: [
     {
-      degree: "Master of Computer Applications (MCA) — Pursuing S4",
+      degree: "Master of Computer Applications (MCA)",
       institution: "LEAD College, Palakkad",
-      duration: "2025 – 2027"
+      duration: "2025 – 2027",
+      status: "Pursuing S4"
     },
     {
       degree: "Bachelor of Science in Computer Science",

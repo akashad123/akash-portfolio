@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–39
+- Current module: Completed Modules 1–40
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -92,6 +92,12 @@ This file is the persistent handoff record for the project.
   1. Solid Flank Cards (100% Opacity): Set `cardVariants.left` and `cardVariants.right` and hover states to `opacity: 1`, preventing background watermark letters from bleeding through.
   2. Clean Slide Surface: Removed all `CLICK TO VIEW` prompt badges from flank cards.
   3. Architectural Editorial Navigation Dock: Replaced plain detached square buttons with an integrated editorial console dock with `PREV`, `01 / 03` counter, dynamic 3-bar progress segments, and `NEXT`, matching the portfolio's architectural aesthetic and sharp 0px border radius.
+- Completed Module 40 (Career Timeline Layout Streamline & Clutter Removal):
+  1. Removed 'ENTRY 01 —' and 'ENTRY 02 —' labels from the left side of career rows.
+  2. Removed all center descriptions (`Currently working as a Full Stack Developer...`, `Engineered scalable web applications...`, `ACADEMIC FOUNDATION IN COMPUTER SCIENCE`).
+  3. Formatted dates cleanly on the right: `Jul 2026 – Present` for Nrithya Dances, `Mar 2024 – Mar 2025` for Stratagile, and `2025 – 2027` for MCA.
+  4. Restructured MCA education row: Main heading `Master of Computer Applications (MCA)`, with `Pursuing S4` stacked below in bold brand yellow, and `LEAD College, Palakkad` stacked below that in neutral-400.
+  5. Removed bottom telemetry coordinate bar (`EXPERIENCE VERIFICATION AVAILABLE UPON REQUEST` and `PRODUCTION INCIDENT LOGS: ZERO`).
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

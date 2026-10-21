@@ -52,6 +52,7 @@ export interface EducationItem {
   degree: string;
   institution: string;
   duration: string;
+  status?: string;
 }
 
 export interface MetricStat {
