@@ -3,6 +3,7 @@ import { motion, PanInfo, Variants } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GridBackground } from '../components/GridBackground';
+import { initGsapParallax } from '../utils/gsapParallax';
 import {
   sectionViewportConfig,
   fadeInDownVariants,
@@ -19,6 +20,18 @@ export const ArcGallery: React.FC = () => {
   const projects = portfolioData.projects;
   const [activeIndex, setActiveIndex] = useState(0);
   const isDraggingRef = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const watermarkRef = useRef<HTMLDivElement>(null);
+
+  // GSAP Parallax on GALLERY watermark typography
+  useEffect(() => {
+    const cleanup = initGsapParallax(watermarkRef.current, sectionRef.current, {
+      yStart: 80,
+      yEnd: -80,
+      scrub: 1.2,
+    });
+    return cleanup;
+  }, []);
 
   /**
    * Rotate Right:
@@ -108,14 +121,18 @@ export const ArcGallery: React.FC = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="projects"
       className="relative h-screen max-h-screen overflow-hidden bg-white text-black py-3 sm:py-5 px-3 sm:px-6 md:px-10 flex flex-col justify-between border-b border-black/10 select-none"
     >
       {/* Light Theme Grid */}
       <GridBackground theme="light" columns={8} />
 
-      {/* Background Watermark Typography */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+      {/* Background Watermark Typography with GSAP Scroll Parallax */}
+      <div
+        ref={watermarkRef}
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0 will-change-transform"
+      >
         <span className="font-display text-[20vw] uppercase text-neutral-100 font-extrabold tracking-tighter leading-none">
           GALLERY
         </span>

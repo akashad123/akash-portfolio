@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 30: Multi-Directional High-Performance Framer Motion Animations & ArcGallery Control Streamlining
+Module 31: Apple-Style Pristine Portrait Framing & Multi-Section GSAP ScrollTrigger Parallax
 
 ## Task list
 
@@ -30,19 +30,20 @@ Module 30: Multi-Directional High-Performance Framer Motion Animations & ArcGall
 | 15 | Hero Typography Cleanup | Remove AKASH from top left, EDITORIAL PORTFOLIO, quote, set AVAILABLE | COMPLETED | Clean minimalistic hero layout, verified build |
 | 16 | Engagement Status Update | Update status to reflect active internship at Nrithya Dances | COMPLETED | Set to INTERNING AT NRITHYA DANCES |
 | 17 | Developer Statement Tone | Refactor statement from QA/tester tone to software developer/architect | COMPLETED | "I'm driven by the craft of building..." |
-| 18 | Transparent Navbar & Minimal Header | Transparent header, 'AD' monogram, yellow 2-bar hamburger, 3-item menu (Overview, Philosophy, Selected Works) | COMPLETED | Removed 'Get in Touch', transparent fixed navbar, exact match to reference screenshot |
+| 18 | Transparent Navbar & Minimal Header | Transparent header, 'AD' monogram, yellow 2-bar square hamburger, removed 'Get in Touch', and streamlined menu overlay strictly to Overview, Philosophy, and Selected Works | COMPLETED | Removed 'Get in Touch', transparent fixed navbar, exact match to reference screenshot |
 | 19 | Forward Deployed Engineer (FDE) Narrative | Reposition whole portfolio identity, bio, statement, case studies, metadata, and writings to FDE | COMPLETED | Ground-truth verification, frontline operational execution, production deployment tone |
 | 20 | Frontend Developer → FDE Transition Calibration | Set current availability to Full Stack Developer at Nrithya Dances, position developer as Frontend Developer transitioning to FDE | COMPLETED | Restored Nrithya Dances full stack role, calibrated bio & statement to bridge frontend craftsmanship with FDE rigor |
-| 21 | Core Philosophy Simplification & Landing Polish | Removed left/right flanking images, reduced statement font size, removed bottom Akash text, removed // TARGET: FDE and FRONTEND DEVELOPER → | COMPLETED | Clean minimalist central typography for Core Philosophy, clean landing coordinates and active stack |
-| 22 | ArcGallery 100vh & Real Drag Physics | Contained Section 03 within 100vh, integrated navigation buttons inside viewport, added real Framer Motion dragging & spring tilt | COMPLETED | Active drag physics with swipe thresholds, animated speedometer dial, keyboard arrow support, strictly 100vh |
-| 23 | Continuous Orbital Flow & Real Drag Across Cards | Continuous 3D orbital carousel flow, unified drag on cards/stage, clicking/dragging right brings left card to center, compact buttons | COMPLETED | Synchronized card spring animations, sleek w-7/w-8 buttons, left-to-center physics, verified build |
-| 24 | Transition to Full Stack Web Developer Everywhere | Remove Forward Deployed Engineer (FDE) and establish Full Stack Web Developer consistently across entire portfolio | COMPLETED | Updated data, navigation drawer, footer, timeline, ecosystem grid, HTML metadata, and env configs |
+| 21 | Core Philosophy Simplification & Landing Polish | Removed flanking images and bottom text from Section 02, reduced typography size for clean responsive balance, removed `// TARGET: FDE` from Hero active stack, and removed `FRONTEND DEVELOPER →` prefix from role and metadata. | COMPLETED | Clean minimalist central typography for Core Philosophy, clean landing coordinates and active stack |
+| 22 | ArcGallery 100vh & Real Drag Physics | Fixed section to strict 100vh with no vertical scrolling needed, incorporated `<` and `>` buttons inside the viewport, added real drag gestures with rotation and elastic spring physics, and animated the speedometer dial. | COMPLETED | Active drag physics with swipe thresholds, animated speedometer dial, keyboard arrow support, strictly 100vh |
+| 23 | Continuous Orbital Flow & Real Drag Across Cards | Continuous 3D orbital carousel flow, unified drag gesture across all cards and stage, left-to-center physics, and compact nav buttons. | COMPLETED | Synchronized card spring animations, sleek w-7/w-8 buttons, left-to-center physics, verified build |
+| 24 | Transition to Full Stack Web Developer Everywhere | Remove Forward Deployed Engineer (FDE) and establish Full Stack Web Developer consistently across entire portfolio. | COMPLETED | Updated data, navigation drawer, footer, timeline, ecosystem grid, HTML metadata, and env configs |
 | 25 | ScrollReveal Text Animation on Core Philosophy | Letter-by-letter unblur and opacity reveal on scroll (React Bits pattern) for Section 02 Core Philosophy | COMPLETED | Created reusable ScrollReveal component, mapped scroll progression across viewport entry, verified build |
-| 26 | Compact Hamburger Icon & Kinetic Spring Text Reveal | Reduced top-right hamburger icon size and re-engineered Core Philosophy reveal with lively spring motion (no blur) | COMPLETED | Compact w-8 hamburger button, letter-by-letter physical pop-up spring, angular settling, interactive hover physics |
-| 27 | Background Watermark Typography | Subtle PHILOSOPHY watermark typography in faint gray in Core Philosophy background | COMPLETED | text-neutral-100 on white background, pointer-events-none, high-contrast legibility preserved |
-| 28 | Framer Motion Viewport Fade-In | Global Framer Motion fade-in entrance for landing hero, and viewport fade-in transitions across Core Philosophy, Selected Works, Timeline, Case Studies, Tech Ecosystem, and Footer | COMPLETED | Created src/utils/motion.ts and FadeInView component; smooth cubic-bezier [0.16, 1, 0.3, 1] editorial ease |
-| 29 | Core Philosophy 2-Column Layout with Portrait | Moved ScrollReveal text to left side and integrated uploaded high-res portrait in sharp editorial frame on right side | COMPLETED | 12-col responsive grid, 0px radius, yellow telemetry accents, hover grayscale-to-color transition, mobile-responsive |
-| 30 | Directional Animations & ArcGallery Controls Streamline | Multi-directional GPU-accelerated Framer animations across all sections (up/down/left/right); removed drag rectangle and yellow indicators; reduced navigation button sizes; kept hamburger compact | COMPLETED | Zero-jank hardware-accelerated transforms, once: true viewport config, streamlined minimalistic controls |
+| 26 | Compact Hamburger Icon & Kinetic Spring Text Reveal | Reduced top-right header hamburger icon footprint from 44px to sleek 30-32px square, and replaced blurry text reveal in Section 02 with lively letter-by-letter spring pop-up motion (y: 28px -> 0px, scale: 0.65 -> 1.0, rotate: -6deg -> 0deg) and interactive hover bounce. | COMPLETED | Compact w-8 hamburger button, letter-by-letter physical pop-up spring, angular settling, interactive hover physics |
+| 27 | Background Watermark Typography | Added subtle PHILOSOPHY watermark typography in faint gray (text-neutral-100) behind the Core Philosophy statement. | COMPLETED | text-neutral-100 on white background, pointer-events-none, high-contrast legibility preserved |
+| 28 | Framer Motion Viewport Fade-In | Engineered centralized motion system in `src/utils/motion.ts` with custom cubic-bezier `[0.16, 1, 0.3, 1]` curve. | COMPLETED | Smooth landing entrance animation, viewport fade-ins with once: true preservation |
+| 29 | Core Philosophy 2-Column Layout with Portrait | Restructured Section 02 into an asymmetrical 12-column editorial grid with text on left and portrait on right. | COMPLETED | 12-col responsive grid, 0px radius, hover grayscale-to-color transition, mobile-responsive |
+| 30 | Directional Animations & ArcGallery Controls Streamline | Multi-directional GPU-accelerated Framer animations across all sections; removed drag rectangle and yellow indicators; reduced navigation button sizes; kept hamburger compact. | COMPLETED | Zero-jank hardware-accelerated transforms, once: true viewport config, streamlined minimalistic controls |
+| 31 | Apple-Style Clean Portrait & GSAP Scroll Parallax | Removed black outline, telemetry tags, coordinate badges, and caption from portrait; added .apple-portrait-card styling; implemented GSAP ScrollTrigger bidirectional parallax across Statement, ArcGallery, Timeline, Ecosystem, and Hero. | COMPLETED | Pristine Apple product showcase aesthetics, silky smooth scroll scrub up/down, gsap.context lifecycle |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -67,6 +68,7 @@ Module 30: Multi-Directional High-Performance Framer Motion Animations & ArcGall
 - Module 28 (Framer Motion Viewport Fade-In): Engineered centralized motion system in `src/utils/motion.ts` with custom cubic-bezier `[0.16, 1, 0.3, 1]` curve. Applied smooth landing entrance animation to HeroProfile and Header, and seamless viewport fade-in transitions (`whileInView`) across Core Philosophy, Selected Works, Career Timeline, Production Case Studies, Tech Ecosystem, and Editorial Footer with `once: true` preservation.
 - Module 29 (Core Philosophy 2-Column Layout with Portrait): Restructured Section 02 into an asymmetrical 12-column editorial grid. Positioned the kinetic spring ScrollReveal text on the left (`lg:col-span-7 xl:col-span-8`, `text-left`) and placed the user's uploaded portrait on the right (`lg:col-span-5 xl:col-span-4`) encased in a sharp 0px border-radius frame with yellow telemetry accents, subject identification tags, and interactive grayscale-to-color hover transition.
 - Module 30 (Directional Animations & ArcGallery Controls Streamline): Maintained small 30-32px header hamburger icon; removed drag rectangle button and yellow indicators from Section 03; reduced navigation button sizes to compact `w-6 h-6 sm:w-6.5 sm:h-6.5` squares; deployed GPU-accelerated multi-directional Framer Motion animations (sliding up/down and left/right) across all sections with hardware acceleration and single-fire viewport triggers (`once: true`) for butter-smooth performance.
+- Module 31 (Apple-Style Clean Portrait & GSAP Scroll Parallax): Removed black border, yellow corner brackets, top telemetry overlay, bottom coordinate tag, and figure caption from the About portrait; added `.apple-portrait-card` with clean Apple-style drop shadows and luxurious grayscale-to-color hover transition; deployed bidirectional GSAP ScrollTrigger parallax on the portrait and across background watermarks, timeline blueprint, and tech monolith for fluid scroll depth when moving up and down.
 
 ## Current blockers
 - None.
@@ -75,7 +77,7 @@ Module 30: Multi-Directional High-Performance Framer Motion Animations & ArcGall
 User review of live development server at `http://localhost:3000/`, followed by optional production hosting deployment on Vercel.
 
 ## Verification
-- Build: PASSED (`tsc -b && vite build` built in 8.38s, 0 errors)
+- Build: PASSED (`tsc -b && vite build` completed with 0 errors)
 - Lint: PASSED (strict type checking enabled)
 - Git Remote: Pushed to `origin/main` (https://github.com/akashad123/akash-portfolio)
 - Tests: N/A (static UI with local validation)

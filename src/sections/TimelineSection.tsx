@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { Briefcase, GraduationCap } from 'lucide-react';
+import { initGsapParallax } from '../utils/gsapParallax';
 import {
   sectionViewportConfig,
   fadeInDownVariants,
@@ -12,9 +13,22 @@ import {
 
 export const TimelineSection: React.FC = () => {
   const { experience, education } = portfolioData;
+  const sectionRef = useRef<HTMLElement>(null);
+  const blueprintRef = useRef<HTMLDivElement>(null);
+
+  // GSAP Scroll Parallax on Blueprint Element
+  useEffect(() => {
+    const cleanup = initGsapParallax(blueprintRef.current, sectionRef.current, {
+      yStart: -45,
+      yEnd: 45,
+      scrub: 1.5,
+    });
+    return cleanup;
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="timeline"
       className="relative min-h-screen bg-black text-white py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
     >
@@ -42,7 +56,7 @@ export const TimelineSection: React.FC = () => {
       {/* Center Layout with Tabular Rows and Central Intersecting Visual */}
       <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
         <div className="relative">
-          {/* Central Vertical Intersecting High-Tech Blueprint Visual - Scales smoothly in background */}
+          {/* Central Vertical Intersecting High-Tech Blueprint Visual with GSAP Parallax */}
           <motion.div
             variants={fadeInScaleVariants}
             initial="hidden"
@@ -51,7 +65,10 @@ export const TimelineSection: React.FC = () => {
             custom={0.1}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 md:w-80 pointer-events-none opacity-20 lg:opacity-40 z-0"
           >
-            <div className="relative border-2 border-brand-yellow/60 bg-black/90 p-4 shadow-2xl flex flex-col items-center justify-between h-[480px]">
+            <div
+              ref={blueprintRef}
+              className="relative border-2 border-brand-yellow/60 bg-black/90 p-4 shadow-2xl flex flex-col items-center justify-between h-[480px] will-change-transform"
+            >
               {/* Top Wing / Spoiler */}
               <div className="w-full bg-brand-yellow text-black font-mono text-[10px] font-bold text-center py-1 tracking-widest">
                 AKASH.ENGINEERING

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { Layers } from 'lucide-react';
+import { initGsapParallax } from '../utils/gsapParallax';
 import {
   sectionViewportConfig,
   fadeInDownVariants,
@@ -14,6 +15,18 @@ import {
 
 export const EcosystemGrid: React.FC = () => {
   const { skills } = portfolioData;
+  const sectionRef = useRef<HTMLElement>(null);
+  const monolithRef = useRef<HTMLDivElement>(null);
+
+  // GSAP Scroll Parallax on Centerpiece Unit
+  useEffect(() => {
+    const cleanup = initGsapParallax(monolithRef.current, sectionRef.current, {
+      yStart: 45,
+      yEnd: -45,
+      scrub: 1.4,
+    });
+    return cleanup;
+  }, []);
 
   // Flattened high-impact tech entities for architectural grid distribution (Matching Screenshot 1)
   const leftStack = [
@@ -40,6 +53,7 @@ export const EcosystemGrid: React.FC = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="ecosystem"
       className="relative min-h-screen bg-white text-black py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-black/10 select-none"
     >
@@ -91,7 +105,7 @@ export const EcosystemGrid: React.FC = () => {
             ))}
           </motion.div>
 
-          {/* Centerpiece Column: High-Impact Visual Monolith Artifact - Scales smoothly in center */}
+          {/* Centerpiece Column: High-Impact Visual Monolith Artifact with GSAP Parallax */}
           <motion.div
             variants={fadeInScaleVariants}
             initial="hidden"
@@ -100,7 +114,10 @@ export const EcosystemGrid: React.FC = () => {
             custom={0.2}
             className="lg:col-span-4 flex flex-col items-center justify-center p-4"
           >
-            <div className="relative w-56 sm:w-64 md:w-72 aspect-square border-4 border-black bg-neutral-900 shadow-2xl flex flex-col items-center justify-between p-6 overflow-hidden">
+            <div
+              ref={monolithRef}
+              className="relative w-56 sm:w-64 md:w-72 aspect-square border-4 border-black bg-neutral-900 shadow-2xl flex flex-col items-center justify-between p-6 overflow-hidden will-change-transform"
+            >
               {/* Top Racing / Engineering Stripe */}
               <div className="w-full bg-brand-yellow text-black font-mono text-[10px] font-extrabold text-center py-1 tracking-widest uppercase">
                 SYSTEM UNIT #98

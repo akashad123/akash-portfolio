@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–30
+- Current module: Completed Modules 1–31
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -56,15 +56,17 @@ This file is the persistent handoff record for the project.
      - Sized hamburger icon strictly small in navbar (`w-7.5 h-7.5 sm:w-8 sm:h-8`, `w-3.5` bars).
      - Removed drag rectangle button (`DRAG ⇄`) and yellow rectangle tick indicators from Section 03 (`ArcGallery`).
      - Reduced size of left/right slide square buttons (`w-6 h-6 sm:w-6.5 sm:h-6.5`, 12px chevron icons).
-     - Added GPU-accelerated directional Framer Motion animations across all sections:
-       - `HeroProfile`: top header down, left bio from left, right stack from right, bottom telemetry up.
-       - `StatementSection`: header down, left statement from left, right portrait from right, bottom coordinate up.
-       - `ArcGallery`: header down, orbital cards up, compact buttons up, bottom coordinates up.
-       - `TimelineSection`: header down, blueprint artifact scale, rows staggered up, bottom coordinates up.
-       - `CaseStudiesSection`: header down, intro from left, cards staggered up, bottom coordinates up.
-       - `EcosystemGrid`: header down, left stack from left, center monolith scale, right stack from right, skills strip up.
-       - `Footer`: CTA up, column 1 from left, column 2 up, column 3 from right, bottom credits up.
-       - All with `viewport={{ once: true, amount: 0.1 }}` and hardware-accelerated transforms (`transform`, `opacity`) ensuring zero performance degradation or scroll jank.
+     - Added GPU-accelerated directional Framer Motion animations across all sections (sliding up/down and left/right) with hardware acceleration and single-fire viewport triggers (`once: true`) for butter-smooth performance.
+  15. Apple-Style Clean Portrait & GSAP Scroll Parallax:
+     - Stripped the harsh black outline, telemetry tags, coordinate badges, and caption from the About section portrait.
+     - Added `.apple-portrait-card` class with pristine Apple-like styling: subtle drop shadow, zero harsh outlines, clean framing, and grayscale-to-color hover transition.
+     - Implemented GSAP ScrollTrigger bidirectional parallax animations:
+       - StatementSection: PHILOSOPHY watermark (`y: 70` to `-70`) and Apple portrait (`y: 35` to `-35`).
+       - ArcGallery: GALLERY watermark (`y: 80` to `-80`).
+       - TimelineSection: Center blueprint artifact (`y: -45` to `45`).
+       - EcosystemGrid: Monolith artifact (`y: 45` to `-45`).
+       - HeroProfile: Atmospheric background (`y: 0` to `90`).
+       - Elements glide smoothly in both directions as user scrolls up and down with `scrub: 1.2-1.5`.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
@@ -96,6 +98,7 @@ This file is the persistent handoff record for the project.
 - `src/components/ContactModal.tsx`
 - `src/components/CaseStudyModal.tsx`
 - `src/sections/Footer.tsx`
+- `src/utils/gsapParallax.ts`
 
 ## Next exact step
 User review of live development server at `http://localhost:3000/`, followed by optional production hosting deployment on Vercel.

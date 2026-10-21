@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { ArrowDown, Terminal, MapPin } from 'lucide-react';
+import { initGsapParallax } from '../utils/gsapParallax';
 import {
   fadeInLeftVariants,
   fadeInRightVariants,
@@ -16,6 +17,18 @@ interface HeroProfileProps {
 
 export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   const { developer } = portfolioData;
+  const heroRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  // GSAP Scroll Parallax on Atmospheric Radial Background
+  useEffect(() => {
+    const cleanup = initGsapParallax(bgRef.current, heroRef.current, {
+      yStart: 0,
+      yEnd: 90,
+      scrub: 1.2,
+    });
+    return cleanup;
+  }, []);
 
   const scrollToStatement = () => {
     const el = document.getElementById('statement');
@@ -24,14 +37,18 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
 
   return (
     <section
+      ref={heroRef}
       id="hero"
       className="relative min-h-screen bg-black text-white flex flex-col justify-between pt-28 pb-12 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-white/10"
     >
       {/* Background Architectural Grid Lines */}
       <GridBackground theme="dark" columns={8} />
 
-      {/* Atmospheric High-Contrast Background Media */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-800 via-black to-black" />
+      {/* Atmospheric High-Contrast Background Media with GSAP Scroll Parallax */}
+      <div
+        ref={bgRef}
+        className="absolute inset-0 z-0 pointer-events-none opacity-25 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-800 via-black to-black will-change-transform"
+      />
 
       {/* Main Hero Composition */}
       <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between">
