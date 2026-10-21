@@ -8,14 +8,12 @@ import {
   sectionViewportConfig,
   fadeInDownVariants,
   fadeInUpVariants,
-  fadeInScaleVariants,
 } from '../utils/motion';
 
 export const TimelineSection: React.FC = () => {
   const { experience, education } = portfolioData;
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const blueprintRef = useRef<HTMLDivElement>(null);
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
   const eduRef = useRef<HTMLDivElement>(null);
@@ -29,7 +27,6 @@ export const TimelineSection: React.FC = () => {
         { target: row1Ref.current, yStart: 35, yEnd: -40, scrub: 1.1 },
         { target: row2Ref.current, yStart: 50, yEnd: -55, scrub: 1.25 },
         { target: eduRef.current, yStart: 65, yEnd: -70, scrub: 1.4 },
-        { target: blueprintRef.current, yStart: -45, yEnd: 45, scrub: 1.3 },
         { target: bottomRef.current, yStart: 20, yEnd: -20, scrub: 1 },
       ],
       sectionRef.current
@@ -66,46 +63,9 @@ export const TimelineSection: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Center Layout with Tabular Rows and Central Intersecting Visual */}
+      {/* Center Layout with Clean Tabular Rows */}
       <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
         <div className="relative">
-          {/* Central Vertical Intersecting High-Tech Blueprint Visual with GSAP Parallax */}
-          <motion.div
-            variants={fadeInScaleVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewportConfig}
-            custom={0.1}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 sm:w-64 md:w-80 pointer-events-none opacity-20 lg:opacity-40 z-0"
-          >
-            <div
-              ref={blueprintRef}
-              className="relative border-2 border-brand-yellow/60 bg-black/90 p-4 shadow-2xl flex flex-col items-center justify-between h-[480px] will-change-transform"
-            >
-              {/* Top Wing / Spoiler */}
-              <div className="w-full bg-brand-yellow text-black font-mono text-[10px] font-bold text-center py-1 tracking-widest">
-                AKASH.ENGINEERING
-              </div>
-
-              {/* Number 98 Center Badge */}
-              <div className="text-center my-auto">
-                <span className="font-display text-7xl text-white font-extrabold tracking-tight">
-                  98
-                </span>
-                <div className="text-[10px] font-mono text-brand-yellow uppercase tracking-widest">
-                  FULL-STACK // AI
-                </div>
-              </div>
-
-              {/* Bottom Badges */}
-              <div className="w-full border-t border-white/20 pt-2 flex items-center justify-between text-[9px] font-mono text-neutral-400 px-2">
-                <span>SYS 01</span>
-                <span>CORE STACK</span>
-                <span>FULL STACK // WEB</span>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Tabular Rows Stack with GSAP Parallax on Content */}
           <div className="relative z-10 space-y-0">
             {/* Experience Row 1 - Nrithya Dances */}

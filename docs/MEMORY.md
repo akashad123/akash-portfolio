@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–35
+- Current module: Completed Modules 1–36
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -76,7 +76,10 @@ This file is the persistent handoff record for the project.
      - Removed top category/workspace badges (`project.tag`) and top year badges (`project.date`) from the top of the cards for complete visual minimalism.
      - Removed black outlines/borders from the carousel cards (`border-0` with clean ambient drop shadows).
   19. Background Watermark Calibration ('PROJECTS') (Module 35):
-     - Updated Section 03 background watermark text from `GALLERY` to `PROJECTS` in subtle `text-neutral-100 font-display font-extrabold tracking-tighter leading-none select-none`, matching `PHILOSOPHY` in Section 02.
+     - Updated Section 03 background watermark text from `GALLERY` to `PROJECTS`.
+  20. Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing (Module 36):
+     - Removed the intersecting central blueprint card (`98 FULL-STACK // AI`, `AKASH.ENGINEERING`) from Section 04 (`TimelineSection.tsx`), providing clean, unobscured visibility for career and academic entries.
+     - Enhanced `PROJECTS` background watermark visibility in Section 03 (`ArcGallery.tsx`) with visible `text-neutral-200` tint and expansive letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`), allowing `P  R  O  J  E  C  T  S` to span broadly across the screen.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 

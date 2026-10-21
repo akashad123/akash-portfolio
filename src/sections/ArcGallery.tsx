@@ -129,9 +129,9 @@ export const ArcGallery: React.FC = () => {
       {/* Light Theme Grid */}
       <GridBackground theme="light" columns={8} />
 
-      {/* Stable Background Watermark Typography */}
+      {/* Stable Background Watermark Typography with Expanded Spacing */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <span className="font-display text-[16vw] sm:text-[18vw] uppercase text-neutral-100 font-extrabold tracking-tighter leading-none select-none">
+        <span className="font-display text-[11vw] sm:text-[13vw] md:text-[15vw] uppercase text-neutral-200 font-extrabold tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em] leading-none select-none">
           PROJECTS
         </span>
       </div>

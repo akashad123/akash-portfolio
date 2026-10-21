@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 35: Background Watermark Calibration ('PROJECTS')
+Module 36: Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing
 
 ## Task list
 
@@ -48,6 +48,7 @@ Module 35: Background Watermark Calibration ('PROJECTS')
 | 33 | Full-Bleed Carousel Slides & Interactive Details-On-Demand | Expanded carousel images to cover 100% of slide area edge-to-edge; hidden descriptive bullets and tech tags on default display; implemented spring slide-up details panel on click with close toggle and fullscreen `ProjectDetailModal` dialog. | COMPLETED | Edge-to-edge full bleed imagery, zero visual clutter on current display, smooth spring details reveal, verified build |
 | 34 | Carousel Minimalist Controls & Borderless Refinement | Reduced VIEW DETAILS to sleek h-6 compact button; sized GitHub and Live buttons to matching small h-6/w-6 dimensions; removed top category/workspace badges, top year badges, and black card outlines for pristine borderless presentation. | COMPLETED | Clean borderless image slides, synchronized compact button heights, zero top clutter |
 | 35 | Background Watermark Calibration ('PROJECTS') | Updated Section 03 background watermark text from 'GALLERY' to 'PROJECTS' in subtle text-neutral-100 font-display typography, identical in style to 'PHILOSOPHY' in the About section. | COMPLETED | High-contrast readability preserved, stationary non-intrusive backdrop, verified build |
+| 36 | Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing | Removed intersecting '98 Full Stack AI' blueprint rectangle from Career Timeline; enhanced 'PROJECTS' watermark contrast with visible neutral-200 tint and wide expanded letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`). | COMPLETED | Clean timeline rows with zero visual obstruction, widely spaced high-visibility watermark |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
