@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 32: Content-Wide Topward & Bottomward GSAP Scroll Parallax & Stationary Background Watermark Fix
+Module 33: Full-Bleed Carousel Slides & Interactive Details-On-Demand
 
 ## Task list
 
@@ -45,6 +45,7 @@ Module 32: Content-Wide Topward & Bottomward GSAP Scroll Parallax & Stationary B
 | 30 | Directional Animations & ArcGallery Controls Streamline | Multi-directional GPU-accelerated Framer animations across all sections; removed drag rectangle and yellow indicators; reduced navigation button sizes; kept hamburger compact. | COMPLETED | Zero-jank hardware-accelerated transforms, once: true viewport config, streamlined minimalistic controls |
 | 31 | Apple-Style Clean Portrait & GSAP Scroll Parallax | Removed black border, yellow corner brackets, top telemetry overlay, bottom coordinate tag, and figure caption from the About portrait; added .apple-portrait-card styling; implemented GSAP ScrollTrigger bidirectional parallax across Statement, ArcGallery, Timeline, Ecosystem, and Hero. | COMPLETED | Pristine Apple product showcase aesthetics, silky smooth scroll scrub up/down, gsap.context lifecycle |
 | 32 | Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization | Anchored Section 03 & Section 02 background watermarks to remain stationary; deployed multi-speed topward/bottomward GSAP parallax across Landing Page texts (bio, coordinates, telemetry blocks), Timeline career rows, Statement text, and Case Studies cards. | COMPLETED | Silky bidirectional inertia on actual content, zero background shift in ArcGallery, responsive & hardware-accelerated |
+| 33 | Full-Bleed Carousel Slides & Interactive Details-On-Demand | Expanded carousel images to cover 100% of slide area edge-to-edge; hidden descriptive bullets and tech tags on default display; implemented spring slide-up details panel on click with close toggle and fullscreen `ProjectDetailModal` dialog. | COMPLETED | Edge-to-edge full bleed imagery, zero visual clutter on current display, smooth spring details reveal, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.

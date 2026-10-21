@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–32
+- Current module: Completed Modules 1–33
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -63,13 +63,13 @@ This file is the persistent handoff record for the project.
   16. Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization (Module 32):
      - Anchored Section 03 (`GALLERY`) and Section 02 (`PHILOSOPHY`) background watermarks to remain stationary and calm, resolving distracting scroll translation.
      - Created reusable `initGsapMultiParallax` helper in `src/utils/gsapParallax.ts` managing `gsap.context()` for React 19 StrictMode safety.
-     - Deployed bidirectional (topward and bottomward) GSAP ScrollTrigger parallax scrub across content:
-       - Landing Page (`HeroProfile.tsx`): top coordinates (`y: 0` to `-25`), bio & CTA button (`y: 0` to `-45`), active stack (`y: 0` to `-35`), experience counter (`y: 0` to `-50`), availability (`y: 0` to `-65`), and bottom terminal bar (`y: 0` to `-20`).
-       - Timeline Section (`TimelineSection.tsx`): header telemetry (`y: 25` to `-25`), Entry 01 Nrithya Dances (`y: 35` to `-40`), Entry 02 Personal Lab (`y: 50` to `-55`), B.Tech Education (`y: 65` to `-70`), center blueprint (`y: -45` to `45`), and bottom coordinates (`y: 20` to `-20`).
-       - Statement Section (`StatementSection.tsx`): statement copy (`y: 40` to `-40`) opposing the Apple portrait card (`y: -20` to `35`).
-       - Case Studies Section (`CaseStudiesSection.tsx`): intro copy (`y: 30` to `-30`), Card 1 (`y: 45` to `-45`), Card 2 (`y: 65` to `-65`).
-       - Ecosystem Grid (`EcosystemGrid.tsx`): left stack (`y: 40` to `-40`), center monolith (`y: -30` to `30`), right stack (`y: 50` to `-50`), and skills bar (`y: 25` to `-25`).
-     - All movements are scrubbed hardware-accelerated transforms (`y`) that move up when scrolling up and down when scrolling down.
+     - Deployed bidirectional (topward and bottomward) GSAP ScrollTrigger parallax scrub across content (Hero texts, Timeline rows, Statement text, Case Studies cards, Ecosystem stacks).
+  17. Full-Bleed Carousel Slides & Interactive Details-On-Demand (Module 33):
+     - In Section 03 (`ArcGallery.tsx`), expanded project imagery to cover 100% of the slide area edge-to-edge (`absolute inset-0 w-full h-full object-cover`), eliminating small header banners and white card margins.
+     - In the default carousel display state, all bullet points, descriptions, and tech stack tags are hidden, keeping the presentation clean, bold, and image-centric with high-contrast title typography and category tags.
+     - On user interaction (clicking the center card or clicking `[ + ] VIEW DETAILS`), an editorial slide-up panel animates smoothly over the card revealing full project architecture, bullet points, tech stack tags, and action buttons (`LIVE APP ↗`, `GITHUB ↗`, `✕ HIDE`).
+     - Created `src/components/ProjectDetailModal.tsx` providing a full-screen specification dialog accessible via the expand icon (`Maximize2`) in the details sheet.
+     - Rotating left/right automatically collapses details to present the next incoming project with its full-bleed cover image first.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
