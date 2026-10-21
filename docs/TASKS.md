@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 38: About Section Copy Calibration & Structured Typography
+Module 38: Vertically Expanded Standing Title & Full Slide Control Streamline
 
 ## Task list
 
@@ -50,7 +50,7 @@ Module 38: About Section Copy Calibration & Structured Typography
 | 35 | Background Watermark Calibration ('PROJECTS') | Updated Section 03 background watermark text from 'GALLERY' to 'PROJECTS' in subtle text-neutral-100 font-display typography, identical in style to 'PHILOSOPHY' in the About section. | COMPLETED | High-contrast readability preserved, stationary non-intrusive backdrop, verified build |
 | 36 | Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing | Removed intersecting '98 Full Stack AI' blueprint rectangle from Career Timeline; enhanced 'PROJECTS' watermark contrast with visible neutral-200 tint and wide expanded letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`). | COMPLETED | Clean timeline rows with zero visual obstruction, widely spaced high-visibility watermark |
 | 37 | Tightened 'PROJECTS' Watermark Letter Spacing | Decreased space between letters in 'PROJECTS' watermark from wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`, retaining clear `text-neutral-200` visibility with classic bold typography. | COMPLETED | Tightly grouped architectural letters, balanced aesthetic, verified build |
-| 38 | About Section Copy Calibration & Structured Typography | Replaced statement text with new copy: headline 'I BUILD DIGITAL PRODUCTS THAT ARE SIMPLE, FAST, AND BUILT TO SCALE.' with kinetic ScrollReveal, plus two supporting paragraphs with yellow accent divider line; calibrated navigation drawer label and section badge to 'ABOUT'. | COMPLETED | Crisp typography hierarchy, spring letter animation, synchronized data schema |
+| 38 | Vertically Expanded Standing Title & Full Slide Control Streamline | Removed VIEW DETAILS, GitHub, and Live link buttons, and project subtitles from carousel slides; transformed project titles into massive vertically expanded typography standing from top to bottom (`writingMode: 'vertical-rl'`). | COMPLETED | Pure poster aesthetics, zero clutter, dramatic vertical height |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.

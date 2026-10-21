@@ -225,77 +225,37 @@ export const ArcGallery: React.FC = () => {
                 />
 
                 {/* 2. Ambient Contrast Scrim */}
-                <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+                <div className="absolute inset-y-0 left-0 w-32 sm:w-40 bg-gradient-to-r from-black/85 via-black/40 to-transparent pointer-events-none z-10" />
+                <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
 
                 {/* 3. Flank Cards Overlay (Click to bring into view) */}
                 {!isCenter && (
-                  <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors flex flex-col items-center justify-center p-4 text-center z-10">
-                    <span className="font-display text-xl sm:text-2xl text-white uppercase tracking-tight line-clamp-1 mb-2 drop-shadow-md">
-                      {project.title}
-                    </span>
-                    <span className="bg-black/90 text-white font-mono text-[9px] px-2.5 py-1 tracking-widest uppercase border border-white/20">
-                      {isLeft ? '‹ CLICK TO VIEW' : 'CLICK TO VIEW ›'}
-                    </span>
+                  <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors z-10 p-4 sm:p-5 flex flex-col justify-between">
+                    <div className="pointer-events-none">
+                      <h3
+                        style={{ writingMode: 'vertical-rl' }}
+                        className="font-display text-3xl sm:text-4xl md:text-5xl text-white/85 font-black uppercase tracking-[0.08em] sm:tracking-[0.12em] leading-none drop-shadow-lg select-none"
+                      >
+                        {project.title}
+                      </h3>
+                    </div>
+                    <div className="self-end mt-auto">
+                      <span className="bg-black/90 text-white font-mono text-[9px] px-2.5 py-1 tracking-widest uppercase border border-white/20 shadow-md">
+                        {isLeft ? '‹ CLICK TO VIEW' : 'CLICK TO VIEW ›'}
+                      </span>
+                    </div>
                   </div>
                 )}
 
-                {/* 4. Center Card Bottom Bar (Current Display when details are hidden) */}
+                {/* 4. Center Card Vertically Expanded Title (Standing from top to bottom) */}
                 {isCenter && !showDetails && (
-                  <div className="absolute bottom-3 inset-x-3 z-10 space-y-1.5 pointer-events-auto">
-                    <div>
-                      <h3 className="font-display text-2xl sm:text-3xl text-white tracking-tight uppercase leading-none drop-shadow-md">
-                        {project.title}
-                      </h3>
-                      <p className="text-[11px] sm:text-xs font-mono text-neutral-300 mt-1 line-clamp-1">
-                        {project.subtitle}
-                      </p>
-                    </div>
-
-                    <div className="pt-1 flex items-center justify-between gap-2">
-                      {/* Compact Small VIEW DETAILS Button */}
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (!isDraggingRef.current) setShowDetails(true);
-                        }}
-                        className="h-6 bg-brand-yellow hover:bg-[#E5C200] text-black font-mono text-[9px] font-bold px-2 sm:px-2.5 tracking-wider uppercase flex items-center space-x-1 shadow-sm active:scale-95 transition-all cursor-pointer rounded-none"
-                        title="Reveal project specifications and architecture"
-                      >
-                        <span>VIEW DETAILS</span>
-                      </button>
-
-                      {/* Small Compact GitHub and Live Link Buttons matching VIEW DETAILS */}
-                      <div className="flex items-center space-x-1.5">
-                        {project.github && (
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-6 h-6 bg-black/80 hover:bg-black text-white hover:text-brand-yellow transition-colors flex items-center justify-center border border-white/20 cursor-pointer rounded-none"
-                            title="GitHub Repository"
-                            onPointerDown={(e) => e.stopPropagation()}
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <Github size={11} />
-                          </a>
-                        )}
-                        {project.live && (
-                          <a
-                            href={project.live}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-6 h-6 bg-brand-yellow text-black hover:bg-[#E5C200] transition-colors flex items-center justify-center font-bold cursor-pointer shadow-sm rounded-none"
-                            title="Live Application"
-                            onPointerDown={(e) => e.stopPropagation()}
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <ExternalLink size={11} />
-                          </a>
-                        )}
-                      </div>
-                    </div>
+                  <div className="absolute top-4 sm:top-5 left-4 sm:left-5.5 z-20 pointer-events-none">
+                    <h3
+                      style={{ writingMode: 'vertical-rl' }}
+                      className="font-display text-4xl sm:text-5xl md:text-6xl text-white font-black uppercase tracking-[0.08em] sm:tracking-[0.12em] leading-none drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] select-none"
+                    >
+                      {project.title}
+                    </h3>
                   </div>
                 )}
 

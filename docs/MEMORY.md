@@ -81,12 +81,12 @@ This file is the persistent handoff record for the project.
      - Removed the intersecting central blueprint card (`98 FULL-STACK // AI`, `AKASH.ENGINEERING`) from Section 04 (`TimelineSection.tsx`), providing clean, unobscured visibility for career and academic entries.
   21. Tightened 'PROJECTS' Watermark Letter Spacing (Module 37):
      - Decreased letter spacing of the 'PROJECTS' watermark in Section 03 (`ArcGallery.tsx`) from the previous wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`.
-  22. About Section Copy Calibration & Structured Typography (Module 38):
-     - Updated Section 02 (`StatementSection.tsx`) with the user's requested copy:
-       - Headline: `I BUILD DIGITAL PRODUCTS THAT ARE SIMPLE, FAST, AND BUILT TO SCALE.` animated via kinetic spring `ScrollReveal` with yellow highlight badge.
-       - Supporting Paragraphs: "From polished frontend experiences to full-stack systems..." and "I focus on clean interfaces, strong architecture..." formatted with an editorial yellow left accent line.
-       - Calibrated navigation menu label and section badge to `ABOUT`.
-       - Updated Section 02 stationary watermark to `ABOUT` in visible `text-neutral-200 tracking-tight`.
+     - Preserved clear, elegant `text-neutral-200` visibility with a bold, cohesive typographic structure.
+  22. Vertically Expanded Standing Title & Full Slide Control Streamline (Module 38):
+     - Removed `VIEW DETAILS`, GitHub, and Live link buttons, as well as project subtitles from carousel slides in Section 03 (`ArcGallery.tsx`).
+     - Transformed project titles (`ONAKKOOTTU`, `LIFEOS`, `REDCONNECT`) into massive vertically expanded typography standing from top to bottom (`writingMode: 'vertical-rl'`).
+     - Positioned along the left edge with a subtle dark horizontal scrim (`bg-gradient-to-r from-black/85 via-black/40 to-transparent`), providing high contrast while keeping the rest of the full-bleed image open and clean.
+     - Maintained interactive click-to-expand details panel on center card and flank navigation.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
