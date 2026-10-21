@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–40
+- Current module: Completed Modules 1–41
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -98,6 +98,11 @@ This file is the persistent handoff record for the project.
   3. Formatted dates cleanly on the right: `Jul 2026 – Present` for Nrithya Dances, `Mar 2024 – Mar 2025` for Stratagile, and `2025 – 2027` for MCA.
   4. Restructured MCA education row: Main heading `Master of Computer Applications (MCA)`, with `Pursuing S4` stacked below in bold brand yellow, and `LEAD College, Palakkad` stacked below that in neutral-400.
   5. Removed bottom telemetry coordinate bar (`EXPERIENCE VERIFICATION AVAILABLE UPON REQUEST` and `PRODUCTION INCIDENT LOGS: ZERO`).
+- Completed Module 41 (Full Chronological Timeline with Degree Graduation & MERN Internship):
+  1. Integrated Bachelor of Science in Computer Science (`2020 – 2023`, University of Calicut).
+  2. Integrated MERN Stack Intern at Luminar Technolab (`Jul 2023 – Feb 2024`) immediately following degree graduation.
+  3. Structured all 5 milestones in chronological sequence: Nrithya Dances (`Jul 2026 – Present`) → MCA (`2025 – 2027`) → Stratagile (`Mar 2024 – Mar 2025`) → Luminar Technolab (`Jul 2023 – Feb 2024`) → B.Sc Graduation (`2020 – 2023`).
+  4. Deployed 5-stage GSAP scroll parallax with bidirectional inertia and hover highlights across all rows.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

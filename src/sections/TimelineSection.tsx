@@ -16,27 +16,81 @@ export const TimelineSection: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
-  const eduRef = useRef<HTMLDivElement>(null);
+  const row3Ref = useRef<HTMLDivElement>(null);
+  const row4Ref = useRef<HTMLDivElement>(null);
+  const row5Ref = useRef<HTMLDivElement>(null);
 
   // GSAP Topward & Bottomward Scroll Parallax on Timeline Content & Rows
   useEffect(() => {
     const cleanup = initGsapMultiParallax(
       [
         { target: headerRef.current, yStart: 25, yEnd: -25, scrub: 1 },
-        { target: row1Ref.current, yStart: 35, yEnd: -40, scrub: 1.1 },
-        { target: row2Ref.current, yStart: 50, yEnd: -55, scrub: 1.25 },
-        { target: eduRef.current, yStart: 65, yEnd: -70, scrub: 1.4 },
+        { target: row1Ref.current, yStart: 28, yEnd: -30, scrub: 1.1 },
+        { target: row2Ref.current, yStart: 38, yEnd: -40, scrub: 1.2 },
+        { target: row3Ref.current, yStart: 48, yEnd: -50, scrub: 1.3 },
+        { target: row4Ref.current, yStart: 58, yEnd: -60, scrub: 1.4 },
+        { target: row5Ref.current, yStart: 68, yEnd: -70, scrub: 1.5 },
       ],
       sectionRef.current
     );
     return cleanup;
   }, []);
 
+  // Chronologically sequenced timeline items (reverse chronological: most recent to foundational)
+  const timelineItems = [
+    {
+      id: 'nrithya',
+      type: 'work' as const,
+      title: experience[0].role,
+      subtitle: experience[0].company,
+      duration: experience[0].duration,
+      ref: row1Ref,
+      customDelay: 0.1,
+    },
+    {
+      id: 'mca',
+      type: 'education' as const,
+      title: education[0].degree,
+      subtitle: education[0].institution,
+      status: education[0].status,
+      duration: education[0].duration,
+      ref: row2Ref,
+      customDelay: 0.16,
+    },
+    {
+      id: 'stratagile',
+      type: 'work' as const,
+      title: experience[1].role,
+      subtitle: experience[1].company,
+      duration: experience[1].duration,
+      ref: row3Ref,
+      customDelay: 0.22,
+    },
+    {
+      id: 'luminar',
+      type: 'work' as const,
+      title: experience[2].role,
+      subtitle: experience[2].company,
+      duration: experience[2].duration,
+      ref: row4Ref,
+      customDelay: 0.28,
+    },
+    {
+      id: 'bsc',
+      type: 'education' as const,
+      title: education[1].degree,
+      subtitle: education[1].institution,
+      duration: education[1].duration,
+      ref: row5Ref,
+      customDelay: 0.34,
+    },
+  ];
+
   return (
     <section
       ref={sectionRef}
       id="timeline"
-      className="relative min-h-screen bg-black text-white py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
+      className="relative min-h-screen bg-black text-white py-16 sm:py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
     >
       {/* Dark Grid Background */}
       <GridBackground theme="dark" columns={8} />
@@ -61,105 +115,61 @@ export const TimelineSection: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Center Layout with Clean Tabular Rows */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
+      {/* Center Layout with Clean Tabular Rows in Chronological Sequence */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-8 sm:py-10">
         <div className="relative">
-          {/* Tabular Rows Stack with GSAP Parallax on Content */}
           <div className="relative z-10 space-y-0">
-            {/* Experience Row 1 - Nrithya Dances */}
-            {experience[0] && (
-              <div ref={row1Ref} className="will-change-transform">
+            {timelineItems.map((item) => (
+              <div key={item.id} ref={item.ref} className="will-change-transform">
                 <motion.div
                   variants={fadeInUpVariants}
                   initial="hidden"
                   whileInView="visible"
                   viewport={sectionViewportConfig}
-                  custom={0.1}
-                  className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-6 sm:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-black/40 backdrop-blur-[2px] px-4"
-                >
-                  <div>
-                    <h3 className="font-display text-2xl sm:text-3xl tracking-tight uppercase group-hover:text-brand-yellow transition-colors text-white">
-                      {experience[0].role}
-                    </h3>
-                    <p className="text-xs font-mono text-neutral-400 mt-1">
-                      {experience[0].company}
-                    </p>
-                  </div>
-
-                  <div className="text-left sm:text-right shrink-0">
-                    <span className="font-mono text-sm sm:text-base font-bold text-white tracking-widest group-hover:text-brand-yellow transition-colors">
-                      {experience[0].duration}
-                    </span>
-                  </div>
-                </motion.div>
-              </div>
-            )}
-
-            {/* Experience Row 2 - Stratagile Pvt Ltd */}
-            {experience[1] && (
-              <div ref={row2Ref} className="will-change-transform">
-                <motion.div
-                  variants={fadeInUpVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={sectionViewportConfig}
-                  custom={0.18}
-                  className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-6 sm:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-black/40 backdrop-blur-[2px] px-4"
-                >
-                  <div>
-                    <h3 className="font-display text-2xl sm:text-3xl tracking-tight uppercase group-hover:text-brand-yellow transition-colors text-white">
-                      {experience[1].role}
-                    </h3>
-                    <p className="text-xs font-mono text-neutral-400 mt-1">
-                      {experience[1].company}
-                    </p>
-                  </div>
-
-                  <div className="text-left sm:text-right shrink-0">
-                    <span className="font-mono text-sm sm:text-base font-bold text-white tracking-widest group-hover:text-brand-yellow transition-colors">
-                      {experience[1].duration}
-                    </span>
-                  </div>
-                </motion.div>
-              </div>
-            )}
-
-            {/* Education Row - Master of Computer Applications (MCA) */}
-            {education[0] && (
-              <div ref={eduRef} className="will-change-transform">
-                <motion.div
-                  variants={fadeInUpVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={sectionViewportConfig}
-                  custom={0.26}
-                  className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-6 sm:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-black/40 backdrop-blur-[2px] px-4"
+                  custom={item.customDelay}
+                  className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-4.5 sm:py-5.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-black/40 backdrop-blur-[2px] px-3 sm:px-4"
                 >
                   <div>
                     <div className="flex items-center space-x-2">
-                      <GraduationCap size={18} className="text-brand-yellow shrink-0" />
-                      <h3 className="font-display text-xl sm:text-2xl tracking-tight uppercase group-hover:text-brand-yellow transition-colors text-neutral-200">
-                        {education[0].degree}
+                      {item.type === 'education' && (
+                        <GraduationCap size={18} className="text-brand-yellow shrink-0" />
+                      )}
+                      <h3
+                        className={`font-display text-xl sm:text-2xl md:text-3xl tracking-tight uppercase group-hover:text-brand-yellow transition-colors ${
+                          item.type === 'education' ? 'text-neutral-200' : 'text-white'
+                        }`}
+                      >
+                        {item.title}
                       </h3>
                     </div>
-                    {education[0].status && (
+
+                    {item.status && (
                       <p className="text-xs font-mono text-brand-yellow font-bold mt-1 tracking-wider uppercase pl-6.5">
-                        {education[0].status}
+                        {item.status}
                       </p>
                     )}
-                    <p className="text-xs font-mono text-neutral-400 mt-0.5 pl-6.5">
-                      {education[0].institution}
+
+                    <p
+                      className={`text-xs font-mono text-neutral-400 ${
+                        item.type === 'education' ? 'mt-0.5 pl-6.5' : 'mt-1'
+                      }`}
+                    >
+                      {item.subtitle}
                     </p>
                   </div>
 
                   <div className="text-left sm:text-right shrink-0">
-                    <span className="font-mono text-sm sm:text-base font-bold text-neutral-300 tracking-widest group-hover:text-brand-yellow transition-colors">
-                      {education[0].duration}
+                    <span
+                      className={`font-mono text-sm sm:text-base font-bold tracking-widest group-hover:text-brand-yellow transition-colors ${
+                        item.type === 'education' ? 'text-neutral-300' : 'text-white'
+                      }`}
+                    >
+                      {item.duration}
                     </span>
                   </div>
                 </motion.div>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </div>

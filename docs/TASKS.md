@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 40: Career Timeline Layout Streamline & Clutter Removal
+Module 41: Full Chronological Timeline with Degree Graduation & MERN Stack Internship
 
 ## Task list
 
@@ -53,6 +53,7 @@ Module 40: Career Timeline Layout Streamline & Clutter Removal
 | 38 | Vertically Expanded Standing Title & Full Slide Control Streamline | Removed VIEW DETAILS, GitHub, and Live link buttons, and project subtitles from carousel slides; transformed project titles into massive vertically expanded typography standing from top to bottom (`writingMode: 'vertical-rl'`). | COMPLETED | Pure poster aesthetics, zero clutter, dramatic vertical height |
 | 39 | Flank Cards 100% Opacity, Click-to-View Removal & Editorial Navigation Dock | Set flank card opacities to solid 100% (opacity: 1) to eliminate background bleed; removed 'CLICK TO VIEW' badges; replaced plain square buttons with an integrated architectural editorial navigation console featuring PREV, NEXT, and dynamic 3-bar progress indicator. | COMPLETED | Solid cards, no watermark bleed, unified high-end navigation HUD, verified build |
 | 40 | Career Timeline Layout Streamline & Clutter Removal | Removed 'ENTRY 01' and 'ENTRY 02' labels; stripped center descriptions across all rows; restructured MCA education row with 'Pursuing S4' and 'LEAD College, Palakkad' stacked below the degree title; retained '2025 – 2027' duration; removed bottom telemetry coordinate bar. | COMPLETED | Clean 2-column tabular layout, responsive flex spacing, verified build |
+| 41 | Full Chronological Timeline with Degree Graduation & MERN Internship | Integrated Bachelor of Science in Computer Science (2020 – 2023) and MERN Stack Intern at Luminar Technolab (Jul 2023 – Feb 2024); mapped all 5 milestones in chronological sequence with GSAP scroll parallax and consistent hover highlights. | COMPLETED | Complete 5-milestone journey, accurate dates, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -82,6 +83,7 @@ Module 40: Career Timeline Layout Streamline & Clutter Removal
 - Modules 33-38 (Carousel Imagery, Borderless Slides & Vertical Standing Titles): Streamlined carousel presentation to full-bleed imagery, hidden details on default display with slide-up reveal on demand, eliminated badges and borders, decreased 'PROJECTS' watermark tracking, and transformed project titles to massive standing vertical typography (`writingMode: 'vertical-rl'`).
 - Module 39 (Flank Cards 100% Opacity, Click-to-View Removal & Editorial Navigation Dock): Set left and right flank cards to solid 100% opacity (`opacity: 1`) to eliminate background watermark text bleed; removed 'CLICK TO VIEW' prompts; replaced plain isolated square navigation buttons with an architectural editorial navigation dock featuring PREV / NEXT actions, 01 / 03 index tracker, and dynamic 3-bar progress segments. Verified bidirectional keyboard navigation and drag gesture integration.
 - Module 40 (Career Timeline Layout Streamline & Clutter Removal): Removed 'ENTRY 01' and 'ENTRY 02' labels from career rows; stripped center text descriptions across all rows; restructured MCA education row with 'Pursuing S4' and 'LEAD College, Palakkad' stacked below the degree title; retained '2025 – 2027' duration; removed bottom telemetry coordinate bar. Verified GSAP bidirectional parallax and responsive flex layout.
+- Module 41 (Full Chronological Timeline with Degree Graduation & MERN Internship): Integrated Bachelor of Science in Computer Science (2020 – 2023, University of Calicut) and MERN Stack Intern (Jul 2023 – Feb 2024, Luminar Technolab); structured all 5 engagements in true chronological sequence with GSAP scroll parallax on all 5 rows, mortarboard icons on education items, and interactive hover highlights. Verified production build.
 
 ## Current blockers
 - None.
