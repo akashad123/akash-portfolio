@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–33
+- Current module: Completed Modules 1–34
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -70,6 +70,11 @@ This file is the persistent handoff record for the project.
      - On user interaction (clicking the center card or clicking `[ + ] VIEW DETAILS`), an editorial slide-up panel animates smoothly over the card revealing full project architecture, bullet points, tech stack tags, and action buttons (`LIVE APP ↗`, `GITHUB ↗`, `✕ HIDE`).
      - Created `src/components/ProjectDetailModal.tsx` providing a full-screen specification dialog accessible via the expand icon (`Maximize2`) in the details sheet.
      - Rotating left/right automatically collapses details to present the next incoming project with its full-bleed cover image first.
+  18. Carousel Minimalist Controls & Borderless Refinement (Module 34):
+     - Reduced `VIEW DETAILS` to a sleek, compact button (`h-6 px-2 sm:px-2.5 text-[9px] font-bold`).
+     - Sized GitHub and Live demo buttons to matching compact dimensions (`w-6 h-6`, `size={11}` icons).
+     - Removed top category/workspace badges (`project.tag`) and top year badges (`project.date`) from the top of the cards for complete visual minimalism.
+     - Removed black outlines/borders from the carousel cards (`border-0` with clean ambient drop shadows).
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 

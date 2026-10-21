@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 33: Full-Bleed Carousel Slides & Interactive Details-On-Demand
+Module 34: Carousel Minimalist Controls & Borderless Refinement
 
 ## Task list
 
@@ -46,6 +46,7 @@ Module 33: Full-Bleed Carousel Slides & Interactive Details-On-Demand
 | 31 | Apple-Style Clean Portrait & GSAP Scroll Parallax | Removed black border, yellow corner brackets, top telemetry overlay, bottom coordinate tag, and figure caption from the About portrait; added .apple-portrait-card styling; implemented GSAP ScrollTrigger bidirectional parallax across Statement, ArcGallery, Timeline, Ecosystem, and Hero. | COMPLETED | Pristine Apple product showcase aesthetics, silky smooth scroll scrub up/down, gsap.context lifecycle |
 | 32 | Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization | Anchored Section 03 & Section 02 background watermarks to remain stationary; deployed multi-speed topward/bottomward GSAP parallax across Landing Page texts (bio, coordinates, telemetry blocks), Timeline career rows, Statement text, and Case Studies cards. | COMPLETED | Silky bidirectional inertia on actual content, zero background shift in ArcGallery, responsive & hardware-accelerated |
 | 33 | Full-Bleed Carousel Slides & Interactive Details-On-Demand | Expanded carousel images to cover 100% of slide area edge-to-edge; hidden descriptive bullets and tech tags on default display; implemented spring slide-up details panel on click with close toggle and fullscreen `ProjectDetailModal` dialog. | COMPLETED | Edge-to-edge full bleed imagery, zero visual clutter on current display, smooth spring details reveal, verified build |
+| 34 | Carousel Minimalist Controls & Borderless Refinement | Reduced VIEW DETAILS to sleek h-6 compact button; sized GitHub and Live buttons to matching small h-6/w-6 dimensions; removed top category/workspace badges, top year badges, and black card outlines for pristine borderless presentation. | COMPLETED | Clean borderless image slides, synchronized compact button heights, zero top clutter |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.

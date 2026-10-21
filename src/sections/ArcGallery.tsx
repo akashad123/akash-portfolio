@@ -207,10 +207,10 @@ export const ArcGallery: React.FC = () => {
                   else if (isRight) rotateLeft();
                   else if (isCenter && !showDetails) setShowDetails(true);
                 }}
-                className={`absolute w-[280px] sm:w-[340px] md:w-[390px] h-[330px] sm:h-[365px] md:h-[400px] overflow-hidden bg-neutral-950 transition-shadow duration-300 rounded-none ${
+                className={`absolute w-[280px] sm:w-[340px] md:w-[390px] h-[330px] sm:h-[365px] md:h-[400px] overflow-hidden bg-neutral-950 transition-shadow duration-300 rounded-none border-0 ${
                   isCenter
-                    ? 'border-2 border-black shadow-2xl cursor-pointer'
-                    : 'border border-black/25 shadow-md cursor-pointer hover:border-black'
+                    ? 'shadow-2xl cursor-pointer'
+                    : 'shadow-md cursor-pointer'
                 }`}
               >
                 {/* 1. Full Image Covering the Slide Completely */}
@@ -225,20 +225,10 @@ export const ArcGallery: React.FC = () => {
                 />
 
                 {/* 2. Ambient Contrast Scrim */}
-                <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none" />
+                <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
 
-                {/* 3. Top Header Tags */}
-                <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 pointer-events-none">
-                  <span className="bg-brand-yellow text-black font-mono text-[9px] sm:text-[10px] font-bold px-2 py-0.5 tracking-wider uppercase shadow-sm">
-                    {project.tag}
-                  </span>
-                  <span className="bg-black/75 text-neutral-300 font-mono text-[9px] px-2 py-0.5 border border-white/10 backdrop-blur-xs">
-                    {project.date}
-                  </span>
-                </div>
-
-                {/* 4. Flank Cards Overlay (Click to bring into view) */}
+                {/* 3. Flank Cards Overlay (Click to bring into view) */}
                 {!isCenter && (
                   <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors flex flex-col items-center justify-center p-4 text-center z-10">
                     <span className="font-display text-xl sm:text-2xl text-white uppercase tracking-tight line-clamp-1 mb-2 drop-shadow-md">
@@ -250,9 +240,9 @@ export const ArcGallery: React.FC = () => {
                   </div>
                 )}
 
-                {/* 5. Center Card Bottom Bar (Current Display when details are hidden) */}
+                {/* 4. Center Card Bottom Bar (Current Display when details are hidden) */}
                 {isCenter && !showDetails && (
-                  <div className="absolute bottom-3 inset-x-3 z-10 space-y-2 pointer-events-auto">
+                  <div className="absolute bottom-3 inset-x-3 z-10 space-y-1.5 pointer-events-auto">
                     <div>
                       <h3 className="font-display text-2xl sm:text-3xl text-white tracking-tight uppercase leading-none drop-shadow-md">
                         {project.title}
@@ -262,31 +252,33 @@ export const ArcGallery: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="pt-1.5 flex items-center justify-between gap-2">
+                    <div className="pt-1 flex items-center justify-between gap-2">
+                      {/* Compact Small VIEW DETAILS Button */}
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           if (!isDraggingRef.current) setShowDetails(true);
                         }}
-                        className="bg-brand-yellow hover:bg-[#E5C200] text-black font-mono text-[10px] sm:text-[11px] font-bold px-3 py-1.5 tracking-wider uppercase flex items-center space-x-1.5 shadow-md active:scale-95 transition-all cursor-pointer"
+                        className="h-6 bg-brand-yellow hover:bg-[#E5C200] text-black font-mono text-[9px] font-bold px-2 sm:px-2.5 tracking-wider uppercase flex items-center space-x-1 shadow-sm active:scale-95 transition-all cursor-pointer rounded-none"
                         title="Reveal project specifications and architecture"
                       >
-                        <span>[ + ] VIEW DETAILS</span>
+                        <span>VIEW DETAILS</span>
                       </button>
 
+                      {/* Small Compact GitHub and Live Link Buttons matching VIEW DETAILS */}
                       <div className="flex items-center space-x-1.5">
                         {project.github && (
                           <a
                             href={project.github}
                             target="_blank"
                             rel="noreferrer"
-                            className="w-7 h-7 bg-black/80 hover:bg-black text-white hover:text-brand-yellow transition-colors flex items-center justify-center border border-white/20 cursor-pointer"
+                            className="w-6 h-6 bg-black/80 hover:bg-black text-white hover:text-brand-yellow transition-colors flex items-center justify-center border border-white/20 cursor-pointer rounded-none"
                             title="GitHub Repository"
                             onPointerDown={(e) => e.stopPropagation()}
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <Github size={13} />
+                            <Github size={11} />
                           </a>
                         )}
                         {project.live && (
@@ -294,12 +286,12 @@ export const ArcGallery: React.FC = () => {
                             href={project.live}
                             target="_blank"
                             rel="noreferrer"
-                            className="w-7 h-7 bg-brand-yellow text-black hover:bg-[#E5C200] transition-colors flex items-center justify-center font-bold cursor-pointer shadow-sm"
+                            className="w-6 h-6 bg-brand-yellow text-black hover:bg-[#E5C200] transition-colors flex items-center justify-center font-bold cursor-pointer shadow-sm rounded-none"
                             title="Live Application"
                             onPointerDown={(e) => e.stopPropagation()}
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <ExternalLink size={13} />
+                            <ExternalLink size={11} />
                           </a>
                         )}
                       </div>
