@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 36: Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing
+Module 37: Tightened 'PROJECTS' Watermark Letter Spacing
 
 ## Task list
 
@@ -49,6 +49,7 @@ Module 36: Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing
 | 34 | Carousel Minimalist Controls & Borderless Refinement | Reduced VIEW DETAILS to sleek h-6 compact button; sized GitHub and Live buttons to matching small h-6/w-6 dimensions; removed top category/workspace badges, top year badges, and black card outlines for pristine borderless presentation. | COMPLETED | Clean borderless image slides, synchronized compact button heights, zero top clutter |
 | 35 | Background Watermark Calibration ('PROJECTS') | Updated Section 03 background watermark text from 'GALLERY' to 'PROJECTS' in subtle text-neutral-100 font-display typography, identical in style to 'PHILOSOPHY' in the About section. | COMPLETED | High-contrast readability preserved, stationary non-intrusive backdrop, verified build |
 | 36 | Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing | Removed intersecting '98 Full Stack AI' blueprint rectangle from Career Timeline; enhanced 'PROJECTS' watermark contrast with visible neutral-200 tint and wide expanded letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`). | COMPLETED | Clean timeline rows with zero visual obstruction, widely spaced high-visibility watermark |
+| 37 | Tightened 'PROJECTS' Watermark Letter Spacing | Decreased space between letters in 'PROJECTS' watermark from wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`, retaining clear `text-neutral-200` visibility with classic bold typography. | COMPLETED | Tightly grouped architectural letters, balanced aesthetic, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.

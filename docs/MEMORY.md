@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–36
+- Current module: Completed Modules 1–37
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -79,7 +79,9 @@ This file is the persistent handoff record for the project.
      - Updated Section 03 background watermark text from `GALLERY` to `PROJECTS`.
   20. Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing (Module 36):
      - Removed the intersecting central blueprint card (`98 FULL-STACK // AI`, `AKASH.ENGINEERING`) from Section 04 (`TimelineSection.tsx`), providing clean, unobscured visibility for career and academic entries.
-     - Enhanced `PROJECTS` background watermark visibility in Section 03 (`ArcGallery.tsx`) with visible `text-neutral-200` tint and expansive letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`), allowing `P  R  O  J  E  C  T  S` to span broadly across the screen.
+  21. Tightened 'PROJECTS' Watermark Letter Spacing (Module 37):
+     - Decreased letter spacing of the 'PROJECTS' watermark in Section 03 (`ArcGallery.tsx`) from the previous wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`.
+     - Preserved clear, elegant `text-neutral-200` visibility with a bold, cohesive typographic structure.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
