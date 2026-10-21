@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
-import { ArrowDown, Terminal, MapPin } from 'lucide-react';
+import { Terminal, MapPin } from 'lucide-react';
 import { initGsapMultiParallax } from '../utils/gsapParallax';
 import {
   fadeInLeftVariants,
@@ -45,11 +45,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
     );
     return cleanup;
   }, []);
-
-  const scrollToStatement = () => {
-    const el = document.getElementById('statement');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section
@@ -150,7 +145,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           </motion.div>
         </div>
 
-        {/* Bottom Bar with Scroll Indicator - GSAP Parallax */}
+        {/* Bottom Bar - GSAP Parallax */}
         <motion.div
           variants={fadeInUpVariants}
           initial="hidden"
@@ -158,19 +153,11 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           custom={0.4}
           className="border-t border-white/10 pt-4"
         >
-          <div ref={bottomBarRef} className="flex items-center justify-between text-xs font-mono text-neutral-500 will-change-transform">
+          <div ref={bottomBarRef} className="flex items-center text-xs font-mono text-neutral-500 will-change-transform">
             <div className="flex items-center space-x-2">
               <Terminal size={14} className="text-brand-yellow" />
               <span>MERN // GEMINI API // SUPABASE // AWS EC2</span>
             </div>
-
-            <button
-              onClick={scrollToStatement}
-              className="flex items-center space-x-1 hover:text-brand-yellow transition-colors group cursor-pointer"
-            >
-              <span>SCROLL TO DISCOVER</span>
-              <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" />
-            </button>
           </div>
         </motion.div>
       </div>
