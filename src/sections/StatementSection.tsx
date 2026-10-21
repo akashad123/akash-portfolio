@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { ScrollReveal, TextSegment } from '../components/ScrollReveal';
-import { initGsapParallax } from '../utils/gsapParallax';
+import { initGsapMultiParallax } from '../utils/gsapParallax';
 import {
   sectionViewportConfig,
   fadeInLeftVariants,
@@ -14,30 +14,22 @@ import {
 
 export const StatementSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const watermarkRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
   const { statement } = portfolioData.developer;
 
-  // GSAP Scroll Parallax Animations
+  // GSAP Topward & Bottomward Scroll Parallax on Content (Text & Apple Portrait)
   useEffect(() => {
-    // Parallax on PHILOSOPHY watermark text
-    const cleanupWatermark = initGsapParallax(watermarkRef.current, sectionRef.current, {
-      yStart: 70,
-      yEnd: -70,
-      scrub: 1.2,
-    });
-
-    // Silky Apple-style Parallax on Portrait Card
-    const cleanupPortrait = initGsapParallax(portraitRef.current, sectionRef.current, {
-      yStart: 35,
-      yEnd: -35,
-      scrub: 1.5,
-    });
-
-    return () => {
-      cleanupWatermark();
-      cleanupPortrait();
-    };
+    const cleanup = initGsapMultiParallax(
+      [
+        // Statement text moves topward as you scroll down, bottomward as you scroll up
+        { target: textRef.current, yStart: 40, yEnd: -40, scrub: 1.2 },
+        // Apple portrait card floats with complementary topward/bottomward parallax
+        { target: portraitRef.current, yStart: -20, yEnd: 35, scrub: 1.4 },
+      ],
+      sectionRef.current
+    );
+    return cleanup;
   }, []);
 
   const segments: TextSegment[] = [
@@ -57,11 +49,8 @@ export const StatementSection: React.FC = () => {
       {/* Light Theme Architectural Grid */}
       <GridBackground theme="light" columns={8} />
 
-      {/* Background Watermark Typography with GSAP Scroll Parallax */}
-      <div
-        ref={watermarkRef}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0 will-change-transform"
-      >
+      {/* Stable Background Watermark Typography (Stationary, subtle grey) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
         <span className="font-display text-[15vw] sm:text-[18vw] uppercase text-neutral-100 font-extrabold tracking-tighter leading-none select-none">
           PHILOSOPHY
         </span>
@@ -85,7 +74,7 @@ export const StatementSection: React.FC = () => {
 
         {/* Main Content Grid: Left Text Statement | Right Apple-like Portrait */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center my-auto py-8 sm:py-12">
-          {/* Left Column: Scroll Reveal Typography - Slides in from left */}
+          {/* Left Column: Scroll Reveal Typography with GSAP Topward/Bottomward Movement */}
           <motion.div
             variants={fadeInLeftVariants}
             initial="hidden"
@@ -94,16 +83,18 @@ export const StatementSection: React.FC = () => {
             custom={0.15}
             className="lg:col-span-7 xl:col-span-8 text-left"
           >
-            <div className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase mb-4 flex items-center space-x-2">
-              <span className="w-1.5 h-1.5 bg-black" />
-              <span>CORE ARCHITECTURAL ETHOS</span>
+            <div ref={textRef} className="will-change-transform">
+              <div className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase mb-4 flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 bg-black" />
+                <span>CORE ARCHITECTURAL ETHOS</span>
+              </div>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl tracking-tight uppercase leading-snug sm:leading-tight text-black text-left">
+                <ScrollReveal
+                  segments={segments}
+                  containerRef={sectionRef}
+                />
+              </h2>
             </div>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl tracking-tight uppercase leading-snug sm:leading-tight text-black text-left">
-              <ScrollReveal
-                segments={segments}
-                containerRef={sectionRef}
-              />
-            </h2>
           </motion.div>
 
           {/* Right Column: Clean, Professional Apple-like Portrait with GSAP Parallax */}

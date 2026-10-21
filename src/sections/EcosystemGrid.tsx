@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
 import { Layers } from 'lucide-react';
-import { initGsapParallax } from '../utils/gsapParallax';
+import { initGsapMultiParallax } from '../utils/gsapParallax';
 import {
   sectionViewportConfig,
   fadeInDownVariants,
@@ -16,15 +16,22 @@ import {
 export const EcosystemGrid: React.FC = () => {
   const { skills } = portfolioData;
   const sectionRef = useRef<HTMLElement>(null);
+  const leftStackRef = useRef<HTMLDivElement>(null);
   const monolithRef = useRef<HTMLDivElement>(null);
+  const rightStackRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
-  // GSAP Scroll Parallax on Centerpiece Unit
+  // GSAP Topward & Bottomward Scroll Parallax on Tech Arsenal & Monolith
   useEffect(() => {
-    const cleanup = initGsapParallax(monolithRef.current, sectionRef.current, {
-      yStart: 45,
-      yEnd: -45,
-      scrub: 1.4,
-    });
+    const cleanup = initGsapMultiParallax(
+      [
+        { target: leftStackRef.current, yStart: 40, yEnd: -40, scrub: 1.2 },
+        { target: monolithRef.current, yStart: -30, yEnd: 30, scrub: 1.3 },
+        { target: rightStackRef.current, yStart: 50, yEnd: -50, scrub: 1.25 },
+        { target: skillsRef.current, yStart: 25, yEnd: -25, scrub: 1 },
+      ],
+      sectionRef.current
+    );
     return cleanup;
   }, []);
 
@@ -80,29 +87,31 @@ export const EcosystemGrid: React.FC = () => {
       {/* Symmetrical Architectural Grid with Centerpiece (Matching Screenshot 1) */}
       <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          {/* Left Column of Partner / Tech Logos - Slides in from left */}
+          {/* Left Column of Partner / Tech Logos with GSAP Parallax */}
           <motion.div
             variants={fadeInLeftVariants}
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewportConfig}
             custom={0.1}
-            className="lg:col-span-4 grid grid-cols-2 gap-4"
+            className="lg:col-span-4"
           >
-            {leftStack.map((item, idx) => (
-              <div
-                key={idx}
-                className="group border border-black/10 p-4 bg-neutral-50 hover:bg-black hover:text-white transition-all duration-200 flex flex-col justify-between h-24"
-              >
-                <span className="font-display text-lg tracking-tight uppercase group-hover:text-brand-yellow transition-colors">
-                  {item.name}
-                </span>
-                <div className="flex items-center justify-between text-[9px] font-mono text-neutral-500 group-hover:text-neutral-400">
-                  <span>{item.category}</span>
-                  <span className="text-brand-yellow font-bold">›</span>
+            <div ref={leftStackRef} className="grid grid-cols-2 gap-4 will-change-transform">
+              {leftStack.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="group border border-black/10 p-4 bg-neutral-50 hover:bg-black hover:text-white transition-all duration-200 flex flex-col justify-between h-24"
+                >
+                  <span className="font-display text-lg tracking-tight uppercase group-hover:text-brand-yellow transition-colors">
+                    {item.name}
+                  </span>
+                  <div className="flex items-center justify-between text-[9px] font-mono text-neutral-500 group-hover:text-neutral-400">
+                    <span>{item.category}</span>
+                    <span className="text-brand-yellow font-bold">›</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </motion.div>
 
           {/* Centerpiece Column: High-Impact Visual Monolith Artifact with GSAP Parallax */}
@@ -147,33 +156,35 @@ export const EcosystemGrid: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Column of Partner / Tech Logos - Slides in from right */}
+          {/* Right Column of Partner / Tech Logos with GSAP Parallax */}
           <motion.div
             variants={fadeInRightVariants}
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewportConfig}
             custom={0.15}
-            className="lg:col-span-4 grid grid-cols-2 gap-4"
+            className="lg:col-span-4"
           >
-            {rightStack.map((item, idx) => (
-              <div
-                key={idx}
-                className="group border border-black/10 p-4 bg-neutral-50 hover:bg-black hover:text-white transition-all duration-200 flex flex-col justify-between h-24"
-              >
-                <span className="font-display text-lg tracking-tight uppercase group-hover:text-brand-yellow transition-colors">
-                  {item.name}
-                </span>
-                <div className="flex items-center justify-between text-[9px] font-mono text-neutral-500 group-hover:text-neutral-400">
-                  <span>{item.category}</span>
-                  <span className="text-brand-yellow font-bold">›</span>
+            <div ref={rightStackRef} className="grid grid-cols-2 gap-4 will-change-transform">
+              {rightStack.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="group border border-black/10 p-4 bg-neutral-50 hover:bg-black hover:text-white transition-all duration-200 flex flex-col justify-between h-24"
+                >
+                  <span className="font-display text-lg tracking-tight uppercase group-hover:text-brand-yellow transition-colors">
+                    {item.name}
+                  </span>
+                  <div className="flex items-center justify-between text-[9px] font-mono text-neutral-500 group-hover:text-neutral-400">
+                    <span>{item.category}</span>
+                    <span className="text-brand-yellow font-bold">›</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </motion.div>
         </div>
 
-        {/* Skills Concepts Category Strip - Slides up */}
+        {/* Skills Concepts Category Strip with GSAP Parallax */}
         <motion.div
           variants={fadeInUpVariants}
           initial="hidden"
@@ -182,18 +193,20 @@ export const EcosystemGrid: React.FC = () => {
           custom={0.25}
           className="mt-12 pt-8 border-t border-black/10"
         >
-          <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-4">
-            FULL STACK WEB & ARCHITECTURE COMPETENCIES
-          </span>
-          <div className="flex flex-wrap gap-2">
-            {skills.flatMap((s) => s.items).filter((v, i, a) => a.indexOf(v) === i).map((skill, idx) => (
-              <span
-                key={idx}
-                className="text-xs font-mono bg-neutral-100 border border-black/10 px-3 py-1 text-neutral-800 hover:border-black transition-colors"
-              >
-                {skill}
-              </span>
-            ))}
+          <div ref={skillsRef} className="will-change-transform">
+            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-4">
+              FULL STACK WEB & ARCHITECTURE COMPETENCIES
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {skills.flatMap((s) => s.items).filter((v, i, a) => a.indexOf(v) === i).map((skill, idx) => (
+                <span
+                  key={idx}
+                  className="text-xs font-mono bg-neutral-100 border border-black/10 px-3 py-1 text-neutral-800 hover:border-black transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

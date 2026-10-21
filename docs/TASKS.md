@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 31: Apple-Style Pristine Portrait Framing & Multi-Section GSAP ScrollTrigger Parallax
+Module 32: Content-Wide Topward & Bottomward GSAP Scroll Parallax & Stationary Background Watermark Fix
 
 ## Task list
 
@@ -43,7 +43,8 @@ Module 31: Apple-Style Pristine Portrait Framing & Multi-Section GSAP ScrollTrig
 | 28 | Framer Motion Viewport Fade-In | Engineered centralized motion system in `src/utils/motion.ts` with custom cubic-bezier `[0.16, 1, 0.3, 1]` curve. | COMPLETED | Smooth landing entrance animation, viewport fade-ins with once: true preservation |
 | 29 | Core Philosophy 2-Column Layout with Portrait | Restructured Section 02 into an asymmetrical 12-column editorial grid with text on left and portrait on right. | COMPLETED | 12-col responsive grid, 0px radius, hover grayscale-to-color transition, mobile-responsive |
 | 30 | Directional Animations & ArcGallery Controls Streamline | Multi-directional GPU-accelerated Framer animations across all sections; removed drag rectangle and yellow indicators; reduced navigation button sizes; kept hamburger compact. | COMPLETED | Zero-jank hardware-accelerated transforms, once: true viewport config, streamlined minimalistic controls |
-| 31 | Apple-Style Clean Portrait & GSAP Scroll Parallax | Removed black outline, telemetry tags, coordinate badges, and caption from portrait; added .apple-portrait-card styling; implemented GSAP ScrollTrigger bidirectional parallax across Statement, ArcGallery, Timeline, Ecosystem, and Hero. | COMPLETED | Pristine Apple product showcase aesthetics, silky smooth scroll scrub up/down, gsap.context lifecycle |
+| 31 | Apple-Style Clean Portrait & GSAP Scroll Parallax | Removed black border, yellow corner brackets, top telemetry overlay, bottom coordinate tag, and figure caption from the About portrait; added .apple-portrait-card styling; implemented GSAP ScrollTrigger bidirectional parallax across Statement, ArcGallery, Timeline, Ecosystem, and Hero. | COMPLETED | Pristine Apple product showcase aesthetics, silky smooth scroll scrub up/down, gsap.context lifecycle |
+| 32 | Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization | Anchored Section 03 & Section 02 background watermarks to remain stationary; deployed multi-speed topward/bottomward GSAP parallax across Landing Page texts (bio, coordinates, telemetry blocks), Timeline career rows, Statement text, and Case Studies cards. | COMPLETED | Silky bidirectional inertia on actual content, zero background shift in ArcGallery, responsive & hardware-accelerated |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -69,6 +70,7 @@ Module 31: Apple-Style Pristine Portrait Framing & Multi-Section GSAP ScrollTrig
 - Module 29 (Core Philosophy 2-Column Layout with Portrait): Restructured Section 02 into an asymmetrical 12-column editorial grid. Positioned the kinetic spring ScrollReveal text on the left (`lg:col-span-7 xl:col-span-8`, `text-left`) and placed the user's uploaded portrait on the right (`lg:col-span-5 xl:col-span-4`) encased in a sharp 0px border-radius frame with yellow telemetry accents, subject identification tags, and interactive grayscale-to-color hover transition.
 - Module 30 (Directional Animations & ArcGallery Controls Streamline): Maintained small 30-32px header hamburger icon; removed drag rectangle button and yellow indicators from Section 03; reduced navigation button sizes to compact `w-6 h-6 sm:w-6.5 sm:h-6.5` squares; deployed GPU-accelerated multi-directional Framer Motion animations (sliding up/down and left/right) across all sections with hardware acceleration and single-fire viewport triggers (`once: true`) for butter-smooth performance.
 - Module 31 (Apple-Style Clean Portrait & GSAP Scroll Parallax): Removed black border, yellow corner brackets, top telemetry overlay, bottom coordinate tag, and figure caption from the About portrait; added `.apple-portrait-card` with clean Apple-style drop shadows and luxurious grayscale-to-color hover transition; deployed bidirectional GSAP ScrollTrigger parallax on the portrait and across background watermarks, timeline blueprint, and tech monolith for fluid scroll depth when moving up and down.
+- Module 32 (Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization): Anchored Section 03 & Section 02 background watermarks to remain stationary; deployed multi-speed topward/bottomward GSAP parallax across Landing Page texts (bio, coordinates, telemetry blocks), Timeline career rows, Statement text, and Case Studies cards.
 
 ## Current blockers
 - None.

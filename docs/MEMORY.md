@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–31
+- Current module: Completed Modules 1–32
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -60,13 +60,16 @@ This file is the persistent handoff record for the project.
   15. Apple-Style Clean Portrait & GSAP Scroll Parallax:
      - Stripped the harsh black outline, telemetry tags, coordinate badges, and caption from the About section portrait.
      - Added `.apple-portrait-card` class with pristine Apple-like styling: subtle drop shadow, zero harsh outlines, clean framing, and grayscale-to-color hover transition.
-     - Implemented GSAP ScrollTrigger bidirectional parallax animations:
-       - StatementSection: PHILOSOPHY watermark (`y: 70` to `-70`) and Apple portrait (`y: 35` to `-35`).
-       - ArcGallery: GALLERY watermark (`y: 80` to `-80`).
-       - TimelineSection: Center blueprint artifact (`y: -45` to `45`).
-       - EcosystemGrid: Monolith artifact (`y: 45` to `-45`).
-       - HeroProfile: Atmospheric background (`y: 0` to `90`).
-       - Elements glide smoothly in both directions as user scrolls up and down with `scrub: 1.2-1.5`.
+  16. Content-Wide Topward/Bottomward GSAP Parallax & Watermark Stabilization (Module 32):
+     - Anchored Section 03 (`GALLERY`) and Section 02 (`PHILOSOPHY`) background watermarks to remain stationary and calm, resolving distracting scroll translation.
+     - Created reusable `initGsapMultiParallax` helper in `src/utils/gsapParallax.ts` managing `gsap.context()` for React 19 StrictMode safety.
+     - Deployed bidirectional (topward and bottomward) GSAP ScrollTrigger parallax scrub across content:
+       - Landing Page (`HeroProfile.tsx`): top coordinates (`y: 0` to `-25`), bio & CTA button (`y: 0` to `-45`), active stack (`y: 0` to `-35`), experience counter (`y: 0` to `-50`), availability (`y: 0` to `-65`), and bottom terminal bar (`y: 0` to `-20`).
+       - Timeline Section (`TimelineSection.tsx`): header telemetry (`y: 25` to `-25`), Entry 01 Nrithya Dances (`y: 35` to `-40`), Entry 02 Personal Lab (`y: 50` to `-55`), B.Tech Education (`y: 65` to `-70`), center blueprint (`y: -45` to `45`), and bottom coordinates (`y: 20` to `-20`).
+       - Statement Section (`StatementSection.tsx`): statement copy (`y: 40` to `-40`) opposing the Apple portrait card (`y: -20` to `35`).
+       - Case Studies Section (`CaseStudiesSection.tsx`): intro copy (`y: 30` to `-30`), Card 1 (`y: 45` to `-45`), Card 2 (`y: 65` to `-65`).
+       - Ecosystem Grid (`EcosystemGrid.tsx`): left stack (`y: 40` to `-40`), center monolith (`y: -30` to `30`), right stack (`y: 50` to `-50`), and skills bar (`y: 25` to `-25`).
+     - All movements are scrubbed hardware-accelerated transforms (`y`) that move up when scrolling up and down when scrolling down.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
