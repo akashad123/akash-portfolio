@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–28
+- Current module: Completed Modules 1–29
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -51,11 +51,14 @@ This file is the persistent handoff record for the project.
      - Created `src/utils/motion.ts` with custom cubic-bezier `[0.16, 1, 0.3, 1]` editorial curves and `FadeInView` utility component.
      - Wired initial mount fade-in on landing screen (`HeroProfile` and `Header`).
      - Wired viewport scroll fade-in (`initial={sectionInitial} whileInView={sectionWhileInView} viewport={sectionViewportConfig}`) on Section 02 (Core Philosophy), Section 03 (Selected Works / ArcGallery), Section 04 (Career Timeline), Section 05 (Production Case Studies), Section 06 (Tech Stack & Ecosystem), and Section 07 (Editorial Footer).
+  13. Core Philosophy 2-Column Layout with Portrait:
+     - Placed the user's uploaded high-res portrait in Section 02 on the right side encased in a sharp 0px border-radius editorial frame (`aspect-[3/4]`, yellow telemetry corner accents, and hover color-reveal).
+     - Moved the kinetic spring ScrollReveal statement to the left side (`text-left`, `lg:col-span-7 xl:col-span-8`), maintaining responsive stacking on mobile viewports.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
-- Live preview active on local port 3001.
+- Live preview active on local port 3000.
 
 ## Important decisions
 - Centralized data layer in `src/data/portfolioData.ts` adhering strictly to user's provided JSON data.
@@ -84,10 +87,10 @@ This file is the persistent handoff record for the project.
 - `src/sections/Footer.tsx`
 
 ## Next exact step
-User review of live development server at `http://localhost:3001/`, followed by optional production hosting deployment on Vercel.
+User review of live development server at `http://localhost:3000/`, followed by optional production hosting deployment on Vercel.
 
 ## Last verification
-- Date: 2026-10-19
+- Date: 2026-10-21
 - Build: PASSED (`tsc -b && vite build` completed with 0 errors)
 - Git Remote: PASSED (`main` branch synced with `https://github.com/akashad123/akash-portfolio.git`)
 - Tests: PASSED

@@ -41,6 +41,7 @@ Module 13: Final Verification & Responsive Refinement
 | 26 | Compact Hamburger Icon & Kinetic Spring Text Reveal | Reduced top-right hamburger icon size and re-engineered Core Philosophy reveal with lively spring motion (no blur) | COMPLETED | Compact w-8 hamburger button, letter-by-letter physical pop-up spring, angular settling, interactive hover physics |
 | 27 | Background Watermark Typography | Subtle PHILOSOPHY watermark typography in faint gray in Core Philosophy background | COMPLETED | text-neutral-100 on white background, pointer-events-none, high-contrast legibility preserved |
 | 28 | Framer Motion Viewport Fade-In | Global Framer Motion fade-in entrance for landing hero, and viewport fade-in transitions across Core Philosophy, Selected Works, Timeline, Case Studies, Tech Ecosystem, and Footer | COMPLETED | Created src/utils/motion.ts and FadeInView component; smooth cubic-bezier [0.16, 1, 0.3, 1] editorial ease |
+| 29 | Core Philosophy 2-Column Layout with Portrait | Moved ScrollReveal text to left side and integrated uploaded high-res portrait in sharp editorial frame on right side | COMPLETED | 12-col responsive grid, 0px radius, yellow telemetry accents, hover grayscale-to-color transition, mobile-responsive |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -63,6 +64,7 @@ Module 13: Final Verification & Responsive Refinement
 - Module 26 (Compact Hamburger Icon & Kinetic Spring Text Reveal): Reduced top-right header hamburger icon footprint to sleek 32px square, and replaced blurry text reveal in Section 02 with lively letter-by-letter spring pop-up motion (y: 28px -> 0px, scale: 0.65 -> 1.0, rotate: -6deg -> 0deg) and interactive hover bounce.
 - Module 27 (Background Watermark Typography): Added subtle PHILOSOPHY watermark typography in faint gray (text-neutral-100) behind the Core Philosophy statement, matching the architectural watermark aesthetic of Section 03 while preserving foreground legibility and 0px radius design language.
 - Module 28 (Framer Motion Viewport Fade-In): Engineered centralized motion system in `src/utils/motion.ts` with custom cubic-bezier `[0.16, 1, 0.3, 1]` curve. Applied smooth landing entrance animation to HeroProfile and Header, and seamless viewport fade-in transitions (`whileInView`) across Core Philosophy, Selected Works, Career Timeline, Production Case Studies, Tech Ecosystem, and Editorial Footer with `once: true` preservation.
+- Module 29 (Core Philosophy 2-Column Layout with Portrait): Restructured Section 02 into an asymmetrical 12-column editorial grid. Positioned the kinetic spring ScrollReveal text on the left (`lg:col-span-7 xl:col-span-8`, `text-left`) and placed the user's uploaded portrait on the right (`lg:col-span-5 xl:col-span-4`) encased in a sharp 0px border-radius frame with yellow telemetry accents, subject identification tags, and interactive grayscale-to-color hover transition.
 
 
 
