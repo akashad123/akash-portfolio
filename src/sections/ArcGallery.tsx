@@ -131,8 +131,8 @@ export const ArcGallery: React.FC = () => {
 
       {/* Stable Background Watermark Typography */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <span className="font-display text-[20vw] uppercase text-neutral-100 font-extrabold tracking-tighter leading-none">
-          GALLERY
+        <span className="font-display text-[16vw] sm:text-[18vw] uppercase text-neutral-100 font-extrabold tracking-tighter leading-none select-none">
+          PROJECTS
         </span>
       </div>
 

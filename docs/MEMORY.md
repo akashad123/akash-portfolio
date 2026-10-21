@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–34
+- Current module: Completed Modules 1–35
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -75,6 +75,8 @@ This file is the persistent handoff record for the project.
      - Sized GitHub and Live demo buttons to matching compact dimensions (`w-6 h-6`, `size={11}` icons).
      - Removed top category/workspace badges (`project.tag`) and top year badges (`project.date`) from the top of the cards for complete visual minimalism.
      - Removed black outlines/borders from the carousel cards (`border-0` with clean ambient drop shadows).
+  19. Background Watermark Calibration ('PROJECTS') (Module 35):
+     - Updated Section 03 background watermark text from `GALLERY` to `PROJECTS` in subtle `text-neutral-100 font-display font-extrabold tracking-tighter leading-none select-none`, matching `PHILOSOPHY` in Section 02.
 - Verified production build (`tsc -b && vite build`) with zero errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
