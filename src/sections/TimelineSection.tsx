@@ -118,7 +118,7 @@ export const TimelineSection: React.FC = () => {
       {/* Center Layout with Clean Tabular Rows in Chronological Sequence */}
       <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-8 sm:py-10">
         <div className="relative">
-          <div className="relative z-10 space-y-0">
+          <div className="relative z-10 space-y-2 sm:space-y-3">
             {timelineItems.map((item) => (
               <div key={item.id} ref={item.ref} className="will-change-transform">
                 <motion.div
@@ -127,7 +127,7 @@ export const TimelineSection: React.FC = () => {
                   whileInView="visible"
                   viewport={sectionViewportConfig}
                   custom={item.customDelay}
-                  className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-4.5 sm:py-5.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-black/40 backdrop-blur-[2px] px-3 sm:px-4"
+                  className="group border-b border-white/15 hover:border-brand-yellow transition-colors py-6 sm:py-7 md:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-black/40 backdrop-blur-[2px] px-4 sm:px-5"
                 >
                   <div>
                     <h3
@@ -141,12 +141,12 @@ export const TimelineSection: React.FC = () => {
                     </h3>
 
                     {item.status && (
-                      <p className="text-xs font-mono text-brand-yellow font-bold mt-1 tracking-wider uppercase">
+                      <p className="text-xs font-mono text-brand-yellow font-bold mt-1.5 tracking-wider uppercase">
                         {item.status}
                       </p>
                     )}
 
-                    <p className="text-xs font-mono text-neutral-400 mt-0.5">
+                    <p className={`text-xs sm:text-[13px] font-mono text-neutral-400 ${item.status ? 'mt-1' : 'mt-1.5'}`}>
                       {item.subtitle}
                     </p>
                   </div>

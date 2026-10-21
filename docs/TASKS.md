@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 42: Timeline Vertical Alignment & ArcGallery Minimalist Icon-Only Controls
+Module 43: Timeline Row Spacing & Breathing Room Calibration
 
 ## Task list
 
@@ -55,6 +55,7 @@ Module 42: Timeline Vertical Alignment & ArcGallery Minimalist Icon-Only Control
 | 40 | Career Timeline Layout Streamline & Clutter Removal | Removed 'ENTRY 01' and 'ENTRY 02' labels; stripped center descriptions across all rows; restructured MCA education row with 'Pursuing S4' and 'LEAD College, Palakkad' stacked below the degree title; retained '2025 – 2027' duration; removed bottom telemetry coordinate bar. | COMPLETED | Clean 2-column tabular layout, responsive flex spacing, verified build |
 | 41 | Full Chronological Timeline with Degree Graduation & MERN Internship | Integrated Bachelor of Science in Computer Science (2020 – 2023) and MERN Stack Intern at Luminar Technolab (Jul 2023 – Feb 2024); mapped all 5 milestones in chronological sequence with GSAP scroll parallax and consistent hover highlights. | COMPLETED | Complete 5-milestone journey, accurate dates, verified build |
 | 42 | Timeline Vertical Alignment & ArcGallery Minimalist Icon-Only Controls | Removed mortarboard cap icons; vertically aligned all 5 timeline titles and subtitles; highlighted MCA and B.Sc educations in brand-yellow by default; removed bottom coordinate bar from ArcGallery; streamlined carousel navigation to sharp-edged dual-icon-only dock (< / >). | COMPLETED | Pristine vertical baseline, yellow education highlights, minimalist icon dock, verified build |
+| 43 | Timeline Row Spacing & Breathing Room Calibration | Increased vertical padding on all timeline rows to py-6 sm:py-7 md:py-8, added space-y-2 sm:space-y-3 between rows, and expanded gap below titles and subtitles for comfortable visual breathing room. | COMPLETED | Generous row spacing, distinct separation, verified build |
 
 ## Completed modules
 - Module 1 (Discovery & Tech Stack Gate): Approved stack recorded in all documentation.
@@ -86,6 +87,7 @@ Module 42: Timeline Vertical Alignment & ArcGallery Minimalist Icon-Only Control
 - Module 40 (Career Timeline Layout Streamline & Clutter Removal): Removed 'ENTRY 01' and 'ENTRY 02' labels from career rows; stripped center text descriptions across all rows; restructured MCA education row with 'Pursuing S4' and 'LEAD College, Palakkad' stacked below the degree title; retained '2025 – 2027' duration; removed bottom telemetry coordinate bar. Verified GSAP bidirectional parallax and responsive flex layout.
 - Module 41 (Full Chronological Timeline with Degree Graduation & MERN Internship): Integrated Bachelor of Science in Computer Science (2020 – 2023, University of Calicut) and MERN Stack Intern (Jul 2023 – Feb 2024, Luminar Technolab); structured all 5 engagements in true chronological sequence with GSAP scroll parallax on all 5 rows, mortarboard icons on education items, and interactive hover highlights. Verified production build.
 - Module 42 (Timeline Vertical Alignment & ArcGallery Minimalist Icon-Only Controls): Removed graduation cap icons; vertically aligned all 5 timeline titles and subtitles; highlighted MCA and B.Sc educations in brand-yellow by default; removed bottom coordinate bar from ArcGallery; streamlined carousel navigation to sharp-edged dual-icon-only dock (< / >). Verified production build.
+- Module 43 (Timeline Row Spacing & Breathing Room Calibration): Expanded vertical padding on all timeline rows to py-6 sm:py-7 md:py-8, added space-y-2 sm:space-y-3 between rows, and expanded gap below titles and subtitles for comfortable visual breathing room. Verified production build.
 
 ## Current blockers
 - None.

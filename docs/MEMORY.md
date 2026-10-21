@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–42
+- Current module: Completed Modules 1–43
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -109,6 +109,10 @@ This file is the persistent handoff record for the project.
   3. Highlighted MCA and B.Sc Computer Science educations in `#ffe600` brand-yellow by default in their initial state.
   4. Removed the bottom coordinate bar from Section 03 (`ArcGallery`).
   5. Streamlined carousel controls to a sharp-edged dual-icon-only dock (`<` / `>`) with no labels, numerical counters, or indicators.
+- Completed Module 43 (Timeline Row Spacing & Breathing Room Calibration):
+  1. Increased row vertical padding to `py-6 sm:py-7 md:py-8` (24px–32px).
+  2. Added inter-row spacing `space-y-2 sm:space-y-3` for distinct separation between each career/education entry.
+  3. Expanded internal spacing below titles and between education status/institution.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
