@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–41
+- Current module: Completed Modules 1–42
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -103,6 +103,12 @@ This file is the persistent handoff record for the project.
   2. Integrated MERN Stack Intern at Luminar Technolab (`Jul 2023 – Feb 2024`) immediately following degree graduation.
   3. Structured all 5 milestones in chronological sequence: Nrithya Dances (`Jul 2026 – Present`) → MCA (`2025 – 2027`) → Stratagile (`Mar 2024 – Mar 2025`) → Luminar Technolab (`Jul 2023 – Feb 2024`) → B.Sc Graduation (`2020 – 2023`).
   4. Deployed 5-stage GSAP scroll parallax with bidirectional inertia and hover highlights across all rows.
+- Completed Module 42 (Timeline Vertical Alignment & ArcGallery Minimalist Icon-Only Controls):
+  1. Removed mortarboard graduation cap icons from Section 04.
+  2. Aligned all 5 entries (titles, statuses, subtitles) to the exact same vertical left baseline with zero indent.
+  3. Highlighted MCA and B.Sc Computer Science educations in `#ffe600` brand-yellow by default in their initial state.
+  4. Removed the bottom coordinate bar from Section 03 (`ArcGallery`).
+  5. Streamlined carousel controls to a sharp-edged dual-icon-only dock (`<` / `>`) with no labels, numerical counters, or indicators.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

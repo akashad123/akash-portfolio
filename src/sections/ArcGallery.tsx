@@ -368,65 +368,27 @@ export const ArcGallery: React.FC = () => {
           })}
         </motion.div>
 
-        {/* Architectural Editorial Navigation Dock */}
-        <div className="flex items-center mt-3 select-none border border-black bg-white divide-x divide-black/20 shadow-xs">
+        {/* Minimalist Architectural Dual-Icon Navigation Dock */}
+        <div className="flex items-center mt-3 select-none border border-black bg-white divide-x divide-black shadow-xs">
           <button
             type="button"
             onClick={handlePrev}
-            className="group h-7 sm:h-7.5 px-3 bg-white hover:bg-black text-black hover:text-white transition-all flex items-center space-x-1.5 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest cursor-pointer"
-            aria-label="Previous work"
+            className="w-8 h-7.5 sm:w-9 sm:h-8 bg-white hover:bg-black text-black hover:text-brand-yellow active:bg-neutral-900 transition-colors flex items-center justify-center cursor-pointer"
+            aria-label="Previous project"
             title="Previous project"
           >
-            <ChevronLeft size={13} className="stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
-            <span>PREV</span>
+            <ChevronLeft size={16} strokeWidth={2.5} />
           </button>
-
-          <div className="h-7 sm:h-7.5 px-3 bg-neutral-50 flex items-center space-x-2 font-mono text-[10px] text-neutral-600">
-            <span className="text-black font-extrabold tracking-wider">
-              {String(activeIndex + 1).padStart(2, '0')}
-            </span>
-            <span className="text-neutral-400">/</span>
-            <span className="text-neutral-500">
-              {String(projects.length).padStart(2, '0')}
-            </span>
-            <div className="flex items-center space-x-1 ml-1">
-              {projects.map((_, idx) => (
-                <span
-                  key={idx}
-                  className={`h-1.5 transition-all duration-300 ${
-                    idx === activeIndex
-                      ? 'w-5 bg-brand-yellow border border-black/30'
-                      : 'w-1.5 bg-neutral-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
           <button
             type="button"
             onClick={handleNext}
-            className="group h-7 sm:h-7.5 px-3 bg-white hover:bg-black text-black hover:text-white transition-all flex items-center space-x-1.5 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest cursor-pointer"
-            aria-label="Next work"
+            className="w-8 h-7.5 sm:w-9 sm:h-8 bg-white hover:bg-black text-black hover:text-brand-yellow active:bg-neutral-900 transition-colors flex items-center justify-center cursor-pointer"
+            aria-label="Next project"
             title="Next project"
           >
-            <span>NEXT</span>
-            <ChevronRight size={13} className="stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight size={16} strokeWidth={2.5} />
           </button>
         </div>
-      </motion.div>
-
-      {/* Clean Bottom Coordinate Bar - Slides up smoothly */}
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewportConfig}
-        custom={0.25}
-        className="relative z-10 max-w-7xl mx-auto w-full pt-1.5 border-t border-black/10 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-neutral-500"
-      >
-        <span>INTERACTIVE ARC PHYSICS // SWIPE ⇄</span>
-        <span>VERIFIED CODE REPOSITORIES AVAILABLE</span>
       </motion.div>
 
       {/* Fullscreen Project Specification Modal */}

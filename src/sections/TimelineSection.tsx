@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 import { GridBackground } from '../components/GridBackground';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import { initGsapMultiParallax } from '../utils/gsapParallax';
 import {
   sectionViewportConfig,
@@ -130,38 +130,33 @@ export const TimelineSection: React.FC = () => {
                   className="group border-b border-white/10 hover:border-brand-yellow transition-colors py-4.5 sm:py-5.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-black/40 backdrop-blur-[2px] px-3 sm:px-4"
                 >
                   <div>
-                    <div className="flex items-center space-x-2">
-                      {item.type === 'education' && (
-                        <GraduationCap size={18} className="text-brand-yellow shrink-0" />
-                      )}
-                      <h3
-                        className={`font-display text-xl sm:text-2xl md:text-3xl tracking-tight uppercase group-hover:text-brand-yellow transition-colors ${
-                          item.type === 'education' ? 'text-neutral-200' : 'text-white'
-                        }`}
-                      >
-                        {item.title}
-                      </h3>
-                    </div>
+                    <h3
+                      className={`font-display text-xl sm:text-2xl md:text-3xl tracking-tight uppercase transition-colors ${
+                        item.type === 'education'
+                          ? 'text-brand-yellow'
+                          : 'text-white group-hover:text-brand-yellow'
+                      }`}
+                    >
+                      {item.title}
+                    </h3>
 
                     {item.status && (
-                      <p className="text-xs font-mono text-brand-yellow font-bold mt-1 tracking-wider uppercase pl-6.5">
+                      <p className="text-xs font-mono text-brand-yellow font-bold mt-1 tracking-wider uppercase">
                         {item.status}
                       </p>
                     )}
 
-                    <p
-                      className={`text-xs font-mono text-neutral-400 ${
-                        item.type === 'education' ? 'mt-0.5 pl-6.5' : 'mt-1'
-                      }`}
-                    >
+                    <p className="text-xs font-mono text-neutral-400 mt-0.5">
                       {item.subtitle}
                     </p>
                   </div>
 
                   <div className="text-left sm:text-right shrink-0">
                     <span
-                      className={`font-mono text-sm sm:text-base font-bold tracking-widest group-hover:text-brand-yellow transition-colors ${
-                        item.type === 'education' ? 'text-neutral-300' : 'text-white'
+                      className={`font-mono text-sm sm:text-base font-bold tracking-widest transition-colors ${
+                        item.type === 'education'
+                          ? 'text-brand-yellow'
+                          : 'text-white group-hover:text-brand-yellow'
                       }`}
                     >
                       {item.duration}
