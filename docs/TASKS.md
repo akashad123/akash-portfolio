@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 47: Case Studies Section Streamlining
+Module 48: Authentic Case Studies Content Calibration
 
 ## Task list
 
@@ -60,6 +60,7 @@ Module 47: Case Studies Section Streamlining
 | 45 | Landing Streamlining | Remove SCROLL TO DISCOVER button and AD monogram logo from landing page header | COMPLETED | Clean minimalist header with top-right yellow hamburger dock, clean bottom telemetry bar, verified build |
 | 46 | Moving Backgrounds & Footer | Site-wide moving background parallax across all sections & minimalist footer with logo and top arrow | COMPLETED | GSAP scroll parallax on all black and white backgrounds (watermarks, grids, gradients) & streamlined footer |
 | 47 | Case Studies Streamlining | Streamline Section 05 to bold CASE STUDIES heading, remove intro labels/descriptions & bottom telemetry | COMPLETED | Clean CASE STUDIES display title, top bar 05 // CASE STUDIES, removed downtime/PM2 footer |
+| 48 | Case Studies Content | Ingest user-provided narrative and lessons for AI Teacher Scoring & Zoom-to-YouTube automation | COMPLETED | Preserved all tech stack skills, updated problem, what I built, how I did it, challenges, results, and learnings |
 | 36 | Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing | Removed intersecting '98 Full Stack AI' blueprint rectangle from Career Timeline; enhanced 'PROJECTS' watermark contrast with visible neutral-200 tint and wide expanded letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`). | COMPLETED | Clean timeline rows with zero visual obstruction, widely spaced high-visibility watermark |
 | 37 | Tightened 'PROJECTS' Watermark Letter Spacing | Decreased space between letters in 'PROJECTS' watermark from wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`, retaining clear `text-neutral-200` visibility with classic bold typography. | COMPLETED | Tightly grouped architectural letters, balanced aesthetic, verified build |
 | 38 | Vertically Expanded Standing Title & Full Slide Control Streamline | Removed VIEW DETAILS, GitHub, and Live link buttons, and project subtitles from carousel slides; transformed project titles into massive vertically expanded typography standing from top to bottom (`writingMode: 'vertical-rl'`). | COMPLETED | Pure poster aesthetics, zero clutter, dramatic vertical height |
@@ -104,6 +105,7 @@ Module 47: Case Studies Section Streamlining
 - Module 45 (Landing Streamlining - Scroll to Discover & Logo Removal): Removed "SCROLL TO DISCOVER" button and down arrow from `HeroProfile.tsx` bottom bar; removed "AD" monogram brand logo from `Header.tsx`, streamlining the header to an ultra-clean, minimalist navigation dock with the yellow square hamburger trigger positioned in the top-right. Verified production build.
 - Module 46 (Site-Wide Moving Background Parallax & Minimalist Footer): Deployed synchronized GSAP ScrollTrigger parallax across all black and white section backgrounds (Hero atmospheric gradient & grid, Statement ABOUT watermark & grid, ArcGallery PROJECTS watermark & grid, Timeline grid & atmosphere, Case Studies grid & atmosphere, Ecosystem grid, and Footer grid); streamlined Footer by removing all content from 'Available for high-impact collaborations' to 'Back to ascent', retaining only the monogram logo and the key up arrow in size 14. Verified production build.
 - Module 47 (Case Studies Section Streamlining): Updated Section 05 header to "05 // CASE STUDIES", replaced the 3-line intro block ("DEEP-DIVE ENGINEERING", "MULTIMODAL AI & HIGH-AVAILABILITY CLOUD PIPELINES", and "Real systems deployed on AWS EC2...") with a clean bold display heading "CASE STUDIES", and removed the bottom telemetry bar ("ZERO PRODUCTION DOWNTIME RECORD" and "DEPLOYED ON AWS EC2 + PM2 DAEMONS"). Verified production build.
+- Module 48 (Authentic Case Studies Content Calibration): Updated the two production case studies in `src/data/portfolioData.ts` with the user's authentic first-person narrative ("AI Teacher Scoring System" and "Zoom to YouTube Recording Automation"). Integrated the exact problems, automated flows, challenges faced (attendance gating 57.8% -> 78.9% fix, teacher name settings reconciliation for 13 missed recordings, selective upload routing), verified results, and core takeaways, while strictly preserving all deployed skills and technologies.
 
 ## Current blockers
 - None.

@@ -98,86 +98,70 @@ export const portfolioData: PortfolioData = {
       title: "AI Teacher Scoring System",
       subtitle: "Multimodal AI pipeline evaluating online dance instruction quality",
       company: "Nrithya Dances",
-      role: "Full-Stack Developer Intern (Developer & Maintainer)",
+      role: "Full-Stack Developer Intern",
       duration: "Jul 2026 – Present",
       status: "MVP IN PRODUCTION",
       techStack: ["Python", "Google Gemini API", "ffmpeg", "Supabase (PostgreSQL)", "React", "Vercel", "AWS EC2", "pm2", "Zoom API"],
-      overview: "An automated intelligence engine that analyzes recorded virtual classes, identifies timestamped pedagogical moments, and computes objective teacher performance scores backed by tangible video proof.",
-      problem: "Manual review of instructional videos via Excel spreadsheets was labor-intensive, limiting quality checks to a tiny fraction of classes and introducing human scoring inconsistency.",
-      solution: "Engineered a dual-layer system where Google Gemini multimodal AI identifies timestamped evidence moments, while deterministic Python rule engines compute scores against 11 pedagogical rubrics, ensuring 100% transparency.",
+      overview: "I built a system that checks classes automatically. The AI listens to the class and looks at important moments in the video to find proof, like whether the teacher greeted every student or gave clear corrections. Then simple Python rules give the score. The AI only finds the proof; the rules decide the score. That keeps every score fair and easy to explain.",
+      problem: "At Nrithya Dances, a person had to watch every recorded class and fill in an Excel sheet to check how well the teacher taught. It was slow, so only a few classes could be checked, and the feedback wasn’t always the same from one class to the next.",
+      solution: "I built a system that checks classes automatically. The AI listens to the class and looks at important moments in the video to find proof, like whether the teacher greeted every student or gave clear corrections. Then simple Python rules give the score. The AI only finds the proof; the rules decide the score. That keeps every score fair and easy to explain.",
       process: [
-        "Codified the academy's official teaching manual into 11 measurable benchmarks with 6+ verifiable criteria each, ratified by the founder.",
-        "Built the end-to-end processing pipeline: Zoom MP4 ingest → Audio/Video slice extraction → Gemini multimodal evaluation → Python rule execution → Supabase persistence.",
-        "Deployed automated daemon on AWS EC2 executing every 15 minutes, processing up to 25 full class sessions per day via pm2 background workers.",
-        "Created an interactive React review portal on Vercel allowing pedagogical supervisors to audit AI marks with instant deep-links to exact video timestamps.",
-        "Designed balanced rubrics: Preparation (20%), Engagement (25%), Technique (25%), Communication (15%), Session Closing (15%)."
+        "Worked with the founder to turn the academy’s teaching handbook into 11 clear checks, each with at least 6 points to measure.",
+        "Built the pipeline flow: class video, then AI evidence extraction, then Python rules, then the results saved in the database.",
+        "Built a website where reviewers can see each score along with its proof, and click a link that opens the video at the exact moment."
       ],
       challenges: [
         {
-          challenge: "Sessions were occasionally evaluated before instructors completed attendance registers, incorrectly flagging attendees as absent.",
-          solution: "Implemented an event gate that halts scoring until attendance is finalized, accompanied by a retroactive reconciliation tool that corrected affected scores (e.g., elevating one session from 57.8% to 78.9%)."
-        },
-        {
-          challenge: "AI hallucinated verbal exchanges during extended silent musical rehearsals.",
-          solution: "Programmed strict silence-filtering routines and zero-hallucination guardrails, systematically validated through empirical manual audits."
-        },
-        {
-          challenge: "Zoom's standard telemetry required expensive enterprise tier upgrades to verify audio sharing modes.",
-          solution: "Architected a custom Zoom App integration detecting real-time audio playback states directly, avoiding costly license escalations."
+          challenge: "Some classes were scored before the teacher marked attendance, so students who were actually present were counted as absent.",
+          solution: "I made the system wait until attendance was marked, and built a tool to fix the wrong scores. One class went from 57.8% to its correct score of 78.9%."
         }
       ],
       results: [
-        "15 out of 15 randomly audited AI evidence timestamps were 100% physically authentic.",
-        "On-time verification synchronized precisely with Zoom join logs in 10 out of 10 test benchmarks.",
-        "Every single metric features verifiable justification linked to exact video moments.",
-        "Architected for absolute precision over superficial velocity."
+        "When I randomly checked 15 of the AI’s proof moments against the real video, all 15 were real.",
+        "When a check isn’t reliable yet, I mark it 'Not judged yet' instead of showing a wrong result."
       ],
       learnings: [
-        "Separate AI evidence extraction from deterministic business logic.",
-        "Always enforce ground-truth verification against raw media sources.",
-        "Rigorous domain rubric design triumphs over raw model parameter count."
+        "Let AI find the proof, but let fixed rules decide the score.",
+        "Always check AI results against the real source."
       ]
     },
     {
       id: "zoom-youtube-automation",
       slug: "nrithya-zoom-youtube-automation",
-      title: "Zoom to YouTube Recording Pipeline",
+      title: "Zoom to YouTube Recording Automation",
       subtitle: "Autonomous cloud distribution of student class recordings",
       company: "Nrithya Dances",
-      role: "Full-Stack Developer Intern (Developer & Maintainer)",
+      role: "Maintainer & Developer",
       duration: "Jul 2026 – Present",
       status: "LIVE DEPLOYMENT",
       techStack: ["Node.js", "Zoom API", "YouTube API", "WhatsApp (WATI)", "Supabase", "AWS EC2", "pm2", "cron"],
-      overview: "An autonomous cloud service that ingests Zoom cloud recordings, uploads categorized videos to YouTube, and broadcasts direct playback links to enrolled students via WhatsApp.",
-      problem: "Manual downloading, transcoding, YouTube uploading, and link dispatch for dozens of daily classes overwhelmed the operational team.",
-      solution: "Engineered an AWS EC2 cron engine running 4 times daily that orchestrates secure Zoom token authorization, YouTube chunked media uploads, and WhatsApp delivery.",
+      overview: "A program on an AWS server runs 4 times a day. It downloads new Zoom recordings, uploads them to YouTube, and sends the link to students on WhatsApp, with no manual work. I maintain and improve this system: I keep it running, update it through GitHub, and fix problems when they come up.",
+      problem: "Students need recordings of their classes so they can practise at home. With many teachers and classes every day, uploading and sending each recording by hand wasn’t possible.",
+      solution: "A program on an AWS server runs 4 times a day. It downloads new Zoom recordings, uploads them to YouTube, and sends the link to students on WhatsApp, with no manual work.",
       process: [
-        "Configured robust worker daemon on AWS EC2 managed by pm2 with automatic crash recovery.",
-        "Synchronized instructor Zoom credentials and recording layouts with Supabase metadata.",
-        "Enforced consistent 720p/1080p recording standards across all educator profiles to guarantee student visibility."
+        "A program on an AWS server runs 4 times a day to process all daily classes.",
+        "Downloads new Zoom recordings and uploads them directly to YouTube.",
+        "Sends direct playback links to students on WhatsApp with zero manual work.",
+        "Maintained and improved through GitHub with continuous reliability checks."
       ],
       challenges: [
         {
-          challenge: "Recording synchronization halted for two instructors due to name string discrepancies between Zoom settings and database tables.",
-          solution: "Standardized instructor identity mapping and restarted daemon, automatically reprocessing 13 missed recordings without human intervention."
+          challenge: "One day, recordings stopped coming for two teachers. I traced the cause: their names in the program’s settings didn’t match the database.",
+          solution: "After I fixed the names and restarted the program, 13 missed recordings came back in the next run."
         },
         {
-          challenge: "Operational team required specific internal workshop recordings to be uploaded without student WhatsApp broadcasts.",
-          solution: "Introduced configurable routing rules permitting selective YouTube uploads while suppressing messaging webhooks."
-        },
-        {
-          challenge: "Legacy server environment suffered from unversioned manual script edits.",
-          solution: "Established a Git pull-request deployment flow, taking server snapshots and aligning server state with GitHub main."
+          challenge: "The operations team wanted some classes uploaded to YouTube but not sent to students.",
+          solution: "I added a rule to skip sending for those classes while still uploading them, and checked that it worked after the next run."
         }
       ],
       results: [
-        "Autonomous processing of class recordings 4 times daily without operational friction.",
-        "Zero data loss: 13 historical sessions successfully recovered and dispatched automatically.",
-        "Proactively identified and repaired broken notification configurations across the stack."
+        "Autonomous processing 4 times a day with zero manual uploading or messaging.",
+        "13 missed recordings successfully recovered after fixing teacher name settings.",
+        "Added flexible routing rule to upload specific classes while skipping student WhatsApp delivery."
       ],
       learnings: [
-        "Map complete downstream side-effects before altering automated pipelines.",
-        "Subtle data inconsistencies (e.g. name casing) must be shielded with schema normalization."
+        "A tiny mismatch, like a name, can quietly stop an automation.",
+        "Before changing anything, always check what else it will affect."
       ]
     }
   ],

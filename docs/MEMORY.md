@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–47
+- Current module: Completed Modules 1–48
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -122,6 +122,21 @@ This file is the persistent handoff record for the project.
   1. Removed `SCROLL TO DISCOVER` button and down arrow icon from `src/sections/HeroProfile.tsx` bottom bar, keeping the sleek `MERN // GEMINI API // SUPABASE // AWS EC2` telemetry indicator with GSAP parallax intact.
   2. Removed `AD` monogram brand logo from `src/components/Header.tsx`, streamlining the header to an ultra-clean navigation dock with the yellow square hamburger trigger positioned in the top-right.
   3. Removed unnecessary scroll event listeners from `Header.tsx` for optimal runtime performance.
+- Completed Module 48 (Authentic Case Studies Content Calibration):
+  1. Updated Case Study 1 (`AI Teacher Scoring System`):
+     - The Problem: Manual review of virtual classes via Excel sheets was slow and feedback lacked consistency.
+     - What I Built: Automated evaluation system where AI listens and finds video evidence moments, and simple deterministic Python rules compute fair and explainable scores.
+     - How I Did It: Codified 11 teaching checks with 6+ points with founder, built video -> AI -> Python rules -> database pipeline, and created reviewer portal with direct video jump links.
+     - Challenges & Solutions: Attendance timing discrepancy caused present students to be marked absent; engineered attendance gate and reconciliation tool (restoring class from 57.8% to 78.9%).
+     - Results & Learnings: 15/15 random AI evidence moments verified against raw video; unconfident checks flagged "Not judged yet"; key takeaway: let AI find proof, let fixed rules decide score.
+     - Maintained all technical skills: Python, Google Gemini API, ffmpeg, Supabase, React, Vercel, AWS EC2, pm2, Zoom API.
+  2. Updated Case Study 2 (`Zoom to YouTube Recording Automation`):
+     - The Problem: Manual download, upload, and link dispatch for daily classes was unsustainable.
+     - What the System Does: Automated AWS EC2 program running 4x daily to ingest Zoom recordings, upload to YouTube, and dispatch links via WhatsApp.
+     - My Role: System maintainer and developer, deploying updates via GitHub and resolving production issues.
+     - Challenges & Solutions: Resolved teacher name discrepancy in settings that halted processing, recovering 13 missed recordings; added selective routing rule to upload internal workshops while suppressing WhatsApp dispatches.
+     - Results & Learnings: Autonomous multi-daily runs; zero data loss; key takeaway: tiny mismatches quietly stop automations; always check downstream effects before modifying code.
+     - Maintained all technical skills: Node.js, Zoom API, YouTube API, WhatsApp (WATI), Supabase, AWS EC2, pm2, cron.
 - Completed Module 47 (Case Studies Section Streamlining):
   1. Updated Section 05 top header text to `05 // CASE STUDIES` with `AI & AUTOMATION` badge.
   2. Removed `DEEP-DIVE ENGINEERING` category label, the long title `MULTIMODAL AI & HIGH-AVAILABILITY CLOUD PIPELINES`, and the description `Real systems deployed on AWS EC2 processing hundreds of live instructional media files with deterministic quality scoring.`.
