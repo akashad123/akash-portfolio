@@ -214,18 +214,7 @@ export const EcosystemGrid: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Bottom Footer - Slides up smoothly */}
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewportConfig}
-        custom={0.3}
-        className="relative z-10 max-w-7xl mx-auto w-full pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500"
-      >
-        <span>ALL TECHNOLOGIES DEPLOYED IN PRODUCTION ENVIRONMENTS</span>
-        <span>MODERN FULL STACK WEB ARCHITECTURE</span>
-      </motion.div>
+      
     </section>
   );
 };

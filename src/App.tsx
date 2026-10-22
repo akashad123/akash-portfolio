@@ -9,6 +9,7 @@ import { ArcGallery } from './sections/ArcGallery';
 import { TimelineSection } from './sections/TimelineSection';
 import { CaseStudiesSection } from './sections/CaseStudiesSection';
 import { EcosystemGrid } from './sections/EcosystemGrid';
+import { ContactSection } from './sections/ContactSection';
 import { Footer } from './sections/Footer';
 import { CaseStudyItem } from './types/portfolio';
 
@@ -51,6 +52,9 @@ export function App() {
 
         {/* 06 // Tech Ecosystem & Partners Architectural Grid (Light Theme, Screenshot 1) */}
         <EcosystemGrid />
+
+        {/* 07 // Contact & Collaborations (Dark Theme) */}
+        <ContactSection onOpenContact={() => setIsContactOpen(true)} />
       </main>
 
       {/* Spacious Editorial Footer */}
