@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 55: EJS Removal from Skills Taxonomy
+Module 56: Horizontal Scroll Gallery with Pinned Background & Smooth Timeline Transition
 
 ## Task list
 
@@ -68,6 +68,7 @@ Module 55: EJS Removal from Skills Taxonomy
 | 53 | Contact Section Minimalist Clean | Remove bio/tagline ("AKASH Full-Stack Developer... to Production-Grade Cloud & AI Backends") and details grid | COMPLETED | Strictly retained "LET'S BUILD" and "START AN ENGAGEMENT" CTA in Section 07 |
 | 54 | Contact Channels & Compact CTA | Place LinkedIn, GitHub, and Mail directly under Let's Build, reduce CTA size, move to top, and mirror links in footer | COMPLETED | Restored LinkedIn, GitHub, and Mail under LET'S BUILD and in footer; reduced START AN ENGAGEMENT button size and aligned to top with arrow |
 | 55 | Skills EJS Removal | Remove EJS from Frontend Engineering skills taxonomy | COMPLETED | Cleaned EJS from `portfolioData.skills[0].items` |
+| 56 | Horizontal Scroll Gallery | Replace orbital carousel with GSAP ScrollTrigger pinned horizontal scroll section transitioning into timeline | COMPLETED | Implemented fixed background pinning, horizontal card track scrub, active index counter, progress bar, and seamless release into Career Timeline |
 | 36 | Timeline Clutter Cleanup & Expanded 'PROJECTS' Watermark Spacing | Removed intersecting '98 Full Stack AI' blueprint rectangle from Career Timeline; enhanced 'PROJECTS' watermark contrast with visible neutral-200 tint and wide expanded letter spacing (`tracking-[0.18em] sm:tracking-[0.24em] md:tracking-[0.3em]`). | COMPLETED | Clean timeline rows with zero visual obstruction, widely spaced high-visibility watermark |
 | 37 | Tightened 'PROJECTS' Watermark Letter Spacing | Decreased space between letters in 'PROJECTS' watermark from wide `[0.3em]` tracking to compact `tracking-tight` at `text-[16vw] sm:text-[18vw]`, retaining clear `text-neutral-200` visibility with classic bold typography. | COMPLETED | Tightly grouped architectural letters, balanced aesthetic, verified build |
 | 38 | Vertically Expanded Standing Title & Full Slide Control Streamline | Removed VIEW DETAILS, GitHub, and Live link buttons, and project subtitles from carousel slides; transformed project titles into massive vertically expanded typography standing from top to bottom (`writingMode: 'vertical-rl'`). | COMPLETED | Pure poster aesthetics, zero clutter, dramatic vertical height |
@@ -120,6 +121,7 @@ Module 55: EJS Removal from Skills Taxonomy
 - Module 53 (Contact Section Minimalist Streamlining): In `src/sections/ContactSection.tsx`, removed the entire lower details row containing the bio/tagline ("AKASH Full-Stack Developer | Web Developer Crafting High-Performance... to Production-Grade Cloud & AI Backends"), location, direct inbox, and system availability. Kept Section 07 focused exclusively on the bold "LET'S BUILD" headline and the high-contrast "START AN ENGAGEMENT" action button. Verified production build.
 - Module 54 (Contact Channels & Compact CTA): Integrated LinkedIn, GitHub, and Mail direct links with icons, zero-radius borders, and hover inversions directly under "LET'S BUILD" in `ContactSection.tsx` and mirrored them in `Footer.tsx`. Sized down the "START AN ENGAGEMENT" button to a compact, sleek font-mono button, moved it to the top (aligned with the top of "LET'S BUILD" and elevated in the top header bar), and added an `ArrowUpRight` icon. Verified production build.
 - Module 55 (Skills EJS Removal): Removed "EJS" from Frontend Engineering skills in `src/data/portfolioData.ts`, leaving React.js, Tailwind CSS, JavaScript (ES6+), Sass, and Bootstrap. Verified production build.
+- Module 56 (Horizontal Scroll Gallery): Replaced the 3D orbital carousel with a GSAP ScrollTrigger pinned horizontal scroll experience in `src/sections/ArcGallery.tsx`. After Section 02 (About), the viewport pins with a fixed light grid and PROJECTS watermark; scrolling down glides the project cards horizontally from right to left; and at the end of the projects, pinning unpins smoothly into Section 04: Career Timeline. Verified production build.
 
 ## Current blockers
 - None.

@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–55
+- Current module: Completed Modules 1–56
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -201,6 +201,11 @@ This file is the persistent handoff record for the project.
       - Mirrored the three links (`LinkedIn / GitHub / Mail`) in the minimalist `Footer.tsx` bar between the monogram and back-to-top arrow.
    5. EJS Removal from Skills (Module 55):
       - Removed "EJS" from the Frontend Engineering category in `src/data/portfolioData.ts`.
+   6. Horizontal Scroll Production Gallery (Module 56):
+      - Replaced orbital 3D carousel in `ArcGallery.tsx` with a GSAP ScrollTrigger pinned horizontal scroll section.
+      - When the user scrolls past Section 02 (About), the viewport locks (`pin: true`) with fixed background grid and subtle stationary/parallax `PROJECTS` watermark.
+      - Vertical scrolling translates the track of project cards horizontally across the screen with real-time index tracking (`01 / 03`, `02 / 03`, `03 / 03`) and progress bar.
+      - When the horizontal track reaches the end, pinning releases naturally, flowing directly into Section 04: Career Timeline.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

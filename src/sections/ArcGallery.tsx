@@ -1,417 +1,371 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, PanInfo, Variants } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { portfolioData } from '../data/portfolioData';
-import { ExternalLink, Github, ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
+import { ExternalLink, Github, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 import { GridBackground } from '../components/GridBackground';
 import { ProjectDetailModal } from '../components/ProjectDetailModal';
-import { initGsapMultiParallax } from '../utils/gsapParallax';
 import { ProjectItem } from '../types/portfolio';
-import {
-  sectionViewportConfig,
-  fadeInDownVariants,
-  fadeInUpVariants,
-} from '../utils/motion';
+
+gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Section 03: Interactive Orbital Arc Showcase
- * Provides a continuous 3D orbital carousel where cards physically glide
- * between left flank, center prominence, and right flank.
+ * Section 03: Horizontal Scroll Production Gallery
  * 
- * Features:
- * - Full-bleed imagery covering the entire slide (no squished banners).
- * - Clean visual display: details hidden by default to keep the focus on imagery.
- * - Interactive slide-up details reveal and fullscreen modal on click.
- * - Fluid gesture dragging, responsive keyboard navigation, and compact controls.
+ * Behavior:
+ * - When entering from Section 02 (About / Statement), the background pins fixed in the viewport.
+ * - Scrolling down drives horizontal motion across the project showcase track.
+ * - After all projects glide across, pinning unpins cleanly and flows directly
+ *   into Section 04: Career Timeline.
  */
 export const ArcGallery: React.FC = () => {
   const projects = portfolioData.projects;
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [showDetails, setShowDetails] = useState(false);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
-  const isDraggingRef = useRef(false);
+
   const sectionRef = useRef<HTMLElement>(null);
+  const pinContainerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
-  // GSAP Topward & Bottomward Scroll Parallax on Section 03 Background & Watermark
   useEffect(() => {
-    const cleanup = initGsapMultiParallax(
-      [
-        { target: watermarkRef.current, yStart: 70, yEnd: -70, scrub: 1.2 },
-        { target: gridRef.current, yStart: 35, yEnd: -35, scrub: 1.1 },
-      ],
-      sectionRef.current
-    );
-    return cleanup;
-  }, []);
+    const section = sectionRef.current;
+    const pinContainer = pinContainerRef.current;
+    const track = trackRef.current;
+    if (!section || !pinContainer || !track) return;
+
+    const ctx = gsap.context(() => {
+      // Calculate how far the horizontal track must translate
+      const getScrollDistance = () => {
+        return Math.max(0, track.scrollWidth - window.innerWidth);
+      };
+
+      // Total vertical distance to pin and scrub horizontally
+      const getScrollEnd = () => {
+        const horizontalDist = getScrollDistance();
+        // Give comfortable vertical scroll room (~2.4x viewport height for 3 cards)
+        return Math.max(window.innerHeight * 2.2, horizontalDist + 160);
+      };
+
+      const tween = gsap.to(track, {
+        x: () => -getScrollDistance(),
+        ease: 'none',
+      });
+
+      const st = ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: () => `+=${getScrollEnd()}`,
+        pin: pinContainer,
+        pinSpacing: true,
+        animation: tween,
+        scrub: 1.1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          setScrollProgress(self.progress);
+          const idx = Math.min(
+            Math.floor(self.progress * projects.length * 0.999),
+            projects.length - 1
+          );
+          setActiveProjectIndex(idx);
+        },
+      });
+
+      scrollTriggerRef.current = st;
+
+      // Subtle atmospheric motion on background watermark and grid
+      if (watermarkRef.current) {
+        gsap.to(watermarkRef.current, {
+          x: -80,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: () => `+=${getScrollEnd()}`,
+            scrub: 1.4,
+          },
+        });
+      }
+
+      if (gridRef.current) {
+        gsap.to(gridRef.current, {
+          x: -40,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: () => `+=${getScrollEnd()}`,
+            scrub: 1.2,
+          },
+        });
+      }
+    }, section);
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      ctx.revert();
+    };
+  }, [projects.length]);
 
   /**
-   * Go to Previous Project:
-   * Moves index backward and glides the left flank card into the center.
+   * Smoothly scroll to a specific project card index
    */
+  const scrollToProject = (index: number) => {
+    const st = scrollTriggerRef.current;
+    if (!st) return;
+    const targetProgress = index / (projects.length - 1);
+    const scrollTarget = st.start + (st.end - st.start) * targetProgress;
+    window.scrollTo({
+      top: scrollTarget,
+      behavior: 'smooth',
+    });
+  };
+
   const handlePrev = () => {
-    setShowDetails(false);
-    setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+    scrollToProject(Math.max(0, activeProjectIndex - 1));
   };
 
-  /**
-   * Go to Next Project:
-   * Moves index forward and glides the right flank card into the center.
-   */
   const handleNext = () => {
-    setShowDetails(false);
-    setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    scrollToProject(Math.min(projects.length - 1, activeProjectIndex + 1));
   };
 
-  // Keyboard navigation when gallery is in view
+  // Keyboard navigation when pinned gallery is in view
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const section = document.getElementById('projects');
+      const section = sectionRef.current;
       if (!section) return;
       const rect = section.getBoundingClientRect();
-      if (rect.top <= window.innerHeight * 0.7 && rect.bottom >= window.innerHeight * 0.3) {
-        if (e.key === 'ArrowRight') handleNext();
-        if (e.key === 'ArrowLeft') handlePrev();
+      if (rect.top <= 100 && rect.bottom >= window.innerHeight * 0.4) {
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          handleNext();
+        }
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          handlePrev();
+        }
         if (e.key === 'Escape') {
-          setShowDetails(false);
           setModalProject(null);
         }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const handleDragStart = () => {
-    isDraggingRef.current = true;
-  };
-
-  const handleDragEnd = (_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    // Small timeout ensures onClick doesn't accidentally fire on release
-    setTimeout(() => {
-      isDraggingRef.current = false;
-    }, 60);
-
-    const swipeThreshold = 30;
-    const velocityThreshold = 120;
-
-    if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-      // Dragged right (pulling left card toward center)
-      handlePrev();
-    } else if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-      // Dragged left (pulling right card toward center)
-      handleNext();
-    }
-  };
-
-  // Framer Motion spring variants for smooth continuous orbital flow
-  const cardVariants: Variants = {
-    center: {
-      x: '0%',
-      scale: 1,
-      rotate: 0,
-      opacity: 1,
-      zIndex: 30,
-      filter: 'grayscale(0%)',
-      transition: { type: 'spring' as const, stiffness: 320, damping: 28 },
-    },
-    left: {
-      x: '-76%',
-      scale: 0.78,
-      rotate: -10,
-      opacity: 1,
-      zIndex: 10,
-      filter: 'grayscale(100%)',
-      transition: { type: 'spring' as const, stiffness: 320, damping: 28 },
-    },
-    right: {
-      x: '76%',
-      scale: 0.78,
-      rotate: 10,
-      opacity: 1,
-      zIndex: 10,
-      filter: 'grayscale(100%)',
-      transition: { type: 'spring' as const, stiffness: 320, damping: 28 },
-    },
-  };
+  }, [activeProjectIndex]);
 
   return (
     <section
       ref={sectionRef}
       id="projects"
-      className="relative h-screen max-h-screen overflow-hidden bg-white text-black py-3 sm:py-5 px-3 sm:px-6 md:px-10 flex flex-col justify-between border-b border-black/10 select-none"
+      className="relative bg-white text-black border-b border-black/10 select-none"
     >
-      {/* Light Theme Grid with GSAP Parallax */}
-      <div ref={gridRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
-        <GridBackground theme="light" columns={8} />
-      </div>
-
-      {/* Background Watermark Typography with GSAP Parallax */}
+      {/* Pinned Viewport Container (Locks in place while horizontal track translates) */}
       <div
-        ref={watermarkRef}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0 will-change-transform"
+        ref={pinContainerRef}
+        className="h-screen w-full overflow-hidden flex flex-col justify-between relative bg-white"
       >
-        <span className="font-display text-[16vw] sm:text-[18vw] uppercase text-neutral-200 font-extrabold tracking-tight leading-none select-none">
-          PROJECTS
-        </span>
-      </div>
+        {/* Light Theme Background Grid Lines */}
+        <div ref={gridRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+          <GridBackground theme="light" columns={8} />
+        </div>
 
-      {/* Top Header - Slides down smoothly */}
-      <motion.div
-        variants={fadeInDownVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewportConfig}
-        custom={0.05}
-        className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-2 text-xs font-mono tracking-widest text-neutral-500"
-      >
-        <div className="flex items-center space-x-2">
-          <span>03 // SELECTED WORKS</span>
-          <span className="bg-brand-yellow text-black font-bold px-1.5 py-0.5 text-[10px]">
-            ORBITAL SHOWCASE
+        {/* Background Watermark Typography ('PROJECTS') */}
+        <div
+          ref={watermarkRef}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0 will-change-transform"
+        >
+          <span className="font-display text-[16vw] sm:text-[18vw] uppercase text-neutral-200 font-extrabold tracking-tight leading-none select-none">
+            PROJECTS
           </span>
         </div>
-        <div className="flex items-center space-x-2 font-mono text-xs">
-          <span className="text-black font-bold">{String(activeIndex + 1).padStart(2, '0')}</span>
-          <span>/</span>
-          <span>{String(projects.length).padStart(2, '0')}</span>
+
+        {/* Top Header Bar - Fixed in pinned view */}
+        <div className="relative z-20 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-2 text-xs font-mono tracking-widest text-neutral-500 pt-3 sm:pt-4 px-4 sm:px-8 md:px-12">
+          <div className="flex items-center space-x-2">
+            <span>03 // SELECTED WORKS</span>
+            <span className="bg-brand-yellow text-black font-bold px-1.5 py-0.5 text-[10px] uppercase">
+              HORIZONTAL SHOWCASE
+            </span>
+          </div>
+          <div className="flex items-center space-x-2 font-mono text-xs">
+            <span className="text-black font-bold">{String(activeProjectIndex + 1).padStart(2, '0')}</span>
+            <span>/</span>
+            <span>{String(projects.length).padStart(2, '0')}</span>
+          </div>
         </div>
-      </motion.div>
 
-      {/* Main Curved Orbital Arc Presentation (Strictly sized to fit inside 100vh) */}
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewportConfig}
-        custom={0.15}
-        className="relative z-10 max-w-7xl mx-auto w-full my-auto flex flex-col items-center justify-center"
-      >
-        {/* Draggable Orbital Track Container */}
-        <motion.div
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.35}
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          style={{ touchAction: 'pan-y' }}
-          className="relative w-full max-w-5xl h-[330px] sm:h-[365px] md:h-[400px] flex items-center justify-center cursor-grab active:cursor-grabbing"
-        >
-          {projects.map((project, idx) => {
-            // Calculate circular offset relative to active card (-1, 0, 1)
-            let diff = idx - activeIndex;
-            if (diff > 1) diff -= projects.length;
-            if (diff < -1) diff += projects.length;
+        {/* Horizontal Track Viewport Container */}
+        <div className="relative z-10 w-full flex-1 flex items-center overflow-visible my-auto">
+          {/* Translating Project Cards Track */}
+          <div
+            ref={trackRef}
+            className="flex flex-row items-center gap-6 sm:gap-10 md:gap-14 pl-4 sm:pl-10 md:pl-16 pr-12 sm:pr-20 md:pr-32 will-change-transform"
+          >
+            {projects.map((project, idx) => {
+              const isCurrent = idx === activeProjectIndex;
 
-            const isCenter = diff === 0;
-            const isLeft = diff === -1;
-            const isRight = diff === 1;
-            const variantKey = isCenter ? 'center' : isLeft ? 'left' : 'right';
-
-            return (
-              <motion.div
-                key={project.id}
-                variants={cardVariants}
-                initial={false}
-                animate={variantKey}
-                whileHover={
-                  isLeft
-                    ? { scale: 0.82, opacity: 1, rotate: -6 }
-                    : isRight
-                    ? { scale: 0.82, opacity: 1, rotate: 6 }
-                    : undefined
-                }
-                onClick={() => {
-                  if (isDraggingRef.current) return;
-                  if (isLeft) handlePrev();
-                  else if (isRight) handleNext();
-                  else if (isCenter && !showDetails) setShowDetails(true);
-                }}
-                className={`absolute w-[280px] sm:w-[340px] md:w-[390px] h-[330px] sm:h-[365px] md:h-[400px] overflow-hidden bg-neutral-950 transition-shadow duration-300 rounded-none border-0 ${
-                  isCenter
-                    ? 'shadow-2xl cursor-pointer'
-                    : 'shadow-md cursor-pointer'
-                }`}
-              >
-                {/* 1. Full Image Covering the Slide Completely */}
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 select-none ${
-                    isCenter
-                      ? 'filter grayscale contrast-110 hover:grayscale-0'
-                      : 'filter grayscale contrast-125'
+              return (
+                <div
+                  key={project.id}
+                  onClick={() => setModalProject(project)}
+                  className={`relative shrink-0 w-[84vw] sm:w-[68vw] md:w-[50vw] lg:w-[42vw] max-w-[580px] h-[56vh] sm:h-[60vh] max-h-[500px] bg-neutral-950 overflow-hidden rounded-none border transition-all duration-300 cursor-pointer group ${
+                    isCurrent
+                      ? 'border-brand-yellow/80 shadow-[0_20px_50px_rgba(0,0,0,0.35)]'
+                      : 'border-black/20 shadow-xl opacity-95 hover:opacity-100 hover:border-black/40'
                   }`}
-                />
+                >
+                  {/* 1. Full Image Covering the Slide Completely */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover filter grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 select-none"
+                  />
 
-                {/* 2. Ambient Contrast Scrim */}
-                <div className="absolute inset-y-0 left-0 w-32 sm:w-40 bg-gradient-to-r from-black/85 via-black/40 to-transparent pointer-events-none z-10" />
-                <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
+                  {/* 2. Ambient Contrast Scrims */}
+                  <div className="absolute inset-y-0 left-0 w-36 sm:w-44 bg-gradient-to-r from-black/90 via-black/50 to-transparent pointer-events-none z-10" />
+                  <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
+                  <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none z-10" />
 
-                {/* 3. Flank Cards Overlay (Clean, no click-to-view text) */}
-                {!isCenter && (
-                  <div className="absolute inset-0 z-10 p-4 sm:p-5 flex flex-col justify-start">
-                    <div className="pointer-events-none">
-                      <h3
-                        style={{ writingMode: 'vertical-rl' }}
-                        className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-black uppercase tracking-[0.08em] sm:tracking-[0.12em] leading-none drop-shadow-lg select-none"
-                      >
-                        {project.title}
-                      </h3>
-                    </div>
+                  {/* 3. Top Badges: Category Tag & Year */}
+                  <div className="absolute top-3.5 sm:top-4 inset-x-3.5 sm:inset-x-4 z-20 flex items-center justify-between">
+                    <span className="bg-brand-yellow text-black font-mono font-bold text-[10px] px-2 py-0.5 tracking-wider uppercase rounded-none">
+                      {project.tag}
+                    </span>
+                    <span className="text-[11px] font-mono text-neutral-300 tracking-wider">
+                      {project.date}
+                    </span>
                   </div>
-                )}
 
-                {/* 4. Center Card Vertically Expanded Title (Standing from top to bottom) */}
-                {isCenter && !showDetails && (
-                  <div className="absolute top-4 sm:top-5 left-4 sm:left-5.5 z-20 pointer-events-none">
+                  {/* 4. Standing Vertical Title on Left Edge (Matching Editorial Style) */}
+                  <div className="absolute top-12 sm:top-14 left-3 sm:left-4 z-20 pointer-events-none">
                     <h3
                       style={{ writingMode: 'vertical-rl' }}
-                      className="font-display text-4xl sm:text-5xl md:text-6xl text-white font-black uppercase tracking-[0.08em] sm:tracking-[0.12em] leading-none drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] select-none"
+                      className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-black uppercase tracking-[0.08em] sm:tracking-[0.12em] leading-none drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] select-none"
                     >
                       {project.title}
                     </h3>
                   </div>
-                )}
 
-                {/* 6. Center Card Slide-Up Details Panel (Shown when clicked) */}
-                <AnimatePresence>
-                  {isCenter && showDetails && (
-                    <motion.div
-                      initial={{ y: '100%', opacity: 0 }}
-                      animate={{ y: '0%', opacity: 1 }}
-                      exit={{ y: '100%', opacity: 0 }}
-                      transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-                      onClick={(e) => e.stopPropagation()}
-                      className="absolute inset-0 z-30 bg-[#0E0E0E]/95 backdrop-blur-md text-white p-4 sm:p-5 flex flex-col justify-between border-t-2 border-brand-yellow overflow-y-auto"
-                    >
-                      {/* Details Header */}
-                      <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-2.5">
-                        <div>
-                          <div className="flex items-center space-x-2 mb-1">
-                            <span className="bg-brand-yellow text-black font-mono text-[9px] font-bold px-1.5 py-0.5 tracking-wider uppercase">
-                              {project.tag}
-                            </span>
-                            <span className="text-[10px] font-mono text-neutral-400">
-                              {project.date}
-                            </span>
-                          </div>
-                          <h3 className="font-display text-xl sm:text-2xl text-white uppercase tracking-tight leading-none">
-                            {project.title}
-                          </h3>
-                          <p className="text-[10px] sm:text-[11px] font-mono text-neutral-400 mt-0.5 line-clamp-1">
-                            {project.subtitle}
-                          </p>
-                        </div>
+                  {/* 5. Bottom Metadata, Tech Badges & Direct Action Buttons */}
+                  <div className="absolute bottom-3 sm:bottom-4 inset-x-3 sm:inset-x-4 z-20 pl-12 sm:pl-16">
+                    <p className="text-[11px] sm:text-xs font-mono text-neutral-200 line-clamp-1 mb-1.5 font-medium">
+                      {project.subtitle}
+                    </p>
 
-                        <div className="flex items-center space-x-1.5 shrink-0">
-                          <button
-                            type="button"
-                            onClick={() => setModalProject(project)}
-                            className="w-7 h-7 bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center border border-white/20 transition-colors cursor-pointer"
-                            title="Open in full screen modal"
-                          >
-                            <Maximize2 size={13} />
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => setShowDetails(false)}
-                            className="w-7 h-7 bg-brand-yellow hover:bg-[#E5C200] text-black font-bold flex items-center justify-center transition-transform active:scale-90 cursor-pointer"
-                            title="Close details (show image)"
-                          >
-                            <X size={15} strokeWidth={2.5} />
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* Details Body */}
-                      <div className="py-2.5 space-y-2.5 overflow-y-auto pr-1">
-                        <ul className="text-[11px] text-neutral-300 space-y-1 font-sans">
-                          {project.description.slice(0, 3).map((bullet, bIdx) => (
-                            <li key={bIdx} className="flex items-start space-x-1.5 leading-tight">
-                              <span className="text-brand-yellow font-bold text-xs shrink-0">›</span>
-                              <span className="line-clamp-2">{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1">
-                          {project.tech.map((t, tIdx) => (
-                            <span
-                              key={tIdx}
-                              className="bg-white/10 border border-white/15 text-neutral-200 text-[9px] font-mono px-1.5 py-0.5"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Details Footer Actions */}
-                      <div className="pt-2 border-t border-white/10 flex items-center justify-between gap-2">
-                        <div className="flex items-center space-x-2">
-                          {project.live && (
-                            <a
-                              href={project.live}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="bg-brand-yellow text-black hover:bg-[#E5C200] font-mono text-[10px] font-bold px-2.5 py-1 tracking-wider uppercase flex items-center space-x-1 transition-all shadow-sm cursor-pointer"
-                            >
-                              <span>LIVE APP</span>
-                              <ExternalLink size={11} />
-                            </a>
-                          )}
-                          {project.github && (
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="bg-neutral-800 text-white hover:bg-neutral-700 font-mono text-[10px] px-2.5 py-1 tracking-wider uppercase flex items-center space-x-1 border border-white/20 transition-all cursor-pointer"
-                            >
-                              <Github size={11} />
-                              <span>GITHUB</span>
-                            </a>
-                          )}
-                        </div>
-
-                        <button
-                          type="button"
-                          onClick={() => setShowDetails(false)}
-                          className="text-[10px] font-mono text-neutral-400 hover:text-white cursor-pointer transition-colors"
+                    {/* Tech Pills */}
+                    <div className="flex flex-wrap gap-1 mb-2.5">
+                      {project.tech.slice(0, 4).map((tech, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="bg-black/65 backdrop-blur-xs border border-white/15 text-neutral-200 text-[9px] font-mono px-1.5 py-0.5 rounded-none"
                         >
-                          ✕ HIDE
-                        </button>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                          {tech}
+                        </span>
+                      ))}
+                      {project.tech.length > 4 && (
+                        <span className="text-brand-yellow text-[9px] font-mono self-center">
+                          +{project.tech.length - 4}
+                        </span>
+                      )}
+                    </div>
 
-        {/* Minimalist Architectural Dual-Icon Navigation Dock */}
-        <div className="flex items-center mt-3 select-none border border-black bg-white divide-x divide-black shadow-xs">
-          <button
-            type="button"
-            onClick={handlePrev}
-            className="w-8 h-7.5 sm:w-9 sm:h-8 bg-white hover:bg-black text-black hover:text-brand-yellow active:bg-neutral-900 transition-colors flex items-center justify-center cursor-pointer"
-            aria-label="Previous project"
-            title="Previous project"
-          >
-            <ChevronLeft size={16} strokeWidth={2.5} />
-          </button>
-          <button
-            type="button"
-            onClick={handleNext}
-            className="w-8 h-7.5 sm:w-9 sm:h-8 bg-white hover:bg-black text-black hover:text-brand-yellow active:bg-neutral-900 transition-colors flex items-center justify-center cursor-pointer"
-            aria-label="Next project"
-            title="Next project"
-          >
-            <ChevronRight size={16} strokeWidth={2.5} />
-          </button>
+                    {/* Actions: Live App, GitHub, Specs Modal */}
+                    <div className="flex items-center space-x-1.5" onClick={(e) => e.stopPropagation()}>
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="bg-brand-yellow text-black hover:bg-[#E5C200] font-mono text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 tracking-wider uppercase flex items-center space-x-1 transition-all rounded-none shadow-sm cursor-pointer"
+                        >
+                          <span>LIVE APP</span>
+                          <ExternalLink size={10} />
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="bg-neutral-900 text-white hover:bg-neutral-800 font-mono text-[9px] sm:text-[10px] px-2.5 sm:px-3 py-1 sm:py-1.5 tracking-wider uppercase flex items-center space-x-1 border border-white/20 transition-all rounded-none cursor-pointer"
+                        >
+                          <Github size={10} />
+                          <span>CODE</span>
+                        </a>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => setModalProject(project)}
+                        className="bg-neutral-800 text-neutral-200 hover:bg-white hover:text-black font-mono text-[9px] sm:text-[10px] px-2.5 sm:px-3 py-1 sm:py-1.5 tracking-wider uppercase flex items-center space-x-1 border border-white/10 transition-colors rounded-none cursor-pointer ml-auto"
+                        title="View project specifications"
+                      >
+                        <span>SPECS</span>
+                        <Maximize2 size={10} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </motion.div>
+
+        {/* Bottom Telemetry & Navigation Dock */}
+        <div className="relative z-20 max-w-7xl mx-auto w-full flex items-center justify-between border-t border-black/10 pt-2 pb-3 sm:pb-4 px-4 sm:px-8 md:px-12 text-xs font-mono text-neutral-500">
+          <div className="flex items-center space-x-2">
+            <span className="w-1.5 h-1.5 bg-brand-yellow animate-ping inline-block" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-wider text-neutral-600 hidden sm:inline-block">
+              SCROLL DOWN TO ADVANCE HORIZONTALLY
+            </span>
+            <span className="text-[10px] uppercase tracking-wider text-neutral-600 sm:hidden">
+              SCROLL DOWN ⇄
+            </span>
+          </div>
+
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            {/* Real-time horizontal progress indicator */}
+            <div className="w-20 sm:w-32 h-1 bg-neutral-200 border border-black/10 overflow-hidden relative rounded-none">
+              <div
+                className="h-full bg-brand-yellow transition-all duration-75 rounded-none"
+                style={{ width: `${Math.round(scrollProgress * 100)}%` }}
+              />
+            </div>
+
+            {/* Sharp Architectural Navigation Buttons */}
+            <div className="flex items-center border border-black bg-white divide-x divide-black rounded-none shadow-xs">
+              <button
+                type="button"
+                onClick={handlePrev}
+                disabled={activeProjectIndex === 0}
+                className="w-7 h-6 sm:w-8 sm:h-7 bg-white hover:bg-black text-black hover:text-brand-yellow disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-black transition-colors flex items-center justify-center cursor-pointer disabled:cursor-not-allowed rounded-none"
+                aria-label="Previous project"
+                title="Previous project"
+              >
+                <ChevronLeft size={14} strokeWidth={2.5} />
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={activeProjectIndex === projects.length - 1}
+                className="w-7 h-6 sm:w-8 sm:h-7 bg-white hover:bg-black text-black hover:text-brand-yellow disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-black transition-colors flex items-center justify-center cursor-pointer disabled:cursor-not-allowed rounded-none"
+                aria-label="Next project"
+                title="Next project"
+              >
+                <ChevronRight size={14} strokeWidth={2.5} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Fullscreen Project Specification Modal */}
       <ProjectDetailModal
