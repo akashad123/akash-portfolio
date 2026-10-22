@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–49
+- Current module: Completed Modules 1–50
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -122,6 +122,10 @@ This file is the persistent handoff record for the project.
   1. Removed `SCROLL TO DISCOVER` button and down arrow icon from `src/sections/HeroProfile.tsx` bottom bar, keeping the sleek `MERN // GEMINI API // SUPABASE // AWS EC2` telemetry indicator with GSAP parallax intact.
   2. Removed `AD` monogram brand logo from `src/components/Header.tsx`, streamlining the header to an ultra-clean navigation dock with the yellow square hamburger trigger positioned in the top-right.
   3. Removed unnecessary scroll event listeners from `Header.tsx` for optimal runtime performance.
+- Completed Module 50 (Case Studies Card Action Links Removal):
+  1. Removed `VIEW ARCHITECTURE & AUDIT LOGS` and `[READ AUDIT →]` from the bottom of both project cards in `src/sections/CaseStudiesSection.tsx`.
+  2. Preserved the full preview on both cards: title, `Nrithya Dances // July 2026 – Present`, overview description, and deployed technology badges.
+  3. Maintained the interactive full-card click trigger and corner accent arrow (`ArrowUpRight`) opening the plain paragraph storytelling modal dialog.
 - Completed Module 49 (Case Study Modal & Card Streamlining with Plain Paragraph Storytelling):
   1. Header Calibration:
      - Removed the `MVP in production` / `LIVE DEPLOYMENT` status badge from the modal header and cards.

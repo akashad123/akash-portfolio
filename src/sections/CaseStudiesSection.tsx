@@ -121,7 +121,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <div className="flex flex-wrap gap-1.5 mb-4">
+                  <div className="flex flex-wrap gap-1.5">
                     {caseStudies[0].techStack.slice(0, 5).map((tech, tIdx) => (
                       <span
                         key={tIdx}
@@ -137,10 +137,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between text-xs font-mono text-brand-yellow group-hover:underline">
-                    <span>VIEW ARCHITECTURE & AUDIT LOGS</span>
-                    <span>[READ AUDIT →]</span>
-                  </div>
+                  
                 </div>
               </motion.div>
             </div>
@@ -176,7 +173,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <div className="flex flex-wrap gap-1.5 mb-4">
+                  <div className="flex flex-wrap gap-1.5">
                     {caseStudies[1].techStack.slice(0, 5).map((tech, tIdx) => (
                       <span
                         key={tIdx}
@@ -192,10 +189,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between text-xs font-mono text-brand-yellow group-hover:underline">
-                    <span>VIEW ARCHITECTURE & AUDIT LOGS</span>
-                    <span>[READ AUDIT →]</span>
-                  </div>
+                  
                 </div>
               </motion.div>
             </div>
