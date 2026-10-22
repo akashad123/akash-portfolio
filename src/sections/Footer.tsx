@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { ArrowUp } from 'lucide-react';
 import { GridBackground } from '../components/GridBackground';
 import { initGsapParallax } from '../utils/gsapParallax';
 
@@ -23,10 +22,6 @@ export const Footer: React.FC<FooterProps> = () => {
     return cleanup;
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer
       ref={footerRef}
@@ -37,53 +32,16 @@ export const Footer: React.FC<FooterProps> = () => {
         <GridBackground theme="dark" columns={8} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
-        {/* Monogram Brand Logo */}
+      <div className="relative z-10 max-w-7xl mx-auto flex items-center justify-between">
+        {/* Monogram Brand Logo & Copyright */}
         <div className="flex items-center space-x-4">
           <span className="font-display italic font-black text-2xl sm:text-3xl tracking-tighter text-white">
             {developer.monogram}
           </span>
-          <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest hidden sm:inline-block">
+          <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest">
             © {new Date().getFullYear()} {developer.name}. ALL RIGHTS RESERVED.
           </span>
         </div>
-
-        {/* Social / Direct Channels: LinkedIn, GitHub, Mail */}
-        <div className="flex items-center space-x-4 sm:space-x-6 text-xs font-mono text-neutral-400">
-          <a
-            href={developer.socials.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-brand-yellow transition-colors uppercase tracking-wider"
-          >
-            LinkedIn
-          </a>
-          <span className="text-neutral-700">/</span>
-          <a
-            href={developer.socials.github}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-brand-yellow transition-colors uppercase tracking-wider"
-          >
-            GitHub
-          </a>
-          <span className="text-neutral-700">/</span>
-          <a
-            href={`mailto:${developer.socials.email}`}
-            className="hover:text-brand-yellow transition-colors uppercase tracking-wider"
-          >
-            Mail
-          </a>
-        </div>
-
-        {/* Back to Top Arrow Only (Key Up Arrow Only in size 14) */}
-        <button
-          onClick={scrollToTop}
-          className="w-8 h-8 sm:w-9 sm:h-9 bg-neutral-900 border border-white/10 text-white flex items-center justify-center hover:bg-brand-yellow hover:text-black hover:border-brand-yellow transition-colors group cursor-pointer rounded-none"
-          aria-label="Back to top"
-        >
-          <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
-        </button>
       </div>
     </footer>
   );

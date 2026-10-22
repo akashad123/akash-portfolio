@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–57
+- Current module: Completed Modules 1–58
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -210,6 +210,10 @@ This file is the persistent handoff record for the project.
       - Integrated user's real LinkedIn URL (`https://www.linkedin.com/in/akash-ad-1734a527a`) and Gmail address (`akashad23072002@gmail.com`) across data models, `.env`, and JSON-LD schema.
       - In Section 03 (`ArcGallery.tsx`), removed `HORIZONTAL SHOWCASE` badge to keep only `03 // SELECTED WORKS` in the top header, and removed `SCROLL DOWN TO ADVANCE HORIZONTALLY` from the bottom bar.
       - In Section 07 (`ContactSection.tsx`), calibrated `START AN ENGAGEMENT` button to match the compact `DIRECT INQUIRY` size (`px-2.5 sm:px-3 py-1 text-[10px] uppercase font-bold`).
+   8. Footer & Contact Layout Refinements (Module 58):
+      - In `Footer.tsx`, removed the top ArrowUp button and all social links (`LinkedIn`, `GitHub`, `Mail`). The footer is now an ultra-minimal bar featuring exclusively the `AD` monogram and copyright notice.
+      - In `ContactSection.tsx`, decreased the size of `LinkedIn`, `GitHub`, and `Mail` buttons (`px-2.5 sm:px-3 py-1 text-[10px]`), keeping all direct channels exclusively in the Contact section under `LET'S BUILD`.
+      - Positioned `START AN ENGAGEMENT` directly below the `LinkedIn`, `GitHub`, and `Mail` buttons.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

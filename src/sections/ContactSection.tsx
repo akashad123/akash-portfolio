@@ -61,65 +61,65 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenContact })
           </span>
         </motion.div>
 
-        {/* Massive Editorial Brand Statement: LET'S BUILD + Reduced CTA + Social Links */}
+        {/* Massive Editorial Brand Statement: LET'S BUILD + Channels + Start an Engagement below */}
         <motion.div
           variants={fadeInUpVariants}
           initial="hidden"
           whileInView="visible"
           viewport={sectionViewportConfig}
           custom={0.1}
-          className="flex flex-col md:flex-row items-start justify-between gap-8 py-4 sm:py-8"
+          className="py-4 sm:py-8 space-y-5 sm:space-y-6"
         >
-          <div className="space-y-6 sm:space-y-8">
-            <div ref={titleRef} className="will-change-transform">
-              <h2 className="font-display text-5xl sm:text-7xl md:text-8xl uppercase tracking-tighter text-white">
-                LET'S BUILD
-              </h2>
-            </div>
-
-            {/* Under 'Let's Build': LinkedIn, GitHub, and Mail */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono">
-              <a
-                href={developer.socials.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center space-x-2 text-neutral-300 hover:text-black hover:bg-brand-yellow transition-all border border-white/15 hover:border-brand-yellow px-4 py-2 bg-neutral-900/60 rounded-none group cursor-pointer"
-              >
-                <Linkedin size={14} className="text-brand-yellow group-hover:text-black transition-colors" />
-                <span className="tracking-wider uppercase font-semibold">LINKEDIN</span>
-                <ArrowUpRight size={12} className="text-neutral-500 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
-
-              <a
-                href={developer.socials.github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center space-x-2 text-neutral-300 hover:text-black hover:bg-brand-yellow transition-all border border-white/15 hover:border-brand-yellow px-4 py-2 bg-neutral-900/60 rounded-none group cursor-pointer"
-              >
-                <Github size={14} className="text-brand-yellow group-hover:text-black transition-colors" />
-                <span className="tracking-wider uppercase font-semibold">GITHUB</span>
-                <ArrowUpRight size={12} className="text-neutral-500 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
-
-              <a
-                href={`mailto:${developer.socials.email}`}
-                className="flex items-center space-x-2 text-neutral-300 hover:text-black hover:bg-brand-yellow transition-all border border-white/15 hover:border-brand-yellow px-4 py-2 bg-neutral-900/60 rounded-none group cursor-pointer"
-              >
-                <Mail size={14} className="text-brand-yellow group-hover:text-black transition-colors" />
-                <span className="tracking-wider uppercase font-semibold">MAIL</span>
-                <ArrowUpRight size={12} className="text-neutral-500 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
-            </div>
+          <div ref={titleRef} className="will-change-transform">
+            <h2 className="font-display text-5xl sm:text-7xl md:text-8xl uppercase tracking-tighter text-white">
+              LET'S BUILD
+            </h2>
           </div>
 
-          {/* Reduced-size Start an Engagement button moved to the top (aligned with top of Let's Build) */}
-          <button
-            onClick={onOpenContact}
-            className="bg-brand-yellow text-black font-bold px-2.5 sm:px-3 py-1 text-[10px] tracking-widest uppercase hover:bg-[#E5C200] transition-colors rounded-none shadow-xs shrink-0 cursor-pointer flex items-center space-x-1 group md:self-start md:mt-2"
-          >
-            <span>START AN ENGAGEMENT</span>
-            <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          {/* Under 'Let's Build': LinkedIn, GitHub, and Mail (Decreased size) */}
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-mono">
+            <a
+              href={developer.socials.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center space-x-1.5 text-neutral-300 hover:text-black hover:bg-brand-yellow transition-all border border-white/15 hover:border-brand-yellow px-2.5 sm:px-3 py-1 text-[10px] tracking-wider uppercase font-bold bg-neutral-900/60 rounded-none group cursor-pointer"
+            >
+              <Linkedin size={12} className="text-brand-yellow group-hover:text-black transition-colors" />
+              <span>LINKEDIN</span>
+              <ArrowUpRight size={10} className="text-neutral-500 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </a>
+
+            <a
+              href={developer.socials.github}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center space-x-1.5 text-neutral-300 hover:text-black hover:bg-brand-yellow transition-all border border-white/15 hover:border-brand-yellow px-2.5 sm:px-3 py-1 text-[10px] tracking-wider uppercase font-bold bg-neutral-900/60 rounded-none group cursor-pointer"
+            >
+              <Github size={12} className="text-brand-yellow group-hover:text-black transition-colors" />
+              <span>GITHUB</span>
+              <ArrowUpRight size={10} className="text-neutral-500 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </a>
+
+            <a
+              href={`mailto:${developer.socials.email}`}
+              className="flex items-center space-x-1.5 text-neutral-300 hover:text-black hover:bg-brand-yellow transition-all border border-white/15 hover:border-brand-yellow px-2.5 sm:px-3 py-1 text-[10px] tracking-wider uppercase font-bold bg-neutral-900/60 rounded-none group cursor-pointer"
+            >
+              <Mail size={12} className="text-brand-yellow group-hover:text-black transition-colors" />
+              <span>MAIL</span>
+              <ArrowUpRight size={10} className="text-neutral-500 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </a>
+          </div>
+
+          {/* Directly below LinkedIn, GitHub, and Mail: Start an Engagement button */}
+          <div className="pt-1">
+            <button
+              onClick={onOpenContact}
+              className="bg-brand-yellow text-black font-bold px-2.5 sm:px-3 py-1 text-[10px] tracking-widest uppercase hover:bg-[#E5C200] transition-colors rounded-none shadow-xs shrink-0 cursor-pointer flex items-center space-x-1 group"
+            >
+              <span>START AN ENGAGEMENT</span>
+              <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
