@@ -18,6 +18,7 @@ interface HeroProfileProps {
 export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   const { developer } = portfolioData;
   const heroRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const topBarRef = useRef<HTMLDivElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
   const stackRef = useRef<HTMLDivElement>(null);
@@ -25,10 +26,12 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   const availRef = useRef<HTMLDivElement>(null);
   const bottomBarRef = useRef<HTMLDivElement>(null);
 
-  // GSAP Topward & Bottomward Scroll Parallax on Landing Page Texts
+  // GSAP Topward & Bottomward Scroll Parallax on Landing Page Background & Texts
   useEffect(() => {
     const cleanup = initGsapMultiParallax(
       [
+        // Background Architectural Lines & Gradient moves smoothly on scroll
+        { target: bgRef.current, yStart: 0, yEnd: 80, scrub: 1.2 },
         // Top bar glides subtly topward
         { target: topBarRef.current, yStart: 0, yEnd: -25, scrub: 1 },
         // Bio paragraph and button glide topward on scroll down, bottomward on scroll up
@@ -52,11 +55,11 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
       id="hero"
       className="relative min-h-screen bg-black text-white flex flex-col justify-between pt-28 pb-12 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-white/10"
     >
-      {/* Background Architectural Grid Lines */}
-      <GridBackground theme="dark" columns={8} />
-
-      {/* Atmospheric High-Contrast Background Media */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-25 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-800 via-black to-black" />
+      {/* Background Architectural Grid Lines & Atmospheric Gradient with GSAP Parallax */}
+      <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        <GridBackground theme="dark" columns={8} />
+        <div className="absolute inset-0 opacity-25 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-800 via-black to-black" />
+      </div>
 
       {/* Main Hero Composition */}
       <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between">

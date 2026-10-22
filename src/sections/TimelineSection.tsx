@@ -13,6 +13,7 @@ import {
 export const TimelineSection: React.FC = () => {
   const { experience, education } = portfolioData;
   const sectionRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
@@ -24,6 +25,8 @@ export const TimelineSection: React.FC = () => {
   useEffect(() => {
     const cleanup = initGsapMultiParallax(
       [
+        // Background Grid lines move smoothly on scroll
+        { target: bgRef.current, yStart: 45, yEnd: -45, scrub: 1.2 },
         { target: headerRef.current, yStart: 25, yEnd: -25, scrub: 1 },
         { target: row1Ref.current, yStart: 28, yEnd: -30, scrub: 1.1 },
         { target: row2Ref.current, yStart: 38, yEnd: -40, scrub: 1.2 },
@@ -92,8 +95,10 @@ export const TimelineSection: React.FC = () => {
       id="timeline"
       className="relative min-h-screen bg-black text-white py-16 sm:py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
     >
-      {/* Dark Grid Background */}
-      <GridBackground theme="dark" columns={8} />
+      {/* Dark Grid Background with GSAP Scroll Parallax */}
+      <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        <GridBackground theme="dark" columns={8} />
+      </div>
 
       {/* Top Header - Slides down smoothly & GSAP Parallax */}
       <motion.div

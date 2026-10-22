@@ -16,6 +16,7 @@ import {
 export const EcosystemGrid: React.FC = () => {
   const { skills } = portfolioData;
   const sectionRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const leftStackRef = useRef<HTMLDivElement>(null);
   const monolithRef = useRef<HTMLDivElement>(null);
   const rightStackRef = useRef<HTMLDivElement>(null);
@@ -25,6 +26,8 @@ export const EcosystemGrid: React.FC = () => {
   useEffect(() => {
     const cleanup = initGsapMultiParallax(
       [
+        // Background Grid lines move smoothly on scroll
+        { target: bgRef.current, yStart: 35, yEnd: -35, scrub: 1.1 },
         { target: leftStackRef.current, yStart: 40, yEnd: -40, scrub: 1.2 },
         { target: monolithRef.current, yStart: -30, yEnd: 30, scrub: 1.3 },
         { target: rightStackRef.current, yStart: 50, yEnd: -50, scrub: 1.25 },
@@ -64,7 +67,13 @@ export const EcosystemGrid: React.FC = () => {
       id="ecosystem"
       className="relative min-h-screen bg-white text-black py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-black/10 select-none"
     >
-      <GridBackground theme="light" columns={8} />
+      {/* Light Theme Grid with GSAP Parallax */}
+      <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        {/* Light Theme Grid with GSAP Parallax */}
+      <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        <GridBackground theme="light" columns={8} />
+      </div>
+      </div>
 
       {/* Top Header - Slides down smoothly */}
       <motion.div

@@ -19,6 +19,7 @@ interface CaseStudiesSectionProps {
 export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelectCaseStudy }) => {
   const caseStudies = portfolioData.caseStudies;
   const sectionRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const card1Ref = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
@@ -27,6 +28,8 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
   useEffect(() => {
     const cleanup = initGsapMultiParallax(
       [
+        // Background Grid lines move smoothly on scroll
+        { target: bgRef.current, yStart: 45, yEnd: -45, scrub: 1.2 },
         { target: introRef.current, yStart: 30, yEnd: -30, scrub: 1 },
         { target: card1Ref.current, yStart: 45, yEnd: -45, scrub: 1.2 },
         { target: card2Ref.current, yStart: 65, yEnd: -65, scrub: 1.4 },
@@ -42,7 +45,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
       id="case-studies"
       className="relative min-h-screen bg-black text-white py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
     >
-      <GridBackground theme="dark" columns={8} />
+      {/* Dark Grid Background with GSAP Scroll Parallax */}
+      <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        {/* Dark Grid Background with GSAP Scroll Parallax */}
+      <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        <GridBackground theme="dark" columns={8} />
+      </div>
+      </div>
 
       {/* Top Header - Slides down smoothly */}
       <motion.div

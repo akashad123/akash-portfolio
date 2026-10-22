@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–45
+- Current module: Completed Modules 1–46
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -122,6 +122,20 @@ This file is the persistent handoff record for the project.
   1. Removed `SCROLL TO DISCOVER` button and down arrow icon from `src/sections/HeroProfile.tsx` bottom bar, keeping the sleek `MERN // GEMINI API // SUPABASE // AWS EC2` telemetry indicator with GSAP parallax intact.
   2. Removed `AD` monogram brand logo from `src/components/Header.tsx`, streamlining the header to an ultra-clean navigation dock with the yellow square hamburger trigger positioned in the top-right.
   3. Removed unnecessary scroll event listeners from `Header.tsx` for optimal runtime performance.
+- Completed Module 46 (Site-Wide Moving Background Parallax & Minimalist Architectural Footer):
+  1. Deployed synchronized GSAP ScrollTrigger parallax across all black and white section backgrounds:
+     - Section 01 Hero (Black): Atmospheric radial gradient and 8-column architectural grid translate with scroll depth (`y: 0 -> 80px`).
+     - Section 02 Statement (White): Giant `ABOUT` watermark (`y: 70 -> -70px`) and architectural grid (`y: 35 -> -35px`) glide smoothly behind display typography and Apple portrait.
+     - Section 03 ArcGallery (White): Giant `PROJECTS` watermark (`y: 70 -> -70px`) and architectural grid (`y: 35 -> -35px`) glide behind the 3D orbital carousel.
+     - Section 04 Timeline (Black): Dark 8-column grid translates (`y: 45 -> -45px`) behind chronological career rows.
+     - Section 05 Case Studies (Black): Dark 8-column grid translates (`y: 45 -> -45px`) behind deep-dive project cards.
+     - Section 06 Ecosystem (White): Light architectural grid translates (`y: 35 -> -35px`) behind the tech monolith and skill blocks.
+     - Section 07 Footer (Black): Background architectural grid translates (`y: 25 -> -25px`).
+  2. Redesigned `src/sections/Footer.tsx`:
+     - Completely removed the top CTA section from `AVAILABLE FOR HIGH-IMPACT COLLABORATIONS` to `LET'S BUILD` and `START AN ENGAGEMENT`.
+     - Completely removed the 12-column sitemap and dispatch channels grid.
+     - Completely removed the text `BACK TO ASCENT`.
+     - Retained the `AD` monogram brand logo on the left (with minimal copyright) and the key up arrow button (`ArrowUp size={14}`) on the right.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

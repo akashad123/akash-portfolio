@@ -4,6 +4,7 @@ import { portfolioData } from '../data/portfolioData';
 import { ExternalLink, Github, ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
 import { GridBackground } from '../components/GridBackground';
 import { ProjectDetailModal } from '../components/ProjectDetailModal';
+import { initGsapMultiParallax } from '../utils/gsapParallax';
 import { ProjectItem } from '../types/portfolio';
 import {
   sectionViewportConfig,
@@ -28,6 +29,21 @@ export const ArcGallery: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
   const isDraggingRef = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const watermarkRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  // GSAP Topward & Bottomward Scroll Parallax on Section 03 Background & Watermark
+  useEffect(() => {
+    const cleanup = initGsapMultiParallax(
+      [
+        { target: watermarkRef.current, yStart: 70, yEnd: -70, scrub: 1.2 },
+        { target: gridRef.current, yStart: 35, yEnd: -35, scrub: 1.1 },
+      ],
+      sectionRef.current
+    );
+    return cleanup;
+  }, []);
 
   /**
    * Go to Previous Project:
@@ -121,14 +137,20 @@ export const ArcGallery: React.FC = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="projects"
       className="relative h-screen max-h-screen overflow-hidden bg-white text-black py-3 sm:py-5 px-3 sm:px-6 md:px-10 flex flex-col justify-between border-b border-black/10 select-none"
     >
-      {/* Light Theme Grid */}
-      <GridBackground theme="light" columns={8} />
+      {/* Light Theme Grid with GSAP Parallax */}
+      <div ref={gridRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        <GridBackground theme="light" columns={8} />
+      </div>
 
-      {/* Stable Background Watermark Typography */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+      {/* Background Watermark Typography with GSAP Parallax */}
+      <div
+        ref={watermarkRef}
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0 will-change-transform"
+      >
         <span className="font-display text-[16vw] sm:text-[18vw] uppercase text-neutral-200 font-extrabold tracking-tight leading-none select-none">
           PROJECTS
         </span>

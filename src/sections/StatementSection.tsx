@@ -14,6 +14,8 @@ import {
 
 export const StatementSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const watermarkRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
   const { statement } = portfolioData.developer;
@@ -22,6 +24,10 @@ export const StatementSection: React.FC = () => {
   useEffect(() => {
     const cleanup = initGsapMultiParallax(
       [
+        // Background Watermark moves smoothly as you scroll
+        { target: watermarkRef.current, yStart: 70, yEnd: -70, scrub: 1.2 },
+        // Background Grid lines glide with subtle depth
+        { target: gridRef.current, yStart: 35, yEnd: -35, scrub: 1.1 },
         // Statement text moves topward as you scroll down, bottomward as you scroll up
         { target: textRef.current, yStart: 40, yEnd: -40, scrub: 1.2 },
         // Apple portrait card floats with complementary topward/bottomward parallax
@@ -46,11 +52,16 @@ export const StatementSection: React.FC = () => {
       id="statement"
       className="relative min-h-screen bg-white text-black flex flex-col justify-between py-16 sm:py-20 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-black/10 select-none"
     >
-      {/* Light Theme Architectural Grid */}
-      <GridBackground theme="light" columns={8} />
+      {/* Light Theme Architectural Grid with GSAP Parallax */}
+      <div ref={gridRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
+        <GridBackground theme="light" columns={8} />
+      </div>
 
-      {/* Stable Background Watermark Typography (Stationary, subtle grey) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+      {/* Background Watermark Typography with GSAP Parallax */}
+      <div
+        ref={watermarkRef}
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0 will-change-transform"
+      >
         <span className="font-display text-[16vw] sm:text-[18vw] uppercase text-neutral-200 font-extrabold tracking-tight leading-none select-none">
           ABOUT
         </span>
