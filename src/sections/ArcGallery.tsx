@@ -192,9 +192,6 @@ export const ArcGallery: React.FC = () => {
         <div className="relative z-20 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-2 text-xs font-mono tracking-widest text-neutral-500 pt-3 sm:pt-4 px-4 sm:px-8 md:px-12">
           <div className="flex items-center space-x-2">
             <span>03 // SELECTED WORKS</span>
-            <span className="bg-brand-yellow text-black font-bold px-1.5 py-0.5 text-[10px] uppercase">
-              HORIZONTAL SHOWCASE
-            </span>
           </div>
           <div className="flex items-center space-x-2 font-mono text-xs">
             <span className="text-black font-bold">{String(activeProjectIndex + 1).padStart(2, '0')}</span>
@@ -320,16 +317,8 @@ export const ArcGallery: React.FC = () => {
         </div>
 
         {/* Bottom Telemetry & Navigation Dock */}
-        <div className="relative z-20 max-w-7xl mx-auto w-full flex items-center justify-between border-t border-black/10 pt-2 pb-3 sm:pb-4 px-4 sm:px-8 md:px-12 text-xs font-mono text-neutral-500">
-          <div className="flex items-center space-x-2">
-            <span className="w-1.5 h-1.5 bg-brand-yellow animate-ping inline-block" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-wider text-neutral-600 hidden sm:inline-block">
-              SCROLL DOWN TO ADVANCE HORIZONTALLY
-            </span>
-            <span className="text-[10px] uppercase tracking-wider text-neutral-600 sm:hidden">
-              SCROLL DOWN ⇄
-            </span>
-          </div>
+        <div className="relative z-20 max-w-7xl mx-auto w-full flex items-center justify-end border-t border-black/10 pt-2 pb-3 sm:pb-4 px-4 sm:px-8 md:px-12 text-xs font-mono text-neutral-500">
+          
 
           <div className="flex items-center space-x-3 sm:space-x-4">
             {/* Real-time horizontal progress indicator */}

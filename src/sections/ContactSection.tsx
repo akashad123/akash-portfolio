@@ -56,13 +56,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenContact })
             <Mail size={14} className="text-brand-yellow" />
             <span>07 // CONTACT & COLLABORATIONS</span>
           </div>
-          <button
-            onClick={onOpenContact}
-            className="bg-brand-yellow text-black font-bold px-2.5 py-1 text-[10px] tracking-widest uppercase hover:bg-[#E5C200] transition-colors rounded-none cursor-pointer flex items-center space-x-1 group"
-          >
-            <span>DIRECT INQUIRY</span>
-            <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          <span className="bg-brand-yellow text-black font-bold px-2.5 py-1 text-[10px] tracking-widest uppercase">
+            DIRECT INQUIRY
+          </span>
         </motion.div>
 
         {/* Massive Editorial Brand Statement: LET'S BUILD + Reduced CTA + Social Links */}
@@ -119,10 +115,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenContact })
           {/* Reduced-size Start an Engagement button moved to the top (aligned with top of Let's Build) */}
           <button
             onClick={onOpenContact}
-            className="bg-brand-yellow text-black font-mono text-xs sm:text-sm tracking-wider uppercase font-bold px-5 sm:px-6 py-2.5 sm:py-3 hover:bg-[#E5C200] transition-colors rounded-none shadow-md shrink-0 cursor-pointer flex items-center space-x-2 group md:self-start md:mt-2"
+            className="bg-brand-yellow text-black font-bold px-2.5 sm:px-3 py-1 text-[10px] tracking-widest uppercase hover:bg-[#E5C200] transition-colors rounded-none shadow-xs shrink-0 cursor-pointer flex items-center space-x-1 group md:self-start md:mt-2"
           >
             <span>START AN ENGAGEMENT</span>
-            <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </motion.div>
       </div>

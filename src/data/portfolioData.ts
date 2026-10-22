@@ -24,8 +24,8 @@ export const portfolioData: PortfolioData = {
 
     socials: {
       github: "https://github.com/akashad123",
-      linkedin: "https://linkedin.com/in/akash",
-      email: "contact@akash.dev"
+      linkedin: "https://www.linkedin.com/in/akash-ad-1734a527a",
+      email: "akashad23072002@gmail.com"
     }
   },
 
