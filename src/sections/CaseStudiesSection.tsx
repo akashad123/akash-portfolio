@@ -64,7 +64,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
       >
         <div className="flex items-center space-x-2">
           <Cpu size={14} className="text-brand-yellow" />
-          <span>05 // PRODUCTION CASE STUDIES</span>
+          <span>05 // CASE STUDIES</span>
         </div>
         <span className="bg-brand-yellow text-black font-bold px-2 py-0.5 text-[10px] tracking-widest uppercase">
           AI & AUTOMATION
@@ -83,15 +83,9 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
           className="mb-10 max-w-2xl"
         >
           <div ref={introRef} className="will-change-transform">
-            <span className="text-xs font-mono text-brand-yellow tracking-widest uppercase block mb-1">
-              DEEP-DIVE ENGINEERING
-            </span>
-            <h2 className="font-display text-4xl sm:text-5xl uppercase tracking-tight">
-              MULTIMODAL AI & HIGH-AVAILABILITY CLOUD PIPELINES
+            <h2 className="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white">
+              CASE STUDIES
             </h2>
-            <p className="text-sm font-mono text-neutral-400 mt-2">
-              Real systems deployed on AWS EC2 processing hundreds of live instructional media files with deterministic quality scoring.
-            </p>
           </div>
         </motion.div>
 
@@ -227,18 +221,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
         </div>
       </div>
 
-      {/* Bottom Footer - Slides up smoothly */}
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewportConfig}
-        custom={0.3}
-        className="relative z-10 max-w-7xl mx-auto w-full pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-500"
-      >
-        <span>ZERO PRODUCTION DOWNTIME RECORD</span>
-        <span>DEPLOYED ON AWS EC2 + PM2 DAEMONS</span>
-      </motion.div>
+      
     </section>
   );
 };

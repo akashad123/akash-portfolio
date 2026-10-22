@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–46
+- Current module: Completed Modules 1–47
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -122,6 +122,11 @@ This file is the persistent handoff record for the project.
   1. Removed `SCROLL TO DISCOVER` button and down arrow icon from `src/sections/HeroProfile.tsx` bottom bar, keeping the sleek `MERN // GEMINI API // SUPABASE // AWS EC2` telemetry indicator with GSAP parallax intact.
   2. Removed `AD` monogram brand logo from `src/components/Header.tsx`, streamlining the header to an ultra-clean navigation dock with the yellow square hamburger trigger positioned in the top-right.
   3. Removed unnecessary scroll event listeners from `Header.tsx` for optimal runtime performance.
+- Completed Module 47 (Case Studies Section Streamlining):
+  1. Updated Section 05 top header text to `05 // CASE STUDIES` with `AI & AUTOMATION` badge.
+  2. Removed `DEEP-DIVE ENGINEERING` category label, the long title `MULTIMODAL AI & HIGH-AVAILABILITY CLOUD PIPELINES`, and the description `Real systems deployed on AWS EC2 processing hundreds of live instructional media files with deterministic quality scoring.`.
+  3. Replaced intro with a clean, prominent display heading `CASE STUDIES` (`font-display text-4xl sm:text-5xl uppercase tracking-tight text-white`) preserving Framer Motion entrance and GSAP scroll parallax.
+  4. Removed the bottom telemetry footer (`ZERO PRODUCTION DOWNTIME RECORD` and `DEPLOYED ON AWS EC2 + PM2 DAEMONS`).
 - Completed Module 46 (Site-Wide Moving Background Parallax & Minimalist Architectural Footer):
   1. Deployed synchronized GSAP ScrollTrigger parallax across all black and white section backgrounds:
      - Section 01 Hero (Black): Atmospheric radial gradient and 8-column architectural grid translate with scroll depth (`y: 0 -> 80px`).
