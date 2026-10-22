@@ -33,19 +33,23 @@ export interface CaseStudyItem {
   id: string;
   slug: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   company: string;
   role: string;
   duration: string;
-  status: string;
+  status?: string;
   techStack: string[];
   overview: string;
-  problem: string;
-  solution: string;
-  process: string[];
-  challenges: CaseStudyChallenge[];
-  results: string[];
-  learnings: string[];
+  story?: {
+    title: string;
+    content: string;
+  }[];
+  problem?: string;
+  solution?: string;
+  process?: string[];
+  challenges?: CaseStudyChallenge[];
+  results?: string[];
+  learnings?: string[];
 }
 
 export interface EducationItem {

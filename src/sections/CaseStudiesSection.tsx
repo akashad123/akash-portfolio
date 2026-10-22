@@ -108,20 +108,11 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                 </div>
 
                 <div>
-                  <div className="flex items-center space-x-3 mb-3">
-                    <span className="bg-brand-yellow text-black text-[10px] font-mono font-bold px-2 py-0.5 tracking-wider uppercase">
-                      {caseStudies[0].status}
-                    </span>
-                    <span className="text-xs font-mono text-neutral-500">
-                      {caseStudies[0].company}
-                    </span>
-                  </div>
-
                   <h3 className="font-display text-3xl sm:text-4xl uppercase tracking-tight group-hover:text-brand-yellow transition-colors text-white">
                     {caseStudies[0].title}
                   </h3>
-                  <p className="text-xs font-mono text-neutral-400 mt-1">
-                    {caseStudies[0].subtitle}
+                  <p className="text-xs font-mono text-neutral-400 mt-1 uppercase tracking-wider">
+                    {caseStudies[0].company} // {caseStudies[0].duration}
                   </p>
 
                   <p className="text-sm text-neutral-300 font-sans mt-4 leading-relaxed line-clamp-3">
@@ -172,20 +163,11 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                 </div>
 
                 <div>
-                  <div className="flex items-center space-x-3 mb-3">
-                    <span className="bg-brand-yellow text-black text-[10px] font-mono font-bold px-2 py-0.5 tracking-wider uppercase">
-                      {caseStudies[1].status}
-                    </span>
-                    <span className="text-xs font-mono text-neutral-500">
-                      {caseStudies[1].company}
-                    </span>
-                  </div>
-
                   <h3 className="font-display text-3xl sm:text-4xl uppercase tracking-tight group-hover:text-brand-yellow transition-colors text-white">
                     {caseStudies[1].title}
                   </h3>
-                  <p className="text-xs font-mono text-neutral-400 mt-1">
-                    {caseStudies[1].subtitle}
+                  <p className="text-xs font-mono text-neutral-400 mt-1 uppercase tracking-wider">
+                    {caseStudies[1].company} // {caseStudies[1].duration}
                   </p>
 
                   <p className="text-sm text-neutral-300 font-sans mt-4 leading-relaxed line-clamp-3">

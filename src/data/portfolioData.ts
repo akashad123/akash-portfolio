@@ -96,72 +96,72 @@ export const portfolioData: PortfolioData = {
       id: "ai-teacher-scoring",
       slug: "nrithya-ai-teacher-scoring",
       title: "AI Teacher Scoring System",
-      subtitle: "Multimodal AI pipeline evaluating online dance instruction quality",
       company: "Nrithya Dances",
       role: "Full-Stack Developer Intern",
-      duration: "Jul 2026 – Present",
-      status: "MVP IN PRODUCTION",
+      duration: "July 2026 – Present",
       techStack: ["Python", "Google Gemini API", "ffmpeg", "Supabase (PostgreSQL)", "React", "Vercel", "AWS EC2", "pm2", "Zoom API"],
       overview: "I built a system that checks classes automatically. The AI listens to the class and looks at important moments in the video to find proof, like whether the teacher greeted every student or gave clear corrections. Then simple Python rules give the score. The AI only finds the proof; the rules decide the score. That keeps every score fair and easy to explain.",
-      problem: "At Nrithya Dances, a person had to watch every recorded class and fill in an Excel sheet to check how well the teacher taught. It was slow, so only a few classes could be checked, and the feedback wasn’t always the same from one class to the next.",
-      solution: "I built a system that checks classes automatically. The AI listens to the class and looks at important moments in the video to find proof, like whether the teacher greeted every student or gave clear corrections. Then simple Python rules give the score. The AI only finds the proof; the rules decide the score. That keeps every score fair and easy to explain.",
-      process: [
-        "Worked with the founder to turn the academy’s teaching handbook into 11 clear checks, each with at least 6 points to measure.",
-        "Built the pipeline flow: class video, then AI evidence extraction, then Python rules, then the results saved in the database.",
-        "Built a website where reviewers can see each score along with its proof, and click a link that opens the video at the exact moment."
-      ],
-      challenges: [
+      story: [
         {
-          challenge: "Some classes were scored before the teacher marked attendance, so students who were actually present were counted as absent.",
-          solution: "I made the system wait until attendance was marked, and built a tool to fix the wrong scores. One class went from 57.8% to its correct score of 78.9%."
+          title: "The problem",
+          content: "At Nrithya Dances, a person had to watch every recorded class and fill in an Excel sheet to check how well the teacher taught. It was slow, so only a few classes could be checked, and the feedback wasn’t always the same from one class to the next."
+        },
+        {
+          title: "What I built",
+          content: "I built a system that checks classes automatically. The AI listens to the class and looks at important moments in the video to find proof, like whether the teacher greeted every student or gave clear corrections. Then simple Python rules give the score. The AI only finds the proof; the rules decide the score. That keeps every score fair and easy to explain."
+        },
+        {
+          title: "How I did it",
+          content: "First, I worked with the founder to turn the academy’s teaching handbook into 11 clear checks, each with at least 6 points to measure. Then I built the flow: class video, then AI, then Python rules, then the results saved in the database. I also built a website where reviewers can see each score along with its proof, and click a link that opens the video at the exact moment."
+        },
+        {
+          title: "A problem I faced",
+          content: "Some classes were scored before the teacher marked attendance, so students who were actually present were counted as absent. I made the system wait until attendance was marked, and built a tool to fix the wrong scores. One class went from 57.8% to its correct score of 78.9%."
+        },
+        {
+          title: "The result",
+          content: "When I randomly checked 15 of the AI’s proof moments against the real video, all 15 were real. When a check isn’t reliable yet, I mark it “Not judged yet” instead of showing a wrong result."
+        },
+        {
+          title: "What I learned",
+          content: "Let AI find the proof, but let fixed rules decide the score, and always check AI results against the real source."
         }
-      ],
-      results: [
-        "When I randomly checked 15 of the AI’s proof moments against the real video, all 15 were real.",
-        "When a check isn’t reliable yet, I mark it 'Not judged yet' instead of showing a wrong result."
-      ],
-      learnings: [
-        "Let AI find the proof, but let fixed rules decide the score.",
-        "Always check AI results against the real source."
       ]
     },
     {
       id: "zoom-youtube-automation",
       slug: "nrithya-zoom-youtube-automation",
       title: "Zoom to YouTube Recording Automation",
-      subtitle: "Autonomous cloud distribution of student class recordings",
       company: "Nrithya Dances",
       role: "Maintainer & Developer",
-      duration: "Jul 2026 – Present",
-      status: "LIVE DEPLOYMENT",
+      duration: "July 2026 – Present",
       techStack: ["Node.js", "Zoom API", "YouTube API", "WhatsApp (WATI)", "Supabase", "AWS EC2", "pm2", "cron"],
       overview: "A program on an AWS server runs 4 times a day. It downloads new Zoom recordings, uploads them to YouTube, and sends the link to students on WhatsApp, with no manual work. I maintain and improve this system: I keep it running, update it through GitHub, and fix problems when they come up.",
-      problem: "Students need recordings of their classes so they can practise at home. With many teachers and classes every day, uploading and sending each recording by hand wasn’t possible.",
-      solution: "A program on an AWS server runs 4 times a day. It downloads new Zoom recordings, uploads them to YouTube, and sends the link to students on WhatsApp, with no manual work.",
-      process: [
-        "A program on an AWS server runs 4 times a day to process all daily classes.",
-        "Downloads new Zoom recordings and uploads them directly to YouTube.",
-        "Sends direct playback links to students on WhatsApp with zero manual work.",
-        "Maintained and improved through GitHub with continuous reliability checks."
-      ],
-      challenges: [
+      story: [
         {
-          challenge: "One day, recordings stopped coming for two teachers. I traced the cause: their names in the program’s settings didn’t match the database.",
-          solution: "After I fixed the names and restarted the program, 13 missed recordings came back in the next run."
+          title: "The problem",
+          content: "Students need recordings of their classes so they can practise at home. With many teachers and classes every day, uploading and sending each recording by hand wasn’t possible."
         },
         {
-          challenge: "The operations team wanted some classes uploaded to YouTube but not sent to students.",
-          solution: "I added a rule to skip sending for those classes while still uploading them, and checked that it worked after the next run."
+          title: "What the system does",
+          content: "A program on an AWS server runs 4 times a day. It downloads new Zoom recordings, uploads them to YouTube, and sends the link to students on WhatsApp, with no manual work."
+        },
+        {
+          title: "My role",
+          content: "I maintain and improve this system. I keep it running, update it through GitHub, and fix problems when they come up."
+        },
+        {
+          title: "A problem I faced",
+          content: "One day, recordings stopped coming for two teachers. I traced the cause: their names in the program’s settings didn’t match the database. After I fixed the names and restarted the program, 13 missed recordings came back in the next run."
+        },
+        {
+          title: "Another improvement",
+          content: "The operations team wanted some classes uploaded to YouTube but not sent to students. I added a rule to skip sending for those classes while still uploading them, and checked that it worked after the next run."
+        },
+        {
+          title: "What I learned",
+          content: "A tiny mismatch, like a name, can quietly stop an automation. And before changing anything, always check what else it will affect."
         }
-      ],
-      results: [
-        "Autonomous processing 4 times a day with zero manual uploading or messaging.",
-        "13 missed recordings successfully recovered after fixing teacher name settings.",
-        "Added flexible routing rule to upload specific classes while skipping student WhatsApp delivery."
-      ],
-      learnings: [
-        "A tiny mismatch, like a name, can quietly stop an automation.",
-        "Before changing anything, always check what else it will affect."
       ]
     }
   ],

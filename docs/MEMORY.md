@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–48
+- Current module: Completed Modules 1–49
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -122,6 +122,16 @@ This file is the persistent handoff record for the project.
   1. Removed `SCROLL TO DISCOVER` button and down arrow icon from `src/sections/HeroProfile.tsx` bottom bar, keeping the sleek `MERN // GEMINI API // SUPABASE // AWS EC2` telemetry indicator with GSAP parallax intact.
   2. Removed `AD` monogram brand logo from `src/components/Header.tsx`, streamlining the header to an ultra-clean navigation dock with the yellow square hamburger trigger positioned in the top-right.
   3. Removed unnecessary scroll event listeners from `Header.tsx` for optimal runtime performance.
+- Completed Module 49 (Case Study Modal & Card Streamlining with Plain Paragraph Storytelling):
+  1. Header Calibration:
+     - Removed the `MVP in production` / `LIVE DEPLOYMENT` status badge from the modal header and cards.
+     - Removed the subtitle (`Multimodal AI pipeline evaluating online dance instruction quality`).
+     - Positioned `Nrithya Dances // July 2026 – Present` cleanly underneath the title (`AI Teacher Scoring System`).
+  2. Modal Body Storytelling Method:
+     - Preserved `DEPLOYED TECHNOLOGIES & APIS` with the full set of skill pills.
+     - Replaced all complex nested grid boxes, bottleneck/solution alert boxes, numbered phase blocks, challenge warning containers, and quote cards with a clean, readable storytelling narrative in plain paragraph-wise writing.
+  3. Main Page Cards:
+     - Aligned Section 05 cards in `src/sections/CaseStudiesSection.tsx` to match: clean title, `company // duration` metadata, and overview paragraph.
 - Completed Module 48 (Authentic Case Studies Content Calibration):
   1. Updated Case Study 1 (`AI Teacher Scoring System`):
      - The Problem: Manual review of virtual classes via Excel sheets was slow and feedback lacked consistency.
