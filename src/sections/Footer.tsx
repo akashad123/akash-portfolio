@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = () => {
         <GridBackground theme="dark" columns={8} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex items-center justify-between">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
         {/* Monogram Brand Logo */}
         <div className="flex items-center space-x-4">
           <span className="font-display italic font-black text-2xl sm:text-3xl tracking-tighter text-white">
@@ -46,6 +46,34 @@ export const Footer: React.FC<FooterProps> = () => {
           <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest hidden sm:inline-block">
             © {new Date().getFullYear()} {developer.name}. ALL RIGHTS RESERVED.
           </span>
+        </div>
+
+        {/* Social / Direct Channels: LinkedIn, GitHub, Mail */}
+        <div className="flex items-center space-x-4 sm:space-x-6 text-xs font-mono text-neutral-400">
+          <a
+            href={developer.socials.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-brand-yellow transition-colors uppercase tracking-wider"
+          >
+            LinkedIn
+          </a>
+          <span className="text-neutral-700">/</span>
+          <a
+            href={developer.socials.github}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-brand-yellow transition-colors uppercase tracking-wider"
+          >
+            GitHub
+          </a>
+          <span className="text-neutral-700">/</span>
+          <a
+            href={`mailto:${developer.socials.email}`}
+            className="hover:text-brand-yellow transition-colors uppercase tracking-wider"
+          >
+            Mail
+          </a>
         </div>
 
         {/* Back to Top Arrow Only (Key Up Arrow Only in size 14) */}
