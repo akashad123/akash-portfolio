@@ -207,7 +207,7 @@ export const portfolioData: PortfolioData = {
   skills: [
     {
       title: "Frontend Engineering",
-      items: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "Sass", "Bootstrap", "EJS"]
+      items: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "Sass", "Bootstrap"]
     },
     {
       title: "Backend & Systems",

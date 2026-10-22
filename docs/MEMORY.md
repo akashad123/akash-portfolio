@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–54
+- Current module: Completed Modules 1–55
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -199,6 +199,8 @@ This file is the persistent handoff record for the project.
       - Under "LET'S BUILD" in `ContactSection.tsx`, added the three direct links: `LinkedIn`, `GitHub`, and `Mail` featuring 0px border-radius frames, brand-yellow icons, and interactive hover inversions.
       - Sized down the "START AN ENGAGEMENT" button from `px-10 py-5 text-sm` to a compact `px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-mono font-bold tracking-wider` and moved it to the top (aligned to top `md:self-start` alongside "LET'S BUILD" and in the section header bar) equipped with an `ArrowUpRight` icon.
       - Mirrored the three links (`LinkedIn / GitHub / Mail`) in the minimalist `Footer.tsx` bar between the monogram and back-to-top arrow.
+   5. EJS Removal from Skills (Module 55):
+      - Removed "EJS" from the Frontend Engineering category in `src/data/portfolioData.ts`.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
