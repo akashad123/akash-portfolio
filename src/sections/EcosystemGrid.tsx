@@ -41,13 +41,9 @@ export const EcosystemGrid: React.FC = () => {
   // Flattened high-impact tech entities for architectural grid distribution (Matching Screenshot 1)
   const leftStack = [
     { name: "REACT.JS", category: "FRONTEND FRAMEWORK", sub: "V19 / VITE" },
-    { name: "TYPESCRIPT", category: "TYPE SYSTEM", sub: "STRICT MODE" },
     { name: "TAILWIND CSS", category: "DESIGN SYSTEM", sub: "CUSTOM TOKENS" },
     { name: "NODE.JS", category: "RUNTIME", sub: "ASYNC / V8" },
-    { name: "EXPRESS.JS", category: "REST ENGINE", sub: "API GATEWAYS" },
-    { name: "SOCKET.IO", category: "REAL-TIME", sub: "WEBSOCKETS" },
-    { name: "REDUX TOOLKIT", category: "STATE MANAGEMENT", sub: "PREDICTABLE" },
-    { name: "FRAMER MOTION", category: "INTERACTION", sub: "SPRING PHYSICS" }
+    { name: "EXPRESS.JS", category: "REST ENGINE", sub: "API GATEWAYS" }
   ];
 
   const rightStack = [
@@ -56,8 +52,6 @@ export const EcosystemGrid: React.FC = () => {
     { name: "SUPABASE", category: "POSTGRESQL", sub: "ROW-LEVEL SEC" },
     { name: "AWS EC2", category: "CLOUD INFRA", sub: "DAEMONS / PM2" },
     { name: "MONGODB", category: "NOSQL DATABASE", sub: "DOCUMENT STORE" },
-    { name: "DOCKER", category: "CONTAINERIZATION", sub: "DEV ENV" },
-    { name: "VERCEL", category: "EDGE NETWORK", sub: "CI/CD DEPLOY" },
     { name: "GIT / GITHUB", category: "VERSION CONTROL", sub: "PR WORKFLOWS" }
   ];
 

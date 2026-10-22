@@ -207,11 +207,11 @@ export const portfolioData: PortfolioData = {
   skills: [
     {
       title: "Frontend Engineering",
-      items: ["React.js", "Tailwind CSS", "TypeScript", "JavaScript (ES6+)", "Sass", "Bootstrap", "EJS"]
+      items: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "Sass", "Bootstrap", "EJS"]
     },
     {
       title: "Backend & Systems",
-      items: ["Node.js", "Express.js", "Python", "Strapi CMS", "REST APIs", "Socket.IO"]
+      items: ["Node.js", "Express.js", "Python", "REST APIs"]
     },
     {
       title: "Databases & Storage",
@@ -219,7 +219,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "Cloud, DevOps & Automation",
-      items: ["AWS EC2", "Vercel", "pm2", "Docker basics", "GitHub Actions", "cron"]
+      items: ["AWS EC2", "pm2", "GitHub Actions", "cron"]
     },
     {
       title: "AI Integration & LLMs",
@@ -252,15 +252,13 @@ export const portfolioData: PortfolioData = {
         { name: "REACT", tag: "FRONTEND" },
         { name: "NODE.JS", tag: "BACKEND" },
         { name: "PYTHON", tag: "AI/AUTOMATION" },
-        { name: "TYPESCRIPT", tag: "LANGUAGE" },
         { name: "TAILWIND", tag: "STYLING" },
         { name: "EXPRESS", tag: "API ENGINE" },
         { name: "SUPABASE", tag: "DATABASE" },
         { name: "POSTGRESQL", tag: "SQL ENGINE" },
         { name: "MONGODB", tag: "NOSQL" },
         { name: "AWS EC2", tag: "CLOUD INFRA" },
-        { name: "GEMINI API", tag: "MULTIMODAL AI" },
-        { name: "VERCEL", tag: "EDGE HOSTING" }
+        { name: "GEMINI API", tag: "MULTIMODAL AI" }
       ]
     }
   ]
