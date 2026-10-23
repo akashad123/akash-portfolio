@@ -13,9 +13,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMenu }) => {
       initial={headerInitial}
       animate={headerAnimate}
       transition={headerTransition}
-      className="fixed top-0 left-0 right-0 z-40 bg-transparent py-5 sm:py-6 px-4 sm:px-8 md:px-12 pointer-events-none transition-none"
+      className="fixed top-0 left-0 right-0 z-40 bg-transparent py-3.5 sm:py-4 px-6 sm:px-10 md:px-14 lg:px-16 pointer-events-none transition-none"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-end pointer-events-none">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-end pointer-events-none">
         {/* Sleek Compact Yellow Square Hamburger Trigger with 2 horizontal black bars */}
         <button
           onClick={onOpenMenu}

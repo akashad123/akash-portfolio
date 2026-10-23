@@ -69,8 +69,9 @@
   }
 
   .text-stroke-white {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.85);
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.95);
     color: transparent;
+    display: inline-block;
   }
 
   /* Apple-like clean portrait presentation */
