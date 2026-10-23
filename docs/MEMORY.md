@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–70
+- Current module: Completed Modules 1–71
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -152,6 +152,11 @@ This file is the persistent handoff record for the project.
      - Scaled up the Bodoni Moda serif `AKASH` typography to `text-[16vw] lg:text-[15.5vw] xl:text-[175px] 2xl:text-[200px]` on desktop and `text-[21vw]` on mobile for massive editorial presence.
      - Scaled up the portrait height dynamically to `max-h-[78vh] xl:max-h-[84vh] 2xl:max-h-[88vh]` on desktop and `h-[46vh] sm:h-[52vh] md:h-[58vh]` on mobile.
      - Verified with Playwright across 1080p, 768p laptop, and mobile; production build passed with 0 errors.
+  37. Top Role Removal & Foreground Wireframe 'A' Outline (Module 71):
+     - Removed `FULL STACK WEB DEVELOPER` from top right coordinates bar, leaving only `Kerala, India` with MapPin on the left and the hamburger navigation trigger on the right.
+     - Deployed a dedicated foreground wireframe stroke layer at `z-25` across both desktop and mobile, ensuring the middle letter `A` is 100% visible in the exact wireframe outline style of `S`.
+     - Because `A` has transparent fill and an enhanced `1.8px` crisp white stroke, Akash's curly hair and forehead remain completely visible through the letter while the wireframe stroke outlines across his silhouette.
+     - Verified with Playwright and built cleanly (`tsc -b && vite build` in 7.48s).
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

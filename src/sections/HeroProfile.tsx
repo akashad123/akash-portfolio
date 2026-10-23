@@ -73,11 +73,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
               {developer.location}
             </span>
           </div>
-
-          {/* Role on Right: 'FULL STACK WEB DEVELOPER' with clearance for hamburger button */}
-          <div className="text-neutral-400 uppercase tracking-[0.2em] text-[11px] font-mono mr-12 sm:mr-14">
-            {developer.role}
-          </div>
         </div>
       </motion.div>
 
@@ -126,6 +121,17 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             {/* Ambient bottom scrim to merge smoothly with floor */}
             <div className="absolute bottom-0 inset-x-0 h-16 xl:h-24 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
           </div>
+        </div>
+
+        {/* Foreground Wireframe Stroke Layer: Outline A and S across photo */}
+        <div
+          className="absolute inset-x-6 sm:inset-x-10 md:inset-x-14 lg:inset-x-16 top-4 xl:top-8 flex items-center justify-between font-serifDisplay font-black text-[16vw] lg:text-[15.5vw] xl:text-[175px] 2xl:text-[200px] leading-none tracking-tight select-none pointer-events-none z-25 pt-1 xl:pt-2"
+        >
+          <span className="opacity-0">A</span>
+          <span className="opacity-0">K</span>
+          <span className="text-stroke-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">A</span>
+          <span className="text-stroke-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">S</span>
+          <span className="opacity-0">H</span>
         </div>
 
         {/* Bottom Segment: Left CTA Button & Right Stats Flanks (Sitting below letters) */}
@@ -217,6 +223,15 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             />
             {/* Ambient bottom scrim */}
             <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
+          </div>
+
+          {/* Foreground Wireframe Stroke Layer: Outline A and S across photo */}
+          <div className="absolute bottom-[20%] sm:bottom-[22%] inset-x-0 z-25 flex items-center justify-between font-serifDisplay font-black text-[21vw] sm:text-[19vw] leading-none tracking-tight pointer-events-none select-none px-2">
+            <span className="opacity-0">A</span>
+            <span className="opacity-0">K</span>
+            <span className="text-stroke-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.9)]">A</span>
+            <span className="text-stroke-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.9)]">S</span>
+            <span className="opacity-0">H</span>
           </div>
         </div>
 

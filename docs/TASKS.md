@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 70: Pristine Silhouette Cutout Generation & Grand Editorial Typography Scaling
+Module 71: Top Header Simplification & Foreground Wireframe 'A' Outline Calibration
 
 ## Task list
 
@@ -83,6 +83,7 @@ Module 70: Pristine Silhouette Cutout Generation & Grand Editorial Typography Sc
 | 68 | Elimination of Neck Artifacts & Direct Authentic Asset Display | Diagnosed dark honeycomb/mesh holes on neck caused by aggressive flood-fill alpha masking leaking into collar shadows; eliminated transparency holes and switched directly to the authentic untouched user asset | COMPLETED | Restored flawless solid neck and throat skin tones with 0 holes, seamless black background blend, verified 100vh layout with intact Bodoni Moda AKASH typography |
 | 69 | Hero Bio & Bottom Stack Telemetry Decommissioning | Removed bio paragraph ("I am a full stack web developer...") leaving solely DEPLOY CONTRACT on left flank; removed bottom telemetry bar ("MERN // GEMINI API // SUPABASE // AWS EC2") | COMPLETED | Clean, high-impact minimalist landing hero; DEPLOY CONTRACT sits prominently on left; right telemetry stack intact; tested across 1080p, 768p laptop, and mobile |
 | 70 | Silhouette Cutout & Grand Typography Scaling | Reconstructed 100% backgroundless transparent cutout PNG with solid [c_min, c_max] row mask (zero holes, zero black box occluding K, A, S); scaled up portrait image and Bodoni Moda AKASH typography across desktop and mobile | COMPLETED | Clean transparency outside subject allows AKASH typography to shine through unobstructed; scaled AKASH to text-[16vw]/[15.5vw]/[175px]/[200px] on desktop and text-[21vw] on mobile; portrait max-h expanded to 78vh-88vh; verified build |
+| 71 | Top Role Removal & Foreground Wireframe 'A' Outline | Removed 'FULL STACK WEB DEVELOPER' from top right coordinates bar; deployed foreground wireframe stroke layer (z-25) so the outline of 'A' (identical in style to 'S') is clearly visible across Akash's curly hair with transparent fill | COMPLETED | Enhanced stroke width to 1.8px; A outline is crisp and razor-sharp over hair; top bar simplified to location on left and hamburger on right; verified build and Playwright render |
 
 ## Current blockers
 - None.
