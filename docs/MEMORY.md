@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–64
+- Current module: Completed Modules 1–65
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -118,6 +118,12 @@ This file is the persistent handoff record for the project.
      - **Strict Zero-Overlap Architecture**:
        - Desktop (>= 1024px): 3-column flanking architecture with Bio + CTA strictly in the left flank and Telemetry blocks strictly in the right flank, leaving a 200–360px clear buffer on either side of Akash's portrait.
        - Tablet & Mobile (< 1024px): Clear vertical flow where the portrait and `AKASH` typography have their own dedicated stage, and all bio text, CTA, and telemetry blocks sit cleanly underneath, guaranteeing zero text overlaps the portrait on any screen size.
+  31. Strict 100vh Landing Hero Calibration (Module 65):
+     - Constrained Section 01 (`HeroProfile.tsx`) strictly to `h-screen max-h-screen h-[100dvh] max-h-[100dvh]` so all landing elements fit 100% inside the viewport on initial page load without vertical scrolling.
+     - Top coordinates bar (`Kerala, India` with `MapPin` and `FULL STACK WEB DEVELOPER`) anchored cleanly at top.
+     - Middle stage converted to `flex-1 min-h-0` with portrait height dynamically capped at `max-h-[64vh]-max-h-[74vh]` so it scales proportionally to available viewport height on compact laptop screens (e.g. 1024x576) as well as larger 1080p monitors.
+     - Bottom telemetry bar (`>_ MERN // GEMINI API // SUPABASE // AWS EC2`) strictly anchored at the bottom with `shrink-0` and compact padding (`pt-2 sm:pt-2.5 pb-0.5`).
+     - Verified smooth transition on scroll down: Section 02 (`StatementSection` / Core Philosophy) seamlessly enters the viewport as user scrolls.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

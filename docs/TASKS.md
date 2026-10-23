@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 64: Landing Hero Editorial Portrait & Serif Typography (Zero-Overlap Composition)
+Module 65: Strict 100vh Landing Hero Calibration (Complete Viewport Ingress)
 
 ## Task list
 
@@ -77,6 +77,7 @@ Module 64: Landing Hero Editorial Portrait & Serif Typography (Zero-Overlap Comp
 | 62 | 3D Dual-Layer Orbital Ring System | Replaced grid with 3D tilted dual-layer concentric orbital ring system | COMPLETED | Initial 3D dual-ring implementation |
 | 63 | Pure Neutral 3D Dual-Orbit Exact Match | Calibrate orbits, items, colors, and subtle connecting lines matching latest reference image | COMPLETED | Removed golden rings/dots/dashed circles, deployed subtle neutral connecting lines; Inner Ring features 8 items (Full Stack Architecture, Multimodal AI, Operational Troubleshooting, Zero-Downtime Reliability, Rate Limiting, REST APIs, Antigravity, Performance Profiling); Outer Ring features 19 technologies including Vite; soft rounded orbit-card styling with upright 3D billboarding and bidirectional GSAP scrub=1.2 |
 | 64 | Landing Hero Editorial Portrait & Serif Typography | Integrated high-res user portrait as landing image with luxury Bodoni Moda serif 'AKASH' masthead behind portrait, layered stroke contour effect, and strict zero-overlap layout across desktop, tablet, and mobile | COMPLETED | Clean cutout portrait with alpha transparency; 5 evenly spaced, crystal clear letters (A-K-A-S-H); 3-column flanking desktop layout and structured mobile/tablet flow ensuring zero overlap of location, bio, deploy contract CTA, active stack, experience, and current availability |
+| 65 | Strict 100vh Landing Hero Calibration | Constrain Hero section strictly to 100vh (h-screen / h-[100dvh]) so top coordinates bar (location & role), bio, deploy button, portrait, AKASH typography, right telemetry stats, and bottom MERN/Gemini/Supabase/EC2 telemetry bar are 100% visible on initial page load without scrolling | COMPLETED | Replaced min-h-screen with strict h-screen/max-h-screen, responsive flex-1 min-h-0 middle container, proportional max-h-[64vh]-max-h-[74vh] portrait, compact vertical padding (pt-14 pb-2.5), verified with Playwright across 1024x576, 1366x768, and 1920x1080 |
 
 ## Current blockers
 - None.
