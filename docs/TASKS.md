@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 60: Contact Typography Kerning Calibration & Small Button Footprint Restoration
+Module 61: Mobile Vertical Project Feed, Tablet/Desktop Horizontal Scroll Calibration & Case Studies Heading Removal
 
 ## Task list
 
@@ -73,17 +73,18 @@ Module 60: Contact Typography Kerning Calibration & Small Button Footprint Resto
 | 58 | Footer & Contact Refinement | Remove ArrowUp and socials from footer, decrease LinkedIn/GitHub/Mail button size, stack Start an Engagement directly below | COMPLETED | Footer strictly contains monogram and copyright; channels resized and Start an Engagement placed directly below them |
 | 59 | Contact Section & Footer Image Match | Replicate exact visual composition from reference image across Contact Section and Footer | COMPLETED | Repeating horizontal LET'S BUILD watermark, top bar with yellow envelope and DIRECT INQUIRY, white LET'S BUILD, dark channels row with yellow icons, yellow CTA directly below, and footer with monogram, copyright, LINKEDIN / GITHUB / MAIL, and square ArrowUp button |
 | 60 | Kerning & Button Size Calibration | Fix LET'S BUILD letter overlapping and restore small button footprint for Start an Engagement and Direct Inquiry | COMPLETED | Replaced negative tracking with clean tracking-[0.05em] sm:tracking-[0.06em] and gap-x-4 between words so all letters (L, E, T, ', S, B, U, I, L, D) have distinct margins; restored compact px-2.5 sm:px-3 py-1 text-[10px] footprint for START AN ENGAGEMENT, DIRECT INQUIRY, and social channels |
+| 61 | Mobile Vertical Feed & Desktop Scroll Polish | Separate mobile vertical scroll from tablet/desktop horizontal pinned scroll; remove duplicate Case Studies heading | COMPLETED | On mobile (< 768px), project cards flow naturally downwards one by one without horizontal locking or touch trapping; on tablet/laptop (>= 768px), GSAP matchMedia provides calibrated horizontal scrub with no dead zones; removed duplicate CASE STUDIES h2 heading |
 
 ## Current blockers
 - None.
 
 ## Next continuation point
-User review of live development server at `http://localhost:3000/`, followed by optional production hosting deployment on Vercel.
+User review on live mobile and desktop devices, followed by Vercel deployment update.
 
 ## Verification
 - Build: PASSED (`tsc -b && vite build` completed with 0 errors)
 - Lint: PASSED (strict type checking enabled)
 - Git Remote: Pushed to `origin/main` (https://github.com/akashad123/akash-portfolio)
 - Tests: N/A (static UI with local validation)
-- Responsive: Built with Tailwind mobile-first breakpoints (sm/md/lg/xl)
+- Responsive: Verified across mobile (< 768px vertical feed) and tablet/desktop (>= 768px horizontal scrub)
 - SEO: Semantic HTML, OpenGraph, Twitter, and JSON-LD structured schema

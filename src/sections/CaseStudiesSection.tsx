@@ -8,7 +8,6 @@ import { initGsapMultiParallax } from '../utils/gsapParallax';
 import {
   sectionViewportConfig,
   fadeInDownVariants,
-  fadeInLeftVariants,
   fadeInUpVariants,
 } from '../utils/motion';
 
@@ -20,7 +19,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
   const caseStudies = portfolioData.caseStudies;
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
-  const introRef = useRef<HTMLDivElement>(null);
   const card1Ref = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
 
@@ -30,9 +28,8 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
       [
         // Background Grid lines move smoothly on scroll
         { target: bgRef.current, yStart: 45, yEnd: -45, scrub: 1.2 },
-        { target: introRef.current, yStart: 30, yEnd: -30, scrub: 1 },
-        { target: card1Ref.current, yStart: 45, yEnd: -45, scrub: 1.2 },
-        { target: card2Ref.current, yStart: 65, yEnd: -65, scrub: 1.4 },
+        { target: card1Ref.current, yStart: 40, yEnd: -40, scrub: 1.2 },
+        { target: card2Ref.current, yStart: 60, yEnd: -60, scrub: 1.4 },
       ],
       sectionRef.current
     );
@@ -43,17 +40,14 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
     <section
       ref={sectionRef}
       id="case-studies"
-      className="relative min-h-screen bg-black text-white py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
+      className="relative min-h-screen bg-black text-white py-16 sm:py-20 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-white/10 select-none"
     >
       {/* Dark Grid Background with GSAP Scroll Parallax */}
       <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
-        {/* Dark Grid Background with GSAP Scroll Parallax */}
-      <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform z-0">
-        <GridBackground theme="dark" columns={8} />
-      </div>
+        <GridBackground theme="dark" columns={8} />
       </div>
 
-      {/* Top Header - Slides down smoothly */}
+      {/* Top Header Bar */}
       <motion.div
         variants={fadeInDownVariants}
         initial="hidden"
@@ -71,24 +65,8 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
         </span>
       </motion.div>
 
-      {/* Main Content Grid */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-12">
-        {/* Intro Block - Slides in from left & GSAP Parallax */}
-        <motion.div
-          variants={fadeInLeftVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={sectionViewportConfig}
-          custom={0.1}
-          className="mb-10 max-w-2xl"
-        >
-          <div ref={introRef} className="will-change-transform">
-            <h2 className="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white">
-              CASE STUDIES
-            </h2>
-          </div>
-        </motion.div>
-
+      {/* Main Content Grid: Direct Cards Presentation (Duplicate Heading Removed) */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full my-auto py-10 sm:py-14">
         {/* Case Study Cards with Differential Topward/Bottomward GSAP Scroll Parallax */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {caseStudies[0] && (
@@ -136,8 +114,6 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                       </span>
                     )}
                   </div>
-
-                  
                 </div>
               </motion.div>
             </div>
@@ -188,16 +164,12 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onSelect
                       </span>
                     )}
                   </div>
-
-                  
                 </div>
               </motion.div>
             </div>
           )}
         </div>
       </div>
-
-      
     </section>
   );
 };

@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–60
+- Current module: Completed Modules 1–61
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -91,6 +91,10 @@ This file is the persistent handoff record for the project.
   27. Kerning Calibration & Small Button Footprint (Module 60):
      - Solved glyph collision in "LET'S BUILD": eliminated negative tracking that caused 'L', 'E', 'T', apostrophe, 'S', 'B', 'U', 'I', 'L', 'D' to overlap; applied positive `tracking-[0.05em] sm:tracking-[0.06em]` and separate spans with `gap-x-4 sm:gap-x-6` so all letters have distinct, crisp spacing.
      - Restored small button footprints for `START AN ENGAGEMENT` (`px-2.5 sm:px-3 py-1 text-[10px]`) and `DIRECT INQUIRY` (`px-2.5 py-1 text-[10px]`).
+  28. Mobile Vertical Feed, Desktop Horizontal Scrub & Heading Cleanup (Module 61):
+     - Mobile (< 768px): Disabled horizontal scroll/pinning completely. Project cards render in a clean vertical feed flowing downwards one by one, enabling native, touch-friendly, 60fps mobile scrolling.
+     - Tablet & Desktop (>= 768px): Utilized `gsap.matchMedia('(min-width: 768px)')` with calibrated scroll distance (`track.scrollWidth - window.innerWidth + 120`) eliminating dead zones, stuck pins, or touch fighting.
+     - Case Studies: Removed duplicate `<h2>CASE STUDIES</h2>` block in Section 05 (`CaseStudiesSection.tsx`), aligning with the clean subheader style of Sections 02 and 03.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
@@ -125,12 +129,12 @@ This file is the persistent handoff record for the project.
 - `src/utils/gsapParallax.ts`
 
 ## Next exact step
-User review of live development server at `http://localhost:3000/`, followed by optional production hosting deployment on Vercel.
+User review on live mobile and desktop devices, followed by Vercel deployment update.
 
 ## Last verification
-- Date: 2026-10-22
+- Date: 2026-10-23
 - Build: PASSED (`tsc -b && vite build` completed with 0 errors)
 - Git Remote: PASSED (`main` branch synced with `https://github.com/akashad123/akash-portfolio.git`)
 - Tests: PASSED
-- Responsive: Verified across mobile/tablet/desktop breakpoints
+- Responsive: Verified across mobile (< 768px vertical feed) and tablet/desktop (>= 768px horizontal scrub)
 - SEO: Verified in `index.html` with full meta tags and JSON-LD schema
