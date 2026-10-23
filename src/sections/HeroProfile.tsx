@@ -123,7 +123,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
             <img
               src="/images/akash-hero-portrait.png"
               alt="Akash - Full Stack Web Developer"
-              className="h-full w-auto max-w-full object-contain object-bottom select-none filter contrast-[1.05]"
+              className="h-full w-auto max-w-full object-contain object-bottom select-none"
             />
             {/* Ambient bottom scrim to merge smoothly with floor */}
             <div className="absolute bottom-0 inset-x-0 h-16 xl:h-24 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
