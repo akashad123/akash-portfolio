@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GridBackground } from '../components/GridBackground';
 import {
   Layers,
-  Server,
   Wrench,
   ShieldCheck,
   BarChart3,
@@ -27,8 +26,14 @@ const ReactIcon = () => (
 
 const JSIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0">
-    <rect width="24" height="24" fill="#F7DF1E" />
+    <rect width="24" height="24" fill="#F7DF1E" rx="3" />
     <text x="5" y="18" fill="#000" fontWeight="bold" fontSize="13" fontFamily="sans-serif">JS</text>
+  </svg>
+);
+
+const TailwindIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#38BDF8]">
+    <path d="M12 6c-4 0-6.5 2-7.5 6 1.5-2 3.5-2.5 5.5-1.5 1.1.6 2 1.5 3 2.5 1.5 1.5 3.5 3 7 3 4 0 6.5-2 7.5-6-1.5 2-3.5 2.5-5.5 1.5-1.1-.6-2-1.5-3-2.5-1.5-1.5-3.5-3-7-3zm-7.5 6c-4 0-6.5 2-7.5 6 1.5-2 3.5-2.5 5.5-1.5 1.1.6 2 1.5 3 2.5 1.5 1.5 3.5 3 7 3 4 0 6.5-2 7.5-6-1.5 2-3.5 2.5-5.5 1.5-1.1-.6-2-1.5-3-2.5-1.5-1.5-3.5-3-7-3z" />
   </svg>
 );
 
@@ -62,15 +67,48 @@ const MongoIcon = () => (
   </svg>
 );
 
+const MySQLIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#00758F]">
+    <path d="M12 2C8 2 4 5 4 10c0 3 2 5 4 6-1 2-3 3-5 3 3 1 7 1 10-1 3 1 6 1 8-1 1-1 2-2 2-4 0-4-3-8-8-8z"/>
+  </svg>
+);
+
+const AWSIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-4 shrink-0 fill-[#FF9900]">
+    <path d="M18.8 15.6c-2.4 1.8-5.8 2.7-8.8 2.7-4.2 0-8-1.5-10.8-4.1-.2-.2 0-.5.2-.3 3.1 1.7 6.9 2.7 10.7 2.7 2.7 0 5.7-.7 8.4-2.1.4-.2.7.2.3.6v.4z"/>
+    <path d="M19.7 14.5c-.3-.4-2-.2-2.7-.1-.2 0-.3-.2-.1-.3 1.2-.9 3.2-.6 3.5-.2.3.4-.1 2.3-1.3 3.2-.2.1-.3 0-.3-.2.3-.8.9-2 .9-2.4z"/>
+  </svg>
+);
+
 const SupabaseIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#3ECF8E]">
     <path d="M13.5 1L3 13.5h7.5L9.5 23 21 9.5h-7.5z"/>
   </svg>
 );
 
-const AWSIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#FF9900]">
-    <path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm0 2.4l6.8 3.8L12 12 5.2 8.2 12 4.4zM4.8 9.8l6.4 3.6v7.2l-6.4-3.6V9.8zm8 10.8v-7.2l6.4-3.6v7.2l-6.4 3.6z"/>
+const BootstrapIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0">
+    <rect width="24" height="24" rx="4" fill="#7952B3" />
+    <text x="6.5" y="18" fill="#FFF" fontWeight="black" fontSize="16" fontFamily="sans-serif">B</text>
+  </svg>
+);
+
+const SassIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#CF649A]">
+    <path d="M12 3C6.5 3 2 6.5 2 11c0 3.2 2.3 6 5.8 7.2l-.6 2.3c-.1.5.3 1 .8.9l3.5-1.1c.2 0 .3.1.5.1 5.5 0 10-3.5 10-8s-4.5-8-10-8z"/>
+  </svg>
+);
+
+const ViteIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0">
+    <path d="M21.5 3.5l-9.5 17-9.5-17h6l3.5 7 3.5-7z" fill="url(#vite-grad-eco)" />
+    <path d="M12.5 3.5l-3 6.5h3l-2 4 4.5-5.5h-3l2-5z" fill="#FFD02F" />
+    <defs>
+      <linearGradient id="vite-grad-eco" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#41D1FF" />
+        <stop offset="100%" stopColor="#BD34FE" />
+      </linearGradient>
+    </defs>
   </svg>
 );
 
@@ -89,24 +127,11 @@ const ActionsIcon = () => (
   </svg>
 );
 
-const RestIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 text-[#2563EB] fill-current">
-    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-  </svg>
-);
-
-const ClaudeIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#D97706]">
-    <circle cx="12" cy="12" r="3" />
-    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="#D97706" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
 const GeminiIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0">
-    <path d="M12 24C12 17.37 6.63 12 0 12C6.63 12 12 6.63 12 0C12 6.63 17.37 12 24 12C17.37 12 12 17.37 12 24Z" fill="url(#gemini-grad-eco)" />
+    <path d="M12 24C12 17.37 6.63 12 0 12C6.63 12 12 6.63 12 0C12 6.63 17.37 12 24 12C17.37 12 12 17.37 12 24Z" fill="url(#gemini-grad-clean)" />
     <defs>
-      <linearGradient id="gemini-grad-eco" x1="0%" y1="0%" x2="100%" y2="100%">
+      <linearGradient id="gemini-grad-clean" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#4285F4" />
         <stop offset="50%" stopColor="#9B72CB" />
         <stop offset="100%" stopColor="#D96570" />
@@ -121,89 +146,79 @@ const ChatGPTIcon = () => (
   </svg>
 );
 
+const ClaudeIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#D97706]">
+    <circle cx="12" cy="12" r="3.5" />
+    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="#D97706" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+// Inner Circle Icons
+const RestIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0">
+    <path d="M12 2L4 13h6l-1 9 9-12h-6l1-8z" fill="#2563EB" />
+    <circle cx="18" cy="18" r="2.5" fill="#FDD60A" />
+  </svg>
+);
+
 const AntigravityIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#1E40AF]">
-    <path d="M12 3L2 21h5l5-9 5 9h5L12 3zm0 6.5l2.5 4.5h-5L12 9.5z" />
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#2563EB]">
+    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM12 8.5l3.5 6.5h-2.2l-.6-1.3h-1.4l-.6 1.3H8.5L12 8.5zm-.4 3.6h.8l-.4-1-.4 1z" />
   </svg>
 );
 
-const BootstrapIcon = () => (
+const ZeroDowntimeIcon = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0">
-    <rect width="24" height="24" fill="#7952B3" />
-    <text x="6.5" y="18" fill="#FFF" fontWeight="black" fontSize="16" fontFamily="sans-serif">B</text>
-  </svg>
-);
-
-const SassIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#CF649A]">
-    <path d="M12 3C6.5 3 2 6.5 2 11c0 3.2 2.3 6 5.8 7.2l-.6 2.3c-.1.5.3 1 .8.9l3.5-1.1c.2 0 .3.1.5.1 5.5 0 10-3.5 10-8s-4.5-8-10-8z"/>
-  </svg>
-);
-
-const MySQLIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#00758F]">
-    <path d="M12 2C8 2 4 5 4 10c0 3 2 5 4 6-1 2-3 3-5 3 3 1 7 1 10-1 3 1 6 1 8-1 1-1 2-2 2-4 0-4-3-8-8-8z"/>
-  </svg>
-);
-
-const JWTIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0">
-    <circle cx="12" cy="12" r="9" fill="none" stroke="url(#jwt-grad-eco)" strokeWidth="3.2" />
-    <defs>
-      <linearGradient id="jwt-grad-eco" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FB015B" />
-        <stop offset="50%" stopColor="#D63AFF" />
-        <stop offset="100%" stopColor="#00B9F1" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
-
-const TailwindIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-[#38BDF8]">
-    <path d="M12 6c-4 0-6.5 2-7.5 6 1.5-2 3.5-2.5 5.5-1.5 1.1.6 2 1.5 3 2.5 1.5 1.5 3.5 3 7 3 4 0 6.5-2 7.5-6-1.5 2-3.5 2.5-5.5 1.5-1.1-.6-2-1.5-3-2.5-1.5-1.5-3.5-3-7-3zm-7.5 6c-4 0-6.5 2-7.5 6 1.5-2 3.5-2.5 5.5-1.5 1.1.6 2 1.5 3 2.5 1.5 1.5 3.5 3 7 3 4 0 6.5-2 7.5-6-1.5 2-3.5 2.5-5.5 1.5-1.1-.6-2-1.5-3-2.5-1.5-1.5-3.5-3-7-3z" />
+    <rect x="3" y="4" width="18" height="6" rx="1.5" fill="none" stroke="#2563EB" strokeWidth="2" />
+    <circle cx="7" cy="7" r="1.2" fill="#2563EB" />
+    <circle cx="10" cy="7" r="1.2" fill="#2563EB" />
+    <rect x="3" y="14" width="18" height="6" rx="1.5" fill="none" stroke="#2563EB" strokeWidth="2" />
+    <circle cx="7" cy="17" r="1.2" fill="#2563EB" />
+    <circle cx="10" cy="17" r="1.2" fill="#2563EB" />
   </svg>
 );
 
 // ==========================================
-// Data Structures matching Screenshot Exactly
+// Data Structures Matching Exact Reference Image
 // ==========================================
 interface OrbitCard {
   name: string;
   icon: React.ReactNode;
 }
 
+// Exactly 8 items on Inner Ring (Matching Screenshot)
 const INNER_CARDS: OrbitCard[] = [
-  { name: 'Full Stack Architecture', icon: <Layers size={16} className="text-[#2563EB] shrink-0" /> },
-  { name: 'Zero-Downtime Reliability', icon: <Server size={16} className="text-[#2563EB] shrink-0" /> },
-  { name: 'Operational Troubleshooting', icon: <Wrench size={16} className="text-[#2563EB] shrink-0" /> },
-  { name: 'Rate Limiting', icon: <ShieldCheck size={16} className="text-[#2563EB] shrink-0" /> },
-  { name: 'Performance Profiling', icon: <BarChart3 size={16} className="text-[#2563EB] shrink-0" /> },
-  { name: 'Multimodal AI', icon: <Brain size={16} className="text-[#2563EB] shrink-0" /> },
+  { name: 'Full Stack Architecture', icon: <Layers size={16} className="text-[#2563EB] shrink-0" strokeWidth={2.2} /> },
+  { name: 'Multimodal AI', icon: <Brain size={16} className="text-[#2563EB] shrink-0" strokeWidth={2.2} /> },
+  { name: 'Operational Troubleshooting', icon: <Wrench size={16} className="text-[#2563EB] shrink-0" strokeWidth={2.2} /> },
+  { name: 'Zero-Downtime Reliability', icon: <ZeroDowntimeIcon /> },
+  { name: 'Rate Limiting', icon: <ShieldCheck size={16} className="text-[#2563EB] shrink-0" strokeWidth={2.2} /> },
+  { name: 'REST APIs', icon: <RestIcon /> },
+  { name: 'Antigravity', icon: <AntigravityIcon /> },
+  { name: 'Performance Profiling', icon: <BarChart3 size={16} className="text-[#2563EB] shrink-0" strokeWidth={2.2} /> },
 ];
 
+// Exactly 19 items on Outer Ring (Matching Screenshot)
 const OUTER_CARDS: OrbitCard[] = [
   { name: 'React.js', icon: <ReactIcon /> },
   { name: 'JavaScript', icon: <JSIcon /> },
+  { name: 'Tailwind CSS', icon: <TailwindIcon /> },
   { name: 'Node.js', icon: <NodeIcon /> },
   { name: 'Express.js', icon: <ExpressIcon /> },
   { name: 'Python', icon: <PythonIcon /> },
   { name: 'PostgreSQL', icon: <PostgresIcon /> },
   { name: 'MongoDB', icon: <MongoIcon /> },
-  { name: 'Supabase', icon: <SupabaseIcon /> },
+  { name: 'MySQL', icon: <MySQLIcon /> },
   { name: 'AWS EC2', icon: <AWSIcon /> },
-  { name: 'Git / GitHub', icon: <GitHubIcon /> },
-  { name: 'GitHub Actions', icon: <ActionsIcon /> },
-  { name: 'REST APIs', icon: <RestIcon /> },
-  { name: 'Claude', icon: <ClaudeIcon /> },
-  { name: 'Google Gemini API', icon: <GeminiIcon /> },
-  { name: 'ChatGPT', icon: <ChatGPTIcon /> },
-  { name: 'Antigravity', icon: <AntigravityIcon /> },
+  { name: 'Supabase', icon: <SupabaseIcon /> },
   { name: 'Bootstrap', icon: <BootstrapIcon /> },
   { name: 'Sass', icon: <SassIcon /> },
-  { name: 'MySQL', icon: <MySQLIcon /> },
-  { name: 'JWT', icon: <JWTIcon /> },
-  { name: 'Tailwind CSS', icon: <TailwindIcon /> },
+  { name: 'Vite', icon: <ViteIcon /> },
+  { name: 'Git / GitHub', icon: <GitHubIcon /> },
+  { name: 'GitHub Actions', icon: <ActionsIcon /> },
+  { name: 'Google Gemini API', icon: <GeminiIcon /> },
+  { name: 'ChatGPT', icon: <ChatGPTIcon /> },
+  { name: 'Claude', icon: <ClaudeIcon /> },
 ];
 
 // Radii constants for the 3D plane
@@ -220,7 +235,7 @@ export const EcosystemGrid: React.FC = () => {
 
   const [scale, setScale] = useState(1);
 
-  // Responsive scale handler so the 3D orbit fits on all devices
+  // Responsive scale handler so the 3D orbit fits perfectly on all devices
   useEffect(() => {
     const handleResize = () => {
       const w = window.innerWidth;
@@ -257,10 +272,10 @@ export const EcosystemGrid: React.FC = () => {
       end: 'bottom top',
       scrub: 1.2,
       onUpdate: (self) => {
-        // Scrub rotation as user scrolls down and up
+        // Scrub rotation smoothly as user scrolls down and up
         const p = self.progress;
         rotState.outer = p * 160;
-        rotState.inner = -p * 110;
+        rotState.inner = -p * 120;
 
         if (outerRingRef.current) {
           outerRingRef.current.style.transform = `rotateZ(${rotState.outer}deg)`;
@@ -300,7 +315,7 @@ export const EcosystemGrid: React.FC = () => {
         <GridBackground theme="light" columns={8} />
       </div>
 
-      {/* Top Header Bar matching Screenshot */}
+      {/* Top Header Bar */}
       <div className="relative z-20 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-black/10 pb-4 text-xs font-mono tracking-widest text-neutral-500">
         <div className="flex items-center space-x-2">
           <Layers size={14} className="text-black" />
@@ -334,19 +349,12 @@ export const EcosystemGrid: React.FC = () => {
               transform: 'rotateX(60deg)',
             }}
           >
-            {/* Center Origin Point & Subtle Concentric Guide Circles */}
-            <div className="absolute w-28 h-28 rounded-full border border-dashed border-amber-400/40 pointer-events-none" />
-            <div className="absolute w-56 h-56 rounded-full border border-dashed border-amber-400/25 pointer-events-none" />
-            <div className="absolute w-72 h-[1px] bg-neutral-300/40 pointer-events-none" />
-            <div className="absolute h-72 w-[1px] bg-neutral-300/40 pointer-events-none" />
-            <div className="absolute w-2.5 h-2.5 bg-[#FDD60A] rounded-full shadow-[0_0_10px_#FDD60A] pointer-events-none z-10" />
-
             {/* ========================================================= */}
-            {/* LAYER 1: INNER CIRCLE (6 Core Architecture Competencies)  */}
+            {/* LAYER 1: INNER CIRCLE (8 Core Capabilities on Subtle Line)*/}
             {/* ========================================================= */}
             <div
               ref={innerRingRef}
-              className="absolute flex items-center justify-center rounded-full border border-amber-400/90 shadow-[0_0_20px_rgba(253,214,10,0.45)] will-change-transform"
+              className="absolute flex items-center justify-center rounded-full border border-neutral-300/80 will-change-transform"
               style={{
                 width: `${INNER_RADIUS * 2}px`,
                 height: `${INNER_RADIUS * 2}px`,
@@ -365,22 +373,19 @@ export const EcosystemGrid: React.FC = () => {
                       transformStyle: 'preserve-3d',
                     }}
                   >
-                    {/* Glowing Yellow Node Dot on Ring */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-[#FDD60A] rounded-full shadow-[0_0_10px_#FDD60A] pointer-events-none z-0" />
-
                     {/* Upright Standing 3D Card (Counter-Rotated) */}
                     <div
                       ref={(el) => {
                         innerCardsRef.current[idx] = el;
                       }}
-                      className="relative z-10 -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-xs border border-neutral-300/80 shadow-[0_10px_30px_rgba(0,0,0,0.12)] px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center space-x-2.5 whitespace-nowrap rounded-none hover:border-brand-yellow hover:scale-105 hover:shadow-2xl transition-all duration-200 cursor-pointer group"
+                      className="orbit-card relative z-10 -translate-x-1/2 -translate-y-1/2 bg-white border border-neutral-200/90 shadow-[0_10px_25px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.04)] px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center space-x-2.5 whitespace-nowrap hover:border-black/30 hover:scale-105 hover:shadow-xl transition-all duration-200 cursor-pointer group"
                       style={{
                         transform: `rotateZ(${-baseAngle}deg) rotateX(-60deg)`,
                         transformStyle: 'preserve-3d',
                       }}
                     >
                       {card.icon}
-                      <span className="font-mono font-bold text-xs text-neutral-900 tracking-tight group-hover:text-black">
+                      <span className="font-sans font-semibold text-xs text-neutral-800 tracking-tight group-hover:text-black">
                         {card.name}
                       </span>
                     </div>
@@ -390,11 +395,11 @@ export const EcosystemGrid: React.FC = () => {
             </div>
 
             {/* ========================================================= */}
-            {/* LAYER 2: OUTER CIRCLE (21 Tech Stack Arsenal Items)       */}
+            {/* LAYER 2: OUTER CIRCLE (19 Tech Items on Subtle Line)      */}
             {/* ========================================================= */}
             <div
               ref={outerRingRef}
-              className="absolute flex items-center justify-center rounded-full border border-amber-400/70 shadow-[0_0_25px_rgba(253,214,10,0.35)] will-change-transform"
+              className="absolute flex items-center justify-center rounded-full border border-neutral-300/80 will-change-transform"
               style={{
                 width: `${OUTER_RADIUS * 2}px`,
                 height: `${OUTER_RADIUS * 2}px`,
@@ -413,22 +418,19 @@ export const EcosystemGrid: React.FC = () => {
                       transformStyle: 'preserve-3d',
                     }}
                   >
-                    {/* Glowing Yellow Node Dot on Ring */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-[#FDD60A] rounded-full shadow-[0_0_10px_#FDD60A] pointer-events-none z-0" />
-
                     {/* Upright Standing 3D Card (Counter-Rotated) */}
                     <div
                       ref={(el) => {
                         outerCardsRef.current[idx] = el;
                       }}
-                      className="relative z-10 -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-xs border border-neutral-300/80 shadow-[0_8px_25px_rgba(0,0,0,0.1)] px-3 sm:px-3.5 py-1.5 sm:py-2 flex items-center space-x-2 whitespace-nowrap rounded-none hover:border-brand-yellow hover:scale-105 hover:shadow-2xl transition-all duration-200 cursor-pointer group"
+                      className="orbit-card relative z-10 -translate-x-1/2 -translate-y-1/2 bg-white border border-neutral-200/90 shadow-[0_8px_20px_rgba(0,0,0,0.06),0_2px_4px_rgba(0,0,0,0.03)] px-3 sm:px-3.5 py-1.5 sm:py-2 flex items-center space-x-2 whitespace-nowrap hover:border-black/30 hover:scale-105 hover:shadow-xl transition-all duration-200 cursor-pointer group"
                       style={{
                         transform: `rotateZ(${-baseAngle}deg) rotateX(-60deg)`,
                         transformStyle: 'preserve-3d',
                       }}
                     >
                       {card.icon}
-                      <span className="font-mono font-bold text-[11px] sm:text-xs text-neutral-800 tracking-tight group-hover:text-black">
+                      <span className="font-sans font-semibold text-[11px] sm:text-xs text-neutral-800 tracking-tight group-hover:text-black">
                         {card.name}
                       </span>
                     </div>
