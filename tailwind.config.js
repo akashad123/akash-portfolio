@@ -22,6 +22,7 @@ export default {
       },
       fontFamily: {
         display: ['"Anton"', '"Oswald"', '"Barlow Condensed"', 'sans-serif'],
+        serifDisplay: ['"Bodoni Moda"', '"Playfair Display"', 'Georgia', 'serif'],
         body: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       borderRadius: {

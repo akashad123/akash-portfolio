@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–63
+- Current module: Completed Modules 1–64
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -102,6 +102,22 @@ This file is the persistent handoff record for the project.
        - Outer Ring features exactly 19 technologies: `React.js`, `JavaScript`, `Tailwind CSS`, `Node.js`, `Express.js`, `Python`, `PostgreSQL`, `MongoDB`, `MySQL`, `AWS EC2`, `Supabase`, `Bootstrap`, `Sass`, `Vite`, `Git / GitHub`, `GitHub Actions`, `Google Gemini API`, `ChatGPT`, and `Claude`.
        - Soft rounded `.orbit-card` design with soft shadows and upright 3D billboarding facing the user.
        - GSAP ScrollTrigger bidirectional scrub (`scrub: 1.2`): smoothly orbits both rings on scroll down and scroll up.
+  30. Landing Hero Editorial Portrait & Serif Typography (Module 64):
+     - Ingested user's raw high-res portrait image (`media_1792769621579_7fa9a59b.jpg`) and prepared clean transparent cutout with anti-aliasing in `public/images/akash-hero-portrait.png`.
+     - Integrated luxury `Bodoni Moda` serif masthead typography behind the portrait with 5 evenly spaced, crystal clear letters: **A - K - A - S - H** (resolving previous letter clarity and alignment issues).
+     - Layered subtle white stroke outline (`text-stroke-white`) where letters intersect the subject's suit for a magazine cover depth effect.
+     - Retained all required writings:
+       - Location with yellow `MapPin` (`Kerala, India`).
+       - Role at top right (`FULL STACK WEB DEVELOPER`).
+       - `DEPLOY CONTRACT` action button with sharp 0px corners and yellow accent.
+       - Bio narrative paragraph with full stack & AI expertise and immediate real-world impact.
+       - `ACTIVE STACK`: `FULL STACK AND AI`.
+       - `EXPERIENCE`: `1+ YEARS IN SOFTWARE DEVELOPMENT`.
+       - `CURRENT AVAILABILITY`: `FULL STACK DEVELOPER AT NRITHYA DANCES` with live pulsing yellow ping indicator.
+       - Bottom telemetry bar with terminal icon.
+     - **Strict Zero-Overlap Architecture**:
+       - Desktop (>= 1024px): 3-column flanking architecture with Bio + CTA strictly in the left flank and Telemetry blocks strictly in the right flank, leaving a 200–360px clear buffer on either side of Akash's portrait.
+       - Tablet & Mobile (< 1024px): Clear vertical flow where the portrait and `AKASH` typography have their own dedicated stage, and all bio text, CTA, and telemetry blocks sit cleanly underneath, guaranteeing zero text overlaps the portrait on any screen size.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 63: Pure Neutral 3D Dual-Orbit Calibration (Exact Reference Match)
+Module 64: Landing Hero Editorial Portrait & Serif Typography (Zero-Overlap Composition)
 
 ## Task list
 
@@ -76,6 +76,7 @@ Module 63: Pure Neutral 3D Dual-Orbit Calibration (Exact Reference Match)
 | 61 | Mobile Vertical Feed & Desktop Scroll Polish | Separate mobile vertical scroll from tablet/desktop horizontal pinned scroll; remove duplicate Case Studies heading | COMPLETED | On mobile (< 768px), project cards flow naturally downwards one by one without horizontal locking or touch trapping; on tablet/laptop (>= 768px), GSAP matchMedia provides calibrated horizontal scrub with no dead zones; removed duplicate CASE STUDIES h2 heading |
 | 62 | 3D Dual-Layer Orbital Ring System | Replaced grid with 3D tilted dual-layer concentric orbital ring system | COMPLETED | Initial 3D dual-ring implementation |
 | 63 | Pure Neutral 3D Dual-Orbit Exact Match | Calibrate orbits, items, colors, and subtle connecting lines matching latest reference image | COMPLETED | Removed golden rings/dots/dashed circles, deployed subtle neutral connecting lines; Inner Ring features 8 items (Full Stack Architecture, Multimodal AI, Operational Troubleshooting, Zero-Downtime Reliability, Rate Limiting, REST APIs, Antigravity, Performance Profiling); Outer Ring features 19 technologies including Vite; soft rounded orbit-card styling with upright 3D billboarding and bidirectional GSAP scrub=1.2 |
+| 64 | Landing Hero Editorial Portrait & Serif Typography | Integrated high-res user portrait as landing image with luxury Bodoni Moda serif 'AKASH' masthead behind portrait, layered stroke contour effect, and strict zero-overlap layout across desktop, tablet, and mobile | COMPLETED | Clean cutout portrait with alpha transparency; 5 evenly spaced, crystal clear letters (A-K-A-S-H); 3-column flanking desktop layout and structured mobile/tablet flow ensuring zero overlap of location, bio, deploy contract CTA, active stack, experience, and current availability |
 
 ## Current blockers
 - None.
