@@ -22,9 +22,8 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   const topBarRef = useRef<HTMLDivElement>(null);
   const akashTextRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
-  const bioRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
-  const bottomBarRef = useRef<HTMLDivElement>(null);
 
   // GSAP Scroll Parallax on Landing Hero Elements
   useEffect(() => {
@@ -34,9 +33,8 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
         { target: topBarRef.current, yStart: 0, yEnd: -15, scrub: 1 },
         { target: akashTextRef.current, yStart: 0, yEnd: -30, scrub: 1.1 },
         { target: portraitRef.current, yStart: 0, yEnd: 25, scrub: 1.3 },
-        { target: bioRef.current, yStart: 0, yEnd: -25, scrub: 1.1 },
+        { target: ctaRef.current, yStart: 0, yEnd: -25, scrub: 1.1 },
         { target: statsRef.current, yStart: 0, yEnd: -30, scrub: 1.2 },
-        { target: bottomBarRef.current, yStart: 0, yEnd: -10, scrub: 1 },
       ],
       heroRef.current,
       { start: 'top top', end: 'bottom top' }
@@ -91,7 +89,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
       {/* - Left Bio Block & Yellow DEPLOY CONTRACT Button                          */}
       {/* - Right Telemetry Stack with Border Line & Yellow Square Marker           */}
       {/* ========================================================================= */}
-      <div className="hidden lg:flex relative z-20 flex-1 min-h-0 w-full max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 flex-col justify-between pt-4 xl:pt-8 pb-3 xl:pb-5">
+      <div className="hidden lg:flex relative z-20 flex-1 min-h-0 w-full max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 flex-col justify-between pt-4 xl:pt-8 pb-6 xl:pb-8 2xl:pb-10">
         
         {/* Top Segment: Editorial 'A K A S H' Typography Row spanning container */}
         <div
@@ -130,30 +128,24 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           </div>
         </div>
 
-        {/* Bottom Segment: Left Bio Block & Right Stats Flanks (Sitting below letters) */}
+        {/* Bottom Segment: Left CTA Button & Right Stats Flanks (Sitting below letters) */}
         <div className="relative z-30 w-full flex items-end justify-between pb-1 xl:pb-2">
           
-          {/* Left Column: Bio paragraph and DEPLOY CONTRACT button */}
+          {/* Left Column: DEPLOY CONTRACT button */}
           <motion.div
             variants={fadeInLeftVariants}
             initial="hidden"
             animate="visible"
             custom={0.2}
-            className="w-[340px] sm:w-[370px] lg:w-[400px] space-y-3.5 xl:space-y-4 shrink-0"
+            className="w-[340px] sm:w-[370px] lg:w-[400px] shrink-0"
           >
-            <div ref={bioRef} className="space-y-3 xl:space-y-4 will-change-transform">
-              <p className="text-[11px] sm:text-xs xl:text-[13px] font-mono text-neutral-300 leading-relaxed max-w-[390px]">
-                {developer.bio}
-              </p>
-
-              <div>
-                <button
-                  onClick={onOpenContact}
-                  className="bg-brand-yellow hover:bg-[#E5C200] text-black font-display font-bold tracking-widest text-[11px] sm:text-xs uppercase px-5 py-2.5 xl:px-6 xl:py-3 transition-colors rounded-none cursor-pointer shadow-sm"
-                >
-                  DEPLOY CONTRACT
-                </button>
-              </div>
+            <div ref={ctaRef} className="will-change-transform">
+              <button
+                onClick={onOpenContact}
+                className="bg-brand-yellow hover:bg-[#E5C200] text-black font-display font-bold tracking-widest text-[11px] sm:text-xs uppercase px-5 py-2.5 xl:px-6 xl:py-3 transition-colors rounded-none cursor-pointer shadow-sm"
+              >
+                DEPLOY CONTRACT
+              </button>
             </div>
           </motion.div>
 
@@ -229,28 +221,22 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
         </div>
 
         {/* Information & Telemetry Container - Strictly positioned BELOW the photo */}
-        <div className="relative z-30 pt-3 sm:pt-4 pb-2 space-y-3 sm:space-y-4 border-t border-white/10 shrink-0">
+        <div className="relative z-30 pt-3 sm:pt-4 pb-6 sm:pb-8 space-y-3 sm:space-y-4 border-t border-white/10 shrink-0">
           
-          {/* Bio paragraph & CTA button */}
+          {/* CTA button */}
           <motion.div
             variants={fadeInUpVariants}
             initial="hidden"
             animate="visible"
             custom={0.2}
-            className="space-y-2 sm:space-y-3"
+            className="pt-1"
           >
-            <p className="text-[11px] sm:text-xs font-mono text-neutral-300 leading-relaxed">
-              {developer.bio}
-            </p>
-
-            <div>
-              <button
-                onClick={onOpenContact}
-                className="bg-brand-yellow hover:bg-[#E5C200] text-black font-display font-bold tracking-widest text-[11px] sm:text-xs uppercase px-4 py-2 transition-colors rounded-none cursor-pointer shadow-sm"
-              >
-                DEPLOY CONTRACT
-              </button>
-            </div>
+            <button
+              onClick={onOpenContact}
+              className="bg-brand-yellow hover:bg-[#E5C200] text-black font-display font-bold tracking-widest text-[11px] sm:text-xs uppercase px-4 py-2.5 transition-colors rounded-none cursor-pointer shadow-sm"
+            >
+              DEPLOY CONTRACT
+            </button>
           </motion.div>
 
           {/* Mobile Telemetry Grid: Stack, Experience, Availability */}
@@ -291,27 +277,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           </motion.div>
         </div>
       </div>
-
-      {/* 4. Bottom Telemetry Bar - Exact Match with '>_' Yellow Prompt */}
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-        custom={0.4}
-        className="relative z-30 w-full border-t border-white/10 shrink-0"
-      >
-        <div
-          ref={bottomBarRef}
-          className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 py-2.5 sm:py-3 flex items-center justify-between text-xs font-mono will-change-transform"
-        >
-          <div className="flex items-center space-x-2">
-            <span className="text-brand-yellow font-bold font-mono text-xs">&gt;_</span>
-            <span className="text-neutral-400 font-mono text-[10px] sm:text-[11px] xl:text-xs tracking-wider uppercase">
-              MERN // GEMINI API // SUPABASE // AWS EC2
-            </span>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 };
