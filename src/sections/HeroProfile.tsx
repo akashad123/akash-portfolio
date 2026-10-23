@@ -94,7 +94,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
         {/* Top Segment: Editorial 'A K A S H' Typography Row spanning container */}
         <div
           ref={akashTextRef}
-          className="relative w-full flex items-center justify-between font-serifDisplay font-black text-[13.5vw] lg:text-[13vw] xl:text-[140px] 2xl:text-[160px] leading-none tracking-tight select-none pointer-events-none z-10 pt-2 xl:pt-4 will-change-transform"
+          className="relative w-full flex items-center justify-between font-serifDisplay font-black text-[16vw] lg:text-[15.5vw] xl:text-[175px] 2xl:text-[200px] leading-none tracking-tight select-none pointer-events-none z-10 pt-1 xl:pt-2 will-change-transform"
         >
           {/* A (First): Solid White */}
           <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">A</span>
@@ -117,9 +117,9 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           ref={portraitRef}
           className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pointer-events-none select-none z-20 will-change-transform"
         >
-          <div className="relative flex items-end justify-center h-full max-h-[66vh] xl:max-h-[72vh] 2xl:max-h-[76vh] w-auto">
+          <div className="relative flex items-end justify-center h-full max-h-[78vh] xl:max-h-[84vh] 2xl:max-h-[88vh] w-auto">
             <img
-              src="/images/akash-hero-portrait.jpg"
+              src="/images/akash-hero-portrait.png"
               alt="Akash - Full Stack Web Developer"
               className="h-full w-auto max-w-full object-contain object-bottom select-none"
             />
@@ -197,10 +197,10 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
       <div className="flex lg:hidden flex-col flex-1 min-h-0 justify-between w-full px-4 sm:px-8 md:px-12 overflow-y-auto">
         
         {/* Visual Stage: Akash Portrait with Editorial AKASH Typography */}
-        <div className="relative w-full h-[40vh] sm:h-[46vh] md:h-[50vh] flex items-end justify-center overflow-hidden my-1 shrink-0">
+        <div className="relative w-full h-[46vh] sm:h-[52vh] md:h-[58vh] flex items-end justify-center overflow-hidden my-1 shrink-0">
           
           {/* Background Typography behind photo */}
-          <div className="absolute bottom-[20%] sm:bottom-[22%] inset-x-0 z-10 flex items-center justify-between font-serifDisplay font-black text-[18vw] sm:text-[16vw] leading-none tracking-tight pointer-events-none select-none px-2">
+          <div className="absolute bottom-[20%] sm:bottom-[22%] inset-x-0 z-10 flex items-center justify-between font-serifDisplay font-black text-[21vw] sm:text-[19vw] leading-none tracking-tight pointer-events-none select-none px-2">
             <span className="text-white">A</span>
             <span className="text-white">K</span>
             <span className="text-stroke-white">A</span>
@@ -211,7 +211,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           {/* Centered Cutout Portrait */}
           <div className="relative z-20 h-full w-auto flex items-end justify-center">
             <img
-              src="/images/akash-hero-portrait.jpg"
+              src="/images/akash-hero-portrait.png"
               alt="Akash - Full Stack Web Developer"
               className="h-full w-auto object-contain object-bottom select-none"
             />

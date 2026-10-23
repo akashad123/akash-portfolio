@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–69
+- Current module: Completed Modules 1–70
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -145,6 +145,13 @@ This file is the persistent handoff record for the project.
      - Removed the entire bio paragraph ("I am a full stack web developer currently working at Nrithya Dances...") from desktop and mobile views, keeping exclusively the yellow `DEPLOY CONTRACT` action button on the left flank.
      - Removed the bottom telemetry bar ("MERN // GEMINI API // SUPABASE // AWS EC2") and its border container.
      - Enhanced vertical breathing room and aesthetic balance across desktop, laptop (1366x768), and mobile viewports.
+  36. Silhouette Cutout & Grand Typography Scaling (Module 70):
+     - Reconstructed a 100% backgroundless, transparent cutout PNG (`akash-hero-portrait.png`) by deriving row-by-row silhouette bounds `[c_min, c_max]` from the high-res uploaded image (`media_1792775421630_3245a889.jpg`).
+     - Inside the silhouette: 100% solid alpha with untouched RGB, completely preventing any neck or throat transparency leaks.
+     - Outside the silhouette: 100% transparent alpha with 1px smooth antialiasing, completely eliminating the black rectangular box that previously occluded the letters `K`, `A`, and `S`.
+     - Scaled up the Bodoni Moda serif `AKASH` typography to `text-[16vw] lg:text-[15.5vw] xl:text-[175px] 2xl:text-[200px]` on desktop and `text-[21vw]` on mobile for massive editorial presence.
+     - Scaled up the portrait height dynamically to `max-h-[78vh] xl:max-h-[84vh] 2xl:max-h-[88vh]` on desktop and `h-[46vh] sm:h-[52vh] md:h-[58vh]` on mobile.
+     - Verified with Playwright across 1080p, 768p laptop, and mobile; production build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
