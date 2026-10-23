@@ -121,7 +121,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
         >
           <div className="relative flex items-end justify-center h-full max-h-[66vh] xl:max-h-[72vh] 2xl:max-h-[76vh] w-auto">
             <img
-              src="/images/akash-hero-portrait.png"
+              src="/images/akash-hero-portrait.jpg"
               alt="Akash - Full Stack Web Developer"
               className="h-full w-auto max-w-full object-contain object-bottom select-none"
             />
@@ -219,7 +219,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           {/* Centered Cutout Portrait */}
           <div className="relative z-20 h-full w-auto flex items-end justify-center">
             <img
-              src="/images/akash-hero-portrait.png"
+              src="/images/akash-hero-portrait.jpg"
               alt="Akash - Full Stack Web Developer"
               className="h-full w-auto object-contain object-bottom select-none"
             />
