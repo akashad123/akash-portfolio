@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 71: Top Header Simplification & Foreground Wireframe 'A' Outline Calibration
+Module 72: Portrait Photo Removal & Pure Typographic 'AKASH AD' Masthead Transition
 
 ## Task list
 
@@ -84,6 +84,7 @@ Module 71: Top Header Simplification & Foreground Wireframe 'A' Outline Calibrat
 | 69 | Hero Bio & Bottom Stack Telemetry Decommissioning | Removed bio paragraph ("I am a full stack web developer...") leaving solely DEPLOY CONTRACT on left flank; removed bottom telemetry bar ("MERN // GEMINI API // SUPABASE // AWS EC2") | COMPLETED | Clean, high-impact minimalist landing hero; DEPLOY CONTRACT sits prominently on left; right telemetry stack intact; tested across 1080p, 768p laptop, and mobile |
 | 70 | Silhouette Cutout & Grand Typography Scaling | Reconstructed 100% backgroundless transparent cutout PNG with solid [c_min, c_max] row mask (zero holes, zero black box occluding K, A, S); scaled up portrait image and Bodoni Moda AKASH typography across desktop and mobile | COMPLETED | Clean transparency outside subject allows AKASH typography to shine through unobstructed; scaled AKASH to text-[16vw]/[15.5vw]/[175px]/[200px] on desktop and text-[21vw] on mobile; portrait max-h expanded to 78vh-88vh; verified build |
 | 71 | Top Role Removal & Foreground Wireframe 'A' Outline | Removed 'FULL STACK WEB DEVELOPER' from top right coordinates bar; deployed foreground wireframe stroke layer (z-25) so the outline of 'A' (identical in style to 'S') is clearly visible across Akash's curly hair with transparent fill | COMPLETED | Enhanced stroke width to 1.8px; A outline is crisp and razor-sharp over hair; top bar simplified to location on left and hamburger on right; verified build and Playwright render |
+| 72 | Portrait Removal & Pure 'AKASH AD' Typographic Hero | Removed portrait image and its layers from landing hero section; transformed masthead to pure editorial 'AKASH AD' spanning the container with signature wireframe stroke styling on inner 'A' and 'S' | COMPLETED | Clean, high-fashion minimalist typographic hero; AKASH AD with distinct spacing between words; DEPLOY CONTRACT on left flank and telemetry stack on right flank; verified build and Playwright across 1080p, 768p, and mobile |
 
 ## Current blockers
 - None.

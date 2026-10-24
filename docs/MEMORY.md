@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–71
+- Current module: Completed Modules 1–72
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -157,6 +157,12 @@ This file is the persistent handoff record for the project.
      - Deployed a dedicated foreground wireframe stroke layer at `z-25` across both desktop and mobile, ensuring the middle letter `A` is 100% visible in the exact wireframe outline style of `S`.
      - Because `A` has transparent fill and an enhanced `1.8px` crisp white stroke, Akash's curly hair and forehead remain completely visible through the letter while the wireframe stroke outlines across his silhouette.
      - Verified with Playwright and built cleanly (`tsc -b && vite build` in 7.48s).
+  38. Portrait Removal & Pure 'AKASH AD' Typographic Hero (Module 72):
+     - Removed the portrait photo, portrait refs, and overlay stroke layers from the landing hero section.
+     - Transformed the masthead into a bold, pure typographic architectural presentation reading `AKASH AD`.
+     - Word grouping preserves distinct spacing: `AKASH` (`A`, `K`, wireframe `A`, wireframe `S`, `H`) and `AD` (wireframe `A`, solid `D`).
+     - Aligned with `DEPLOY CONTRACT` button on the left flank and telemetry stack on the right flank within strict 100vh ingress.
+     - Verified with Playwright across 1080p, 768p laptop, and mobile; production build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

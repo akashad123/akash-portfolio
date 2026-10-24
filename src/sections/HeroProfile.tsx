@@ -21,7 +21,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   const bgRef = useRef<HTMLDivElement>(null);
   const topBarRef = useRef<HTMLDivElement>(null);
   const akashTextRef = useRef<HTMLDivElement>(null);
-  const portraitRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +31,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
         { target: bgRef.current, yStart: 0, yEnd: 50, scrub: 1.2 },
         { target: topBarRef.current, yStart: 0, yEnd: -15, scrub: 1 },
         { target: akashTextRef.current, yStart: 0, yEnd: -30, scrub: 1.1 },
-        { target: portraitRef.current, yStart: 0, yEnd: 25, scrub: 1.3 },
         { target: ctaRef.current, yStart: 0, yEnd: -25, scrub: 1.1 },
         { target: statsRef.current, yStart: 0, yEnd: -30, scrub: 1.2 },
       ],
@@ -78,60 +76,29 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
 
       {/* ========================================================================= */}
       {/* DESKTOP HERO PRESENTATION (lg: and larger)                                */}
-      {/* Exact Match to Reference Screenshot:                                      */}
-      {/* - Giant Masthead 'A K A S H' Row across center (A,K,H solid; A,S stroke)  */}
-      {/* - Centered Akash Portrait (z-20) in front of typography                   */}
-      {/* - Left Bio Block & Yellow DEPLOY CONTRACT Button                          */}
-      {/* - Right Telemetry Stack with Border Line & Yellow Square Marker           */}
+      {/* Editorial 'AKASH AD' Typographic Masthead                                 */}
       {/* ========================================================================= */}
       <div className="hidden lg:flex relative z-20 flex-1 min-h-0 w-full max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 flex-col justify-between pt-4 xl:pt-8 pb-6 xl:pb-8 2xl:pb-10">
         
-        {/* Top Segment: Editorial 'A K A S H' Typography Row spanning container */}
+        {/* Top Segment: Editorial 'AKASH AD' Typography Row spanning container */}
         <div
           ref={akashTextRef}
-          className="relative w-full flex items-center justify-between font-serifDisplay font-black text-[16vw] lg:text-[15.5vw] xl:text-[175px] 2xl:text-[200px] leading-none tracking-tight select-none pointer-events-none z-10 pt-1 xl:pt-2 will-change-transform"
+          className="relative w-full flex items-center justify-between font-serifDisplay font-black text-[12.5vw] lg:text-[12vw] xl:text-[135px] 2xl:text-[155px] leading-none tracking-tight select-none z-10 pt-4 xl:pt-8 will-change-transform"
         >
-          {/* A (First): Solid White */}
-          <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">A</span>
-          
-          {/* K: Solid White */}
-          <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">K</span>
-          
-          {/* A (Second): Properly Formed Crisp Wireframe Outline */}
-          <span className="text-stroke-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">A</span>
-          
-          {/* S: Wireframe Outline */}
-          <span className="text-stroke-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">S</span>
-          
-          {/* H: Solid White */}
-          <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">H</span>
-        </div>
-
-        {/* Center Cutout Portrait of Akash (z-20, in front of typography) */}
-        <div
-          ref={portraitRef}
-          className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pointer-events-none select-none z-20 will-change-transform"
-        >
-          <div className="relative flex items-end justify-center h-full max-h-[78vh] xl:max-h-[84vh] 2xl:max-h-[88vh] w-auto">
-            <img
-              src="/images/akash-hero-portrait.png"
-              alt="Akash - Full Stack Web Developer"
-              className="h-full w-auto max-w-full object-contain object-bottom select-none"
-            />
-            {/* Ambient bottom scrim to merge smoothly with floor */}
-            <div className="absolute bottom-0 inset-x-0 h-16 xl:h-24 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
+          {/* AKASH: 5 letters */}
+          <div className="flex items-center justify-between flex-1 mr-8 sm:mr-12 md:mr-16 lg:mr-20">
+            <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">A</span>
+            <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">K</span>
+            <span className="text-stroke-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">A</span>
+            <span className="text-stroke-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">S</span>
+            <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">H</span>
           </div>
-        </div>
 
-        {/* Foreground Wireframe Stroke Layer: Outline A and S across photo */}
-        <div
-          className="absolute inset-x-6 sm:inset-x-10 md:inset-x-14 lg:inset-x-16 top-4 xl:top-8 flex items-center justify-between font-serifDisplay font-black text-[16vw] lg:text-[15.5vw] xl:text-[175px] 2xl:text-[200px] leading-none tracking-tight select-none pointer-events-none z-25 pt-1 xl:pt-2"
-        >
-          <span className="opacity-0">A</span>
-          <span className="opacity-0">K</span>
-          <span className="text-stroke-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">A</span>
-          <span className="text-stroke-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">S</span>
-          <span className="opacity-0">H</span>
+          {/* AD: 2 letters */}
+          <div className="flex items-center justify-between w-[22%] sm:w-[20%] lg:w-[18%]">
+            <span className="text-stroke-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">A</span>
+            <span className="text-white drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]">D</span>
+          </div>
         </div>
 
         {/* Bottom Segment: Left CTA Button & Right Stats Flanks (Sitting below letters) */}
@@ -198,44 +165,28 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
 
       {/* ========================================================================= */}
       {/* MOBILE & TABLET HERO PRESENTATION (< lg)                                  */}
-      {/* Clean vertical hierarchy ensuring ZERO TEXT OVERLAPS THE PHOTO           */}
+      {/* Editorial 'AKASH AD' Typographic Masthead                                 */}
       {/* ========================================================================= */}
       <div className="flex lg:hidden flex-col flex-1 min-h-0 justify-between w-full px-4 sm:px-8 md:px-12 overflow-y-auto">
         
-        {/* Visual Stage: Akash Portrait with Editorial AKASH Typography */}
-        <div className="relative w-full h-[46vh] sm:h-[52vh] md:h-[58vh] flex items-end justify-center overflow-hidden my-1 shrink-0">
-          
-          {/* Background Typography behind photo */}
-          <div className="absolute bottom-[20%] sm:bottom-[22%] inset-x-0 z-10 flex items-center justify-between font-serifDisplay font-black text-[21vw] sm:text-[19vw] leading-none tracking-tight pointer-events-none select-none px-2">
-            <span className="text-white">A</span>
-            <span className="text-white">K</span>
-            <span className="text-stroke-white">A</span>
-            <span className="text-stroke-white">S</span>
-            <span className="text-white">H</span>
-          </div>
-
-          {/* Centered Cutout Portrait */}
-          <div className="relative z-20 h-full w-auto flex items-end justify-center">
-            <img
-              src="/images/akash-hero-portrait.png"
-              alt="Akash - Full Stack Web Developer"
-              className="h-full w-auto object-contain object-bottom select-none"
-            />
-            {/* Ambient bottom scrim */}
-            <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
-          </div>
-
-          {/* Foreground Wireframe Stroke Layer: Outline A and S across photo */}
-          <div className="absolute bottom-[20%] sm:bottom-[22%] inset-x-0 z-25 flex items-center justify-between font-serifDisplay font-black text-[21vw] sm:text-[19vw] leading-none tracking-tight pointer-events-none select-none px-2">
-            <span className="opacity-0">A</span>
-            <span className="opacity-0">K</span>
-            <span className="text-stroke-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.9)]">A</span>
-            <span className="text-stroke-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.9)]">S</span>
-            <span className="opacity-0">H</span>
+        {/* Visual Stage: Editorial AKASH AD Typography */}
+        <div className="relative w-full flex-1 min-h-[35vh] flex items-center justify-center my-4 shrink-0">
+          <div className="w-full flex items-center justify-between font-serifDisplay font-black text-[13vw] sm:text-[12.5vw] leading-none tracking-tight select-none px-1">
+            <div className="flex items-center justify-between flex-1 mr-3 sm:mr-5">
+              <span className="text-white">A</span>
+              <span className="text-white">K</span>
+              <span className="text-stroke-white">A</span>
+              <span className="text-stroke-white">S</span>
+              <span className="text-white">H</span>
+            </div>
+            <div className="flex items-center justify-between w-[25%] sm:w-[22%]">
+              <span className="text-stroke-white">A</span>
+              <span className="text-white">D</span>
+            </div>
           </div>
         </div>
 
-        {/* Information & Telemetry Container - Strictly positioned BELOW the photo */}
+        {/* Information & Telemetry Container - Strictly positioned BELOW typography */}
         <div className="relative z-30 pt-3 sm:pt-4 pb-6 sm:pb-8 space-y-3 sm:space-y-4 border-t border-white/10 shrink-0">
           
           {/* CTA button */}
