@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–74
+- Current module: Completed Modules 1–75
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -178,6 +178,15 @@ This file is the persistent handoff record for the project.
           - Phase 1 (glide): Horizontal scrub translating track to the exact centered position of Onakkoottu.
           - Phase 2 (dwell): A dedicated pinned dwell period (duration: 0.6 / 1800px+ vertical scroll travel) keeping Onakkoottu centered and in focus while user scrolls down, before the section unpins and the page scrolls down into Section 04.
         - Updated progress bar and counter mapping with glideRatio = 1 / 1.6 so progress reflects 100% and stays active throughout the dwell period.
+      - Verified across desktop (1920x1080), laptop (1366x768), and mobile (375x812); build passed with 0 errors.
+   41. ArcGallery Minimalist Cards, Stationary Background & Landing Hero Enrichment (Module 75):
+      - Cleaned up Section 03 (ArcGallery.tsx) cards: stripped all top tag badges, date tags, subtitles, tech pills, and buttons across both desktop and mobile; now each card strictly features the bold vertical title (REDCONNECT, LIFEOS, ONAKKOOTTU) and the full-bleed image with ambient scrim.
+      - Stationary background: removed GSAP translation on watermarkRef and gridRef so the architectural background text 'PROJECTS' remains completely static and never shifts to the left during scroll.
+      - Smooth unpin transition: removed the artificial pinned dwell pause so as soon as Onakkoottu glides to the center, continuing to scroll down immediately transitions down into Section 04 without delay.
+      - Enriched Landing Hero (HeroProfile.tsx):
+        - Top Coordinates Bar: added Kerala coordinates (11.2588° N, 75.7804° E) and a live pulsing availability status beacon ('AVAILABLE FOR SELECT ROLES') with generous right margin.
+        - Center Stage: augmented AKASH AD with the developer role, an editorial mission statement ('BUILDING RESILIENT WEB SYSTEMS & BESPOKE INTERACTIVE EXPERIENCES'), and an interactive, glowing 'DEPLOY CONTRACT →' CTA button wired directly to onOpenContact.
+        - Bottom Telemetry Dock: anchored the bottom of the 100vh viewport with active stack focus, current engagement status, and software architecture experience.
       - Verified across desktop (1920x1080), laptop (1366x768), and mobile (375x812); build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 

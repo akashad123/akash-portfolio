@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 74: Landing Hero Scroll Prompt Removal & ArcGallery Centered Dwell Calibration
+Module 75: ArcGallery Minimalist Cards, Stationary Background, & Landing Page Enrichment
 
 ## Task list
 
@@ -87,6 +87,7 @@ Module 74: Landing Hero Scroll Prompt Removal & ArcGallery Centered Dwell Calibr
 | 72 | Portrait Removal & Pure 'AKASH AD' Typographic Hero | Removed portrait image and its layers from landing hero section; transformed masthead to pure editorial 'AKASH AD' spanning the container with signature wireframe stroke styling on inner 'A' and 'S' | COMPLETED | Clean, high-fashion minimalist typographic hero; AKASH AD with distinct spacing between words; DEPLOY CONTRACT on left flank and telemetry stack on right flank; verified build and Playwright across 1080p, 768p, and mobile |
 | 73 | Pure Minimalist Hero - Centered Akash AD & Telemetry Strip | Removed all remaining bottom telemetry stats (Active Stack, Experience, Availability, Deploy button); created a centered, elegant, minimalist landing hero featuring grand 'AKASH AD' Bodoni Moda typography, yellow hairline accent, 'FULL STACK WEB DEVELOPER' subtitle, and subtle bottom scroll indicator | COMPLETED | Perfectly optically centered across 1080p, 768p laptop, and mobile; zero clutter, strict 100vh ingress; verified build and Playwright |
 | 74 | Hero Scroll Prompt Removal & ArcGallery Centered Dwell Calibration | Removed 'SCROLL TO EXPLORE ↓' from the landing hero section for a clean, distraction-free typographic stage; re-engineered Section 03 (ArcGallery) GSAP ScrollTrigger timeline and track padding (`md:pr-[26vw] lg:pr-[calc(50vw-min(20vw,300px))]`) so the final project card ('ONAKKOOTTU') glides completely into the center (50% / half) of the viewport instead of stopping at the right edge; added dedicated pinned dwell room (0.6 duration scrub) where Onakkoottu remains proudly centered while user continues scrolling down before the section unpins into Section 04 | COMPLETED | Perfect card centering (center = 683px on 1366px screen, 960px on 1920px screen), 1800px+ dwell scroll buffer, smooth unpinning, verified across desktop, laptop, and mobile; production build passed with 0 errors |
+| 75 | ArcGallery Minimalist Cards, Stationary Background & Landing Hero Enrichment | Stripped all metadata clutter from Selected Works cards leaving solely the project title (RedConnect, LifeOS, Onakkoottu) and the image; eliminated background watermark translation so the text 'PROJECTS' remains completely stationary; removed artificial dwell so scrolling down as soon as Onakkoottu centers immediately moves down into Section 04; enriched landing hero with top coordinates and live status beacon, central mission statement, interactive 'DEPLOY CONTRACT →' CTA button, and bottom telemetry dock | COMPLETED | Clean cards with zero clutter, rock-solid stationary background watermark, instant natural scroll progression into Section 04, perfectly balanced 100vh landing stage verified across desktop and mobile; production build passed with 0 errors |
 
 ## Current blockers
 - None.
