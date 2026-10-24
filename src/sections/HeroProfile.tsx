@@ -95,17 +95,8 @@ export const HeroProfile: React.FC<HeroProfileProps> = () => {
           </p>
         </motion.div>
 
-        {/* Bottom Minimalist Scroll Indicator */}
-        <motion.div
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
-          custom={0.3}
-          className="flex flex-col items-center justify-center space-y-1.5 text-neutral-500 font-mono text-[10px] sm:text-xs tracking-widest uppercase shrink-0 pb-2"
-        >
-          <span className="text-neutral-400">SCROLL TO EXPLORE</span>
-          <span className="text-brand-yellow animate-bounce text-xs font-mono">↓</span>
-        </motion.div>
+        {/* Bottom spacer for balanced vertical optical center */}
+        <div className="shrink-0 h-2" />
       </div>
     </section>
   );

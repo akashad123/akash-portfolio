@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 73: Pure Minimalist Landing Hero - Centered 'Akash AD' & Telemetry Removal
+Module 74: Landing Hero Scroll Prompt Removal & ArcGallery Centered Dwell Calibration
 
 ## Task list
 
@@ -86,6 +86,7 @@ Module 73: Pure Minimalist Landing Hero - Centered 'Akash AD' & Telemetry Remova
 | 71 | Top Role Removal & Foreground Wireframe 'A' Outline | Removed 'FULL STACK WEB DEVELOPER' from top right coordinates bar; deployed foreground wireframe stroke layer (z-25) so the outline of 'A' (identical in style to 'S') is clearly visible across Akash's curly hair with transparent fill | COMPLETED | Enhanced stroke width to 1.8px; A outline is crisp and razor-sharp over hair; top bar simplified to location on left and hamburger on right; verified build and Playwright render |
 | 72 | Portrait Removal & Pure 'AKASH AD' Typographic Hero | Removed portrait image and its layers from landing hero section; transformed masthead to pure editorial 'AKASH AD' spanning the container with signature wireframe stroke styling on inner 'A' and 'S' | COMPLETED | Clean, high-fashion minimalist typographic hero; AKASH AD with distinct spacing between words; DEPLOY CONTRACT on left flank and telemetry stack on right flank; verified build and Playwright across 1080p, 768p, and mobile |
 | 73 | Pure Minimalist Hero - Centered Akash AD & Telemetry Strip | Removed all remaining bottom telemetry stats (Active Stack, Experience, Availability, Deploy button); created a centered, elegant, minimalist landing hero featuring grand 'AKASH AD' Bodoni Moda typography, yellow hairline accent, 'FULL STACK WEB DEVELOPER' subtitle, and subtle bottom scroll indicator | COMPLETED | Perfectly optically centered across 1080p, 768p laptop, and mobile; zero clutter, strict 100vh ingress; verified build and Playwright |
+| 74 | Hero Scroll Prompt Removal & ArcGallery Centered Dwell Calibration | Removed 'SCROLL TO EXPLORE ↓' from the landing hero section for a clean, distraction-free typographic stage; re-engineered Section 03 (ArcGallery) GSAP ScrollTrigger timeline and track padding (`md:pr-[26vw] lg:pr-[calc(50vw-min(20vw,300px))]`) so the final project card ('ONAKKOOTTU') glides completely into the center (50% / half) of the viewport instead of stopping at the right edge; added dedicated pinned dwell room (0.6 duration scrub) where Onakkoottu remains proudly centered while user continues scrolling down before the section unpins into Section 04 | COMPLETED | Perfect card centering (center = 683px on 1366px screen, 960px on 1920px screen), 1800px+ dwell scroll buffer, smooth unpinning, verified across desktop, laptop, and mobile; production build passed with 0 errors |
 
 ## Current blockers
 - None.

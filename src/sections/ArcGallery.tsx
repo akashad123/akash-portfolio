@@ -46,16 +46,24 @@ export const ArcGallery: React.FC = () => {
         return Math.max(0, track.scrollWidth - window.innerWidth);
       };
 
-      // Total vertical scroll room calibrated to horizontal travel
+      // Total vertical scroll room calibrated to horizontal travel + generous dwell time
       const getScrollEnd = () => {
         const horizontalDist = getScrollDistance();
-        return Math.max(window.innerHeight * 1.6, horizontalDist + 120);
+        return Math.max(window.innerHeight * 2.2, horizontalDist + window.innerHeight * 0.9);
       };
 
-      const tween = gsap.to(track, {
+      // GSAP Timeline:
+      // Phase 1 (duration: 1): glide cards horizontally until Onakkoottu is perfectly centered
+      // Phase 2 (duration: 0.6): dwell pause with Onakkoottu centered while user continues scrolling,
+      // before unpinning to scroll down into Section 04
+      const tl = gsap.timeline();
+      tl.to(track, {
         x: () => -getScrollDistance(),
         ease: 'none',
+        duration: 1,
       });
+      // Extra dwell time: section remains pinned in center before page scrolls down
+      tl.to({}, { duration: 0.6 });
 
       const st = ScrollTrigger.create({
         trigger: section,
@@ -63,15 +71,18 @@ export const ArcGallery: React.FC = () => {
         end: () => `+=${getScrollEnd()}`,
         pin: pinContainer,
         pinSpacing: true,
-        animation: tween,
+        animation: tl,
         scrub: 0.9,
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
-          setScrollProgress(self.progress);
+          // Normalize progress across the horizontal glide duration (first 62.5% of timeline)
+          const glideRatio = 1 / 1.6;
+          const normalized = Math.min(1, self.progress / glideRatio);
+          setScrollProgress(normalized);
           const total = projects.length;
           const idx = Math.min(
-            Math.floor(self.progress * total * 0.999),
+            Math.floor(normalized * total * 0.999),
             total - 1
           );
           setActiveProjectIndex(idx);
@@ -109,7 +120,7 @@ export const ArcGallery: React.FC = () => {
 
       return () => {
         st.kill();
-        tween.kill();
+        tl.kill();
       };
     });
 
@@ -137,7 +148,8 @@ export const ArcGallery: React.FC = () => {
     const st = scrollTriggerRef.current;
     if (!st) return;
     const total = projects.length - 1;
-    const targetProgress = total > 0 ? index / total : 0;
+    const glideRatio = 1 / 1.6;
+    const targetProgress = total > 0 ? (index / total) * glideRatio : 0;
     const scrollTarget = st.start + (st.end - st.start) * targetProgress;
     window.scrollTo({
       top: scrollTarget,
@@ -349,7 +361,7 @@ export const ArcGallery: React.FC = () => {
           {/* Translating Project Cards Track */}
           <div
             ref={trackRef}
-            className="flex flex-row items-center gap-8 md:gap-12 lg:gap-16 pl-6 sm:pl-12 md:pl-16 lg:pl-20 pr-16 sm:pr-24 md:pr-32 will-change-transform"
+            className="flex flex-row items-center gap-8 md:gap-12 lg:gap-16 pl-6 sm:pl-12 md:pl-16 lg:pl-20 md:pr-[26vw] lg:pr-[calc(50vw-min(20vw,300px))] will-change-transform"
           >
             {projects.map((project, idx) => {
               const isCurrent = idx === activeProjectIndex;

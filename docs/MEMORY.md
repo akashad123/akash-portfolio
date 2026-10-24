@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–73
+- Current module: Completed Modules 1–74
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -170,6 +170,15 @@ This file is the persistent handoff record for the project.
        - Center Stage: Bold, elegant, timeless `AKASH AD` typography in luxury Bodoni Moda serif (`text-6xl` to `2xl:text-[165px]`), yellow `#FDD60A` architectural accent line, and `FULL STACK WEB DEVELOPER` uppercase monospace tracking subtitle.
        - Bottom Prompt: Subtle, elegant `SCROLL TO EXPLORE ↓` prompt guiding users into Section 02.
      - Verified optically centered placement across 1080p, 768p laptop, and mobile viewports with Playwright; production build passed with 0 errors.
+   40. Hero Scroll Prompt Removal & ArcGallery Centered Dwell Calibration (Module 74):
+      - Completely removed scroll to explore prompt from HeroProfile.tsx for an uncluttered, pure typographic landing hero.
+      - Calibrated Section 03 (ArcGallery.tsx) horizontal pinned track travel:
+        - Replaced restrictive right padding with responsive mathematical formula: md:pr-[26vw] lg:pr-[calc(50vw-min(20vw,300px))]. This ensures the final project card (ONAKKOOTTU) travels until its center is located precisely at 50vw (exact center/half of the viewport) with LIFEOS peeking on the left.
+        - Upgraded GSAP ScrollTrigger animation from a single tween to a two-phase gsap.timeline():
+          - Phase 1 (glide): Horizontal scrub translating track to the exact centered position of Onakkoottu.
+          - Phase 2 (dwell): A dedicated pinned dwell period (duration: 0.6 / 1800px+ vertical scroll travel) keeping Onakkoottu centered and in focus while user scrolls down, before the section unpins and the page scrolls down into Section 04.
+        - Updated progress bar and counter mapping with glideRatio = 1 / 1.6 so progress reflects 100% and stays active throughout the dwell period.
+      - Verified across desktop (1920x1080), laptop (1366x768), and mobile (375x812); build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
@@ -207,7 +216,7 @@ This file is the persistent handoff record for the project.
 User review on live mobile, tablet, and desktop devices, followed by Vercel deployment update.
 
 ## Last verification
-- Date: 2026-10-23
+Date: 2026-10-24
 - Build: PASSED (`tsc -b && vite build` completed with 0 errors)
 - Git Remote: PASSED (`main` branch synced with `https://github.com/akashad123/akash-portfolio.git`)
 - Tests: PASSED
