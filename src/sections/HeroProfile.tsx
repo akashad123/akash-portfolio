@@ -58,14 +58,11 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           ref={topBarRef}
           className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 py-3 sm:py-3.5 flex items-center justify-between text-xs font-mono will-change-transform"
         >
-          {/* Location & Precise Coordinates */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          {/* Location on Left: Yellow MapPin + 'Kerala, India' */}
+          <div className="flex items-center space-x-2">
             <MapPin size={13} className="text-brand-yellow shrink-0 fill-brand-yellow/20" />
-            <span className="text-neutral-300 font-mono text-xs tracking-wider uppercase">
+            <span className="text-neutral-400 font-mono text-xs tracking-wider">
               {developer.location}
-            </span>
-            <span className="hidden sm:inline text-neutral-600 font-mono text-[11px]">
-              // 11.2588° N, 75.7804° E
             </span>
           </div>
         </div>

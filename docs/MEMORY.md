@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–76
+- Current module: Completed Modules 1–77
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -194,6 +194,10 @@ This file is the persistent handoff record for the project.
       - Re-engineered the 'DEPLOY CONTRACT →' CTA button to be sleek and compact (`text-[10px] sm:text-[11px]`, `px-3.5 sm:px-4 py-1.5 sm:py-2`, sharp 0px border radius, subtle hover glow).
       - Relocated STACK, CURRENT, and EXP telemetry directly above the deploy contract button in a unified, centered monospace row with clean wrapping behavior across mobile and desktop.
       - Maintained optical vertical balance in strict 100vh viewport; production build passed with 0 errors.
+   43. Landing Hero Top Bar Polish - Isolated Location Display (Module 77):
+      - Removed the coordinate text (`// 11.2588° N, 75.7804° E`) next to 'Kerala, India' in `HeroProfile.tsx`.
+      - Top bar now purely and cleanly presents the yellow MapPin icon and `Kerala, India` on the left flank, and the yellow hamburger navigation trigger on the right flank.
+      - Verified across desktop and mobile; production build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

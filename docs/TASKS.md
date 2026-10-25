@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 76: Landing Hero Polish - Telemetry Consolidation & Compact CTA Button
+Module 77: Landing Hero Top Bar Polish - Isolated Location Display
 
 ## Task list
 
@@ -89,6 +89,7 @@ Module 76: Landing Hero Polish - Telemetry Consolidation & Compact CTA Button
 | 74 | Hero Scroll Prompt Removal & ArcGallery Centered Dwell Calibration | Removed 'SCROLL TO EXPLORE ↓' from the landing hero section for a clean, distraction-free typographic stage; re-engineered Section 03 (ArcGallery) GSAP ScrollTrigger timeline and track padding (`md:pr-[26vw] lg:pr-[calc(50vw-min(20vw,300px))]`) so the final project card ('ONAKKOOTTU') glides completely into the center (50% / half) of the viewport instead of stopping at the right edge; added dedicated pinned dwell room (0.6 duration scrub) where Onakkoottu remains proudly centered while user continues scrolling down before the section unpins into Section 04 | COMPLETED | Perfect card centering (center = 683px on 1366px screen, 960px on 1920px screen), 1800px+ dwell scroll buffer, smooth unpinning, verified across desktop, laptop, and mobile; production build passed with 0 errors |
 | 75 | ArcGallery Minimalist Cards, Stationary Background & Landing Hero Enrichment | Stripped all metadata clutter from Selected Works cards leaving solely the project title (RedConnect, LifeOS, Onakkoottu) and the image; eliminated background watermark translation so the text 'PROJECTS' remains completely stationary; removed artificial dwell so scrolling down as soon as Onakkoottu centers immediately moves down into Section 04; enriched landing hero with top coordinates and live status beacon, central mission statement, interactive 'DEPLOY CONTRACT →' CTA button, and bottom telemetry dock | COMPLETED | Clean cards with zero clutter, rock-solid stationary background watermark, instant natural scroll progression into Section 04, perfectly balanced 100vh landing stage verified across desktop and mobile; production build passed with 0 errors |
 | 76 | Landing Hero Polish - Telemetry Consolidation & Compact CTA | Removed 'Available for select roles' status beacon from the top bar and 'Building resilient web systems...' statement from center stage; made 'DEPLOY CONTRACT →' button significantly more compact (sleek 10-11px font, 14-16px horizontal padding, 6-8px vertical padding); relocated STACK, CURRENT, and EXP telemetry directly above the deploy contract button in a unified, responsive inline row; verified clean vertical optical balance in 100vh viewport on desktop and mobile | COMPLETED | Clean top bar with location and coordinates, consolidated telemetry block directly above compact CTA, zero clutter, production build passed with 0 errors |
+| 77 | Landing Hero Top Bar Polish - Isolated Location Display | Removed coordinates (`// 11.2588° N, 75.7804° E`) from beside 'Kerala, India'; top coordinates bar now strictly displays the yellow MapPin icon and 'Kerala, India' on the left flank, and the yellow hamburger navigation trigger on the right flank | COMPLETED | Clean, uncluttered top bar with isolated location indicator; verified build and Playwright across desktop and mobile |
 
 ## Current blockers
 - None.
