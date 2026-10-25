@@ -19,7 +19,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
   const bgRef = useRef<HTMLDivElement>(null);
   const topBarRef = useRef<HTMLDivElement>(null);
   const centerStageRef = useRef<HTMLDivElement>(null);
-  const bottomBarRef = useRef<HTMLDivElement>(null);
 
   // GSAP Scroll Parallax on Landing Hero Elements
   useEffect(() => {
@@ -28,7 +27,6 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
         { target: bgRef.current, yStart: 0, yEnd: 40, scrub: 1.2 },
         { target: topBarRef.current, yStart: 0, yEnd: -15, scrub: 1 },
         { target: centerStageRef.current, yStart: 0, yEnd: -30, scrub: 1.1 },
-        { target: bottomBarRef.current, yStart: 0, yEnd: -10, scrub: 1 },
       ],
       heroRef.current,
       { start: 'top top', end: 'bottom top' }
@@ -48,7 +46,7 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-800/40 via-black to-black" />
       </div>
 
-      {/* 2. Top Coordinates & Status Bar */}
+      {/* 2. Top Coordinates Bar */}
       <motion.div
         variants={fadeInDownVariants}
         initial="hidden"
@@ -70,21 +68,10 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
               // 11.2588° N, 75.7804° E
             </span>
           </div>
-
-          {/* Real-time Status Beacon */}
-          <div className="flex items-center space-x-2 text-xs font-mono pr-10 sm:pr-14">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-none bg-brand-yellow opacity-75" />
-              <span className="relative inline-flex rounded-none h-2 w-2 bg-brand-yellow" />
-            </span>
-            <span className="text-neutral-300 uppercase tracking-widest text-[10px] sm:text-[11px] font-medium">
-              AVAILABLE FOR SELECT ROLES
-            </span>
-          </div>
         </div>
       </motion.div>
 
-      {/* 3. Center Stage: AKASH AD Masthead, Editorial Statement & Deploy CTA */}
+      {/* 3. Center Stage: AKASH AD Masthead, Telemetry & Compact Deploy CTA */}
       <div className="relative z-20 flex-1 min-h-0 w-full max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 flex flex-col items-center justify-center text-center my-auto py-4">
         <motion.div
           ref={centerStageRef}
@@ -103,57 +90,41 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           <div className="w-12 sm:w-16 h-[2px] bg-brand-yellow my-3.5 sm:my-5" />
 
           {/* Role Subtitle */}
-          <p className="font-mono text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] text-neutral-300 font-semibold mb-2">
+          <p className="font-mono text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] text-neutral-300 font-semibold mb-4 sm:mb-5">
             {developer.role}
           </p>
 
-          {/* Concise Editorial Statement */}
-          <p className="font-mono text-[10px] sm:text-xs text-neutral-400 max-w-lg tracking-wider uppercase mb-6 sm:mb-7 leading-relaxed">
-            BUILDING RESILIENT WEB SYSTEMS & BESPOKE INTERACTIVE EXPERIENCES
-          </p>
+          {/* Stack, Current & Experience - Positioned Just Above Deploy Contract */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-6 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-5 sm:mb-6 text-center max-w-4xl px-2">
+            <div className="text-center">
+              <span className="text-neutral-500 font-mono mr-1.5">// STACK:</span>
+              <span className="text-neutral-200">REACT • NODE.JS • TYPESCRIPT • APPLIED AI</span>
+            </div>
 
-          {/* Interactive Deploy Contract CTA */}
+            <div className="text-center">
+              <span className="text-neutral-500 font-mono mr-1.5">// CURRENT:</span>
+              <span className="text-neutral-200">{developer.status}</span>
+            </div>
+
+            <div className="text-center">
+              <span className="text-brand-yellow font-mono mr-1.5">// EXP:</span>
+              <span className="text-neutral-200">1+ YEARS IN SOFTWARE ARCHITECTURE</span>
+            </div>
+          </div>
+
+          {/* Compact Minimalist Deploy Contract CTA */}
           <button
             onClick={onOpenContact}
-            className="group relative inline-flex items-center space-x-2.5 bg-brand-yellow hover:bg-[#E5C200] text-black font-mono font-bold text-xs uppercase tracking-widest px-6 sm:px-7 py-3 transition-all duration-200 cursor-pointer shadow-[0_0_25px_rgba(253,214,10,0.2)] hover:shadow-[0_0_35px_rgba(253,214,10,0.45)] rounded-none"
+            className="group relative inline-flex items-center space-x-1.5 bg-brand-yellow hover:bg-[#E5C200] text-black font-mono font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3.5 sm:px-4 py-1.5 sm:py-2 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md rounded-none"
           >
             <span>DEPLOY CONTRACT</span>
-            <span className="transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+            <span className="transition-transform duration-200 group-hover:translate-x-0.5 font-bold">→</span>
           </button>
         </motion.div>
       </div>
 
-      {/* 4. Bottom Telemetry Strip */}
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-        custom={0.3}
-        className="relative z-30 w-full border-t border-white/10 shrink-0"
-      >
-        <div
-          ref={bottomBarRef}
-          className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 py-3 sm:py-3.5 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-neutral-400 will-change-transform"
-        >
-          {/* Tech Stack Focus */}
-          <div className="flex items-center space-x-1.5">
-            <span className="text-neutral-500 font-mono">// STACK:</span>
-            <span className="text-neutral-200 uppercase tracking-wider">REACT • NODE.JS • TYPESCRIPT • APPLIED AI</span>
-          </div>
-
-          {/* Role & Engagement */}
-          <div className="hidden md:flex items-center space-x-1.5">
-            <span className="text-neutral-500 font-mono">// CURRENT:</span>
-            <span className="text-neutral-200 uppercase tracking-wider">{developer.status}</span>
-          </div>
-
-          {/* Experience */}
-          <div className="flex items-center space-x-1.5">
-            <span className="text-brand-yellow font-mono">// EXP:</span>
-            <span className="text-neutral-200 uppercase tracking-wider">1+ YEARS IN SOFTWARE ARCHITECTURE</span>
-          </div>
-        </div>
-      </motion.div>
+      {/* Optical bottom balancing spacer */}
+      <div className="shrink-0 h-4" />
     </section>
   );
 };
