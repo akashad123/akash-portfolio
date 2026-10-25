@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–82
+- Current module: Completed Modules 1–83
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -231,6 +231,11 @@ This file is the persistent handoff record for the project.
       - Removed golden `#FDD60A` color and luminous glow shadow from the hover and tap states of 'AKASH AD'.
       - Retained pure physical spring scale effect (`scale: 1.1`, stiffness 500, damping 14) so letters remain pristine white during interaction.
       - Verified in Playwright artifact `check_hover_scale_only.png`; build and verification passed with 0 errors.
+   49. Career Role Positioning Calibration - React Developer (Frontend) (Module 83):
+      - Updated developer role to `REACT DEVELOPER (FRONTEND)` displayed cleanly beneath the `AKASH AD` masthead and yellow accent bar in `HeroProfile.tsx`.
+      - Preserved current employment status as `FULL STACK DEVELOPER AT NRITHYA DANCES` in the telemetry row above the deploy contract CTA.
+      - Updated `portfolioData.ts` tagline, bio, `index.html` page title, OpenGraph tags, Twitter card, and Schema.org JSON-LD to `React Developer (Frontend)`.
+      - Verified in Playwright artifacts `check_role_desktop.png` and `check_role_mobile.png`; production build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

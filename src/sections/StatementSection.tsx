@@ -138,7 +138,7 @@ export const StatementSection: React.FC = () => {
               {/* High-Resolution Portrait with Apple-like Hover Filter */}
               <img
                 src="/images/akash-philosophy.jpg"
-                alt="Akash D - Full Stack Web Developer"
+                alt="Akash D - React Developer (Frontend)"
                 className="w-full h-full object-cover object-center filter grayscale contrast-105 group-hover:grayscale-0 group-hover:contrast-100 group-hover:scale-[1.03] transition-all duration-700 ease-out"
                 loading="lazy"
               />
