@@ -217,7 +217,7 @@ export const EcosystemGrid: React.FC = () => {
     <section
       ref={sectionRef}
       id="ecosystem"
-      className="relative bg-white text-black py-16 sm:py-24 px-4 sm:px-8 md:px-12 flex flex-col justify-between overflow-hidden border-b border-black/10 select-none"
+      className="relative bg-white text-black py-16 sm:py-24 px-4 sm:px-8 md:px-12 flex flex-col overflow-hidden border-b border-black/10 select-none"
     >
       {/* Light Theme Grid Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -237,13 +237,10 @@ export const EcosystemGrid: React.FC = () => {
           <Layers size={14} className="text-black" />
           <span>06 // TECH STACK & SYSTEM ECOSYSTEM</span>
         </div>
-        <span className="bg-black text-white font-bold px-2.5 py-1 text-[10px] tracking-widest uppercase font-mono rounded-none">
-          {TECH_SKILLS.length} PRODUCTION TECHNOLOGIES
-        </span>
       </div>
 
       {/* Skills Arranged in Row and Column Fashion (Curved Rectangle Cards) */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full my-auto">
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -280,12 +277,6 @@ export const EcosystemGrid: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
-
-      {/* Bottom Telemetry Bar */}
-      <div className="relative z-20 max-w-7xl mx-auto w-full flex items-center justify-between border-t border-black/10 pt-4 mt-8 sm:mt-12 text-[10px] sm:text-xs font-mono text-neutral-400">
-        <span className="uppercase tracking-wider">// ARSENAL ARCHITECTURE: VERIFIED PRODUCTION GRADE</span>
-        <span className="text-black font-semibold uppercase tracking-wider hidden sm:inline">FULL STACK • CLOUD • APPLIED AI</span>
       </div>
     </section>
   );
