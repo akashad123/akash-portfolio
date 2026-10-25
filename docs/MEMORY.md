@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–81
+- Current module: Completed Modules 1–82
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -227,6 +227,10 @@ This file is the persistent handoff record for the project.
       - Integrated Google Font `Playfair Display` (weight 700, 900) into `index.html` and prioritized it in `tailwind.config.js` (`serifDisplay`).
       - All letters in 'AKASH AD' (A, K, A, S, H, A, D) now render with 100% solid, fully formed, luxurious strokes without any hairline gaps or missing pieces.
       - Verified in production build artifact `check_dist_playfair.png`; built and verified with 0 errors.
+   48. Landing Hero Typography - Clean Scale-Only Interaction (Module 82):
+      - Removed golden `#FDD60A` color and luminous glow shadow from the hover and tap states of 'AKASH AD'.
+      - Retained pure physical spring scale effect (`scale: 1.1`, stiffness 500, damping 14) so letters remain pristine white during interaction.
+      - Verified in Playwright artifact `check_hover_scale_only.png`; build and verification passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

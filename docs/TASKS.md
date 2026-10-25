@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 81: Landing Hero Masthead Typography - Resolution of Hairline Drop-out with Playfair Display
+Module 82: Landing Hero Typography - Clean Scale-Only Interaction (Removal of Golden Hover State)
 
 ## Task list
 
@@ -94,6 +94,7 @@ Module 81: Landing Hero Masthead Typography - Resolution of Hairline Drop-out wi
 | 79 | Tech Stack Ecosystem - Row and Column Grid Transformation | Replaced the 3D rotating double circular orbit in Section 06 (`EcosystemGrid.tsx`) with a clean, modern row-and-column grid; maintained the curved rectangle card styling (`.orbit-card` with `border-radius: 12px`, white surface, authentic technology icon, and crisp title); curated 24 production technologies (including AWS EC2, MySQL, PostgreSQL, MongoDB, Supabase, React.js, TypeScript, Node.js, Python, etc.) arranged in a responsive multi-column layout (6 cols on desktop, 4 on tablet, 2 on mobile); verified build and Playwright render | COMPLETED | Upright, instantly legible cards across all viewports, smooth micro-hover elevation, zero rotating layout disorientation; production build passed with 0 errors |
 | 80 | Tech Stack Ecosystem - Header and Telemetry Clutter Removal | Removed 'PRODUCTION TECHNOLOGIES' count badge from Section 06 top header; removed bottom telemetry bar with '// ARSENAL ARCHITECTURE: VERIFIED PRODUCTION GRADE' and 'FULL STACK • CLOUD • APPLIED AI' below the skills; refined section flex layout for seamless vertical rhythm | COMPLETED | Clean minimalistic section header and zero clutter beneath the skills grid; verified responsive layout on desktop and mobile; production build passed with 0 errors |
 | 81 | Landing Hero Masthead Typography - Resolution of Hairline Drop-out with Playfair Display | Diagnosed live site broken letter appearance caused by Bodoni Moda's extreme Didone contrast (sub-pixel hairline drop-out on black background making A, K, H, D stems look missing/cut off); imported and prioritized Playfair Display (900 Heavy Serif) in serifDisplay stack with fully formed, solid strokes; verified complete letter visibility on desktop and mobile; production build passed with 0 errors | COMPLETED | Completely solid, high-fashion editorial letters without missing lines or broken strokes; interactive spring physics preserved |
+| 82 | Landing Hero Typography - Clean Scale-Only Interaction | Removed golden `#FDD60A` color and luminous glow shadow from the hover and tap states of 'AKASH AD'; retained pure physical spring scale effect (`scale: 1.1`, stiffness 500, damping 14) so letters remain pristine white during interaction | COMPLETED | Clean tactile scale animation on cursor hover and mobile tap without color shift; verified build and Playwright render |
 
 ## Current blockers
 - None.

@@ -86,18 +86,14 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
                   <motion.span
                     key={charIdx}
                     whileHover={{
-                      y: -14,
                       scale: 1.1,
-                      color: '#FDD60A',
-                      textShadow: '0 0 30px rgba(253,214,10,0.6)',
                       transition: { type: 'spring', stiffness: 500, damping: 14 },
                     }}
                     whileTap={{
-                      scale: 0.9,
-                      color: '#FDD60A',
+                      scale: 0.95,
                       transition: { duration: 0.1 },
                     }}
-                    className="inline-block transition-colors duration-150 cursor-pointer"
+                    className="inline-block cursor-pointer text-white"
                   >
                     {char}
                   </motion.span>
