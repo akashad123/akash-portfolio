@@ -78,13 +78,40 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onOpenContact }) => {
           custom={0.2}
           className="flex flex-col items-center justify-center text-center px-4 will-change-transform"
         >
-          {/* Masthead */}
-          <h1 className="font-serifDisplay font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[140px] 2xl:text-[160px] leading-none tracking-tight text-white drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)]">
-            AKASH AD
+          {/* Masthead: Interactive Letter-by-Letter Kinetic Spring Animation */}
+          <h1 className="font-serifDisplay font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[140px] 2xl:text-[160px] leading-none tracking-tight text-white select-none drop-shadow-[0_15px_35px_rgba(0,0,0,0.95)] flex items-center justify-center flex-wrap">
+            {developer.name.split(' ').map((word, wordIdx) => (
+              <span key={wordIdx} className="inline-flex whitespace-nowrap mx-2 sm:mx-3.5 md:mx-5">
+                {word.split('').map((char, charIdx) => (
+                  <motion.span
+                    key={charIdx}
+                    whileHover={{
+                      y: -14,
+                      scale: 1.1,
+                      color: '#FDD60A',
+                      textShadow: '0 0 30px rgba(253,214,10,0.6)',
+                      transition: { type: 'spring', stiffness: 500, damping: 14 },
+                    }}
+                    whileTap={{
+                      scale: 0.9,
+                      color: '#FDD60A',
+                      transition: { duration: 0.1 },
+                    }}
+                    className="inline-block transition-colors duration-150 cursor-pointer"
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
           </h1>
 
-          {/* Yellow Architectural Accent Divider */}
-          <div className="w-12 sm:w-16 h-[2px] bg-brand-yellow my-3.5 sm:my-5" />
+          {/* Yellow Architectural Accent Divider with Interactive Expand */}
+          <motion.div
+            whileHover={{ width: 80, backgroundColor: '#FFFFFF' }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            className="w-12 sm:w-16 h-[2px] bg-brand-yellow my-3.5 sm:my-5 cursor-pointer"
+          />
 
           {/* Role Subtitle */}
           <p className="font-mono text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] text-neutral-300 font-semibold mb-4 sm:mb-5">
