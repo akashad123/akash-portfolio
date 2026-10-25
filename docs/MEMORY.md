@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–80
+- Current module: Completed Modules 1–81
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -222,6 +222,11 @@ This file is the persistent handoff record for the project.
       - Removed the entire bottom telemetry bar below the skills grid, eliminating `// ARSENAL ARCHITECTURE: VERIFIED PRODUCTION GRADE` and `FULL STACK • CLOUD • APPLIED AI`.
       - Maintained pristine vertical spacing and responsive symmetry across mobile and desktop.
       - Verified across desktop (1366x900) and mobile (375x812); production build passed with 0 errors.
+   47. Landing Hero Masthead Typography - Resolution of Hairline Drop-out with Playfair Display (Module 81):
+      - Diagnosed live site broken letter appearance: `Bodoni Moda` is a Didone typeface with extreme stroke contrast where upstrokes, crossbars, and left stems are 1px hairlines that drop out / become invisible on dark backgrounds at screen resolution.
+      - Integrated Google Font `Playfair Display` (weight 700, 900) into `index.html` and prioritized it in `tailwind.config.js` (`serifDisplay`).
+      - All letters in 'AKASH AD' (A, K, A, S, H, A, D) now render with 100% solid, fully formed, luxurious strokes without any hairline gaps or missing pieces.
+      - Verified in production build artifact `check_dist_playfair.png`; built and verified with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work
