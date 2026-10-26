@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight, Github, Mail } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { getLenis } from '../utils/smoothScroll';
 
 interface NavigationDrawerProps {
   isOpen: boolean;
@@ -24,7 +25,12 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
     onClose();
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const lenis = getLenis();
+      if (lenis) {
+        lenis.scrollTo(element as HTMLElement, { offset: 0, duration: 1.2 });
+      } else {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 

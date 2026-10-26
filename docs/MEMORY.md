@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–84
+- Current module: Completed Modules 1–85
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -240,6 +240,13 @@ This file is the persistent handoff record for the project.
       - Removed the bottom coordinate telemetry bar displaying `SECTION 02` and `CORE PHILOSOPHY // SCROLL REVEAL` from the About section (`StatementSection.tsx`).
       - Preserved the Core Philosophy statement, highlighted typography, and Apple-like portrait photo.
       - Verified across desktop (`1366x900`) and mobile (`375x812`) in Playwright artifacts `check_about_clean_desktop.png` and `check_about_clean_mobile.png`; production build passed with 0 errors.
+   51. Project Gallery Scroll Stutter Elimination & Lenis Momentum Integration (Module 85):
+      - Diagnosed root causes of project section stutter: native CSS `scroll-behavior: smooth` fighting with GSAP ScrollTrigger pinning; continuous React state re-renders (60-120x/sec) triggered by `setScrollProgress` on every scroll tick; `transition-all` on translating cards; and compressed vertical scrub distance.
+      - Removed CSS `scroll-behavior: smooth` conflicts from `index.html` and `index.css`.
+      - Integrated `lenis` smooth momentum scrolling locked to GSAP ticker with zero lag smoothing (`gsap.ticker.lagSmoothing(0)`).
+      - Decoupled React state from scroll frames in `ArcGallery.tsx`: progress bar width now mutates directly via DOM ref with zero virtual DOM overhead.
+      - Promoted track to hardware GPU layer (`transform-gpu`, `force3D: true`) and calibrated vertical scroll room (`Math.max(window.innerHeight * 2.2, horizontalDist * 1.6)`) with `scrub: 0.6`.
+      - Verified in Playwright artifacts `check_scroll_smooth_card1.png`, `check_scroll_smooth_card2.png`, `check_scroll_smooth_card3.png` with 0 console errors; production build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

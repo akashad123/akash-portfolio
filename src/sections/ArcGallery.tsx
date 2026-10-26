@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { GridBackground } from '../components/GridBackground';
 import { ProjectDetailModal } from '../components/ProjectDetailModal';
 import { ProjectItem } from '../types/portfolio';
+import { getLenis } from '../utils/smoothScroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +22,6 @@ gsap.registerPlugin(ScrollTrigger);
 export const ArcGallery: React.FC = () => {
   const projects = portfolioData.projects;
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -29,6 +29,8 @@ export const ArcGallery: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const currentIdxRef = useRef(0);
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   // GSAP Horizontal Scroll Setup strictly for tablets and desktops (>= 768px)
@@ -46,17 +48,17 @@ export const ArcGallery: React.FC = () => {
         return Math.max(0, track.scrollWidth - window.innerWidth);
       };
 
-      // Total vertical scroll room calibrated to horizontal travel
-      // As soon as Onakkoottu glides into position, continuing to scroll moves down into Section 04
+      // Total vertical scroll room calibrated to horizontal travel for a smooth, luxurious gliding pace
       const getScrollEnd = () => {
         const horizontalDist = getScrollDistance();
-        return Math.max(window.innerHeight * 1.2, horizontalDist);
+        return Math.max(window.innerHeight * 2.2, horizontalDist * 1.6);
       };
 
-      // Direct GSAP Horizontal Scroll: smoothly glides cards from RedConnect to Onakkoottu
+      // Direct GSAP Horizontal Scroll with 3D GPU layer compositing
       const tween = gsap.to(track, {
         x: () => -getScrollDistance(),
         ease: 'none',
+        force3D: true,
       });
 
       const st = ScrollTrigger.create({
@@ -66,17 +68,23 @@ export const ArcGallery: React.FC = () => {
         pin: pinContainer,
         pinSpacing: true,
         animation: tween,
-        scrub: 0.8,
+        scrub: 0.6,
         anticipatePin: 1,
+        fastScrollEnd: true,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
-          setScrollProgress(self.progress);
+          if (progressBarRef.current) {
+            progressBarRef.current.style.width = `${Math.min(100, Math.max(0, self.progress * 100))}%`;
+          }
           const total = projects.length;
           const idx = Math.min(
             Math.floor(self.progress * total * 0.999),
             total - 1
           );
-          setActiveProjectIndex(idx);
+          if (idx !== currentIdxRef.current) {
+            currentIdxRef.current = idx;
+            setActiveProjectIndex(idx);
+          }
         },
       });
 
@@ -114,10 +122,15 @@ export const ArcGallery: React.FC = () => {
     const total = projects.length - 1;
     const targetProgress = total > 0 ? index / total : 0;
     const scrollTarget = st.start + (st.end - st.start) * targetProgress;
-    window.scrollTo({
-      top: scrollTarget,
-      behavior: 'smooth',
-    });
+    const lenis = getLenis();
+    if (lenis) {
+      lenis.scrollTo(scrollTarget, { duration: 1.2 });
+    } else {
+      window.scrollTo({
+        top: scrollTarget,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const handlePrev = () => {
@@ -254,7 +267,7 @@ export const ArcGallery: React.FC = () => {
           {/* Translating Project Cards Track */}
           <div
             ref={trackRef}
-            className="flex flex-row items-center gap-8 md:gap-12 lg:gap-16 pl-6 sm:pl-12 md:pl-16 lg:pl-20 md:pr-[26vw] lg:pr-[calc(50vw-min(20vw,300px))] will-change-transform"
+            className="flex flex-row items-center gap-8 md:gap-12 lg:gap-16 pl-6 sm:pl-12 md:pl-16 lg:pl-20 md:pr-[26vw] lg:pr-[calc(50vw-min(20vw,300px))] will-change-transform transform-gpu"
           >
             {projects.map((project, idx) => {
               const isCurrent = idx === activeProjectIndex;
@@ -263,7 +276,7 @@ export const ArcGallery: React.FC = () => {
                 <div
                   key={project.id}
                   onClick={() => setModalProject(project)}
-                  className={`relative shrink-0 w-[65vw] md:w-[48vw] lg:w-[40vw] max-w-[600px] h-[58vh] max-h-[520px] bg-neutral-950 overflow-hidden rounded-none border transition-all duration-300 cursor-pointer group ${
+                  className={`relative shrink-0 w-[65vw] md:w-[48vw] lg:w-[40vw] max-w-[600px] h-[58vh] max-h-[520px] bg-neutral-950 overflow-hidden rounded-none border transition-[border-color,box-shadow,opacity] duration-300 will-change-transform cursor-pointer group ${
                     isCurrent
                       ? 'border-brand-yellow/90 shadow-[0_20px_50px_rgba(0,0,0,0.35)]'
                       : 'border-black/20 shadow-xl opacity-95 hover:opacity-100 hover:border-black/40'
@@ -300,8 +313,9 @@ export const ArcGallery: React.FC = () => {
             {/* Real-time horizontal progress indicator */}
             <div className="w-20 sm:w-32 h-1 bg-neutral-200 border border-black/10 overflow-hidden relative rounded-none">
               <div
-                className="h-full bg-brand-yellow transition-all duration-75 rounded-none"
-                style={{ width: `${Math.round(scrollProgress * 100)}%` }}
+                ref={progressBarRef}
+                className="h-full bg-brand-yellow rounded-none"
+                style={{ width: '0%' }}
               />
             </div>
 

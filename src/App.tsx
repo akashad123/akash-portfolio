@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { NavigationDrawer } from './components/NavigationDrawer';
 import { ContactModal } from './components/ContactModal';
@@ -12,11 +12,31 @@ import { EcosystemGrid } from './sections/EcosystemGrid';
 import { ContactSection } from './sections/ContactSection';
 import { Footer } from './sections/Footer';
 import { CaseStudyItem } from './types/portfolio';
+import { initSmoothScroll, destroySmoothScroll, getLenis } from './utils/smoothScroll';
 
 export function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyItem | null>(null);
+
+  // Initialize synchronized Lenis momentum smooth scrolling
+  useEffect(() => {
+    initSmoothScroll();
+    return () => {
+      destroySmoothScroll();
+    };
+  }, []);
+
+  // Pause Lenis background scroll when modals or navigation drawer are open
+  useEffect(() => {
+    const lenis = getLenis();
+    if (!lenis) return;
+    if (isNavOpen || isContactOpen || activeCaseStudy !== null) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [isNavOpen, isContactOpen, activeCaseStudy]);
 
   return (
     <div className="min-h-screen bg-black text-white relative flex flex-col font-body selection:bg-brand-yellow selection:text-black">

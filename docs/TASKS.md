@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 84: About Section Telemetry Cleanup - Removal of Bottom Section 02 / Core Philosophy Bar
+Module 85: Project Gallery Scroll Stutter Elimination & Lenis Momentum Integration
 
 ## Task list
 
@@ -97,6 +97,7 @@ Module 84: About Section Telemetry Cleanup - Removal of Bottom Section 02 / Core
 | 82 | Landing Hero Typography - Clean Scale-Only Interaction | Removed golden `#FDD60A` color and luminous glow shadow from the hover and tap states of 'AKASH AD'; retained pure physical spring scale effect (`scale: 1.1`, stiffness 500, damping 14) so letters remain pristine white during interaction | COMPLETED | Clean tactile scale animation on cursor hover and mobile tap without color shift; verified build and Playwright render |
 | 83 | Career Role Positioning Calibration - React Developer (Frontend) | Updated developer role to 'REACT DEVELOPER (FRONTEND)' under 'AKASH AD'; maintained current role telemetry as 'FULL STACK DEVELOPER AT NRITHYA DANCES'; updated tagline, bio, HTML titles, OpenGraph, Twitter, and JSON-LD structured schema | COMPLETED | Clean distinction between aspiration as React Developer (Frontend) and current role as Full Stack Developer at Nrithya Dances; verified build and Playwright render |
 | 84 | About Section Telemetry Cleanup | Removed bottom telemetry coordinate bar containing 'SECTION 02' and 'CORE PHILOSOPHY // SCROLL REVEAL' from the About section (`StatementSection.tsx`); preserved Core Philosophy statement, highlighted typography, and Apple-like portrait photo | COMPLETED | Clean, distraction-free About section layout with perfect vertical centering; verified across desktop and mobile; production build passed with 0 errors |
+| 85 | Project Gallery Scroll Stutter Elimination & Lenis Momentum Integration | Eliminated scroll stutter in Selected Works gallery (`ArcGallery.tsx`): removed CSS `scroll-behavior: smooth` conflicts; integrated `lenis` smooth momentum scrolling locked to GSAP ticker (`lagSmoothing(0)`); decoupled React re-renders from scroll frames via direct ref style mutations; promoted track to hardware composited GPU layer (`transform-gpu`, `force3D: true`); optimized transition triggers; calibrated vertical scrub distance (`2.2 * innerHeight`) for luxurious gliding pace | COMPLETED | Silky smooth, jitter-free horizontal scrub across all cards (RedConnect, LifeOS, Onakkoottu); verified across desktop, tablet, and mobile; production build passed with 0 errors |
 
 ## Current blockers
 - None.
