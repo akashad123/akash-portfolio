@@ -7,7 +7,7 @@
 - `COMPLETED`
 
 ## Current module
-Module 83: Career Role Positioning Calibration - React Developer (Frontend)
+Module 84: About Section Telemetry Cleanup - Removal of Bottom Section 02 / Core Philosophy Bar
 
 ## Task list
 
@@ -96,6 +96,7 @@ Module 83: Career Role Positioning Calibration - React Developer (Frontend)
 | 81 | Landing Hero Masthead Typography - Resolution of Hairline Drop-out with Playfair Display | Diagnosed live site broken letter appearance caused by Bodoni Moda's extreme Didone contrast (sub-pixel hairline drop-out on black background making A, K, H, D stems look missing/cut off); imported and prioritized Playfair Display (900 Heavy Serif) in serifDisplay stack with fully formed, solid strokes; verified complete letter visibility on desktop and mobile; production build passed with 0 errors | COMPLETED | Completely solid, high-fashion editorial letters without missing lines or broken strokes; interactive spring physics preserved |
 | 82 | Landing Hero Typography - Clean Scale-Only Interaction | Removed golden `#FDD60A` color and luminous glow shadow from the hover and tap states of 'AKASH AD'; retained pure physical spring scale effect (`scale: 1.1`, stiffness 500, damping 14) so letters remain pristine white during interaction | COMPLETED | Clean tactile scale animation on cursor hover and mobile tap without color shift; verified build and Playwright render |
 | 83 | Career Role Positioning Calibration - React Developer (Frontend) | Updated developer role to 'REACT DEVELOPER (FRONTEND)' under 'AKASH AD'; maintained current role telemetry as 'FULL STACK DEVELOPER AT NRITHYA DANCES'; updated tagline, bio, HTML titles, OpenGraph, Twitter, and JSON-LD structured schema | COMPLETED | Clean distinction between aspiration as React Developer (Frontend) and current role as Full Stack Developer at Nrithya Dances; verified build and Playwright render |
+| 84 | About Section Telemetry Cleanup | Removed bottom telemetry coordinate bar containing 'SECTION 02' and 'CORE PHILOSOPHY // SCROLL REVEAL' from the About section (`StatementSection.tsx`); preserved Core Philosophy statement, highlighted typography, and Apple-like portrait photo | COMPLETED | Clean, distraction-free About section layout with perfect vertical centering; verified across desktop and mobile; production build passed with 0 errors |
 
 ## Current blockers
 - None.

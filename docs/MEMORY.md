@@ -4,7 +4,7 @@ This file is the persistent handoff record for the project.
 
 ## Current state
 - Current phase: Development & Verification Complete
-- Current module: Completed Modules 1–83
+- Current module: Completed Modules 1–84
 - Overall status: Ready for Review & Deployment
 
 ## Last completed work
@@ -236,6 +236,10 @@ This file is the persistent handoff record for the project.
       - Preserved current employment status as `FULL STACK DEVELOPER AT NRITHYA DANCES` in the telemetry row above the deploy contract CTA.
       - Updated `portfolioData.ts` tagline, bio, `index.html` page title, OpenGraph tags, Twitter card, and Schema.org JSON-LD to `React Developer (Frontend)`.
       - Verified in Playwright artifacts `check_role_desktop.png` and `check_role_mobile.png`; production build passed with 0 errors.
+   50. About Section Telemetry Cleanup (Module 84):
+      - Removed the bottom coordinate telemetry bar displaying `SECTION 02` and `CORE PHILOSOPHY // SCROLL REVEAL` from the About section (`StatementSection.tsx`).
+      - Preserved the Core Philosophy statement, highlighted typography, and Apple-like portrait photo.
+      - Verified across desktop (`1366x900`) and mobile (`375x812`) in Playwright artifacts `check_about_clean_desktop.png` and `check_about_clean_mobile.png`; production build passed with 0 errors.
 - Connected GitHub remote: `https://github.com/akashad123/akash-portfolio.git` and pushed branch `main`.
 
 ## In-progress work

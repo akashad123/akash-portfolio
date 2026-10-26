@@ -9,7 +9,7 @@ import {
   fadeInLeftVariants,
   fadeInRightVariants,
   fadeInDownVariants,
-  fadeInUpVariants,
+
 } from '../utils/motion';
 
 export const StatementSection: React.FC = () => {
@@ -149,18 +149,6 @@ export const StatementSection: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Clean Bottom Coordinate Bar - Animates up from bottom */}
-        <motion.div
-          variants={fadeInUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={sectionViewportConfig}
-          custom={0.35}
-          className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-500"
-        >
-          <span>SECTION 02</span>
-          <span>CORE PHILOSOPHY // SCROLL REVEAL</span>
-        </motion.div>
       </div>
     </section>
   );
